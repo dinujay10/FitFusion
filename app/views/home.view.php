@@ -14,15 +14,20 @@
     <head>
         <title>FitFusion</title>
         <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/style.css">
+
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     </head>
     <body>
         <header>
-            <div class = "logo">
-                <img src="#" alt="logo"><p>FitFusion</p>
-            </div>
+            <a href="#" class = "logo">
+                <img src="<?=ROOT?>/assets/images/LogoFinal.png" alt="logo">
+            </a>
             <ul class="navmenu">
-                <li><a href ="#">Home</a></li>
+                <li><a href ="home">Home</a></li>
                 <li><a href ="#">About Us</a></li>
                 <li><a href ="signup">Sign Up</a></li>
                 <li><a href ="login">Log In</a></li>
@@ -30,17 +35,20 @@
 
             <div class="nav-icon">
                 <a href="#"><i class='bx bx-search-alt'></i></a>
-                <a href="#"><i class='bx bx-dumbbell' ></i></a>
+                <a href="searchgyms"><i class='bx bx-dumbbell' ></i></a>
                 <a href="#"><i class='bx bxs-bowl-rice'></i></a>
 
-                <div class="bx bx-menu" id="menu-icon"></div>
+                <!-- <div class="bx bx-menu" id="menu-icon"></div> -->
+                <label for="check" class="checkbtn">
+                    <i class="fa fa-bars"></i>
+                </label>
             </div>
         </header>
 
         <section class="main-home">
             <div class="main-text">
                 <h5>Find your potential</h5>
-                <h1>Stay Fit<br>and Healthy</h1>
+                <h1>FitFusion</h1>
                 <p>Stay true to your goal</p>
 
                 <a href="signup" class="main-btn">Join Us<i class='bx bx-right-arrow-alt' ></i></a>
@@ -346,6 +354,13 @@
                         <p>Rs. 3000 onwards</p>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <!-- footer -->
+        <section class="footer">
+            <div class="footer-info">
+                <img src="<?=ROOT?>/assets/images/LogoFinal.png" alt="logo">
             </div>
         </section>
 

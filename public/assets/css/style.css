@@ -9,6 +9,7 @@
     text-decoration: none;
 }
 
+/* nav bar */
 header {
     position: fixed;
     width: 100%;
@@ -21,6 +22,12 @@ header {
     padding: 20px 10%;
 }
 
+.logo img {
+    width: 120px;
+    height: auto;
+    vertical-align: middle;
+}
+
 .logo p {
     max-width: 120px;
     height: auto;
@@ -31,7 +38,7 @@ header {
 }
 
 .navmenu a {
-    color: #2c2c2c;
+    color: #000000;
     font-size: 16px;
     text-transform: capitalize;
     padding: 10px 20px;
@@ -40,7 +47,7 @@ header {
 }
 
 .navmenu a:hover {
-    color: #fff;
+    color: #645a3b;
 }
 
 .nav-icon {
@@ -50,7 +57,7 @@ header {
 
 .nav-icon i {
     margin-right: 20px;
-    color: #2c2c2c;
+    color: #424242;
     font-size: 25px;
     font-weight: 400;
     transition: all .42 ease;
@@ -61,13 +68,39 @@ header {
     color: #fff;
 }
 
-#menu-icon {
+/* #menu-icon {
     font-size: 35px;
     color: #2c2c2c;
     z-index: 10001;
     cursor: pointer;
+} */
+
+/* header #icon {
+    color: #424242;
+    font-size: 25px;
+    line-height: 8opx;
+    float: right;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+} */
+.checkbtn {
+    font-size: 25px;
+    color: #424242;
+    float: right;
+    line-height: 8opx;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
 }
 
+#check {
+    display: none;
+}
+
+/* end of nav bar */
+
+/* home main section */
 section {
     padding: 5% 10%;
 }
@@ -145,13 +178,16 @@ section {
     color: #fff;
     transition: all .42s ease;
 }
+/* end of home main section */
 
+/* sticky nav bar */
 header.sticky {
-    background: #fff;
+    background: #f3f4f6;
     padding: 20px 10%;
     box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
 }
 
+/* gym list title */
 .center-text h2 {
     color: #111;
     font-size: 28px;
@@ -160,6 +196,7 @@ header.sticky {
     margin-bottom: 30px;
 }
 
+/* gym and nutri list */
 .gym-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, auto));
@@ -258,4 +295,66 @@ header.sticky {
     color: #151515;
     font-size: 14px;
     font-weight: 600;
+}
+
+/* footer */
+.footer {
+    background-color: #f3f4f6;
+}
+
+.footer img {
+    width: 140px;
+    height: auto;
+}
+
+/* responsive css */
+@media(max-width: 890px) {
+    header {
+        padding: 20px 3%;
+        transition: .4s;
+    }
+}
+
+@media(max-width: 630px) {
+    .main-text h1 {
+        font-size: 50px;
+        transition: .4s;
+    }
+    .main-text p {
+        font-size: 18px;
+        transition: .4s;
+    }
+    .main-btn {
+        padding: 10px 20px;
+        transition: .4s;
+    }
+}
+
+@media(max-width:750px) {
+    .checkbtn{
+        display: block;
+    }
+    .navmenu {
+        position: fixed;
+        top: 80px;
+        /* right: -100%; */
+        width: 100%;
+        height: 100vh;
+        left: -100%;
+        background: #f3f4f6;
+        /* display: flex;
+        flex-direction: column; */
+        align-items: center;
+        padding: 120px 30px;
+        text-align: center;
+        transition: .4s;
+    }
+    .navmenu a {
+        display: block;
+        margin: 18px 0;
+    }
+
+    #check:checked ~ header ul{
+        left: 0;
+    }
 }
