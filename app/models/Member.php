@@ -28,7 +28,9 @@ class Member {
         // validate password
         if(empty($data['password'])) {
             $this->errors['password'] = "Password is required";
-        } 
+        } else if(strlen($data['password'])<6) {
+            $this->errors['password'] = "Password must be at least 6 characters long";
+        }
 
         if(empty($this->errors)) {
             return true;

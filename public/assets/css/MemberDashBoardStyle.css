@@ -12,6 +12,8 @@ a {
 }
 li {
     list-style: none;
+    align-items: center;
+
 }
 h1,
 h2 {
@@ -20,17 +22,36 @@ h2 {
 h3 {
     color: #999;
 }
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+}
+
+ul li a i {
+    margin-right: 20px;
+    color: #424242;
+    font-size: 25px;
+    font-weight: 400;
+    transition: all .42 ease;
+}
+
+.nav-icon i:hover {
+    transform: scal(1.1);
+    color: #424242;
+}
+
 .btn {
-    background:orange;
+    background:#ffe366;
     color: white;
     padding: 5px 10px;
     text-align: center;
 }
 .btn:hover {
-    color: orange;
+    color: #ffe366;
     background: white;
     padding: 3px 8px;
-    border: 2px solid orange;
+    border: 2px solid #ffe366;
 }
 .title {
     display: flex;
@@ -49,7 +70,7 @@ td {
 }
 .side-menu {
     position: fixed;
-    background: orange;
+    background: #ffe366;
     width: 20vw;
     min-height: 100vh;
     display: flex;
@@ -72,10 +93,11 @@ td {
     color: white;
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 .side-menu li:hover {
     background: white;
-    color: orange;
+    color: #ffe366;
 }
 .container {
     position: absolute;
@@ -216,7 +238,7 @@ td {
         height: 40px;
     }
     .side-menu li:hover {
-        background: orange;
+        background: #ffe366;
         padding: 8px 38px;
         border: 2px solid white;
     }
@@ -263,6 +285,7 @@ td {
    padding-top: 10px;
    box-shadow: 0px 0px 10px rgba(0, 0, 0, 20);
    border-radius: 5%;
+   cursor: pointer;
 }
 input[type="submit"] {
     border: none;

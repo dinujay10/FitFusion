@@ -13,11 +13,12 @@ class Signup {
                 $user = new Gyminstructor; 
             } else if($_POST['usertype']=='nutritionist') {
                 $user = new Nutritionist;
-            } else if($_POST['usertype']=='gymmanager') {
-                $user = new Gymmanager;
-            } else if($_POST['usertype']=='gymowner') {
-                $user = new Gymowner;
             }
+            // } else if($_POST['usertype']=='gymmanager') {
+            //     $user = new Gymmanager;
+            // } else if($_POST['usertype']=='gymowner') {
+            //     $user = new Gymowner;
+            // }
             
             $usertable = new User;
 

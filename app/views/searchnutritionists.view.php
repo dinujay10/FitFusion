@@ -36,7 +36,7 @@
 
         <section class="search-container">
             <form action="" class="search-bar">
-                <input type="text" placeholder="Seach for a Gym" name="search">
+                <input type="text" placeholder="Seach for a Nutritionist" name="search">
                 <button type="submit"><img src="<?=ROOT?>/assets/images/search-btn.png" alt="search"></button>
             </form>
         </section>

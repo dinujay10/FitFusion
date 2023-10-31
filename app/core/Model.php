@@ -68,7 +68,7 @@ Trait Model {
         // remove unwanted data
         if(!empty($this->allowedColumns)) {
             foreach($data as $key => $value) {
-                if(!in_array($key, $this->allowedColums)) {
+                if(!in_array($key, $this->allowedColumns)) {
                     unset($data[$key]);
                 }
             }
@@ -85,7 +85,7 @@ Trait Model {
         // remove unwanted data
         if(!empty($this->allowedColumns)) {
             foreach($data as $key => $value) {
-                if(!in_array($key, $this->allowedColums)) {
+                if(!in_array($key, $this->allowedColumns)) {
                     unset($data[$key]);
                 }
             }
@@ -110,6 +110,16 @@ Trait Model {
 
     // id column?????????
     public function delete($id, $id_column = 'id') {
+        $data[$id_column] = $id;
+        $query = "delete from $this->table where $id_column = :$id_column ";
+        
+        // echo $query;
+        $this->query($query, $data);
+
+        return false;
+    }
+
+    public function deleteManager($id, $id_column = 'id') {
         $data[$id_column] = $id;
         $query = "delete from $this->table where $id_column = :$id_column ";
         
