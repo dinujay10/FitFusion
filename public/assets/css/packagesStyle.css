@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+}
+
+nav {
+    padding: 40px;
+    background-color: orange;
+    height: 15%;
+}
+
+.logo p {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    float: left;
+    color: rgb(16, 4, 4);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+
+}
+
+ul {
+    float: right;
+
+}
+
+li {
+    padding-top: 0px;
+    display: inline-block;
+    list-style: none;
+}
+
+li a {
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 0px 40px;
+
+    color: white;
+    text-decoration: none;
+}
+
+li a:hover {
+    color: brown;
+    transition: all 0.4s ease 0s;
+}
+
+@media(max-width:735px) {
+    nav {
+
+        background-color: orange;
+        height: 15%;
+        padding-bottom: 20px;
+
+    }
+
+    ul {
+        float: left;
+        padding-top: 20px;
+
+
+    }
+
+}
+
+@media(max-width:540px) {
+    nav {
+
+        background-color: orange;
+        height: 20%;
+        padding-bottom: 20px;
+
+    }
+
+    li {
+
+        padding-top: 8px;
+        list-style: none;
+    }
+
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 850px;
+}
+
+.machines {
+    display: flex;
+    flex-direction: column;
+}
+
+.machine {
+    display: flex;
+    margin-left: 150px;
+    margin-right: 200px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding: 30px;
+    width: 70%;
+    height: 300px;
+    border-color: aqua;
+    border-style: double;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+
+
+}
+
+.machine img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.machine .c1 {
+    flex: 1;
+    text-align: center;
+}
+
+.machine .c2 {
+    margin-top: 50px;
+    margin-left: 60px;
+    flex: 1;
+}
+
+.addMachine {
+    border-color: aqua;
+    width: 400px;
+    height: 650px;
+    border-style: double;
+    padding: 15px;
+    margin: 30px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 10);
+}
+
+.addMachine h2 {
+    padding: 30px;
+    color: rgb(35, 230, 103);
+}
+
+section .contentBx .formBx {
+    width: 50%;
+}
+
+section .contentBx .formBx h2 {
+    color: black;
+    font-weight: 600;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 4px solid orange;
+    display: inline-block;
+    letter-spacing: 1px;
+
+}
+
+.inputBx {
+    margin-bottom: 20px;
+}
+
+.inputBx span {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: inline-block;
+    color: black;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
+}
+
+.inputBx input {
+    width: 100%;
+    padding: 10px 20px;
+    outline: none;
+    font-weight: 400;
+    border: 1px solid black;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color: black;
+    background: transparent;
+    border-radius: 30px;
+}
+
+.inputBx input[type="submit"] {
+    background: orange;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+
+}
+
+.inputBx input[type="submit"]:hover {
+    background: orange;
+
+}
+
+section .contentBx .formBx .remember {
+    margin-bottom: 10px;
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.inputBx p {
+    color: black
+}
+
+.inputBx p a {
+    color: orange
+}
+
+
+input[type="submit"] {
+    border: none;
+    outline: none;
+    padding: 9px 25px;
+    background: #c19813;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 4px;
+    font-weight: 600;
+    width: 120px;
+    margin-top: 30px;
+    margin-left: 130px;
+
+}
+
+/* Style for the table */
+table {
+    border-collapse: collapse;
+    width: 50%;
+    border: 1px solid rgb(221, 221, 221);
+}
+
+/* Style for table headers */
+th {
+    background-color: #f2f2f2;
+    text-align: left;
+}
+
+/* Style for table cells */
+.td {
+    border: 1px solid rgb(223, 47, 47);
+    padding: 5px;
+}
+
+/* Style for even rows */
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Style for table hover effect */
+tr:hover {
+    background-color: #ddd;
+}
