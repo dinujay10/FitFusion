@@ -1,0 +1,1 @@
+<h1>Gym Instructor Dashboard</h1>
