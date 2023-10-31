@@ -65,7 +65,7 @@ header {
 
 .nav-icon i:hover {
     transform: scal(1.1);
-    color: #fff;
+    color: #424242;
 }
 
 /* #menu-icon {
@@ -358,3 +358,183 @@ header.sticky {
         left: 0;
     }
 }
+
+/* search bar */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0%;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 400px;
+    height: 30px;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.search-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 24px 0;
+    font-size: 15px;
+}
+
+.search-bar button img {
+    width: 20px;
+}
+
+.search-bar button {
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Sign up image */
+.split-screen {
+    display: flex;
+    flex-direction: column;
+}
+
+.split-left {
+    height: 200px;
+}
+
+.split-left, .split-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30%;
+}
+
+.split-right .formBx {
+    color: black;
+    text-align: center;
+    width: 328px;
+}
+
+.split-right .formBx .inputBx p {
+    margin: 1,5em 0;
+    font-size: 0.875rem;
+}
+
+form .inputBx, .selectType {
+    display: block;
+    width: 100%;
+}
+
+/* section .signup-imgBx{
+    position: relative;
+    width:70%;
+    height: 90%
+} */
+/* section .signup-imgBx::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    
+} */
+/* section .signup-imgBx img{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+} */
+
+/* signup content box */
+/* section .signup-contentBx{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 90%;
+    margin-right: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    backdrop-filter:blur(5px);
+} */
+
+/* section .signup-contentBx .formBx{
+    width: 50%;
+} */
+
+/* section .signup-contentBx .formBx h2{
+    color: black;
+    font-weight: 600;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #ffe366;
+    display: inline-block;
+    letter-spacing: 1px;
+} */
+
+/* section .signup-contentBx .formBx .inputBx{
+    margin-bottom: 20px;
+}
+
+section .signup-contentBx .formBx .inputBx span{
+    font-size: 16px;
+    margin-bottom:5px;
+    display: inline-block;
+    color: black;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
+} */
+
+/* section .signup-contentBx .formBx .inputBx input{
+    width: 100%;
+    padding: 10px 20px;
+    outline:none;
+    font-weight: 400;
+    border: 1px solid black;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color:black;
+    background: transparent;
+    border-radius: 30px;
+}
+
+section .signup-contentBx .formBx .inputBx input[type="submit"]{
+    background:#ffe366;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    cursor:pointer;  
+}
+
+section .signup-contentBx .formBx .inputBx input[type="submit"]:hover{
+    background: #ffe366;
+}
+
+section .signup-contentBx .formBx .remember{
+    margin-bottom: 10px;
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+} */
+
+/* section .signup-contentBx .formBx .inputBx p{
+    color:black
+}
+
+section .signup-contentBx .formBx .inputBx p a{
+    color:#ffe366;
+} */

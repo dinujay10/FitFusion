@@ -41,16 +41,16 @@
             </form>
         </section>
 
-        <!-- Gyms section -->
-        <section class="gym" id="gym">
-            <div class="gym-list">
-                <!-- GYM 1 -->
-                <div class="gym-row">
-                    <img src="<?=ROOT?>/assets/images/gym8.jpg" alt="">
+        <!-- Nutritionist List -->
+        <section class="nutritionist" id="nutritionist">
+            <div class="nutri-list">
+                <!-- NUTRI 1 -->
+                <div class="nutri-row">
+                    <img src="<?=ROOT?>/assets/images/nutri1.jpg" alt="">
                     
-                    <div class="gym-text">
+                    <!-- <div class="nutri-text">
                         <h5>Nugegoda, Colombo</h5>
-                    </div>
+                    </div> -->
                     <div class="heart-icon">
                         <i class='bx bx-heart'></i>
                     </div>
@@ -62,17 +62,17 @@
                         <i class='bx bx-star' ></i>
                     </div>
                     <div class="price">
-                        <h4>Colombo Fitness Gym</h4>
+                        <h4>Nutritionist1</h4>
                         <p>Rs. 3000 onwards</p>
                     </div>
                 </div>
 
                 <!-- GYM 2 -->
-                <div class="gym-row">
-                    <img src="<?=ROOT?>/assets/images/gym2.jpg" alt="">
-                    <div class="gym-text">
+                <div class="nutri-row">
+                    <img src="<?=ROOT?>/assets/images/nutri2.jpg" alt="">
+                    <!-- <div class="nutri-text">
                         <h5>Nugegoda, Colombo</h5>
-                    </div>
+                    </div> -->
                     <div class="heart-icon">
                         <i class='bx bx-heart'></i>
                     </div>
@@ -85,18 +85,18 @@
                     </div>
 
                     <div class="price">
-                        <h4>Colombo Fitness Gym</h4>
+                        <h4>Nutritionist2</h4>
                         <p>Rs. 3000 onwards</p>
                     </div>
                 </div>
 
                 <!-- GYM 3 -->
-                <div class="gym-row">
-                    <img src="<?=ROOT?>/assets/images/gym3.jpg" alt="">
+                <div class="nutri-row">
+                    <img src="<?=ROOT?>/assets/images/nutri3.jpg" alt="">
                     
-                    <div class="gym-text">
+                    <!-- <div class="nutri-text">
                         <h5>Nugegoda, Colombo</h5>
-                    </div>
+                    </div> -->
                     <div class="heart-icon">
                         <i class='bx bx-heart'></i>
                     </div>
@@ -109,18 +109,18 @@
                     </div>
 
                     <div class="price">
-                        <h4>Colombo Fitness Gym</h4>
+                        <h4>Nutritionist3</h4>
                         <p>Rs. 3000 onwards</p>
                     </div>
                 </div>
 
                 <!-- GYM 4 -->
-                <div class="gym-row">
-                    <img src="<?=ROOT?>/assets/images/gym4.jpg" alt="">
+                <div class="nutri-row">
+                    <img src="<?=ROOT?>/assets/images/nutri4.jpg" alt="">
                     
-                    <div class="gym-text">
+                    <!-- <div class="nutri-text">
                         <h5>Nugegoda, Colombo</h5>
-                    </div>
+                    </div> -->
                     <div class="heart-icon">
                         <i class='bx bx-heart'></i>
                     </div>
@@ -133,18 +133,18 @@
                     </div>
 
                     <div class="price">
-                        <h4>Colombo Fitness Gym</h4>
+                        <h4>Nutritionist4</h4>
                         <p>Rs. 3000 onwards</p>
                     </div>
                 </div>
 
                 <!-- GYM 5 -->
-                <div class="gym-row">
-                    <img src="<?=ROOT?>/assets/images/gym5.jpg" alt="">
+                <div class="nutri-row">
+                    <img src="<?=ROOT?>/assets/images/nutri5.jpg" alt="">
                     
-                    <div class="gym-text">
+                    <!-- <div class="nutri-text">
                         <h5>Nugegoda, Colombo</h5>
-                    </div>
+                    </div> -->
                     <div class="heart-icon">
                         <i class='bx bx-heart'></i>
                     </div>
@@ -157,17 +157,17 @@
                     </div>
 
                     <div class="price">
-                        <h4>Colombo Fitness Gym</h4>
+                        <h4>Nutritionist5</h4>
                         <p>Rs. 3000 onwards</p>
                     </div>
                 </div>
 
                 <!-- GYM 6 -->
-                <div class="gym-row">
-                    <img src="<?=ROOT?>/assets/images/gym6.jpg" alt="">
-                    <div class="gym-text">
+                <div class="nutri-row">
+                    <img src="<?=ROOT?>/assets/images/nutri6.jpg" alt="">
+                    <!-- <div class="nutri-text">
                         <h5>Nugegoda, Colombo</h5>
-                    </div>
+                    </div> -->
                     <div class="heart-icon">
                         <i class='bx bx-heart'></i>
                     </div>
@@ -180,7 +180,7 @@
                     </div>
 
                     <div class="price">
-                        <h4>Colombo Fitness Gym</h4>
+                        <h4>Nutritionist6</h4>
                         <p>Rs. 3000 onwards</p>
                     </div>
                 </div>

@@ -28,15 +28,14 @@
             </a>
             <ul class="navmenu">
                 <li><a href ="home">Home</a></li>
-                <li><a href ="#">About Us</a></li>
-                <li><a href ="signup">Sign Up</a></li>
+                    <li><a href ="signup">Sign Up</a></li>
                 <li><a href ="login">Log In</a></li>
             </ul>
 
             <div class="nav-icon">
                 <a href="#"><i class='bx bx-search-alt'></i></a>
                 <a href="searchgyms"><i class='bx bx-dumbbell' ></i></a>
-                <a href="#"><i class='bx bxs-bowl-rice'></i></a>
+                <a href="searchnutritionists"><i class='bx bxs-bowl-rice'></i></a>
 
                 <!-- <div class="bx bx-menu" id="menu-icon"></div> -->
                 <label for="check" class="checkbtn">
@@ -54,9 +53,9 @@
                 <a href="signup" class="main-btn">Join Us<i class='bx bx-right-arrow-alt' ></i></a>
             </div>
 
-            <div class="down-arrow">
+            <!-- <div class="down-arrow">
                 <a href="#trending" class="down"><i class='bx bx-down-arrow-alt' ></i></a>
-            </div>
+            </div> -->
         </section>
 
         <!-- Gyms section -->

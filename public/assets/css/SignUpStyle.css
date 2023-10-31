@@ -44,19 +44,16 @@ section .contentBx{
     align-items: center;
     width: 50%;
     height: 90%;
-
     margin-right: 0px;
-   
-
-  
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
     background: rgba(255, 255, 255, 0.5);
-    border-radius: 8px;
     backdrop-filter:blur(5px);
 }
+
 section .contentBx .formBx{
     width: 50%;
 }
+
 section .contentBx .formBx h2{
     color: black;
     font-weight: 600;
@@ -66,11 +63,12 @@ section .contentBx .formBx h2{
     border-bottom: 4px solid #ffe366;
     display: inline-block;
     letter-spacing: 1px;
-
 }
+
 section .contentBx .formBx .inputBx{
     margin-bottom: 20px;
 }
+
 section .contentBx .formBx .inputBx span{
     font-size: 16px;
     margin-bottom:5px;
@@ -80,6 +78,7 @@ section .contentBx .formBx .inputBx span{
     font-size: 16px;
     letter-spacing: 1px;
 }
+
 section .contentBx .formBx .inputBx input{
     width: 100%;
     padding: 10px 20px;
@@ -92,6 +91,7 @@ section .contentBx .formBx .inputBx input{
     background: transparent;
     border-radius: 30px;
 }
+
 section .contentBx .formBx .inputBx input[type="submit"]{
     background:#ffe366;
     color: #fff;
@@ -104,17 +104,19 @@ section .contentBx .formBx .inputBx input[type="submit"]{
 
 section .contentBx .formBx .inputBx input[type="submit"]:hover{
     background: #ffe366;
-
 }
+
 section .contentBx .formBx .remember{
     margin-bottom: 10px;
     color: black;
     font-weight: 400;
     font-size: 14px;
 }
+
 section .contentBx .formBx .inputBx p{
     color:black
 }
+
 section .contentBx .formBx .inputBx p a{
     color:#ffe366;
 }
@@ -142,13 +144,27 @@ section .contentBx .formBx .inputBx p a{
         background: rgb(255, 255,255/0.9);
         margin: 50px;
     }
-
 }
-nav{
+
+/* nav{
     padding: 40px;
     background-color: #ffe366;
     height: 10%;
+} */
+
+nav {
+    position: relative;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10%;
+    background-color: #ffe366;
 }
+
 .logo p{
     font-size:30px;
     font-weight:bold;
@@ -159,19 +175,23 @@ nav{
     letter-spacing: 1.5px;
     cursor:pointer;
 }
-
-ul{
-    float:right;
-    
+.logo img {
+    width: 120px;
+    height: auto;
+    vertical-align: middle;
 }
 
- li{
+/* ul{
+    float:right;
+}
+
+li{
     padding-top:0px;
     display:inline-block;
     list-style:none;
 }
 
- li a{
+li a{
     font-size: 16px;
     text-transform: uppercase;
     padding:0px 40px;
@@ -180,39 +200,116 @@ ul{
     text-decoration:none;
 }
 
- li a:hover{
+li a:hover{
       color:brown;
       transition: all 0.4s ease 0s;
+} */
+
+.navmenu {
+    display: flex;
+    list-style: none;
+    vertical-align: middle;
+    align-items: center;
+    align-content: center;
 }
+
+.navmenu a {
+    display: flex;
+    color: #000000;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 10px 20px;
+    font-weight: 400;
+    transition: all .4s ease;
+}
+
+.navmenu a:hover {
+    color: #645a3b;
+}
+
 @media(max-width:735px){
-    nav{
-        
+    nav{  
         background-color: #ffe366;
         height: 15%;
         padding-bottom: 20px;
-       
     }
     ul{
         float:left;
-        padding-top: 20px;
-        
-        
+        padding-top: 20px;   
     }
-    
 }
+
 @media(max-width:540px){
     nav{
-        
         background-color: #ffe366;
         height: 20%;
         padding-bottom: 20px;
-       
     }
     li{
-        
         padding-top:8px;
         list-style:none;
     }
-   
 }
 
+.nav-icon {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon i {
+    margin-right: 20px;
+    color: #424242;
+    font-size: 25px;
+    font-weight: 400;
+    transition: all .42 ease;
+}
+
+.nav-icon i:hover {
+    transform: scal(1.1);
+    color: #424242;
+}
+
+#check {
+    display: none;
+}
+
+/* responsive css */
+@media(max-width:750px) {
+    .checkbtn{
+        display: block;
+    }
+    .navmenu {
+        position: fixed;
+        top: 80px;
+        /* right: -100%; */
+        width: 100%;
+        height: 100vh;
+        left: -100%;
+        background: #f3f4f6;
+        /* display: flex;
+        flex-direction: column; */
+        align-items: center;
+        padding: 120px 30px;
+        text-align: center;
+        transition: .4s;
+    }
+    .navmenu a {
+        display: block;
+        margin: 18px 0;
+    }
+
+    #check:checked ~ header ul{
+        left: 0;
+    }
+}
+
+/* footer */
+.footer {
+    background-color: #f3f4f6;
+}
+
+.footer img {
+    width: 140px;
+    height: auto;
+}
