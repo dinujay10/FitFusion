@@ -15,7 +15,7 @@
                 <img src="<?=ROOT?>/assets/images/LogoFinal.png" alt="logo">
             </a>
             <ul class="navmenu">
-                <li><a href ="">Dashboard</a></li>
+                <li><a href ="gymmanagerdash">Dashboard</a></li>
                 <li><a href ="home">Log Out</a></li>
             </ul>
 

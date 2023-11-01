@@ -11,7 +11,7 @@ class Machine {
         'machineType',
         'price',
         'warranty',
-        'adjustability'
+        'status'
     ];
 
     public function validate($data) {
@@ -32,8 +32,8 @@ class Machine {
         if(empty($data['warranty'])) {
             $this->errors['id'] = "Warranty is required";
         } 
-        if(empty($data['adjustabulity'])) {
-            $this->errors['id'] = "Adjustability is required";
+        if(empty($data['status'])) {
+            $this->errors['id'] = "Status is required";
         } 
 
         if(empty($this->errors)) {
