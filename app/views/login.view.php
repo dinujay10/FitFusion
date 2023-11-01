@@ -49,8 +49,8 @@
                     <?php endif ;?>
                     
                     <div class="inputBx">
-                        <span>UserName</span>
-                        <input type="text" name="username" id="username">
+                        <span>Email</span>
+                        <input type="text" name="email" id="email">
                     </div>
                     <div class="inputBx">
                         <span>Password</span>

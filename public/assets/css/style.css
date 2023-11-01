@@ -100,7 +100,7 @@ header {
 
 /* end of nav bar */
 
-/* home main section */
+/* home main section ----------------------------------------------------------------------*/
 section {
     padding: 5% 10%;
 }
@@ -108,7 +108,8 @@ section {
 .main-home {
     width: 100%;
     height: 100vh;
-    background-color: #ffe366;
+    background-color: #ffd034;
+    /* background-image: url("../images/gym1.jpg"); */
     background-position: center;
     background-size: cover;
     display: grid;
@@ -251,7 +252,7 @@ header.sticky {
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
-    background-color: #ffe366;
+    background-color: #ffd034;
     padding: 3px 10px;
     border-radius: 2px;
 }
@@ -264,7 +265,7 @@ header.sticky {
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
-    background-color: #ffe366;
+    background-color: #ffd034;
     padding: 3px 10px;
     border-radius: 2px;
 }
@@ -276,11 +277,11 @@ header.sticky {
 }
 
 .heart-icon:hover {
-    color: #ffe366;
+    color: #ffd034;
 }
 
 .rating {
-    color: #ffe366;
+    color: #ffd034;
     font-size: 18px;
 }
 
@@ -538,3 +539,313 @@ section .signup-contentBx .formBx .remember{
 section .signup-contentBx .formBx .inputBx p a{
     color:#ffe366;
 } */
+
+
+section .package-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    width: 50%;
+    height: 90%;
+    margin-right: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter:blur(5px);
+
+}
+
+/* side menu */
+.side-menu {
+    position: fixed;
+    background: #ffd034;
+    width: 20vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.side-menu img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.side-menu .brand-name {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.side-menu li {
+    font-size: 24px;
+    padding: 10px 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.side-menu li:hover {
+    background: white;
+    color: #ffd034;
+}
+
+/* ADMIN DASHBOARD */
+/* .admin-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100%;
+    margin: 100px;
+    justify-content: center;
+}
+
+.admin-container .box {
+    flex: 1;
+    width: 100px;
+    height: 100px;
+    border-color: #2f4a7e;
+    border-style: double;
+    margin: 20px;
+    justify-content: center;
+
+}
+
+.admin-container .box .a {
+    text-decoration: none;
+} */
+
+.admin-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distributes space between boxes */
+    margin: 100px;
+    height: 50%;
+  }
+  
+  .admin-container .box {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #ffd034;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center; /* Center the text horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the text vertically */
+  }
+  
+  .admin-container .box a {
+    text-decoration: none; /* Remove the default underline for links */
+    color: #333; /* Text color for links */
+  }
+  
+/* ADD GYM MANAGER BY ADMIN */
+/* .add-manager-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin: 100px;
+}
+
+.add-manager-container .box {
+    flex: 1;
+    width: 50px;
+    height: 50px; 
+}
+
+.add-manager-form-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center; */
+    /* border: 1px solid rgb(221, 221, 221); */
+/* }
+
+.add-manager-container .box input[type="text"] {
+    width: 10px;
+} */
+
+/* Add Manager Form */
+.add-manager-main-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 100px;
+}
+
+.add-manager-container {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .add-manager-container h2 {
+    font-size: 18px;
+    margin: 0 0 10px;
+  }
+  
+  .add-manager-container .box {
+    margin-bottom: 10px;
+  }
+  
+  .add-manager-container input[type="text"],
+  .add-manager-container input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .add-manager-container select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .add-manager-container input[type="submit"] {
+    background-color: #ffd034;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-manager-container input[type="submit"]:hover {
+    background-color: #ffd034;
+  }
+  
+  /* Manager Table */
+  .add-manager-form-container {
+    margin: 20px auto;
+    width: 80%;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  table thead {
+    background-color: #ffd034;
+    color: #fff;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    font-weight: bold;
+  }
+  
+  table tbody tr:nth-child(2n) {
+    background-color: #f2f2f2;
+  }
+  
+  table tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+  
+  table button {
+    background-color: #ffd034;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  table a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  table button:hover {
+    background-color: #ffd034;
+  }
+
+  /* DASHBOARD SIDE BAR - D */
+  nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background: #ffd034;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar-logo {
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 10px;
+  }
+  .sidebar-logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
+    /* added below */
+    /* background-color: #ffffff; */
+  }
+  .sidebar-logo span {
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  nav a {
+    position: relative;
+    color: #000;
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+  }
+
+  .material-symbols-outlined {
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .nav-item {
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+  }
+
+  nav a:hover {
+    background: #eee;
+  }
+
+  nav:hover {
+    width: 280px;
+    transition: all 0.5s ease;
+  }
+
+.logout {
+    position: absolute;
+    bottom: 0;
+}  

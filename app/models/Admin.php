@@ -1,17 +1,16 @@
 <?php
 
 // user class
-class User {
+class Admin {
     use Model;
 
-    protected $table = 'user';
+    protected $table = 'admin';
     
     protected $allowedColumns = [
         'name',
-        'username',
         'email',
-        'password',
-        'usertype'
+        'username',
+        'password'
     ];
 
     public function validate($data) {
@@ -29,7 +28,9 @@ class User {
         // validate password
         if(empty($data['password'])) {
             $this->errors['password'] = "Password is required";
-        } 
+        } else if(strlen($data['password'])<6) {
+            $this->errors['password'] = "Password must be at least 6 characters long";
+        }
 
         if(empty($this->errors)) {
             return true;
@@ -55,16 +56,6 @@ class User {
         if(empty($this->errors)) {
             return true;
         }
-        return false;
-    }
-
-    public function deleteByEmail($email, $email_column = 'email') {
-        $data[$email_column] = $email;
-        $query = "delete from $this->table where $email_column = :$email_column ";
-        
-        // echo $query;
-        $this->query($query, $data);
-
         return false;
     }
 }

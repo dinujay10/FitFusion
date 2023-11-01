@@ -90,6 +90,7 @@ trait Model
     public function update($id, $data, $id_column = 'id')
     {
         // remove unwanted data
+
         if (!empty($this->allowedColumns)) {
             foreach ($data as $key => $value) {
                 if (!in_array($key, $this->allowedColumns)) {
@@ -126,6 +127,7 @@ trait Model
 
         return false;
     }
+
     public function deletepackage($id, $id_column = 'id')
     {
         $con = new mysqli('localhost', 'root', '', 'fitfusion');

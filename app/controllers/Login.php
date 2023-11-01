@@ -8,11 +8,12 @@ class Login {
 
         if ($_SERVER['REQUEST_METHOD']=='POST') {
             $user = new User;
-            $arr['username'] = $_POST['username'];
+            $arr['email'] = $_POST['email'];
 
             $row = $user->first($arr);
 
             if($row) {
+                $this->createUserSession($row);
                 if($row->password===$_POST['password']){
                     $_SESSION['USER'] = $row;
                     if($row->usertype=="member") {
@@ -25,11 +26,14 @@ class Login {
                         redirect('gymmanagerdash');
                     } else if($row->usertype=="gymowner") {
                         redirect('gymownerdash');
+                    } else if($row->usertype=="admin") {
+                        redirect('admindash');
                     }
                 }
             }
             // set session to row
-            $user->errors['username'] = "Incorrect username or password";
+
+            $user->errors['email'] = "Incorrect email or password";
             $data['errors'] = $user->errors;
         }
 
@@ -40,4 +44,18 @@ class Login {
     //     show("from the edit function");
     //     $this->view('home');
     // }
+
+    public function createUserSession($user) {
+        $_SESSION['id'] = $user->id;
+        $_SESSION['email'] = $user->email;
+        $_SESSION['username'] = $user->username;
+    }
+
+    public function isLoggedIn() {
+        if(isset($_SESSION['user_id'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

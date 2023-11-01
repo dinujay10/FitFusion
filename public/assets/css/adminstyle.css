@@ -1,0 +1,105 @@
+/* Add Manager Form */
+.add-manager-container {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .add-manager-container h2 {
+    font-size: 18px;
+    margin: 0 0 10px;
+  }
+  
+  .add-manager-container .box {
+    margin-bottom: 10px;
+  }
+  
+  .add-manager-container input[type="text"],
+  .add-manager-container input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .add-manager-container select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .add-manager-container input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-manager-container input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Manager Table */
+  .add-manager-form-container {
+    margin: 20px auto;
+    width: 80%;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  table thead {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    font-weight: bold;
+  }
+  
+  table tbody tr:nth-child(2n) {
+    background-color: #f2f2f2;
+  }
+  
+  table tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+  
+  table button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  table a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  table button:hover {
+    background-color: #0056b3;
+  }
+  
