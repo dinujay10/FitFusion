@@ -16,6 +16,7 @@
             <li><a href ="#">Home</a></li>
             <li><a href ="#">AboutUs</a></li>
             <li><a href ="#">Services</a></li>
+            <li><a href ="login">Logout</a></li>
         </ul>
     </nav>
             <div class="maincontainer">
@@ -24,7 +25,8 @@
                 <thead>
                     <tr>
                         <td scope=cole></td>
-                        <td scope=cole></td>
+                        <td scope=cole>Machinetype</td>
+                        <td scope=cole> MachineID</td>
                         <td scope=cole>Price</td>
                         <td scope=cole>Warranty</td>
                         <td scope=cole>Adjustability</td>
@@ -89,7 +91,7 @@
                                     <input type="" name="adjustability" id="adjustability">
                                 </div>
                                 <div class="inputBx">
-                                    <input type="submit" value="Manageresources">
+                                    <input type="submit" value="Submit">
                                 </div>
                             
                             </form>
