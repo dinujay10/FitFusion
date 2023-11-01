@@ -57,6 +57,16 @@ class User {
         }
         return false;
     }
+
+    public function deleteByEmail($email, $email_column = 'email') {
+        $data[$email_column] = $email;
+        $query = "delete from $this->table where $email_column = :$email_column ";
+        
+        // echo $query;
+        $this->query($query, $data);
+
+        return false;
+    }
 }
 
 // make models for each table in DB, and add the editable columns of each
