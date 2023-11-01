@@ -35,8 +35,8 @@
         <div class="admin-container">
             <div class="box"><a href="addgymmanager">Add Gym Manager</a></div>
             <div class="box"><a href="addgymowner">Add Gym Owner</a></div>
-            <div class="box">Block Users</div>
-            <div class="box">Handle System Complaints</div>
+            <div class="box"><a href="#">Block Users</a></div>
+            <div class="box"><a href="#">Handle System Complaints</a></div>
         </div>
 
          

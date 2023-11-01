@@ -100,7 +100,7 @@ header {
 
 /* end of nav bar */
 
-/* home main section */
+/* home main section ----------------------------------------------------------------------*/
 section {
     padding: 5% 10%;
 }
@@ -109,6 +109,7 @@ section {
     width: 100%;
     height: 100vh;
     background-color: #ffd034;
+    /* background-image: url("../images/gym1.jpg"); */
     background-position: center;
     background-size: cover;
     display: grid;
@@ -588,7 +589,7 @@ section .package-form {
 }
 
 /* ADMIN DASHBOARD */
-.admin-container {
+/* .admin-container {
     display: flex;
     flex-direction: row;
     width: 80%;
@@ -610,8 +611,34 @@ section .package-form {
 
 .admin-container .box .a {
     text-decoration: none;
-}
+} */
 
+.admin-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distributes space between boxes */
+    margin: 100px;
+    height: 50%;
+  }
+  
+  .admin-container .box {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #ffd034;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center; /* Center the text horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the text vertically */
+  }
+  
+  .admin-container .box a {
+    text-decoration: none; /* Remove the default underline for links */
+    color: #333; /* Text color for links */
+  }
+  
 /* ADD GYM MANAGER BY ADMIN */
 /* .add-manager-container {
     display: flex;
@@ -750,4 +777,75 @@ section .package-form {
   table button:hover {
     background-color: #ffd034;
   }
-  
+
+  /* DASHBOARD SIDE BAR - D */
+  nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background: #ffd034;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar-logo {
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 10px;
+  }
+  .sidebar-logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
+    /* added below */
+    /* background-color: #ffffff; */
+  }
+  .sidebar-logo span {
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  nav a {
+    position: relative;
+    color: #000;
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+  }
+
+  .material-symbols-outlined {
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .nav-item {
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+  }
+
+  nav a:hover {
+    background: #eee;
+  }
+
+  nav:hover {
+    width: 280px;
+    transition: all 0.5s ease;
+  }
+
+.logout {
+    position: absolute;
+    bottom: 0;
+}  
