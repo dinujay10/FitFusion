@@ -8,7 +8,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('DBPASS', '');
     define('DBDRIVER', '');
 
-    define('ROOT', 'http://localhost/FitFusion/public');
+    define('ROOT', 'http://localhost');
 } else {
     // DB config
     define('DBNAME', 'my_db');
@@ -25,4 +25,4 @@ define('APP_NAME', "FitFusion");
 define('APP_DESC', "Fitness and Nutrition Application");
 
 // truw means show errors
-define('DEBUG', false);
+define('DEBUG', true);
