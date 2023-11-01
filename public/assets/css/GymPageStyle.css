@@ -1,0 +1,163 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    
+}
+nav{
+    padding: 40px;
+    background-color: orange;
+    height: 15%;
+}
+.logo p{
+    font-size:30px;
+    font-weight:bold;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    float:left;
+    color:rgb(16, 4, 4);
+    text-transform:uppercase;
+    letter-spacing: 1.5px;
+    cursor:pointer;
+
+}
+ul{
+    float:right;
+    
+}
+
+ li{
+    padding-top:0px;
+    display:inline-block;
+    list-style:none;
+}
+
+ li a{
+    font-size: 16px;
+    text-transform: uppercase;
+    padding:0px 40px;
+   
+    color:white;
+    text-decoration:none;
+}
+
+ li a:hover{
+      color:brown;
+      transition: all 0.4s ease 0s;
+}
+@media(max-width:735px){
+    nav{
+        
+        background-color: orange;
+        height: 15%;
+        padding-bottom: 20px;
+       
+    }
+    ul{
+        float:left;
+        padding-top: 20px;
+        
+        
+    }
+    
+}
+@media(max-width:540px){
+    nav{
+        
+        background-color: orange;
+        height: 20%;
+        padding-bottom: 20px;
+       
+    }
+    li{
+        
+        padding-top:8px;
+        list-style:none;
+    }
+   
+}
+.gymimg img{
+    height: 50%;
+    width: 100%;
+}
+.secondblock{
+    display: flex;
+}
+.secondblock .left{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.secondblock .right{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+.secondblock .left .leftcontent{
+    margin: 30px;
+    border-style: double;
+    border-color: aqua;
+    height: 150px;
+    width: 350px;
+    margin-left: 180px;
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(243, 237, 227);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+.right .packages{
+    display: flex;
+    flex-direction: column;
+    border-style: double;
+    border-color: aqua;margin: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+.right .packages .package{
+    margin: 30px;
+    border-style: double;
+    border-color: aqua;
+    height: 70px;
+    width: 550px;
+    text-align: center;
+    padding: 20px;
+    background-color: beige;
+}
+.right .facilities{
+    margin: 30px;
+    border-style: double;
+    border-color: aqua;
+    height: 150px;
+    width: 650px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: antiquewhite;
+}
+.packages h2{
+    color: rgb(248, 161, 46);
+    margin: 20px;
+    text-align: center;
+}
+.facility img{
+    width: 30px;
+    height: 30px;
+   
+}
+.facility{
+    margin: 30px;
+}
+.facilities h2{
+    color: rgb(255, 153, 127);
+    text-align: center;
+    margin: 10px;
+}
+.leftcontent h3{
+    padding: 20px;
+    color: rgb(236, 117, 19);
+}
+ul {
+    list-style-type: square; /* Change bullet type for unordered list */
+  }
+.container{
+    background-color: white;
+}
