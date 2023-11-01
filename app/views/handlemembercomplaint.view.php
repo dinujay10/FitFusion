@@ -4,7 +4,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/HandleSystemComplaintStyle.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/HandleMemberComplaintStyle.css">
 </head>
 <body>
     <nav>
@@ -21,10 +21,12 @@
     </nav>
     <div class="container">
         <div class="complaint">
-           
+            <div class="c1">
+                <img src="<?=ROOT?>/assets/images/dashboards/m1.jpeg" alt=""><br><br>
+                <h4>Mr. John Smith</h4>
+            </div>
             <div class="c2">
-                <h4>Name:John Smith</h4><br>
-                <h4>Reason:No attention of instructor</h4><br>
+                <h4>Reason: Very old machiens</h4><br>
                 <h4>Date:2023 May 23</h4><br>
                 <h4>Time: 5.30 p.m</h4>
                 <input type="submit" value="Reply">
@@ -33,10 +35,12 @@
         </div>
 
         <div class="complaint">
-            
+            <div class="c1">
+                <img src="<?=ROOT?>/assets/images/dashboards/m2.jpeg" alt=""><br><br>
+                <h4>Mr. John Smith</h4>
+            </div>
             <div class="c2">
-                <h4>Name:John Smith</h4><br>
-                <h4>Reason:No attention of instructor</h4><br>
+                <h4>Reason: Very old machiens</h4><br>
                 <h4>Date:2023 May 23</h4><br>
                 <h4>Time: 5.30 p.m</h4>
                 <input type="submit" value="Reply">
@@ -44,10 +48,12 @@
             
         </div>
         <div class="complaint">
-            
+            <div class="c1">
+                <img src="<?=ROOT?>/assets/images/dashboards/m9.jpeg" alt=""><br><br>
+                <h4>Mr. John Smith</h4>
+            </div>
             <div class="c2">
-                <h4>Name:John Smith</h4><br>
-                <h4>Reason:No attention of instructor </h4><br>
+                <h4>Reason: Very old machiens</h4><br>
                 <h4>Date:2023 May 23</h4><br>
                 <h4>Time: 5.30 p.m</h4>
                 <input type="submit" value="Reply">
@@ -55,10 +61,12 @@
             
         </div>
         <div class="complaint">
-         
+            <div class="c1">
+                <img src="<?=ROOT?>/assets/images/dashboards/m4.jpeg" alt=""><br><br>
+                <h4>Mr. John Smith</h4>
+            </div>
             <div class="c2">
-                <h4>Name:John Smith</h4><br>
-                <h4>Reason:No attention of instructor</h4><br>
+                <h4>Reason: Very old machiens</h4><br>
                 <h4>Date:2023 May 23</h4><br>
                 <h4>Time: 5.30 p.m</h4>
                 <input type="submit" value="Reply">
@@ -66,10 +74,12 @@
             
         </div>
         <div class="complaint">
-            
+            <div class="c1">
+                <img src="<?=ROOT?>/assets/images/dashboards/m5.jpeg" alt=""><br><br>
+                <h4>Mr. John Smith</h4>
+            </div>
             <div class="c2">
-                <h4>Name:John Smith</h4><br>
-                <h4>Reason:No attention of instructor</h4><br>
+                <h4>Reason: Very old machiens</h4><br>
                 <h4>Date:2023 May 23</h4><br>
                 <h4>Time: 5.30 p.m</h4>
                 <input type="submit" value="Reply">
