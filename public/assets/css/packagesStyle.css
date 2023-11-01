@@ -209,7 +209,8 @@ section .contentBx .formBx .remember {
 }
 
 .inputBx p {
-    color: black
+    color: black;
+    margin-left: 100px;
 }
 
 .inputBx p a {

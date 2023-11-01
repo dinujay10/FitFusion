@@ -27,6 +27,7 @@
             <tr>
                 <td scope=cole></td>
                 <td scope=cole></td>
+                <td scope=cole>packagetype</td>
                 <td scope=cole>description</td>
                 <td scope=cole>paymentperiod</td>
                 <td scope=cole>amount</td>
