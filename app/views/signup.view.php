@@ -69,14 +69,14 @@
                             <span>Confirm Password</span>
                             <input type="password" name="passwordConfirm" id="passwordConfirm">
                         </div>
-                        <div class="inputBx">
+                        <div class="selectType">
                             <span>Who are you signing up as?</span>
                             <select name="usertype" id="usertype">
                                 <option value="member">Member</option>
                                 <option value="gyminstructor">Gym Instructor</option>
                                 <option value="nutritionist">Nutritionist</option>
-                                <option value="gymmanager">Gym Manager (Manages 1 gym)</option>
-                                <option value="gymowner">Gym Owner (Manages more than 1 gym)</option>
+                                <!-- <option value="gymmanager">Gym Manager (Manages 1 gym)</option>
+                                <option value="gymowner">Gym Owner (Manages more than 1 gym)</option> -->
                             </select>                    
                         </div>
                         <div class="inputBx">
