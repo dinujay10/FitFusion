@@ -21,12 +21,13 @@
         </ul>
     </nav>
 
-
+    <div class="maincontainer">
+    <div class="tbl">
     <table>
         <thead>
             <tr>
                 <td scope=cole></td>
-                <td scope=cole></td>
+              
                 <td scope=cole>packagetype</td>
                 <td scope=cole>description</td>
                 <td scope=cole>paymentperiod</td>
@@ -45,7 +46,6 @@
 
                 echo ' <tr>
                         <th scope="row"></th>
-                        <td>' . $id . '</td>
                         <td>' . $packagetype . '</td>
                         <td>' . $description . '</td>
                         <td>' . $paymentperiod . '</td>
@@ -64,6 +64,7 @@
             ?>
         </tbody>
     </table>
+    </div>
 
     <!-- <div class="machine">
                 <div class="c1">
@@ -79,11 +80,12 @@
             </div> -->
 
 
-
+    <div class="frm">
     <div class="container">
         <div class="addMachine">
             <h2>Add Package</h2>
             <form method="post">
+                <input type="hidden" name="manageremail" id="manageremail" value="<?= $_SESSION['email']?>">
                 <div class="inputBx">
                     <span>Package Type</span>
                     <input type="text" name="packagetype" id="packagetype">
@@ -107,6 +109,8 @@
 
             </form>
         </div>
+    </div>
+    </div>
     </div>
 
 </body>
