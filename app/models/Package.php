@@ -8,6 +8,7 @@ class Package
     protected $table = 'packages';
 
     protected $allowedColumns = [
+        'manageremail',
         'packagetype',
         'description',
         'paymentperiod',
