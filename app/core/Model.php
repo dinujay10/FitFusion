@@ -136,7 +136,7 @@ trait Model
         $result=mysqli_query($con,$sql);
        // $data[$id_column] = $id;
        // $query = "delete from $this->table where $id_column = :$id_column ";
-
+    }
 
     public function deletepackage($id, $id_column = 'id')
     {
