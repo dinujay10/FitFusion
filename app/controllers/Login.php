@@ -2,8 +2,32 @@
 
 class Login {
     use Controller;
-
+   
     public function index() {
+
+        
+        if(isset($_SESSION['email'])){
+            if($_SESSION['usertype']=="member") {
+                redirect('memberdash');
+                die();
+            } else if($_SESSION['usertype']=="gyminstructor") {
+                redirect('gyminstructordash');
+                die();
+            } else if($_SESSION['usertype']=="nutritionist") {
+                redirect('nutritionistdash');
+                die();
+            } else if($_SESSION['usertype']=="gymmanager") {
+                redirect('gymmanagerdash');
+                die();
+            } else if($_SESSION['usertype']=="gymowner") {
+                redirect('gymownerdash');
+                die();
+            } else if($_SESSION['usertype']=="admin") {
+                redirect('admindash');
+                die();
+            }
+        }
+
         $data = [];
 
         if ($_SERVER['REQUEST_METHOD']=='POST') {
@@ -13,9 +37,14 @@ class Login {
             $row = $user->first($arr);
 
             if($row) {
-                $this->createUserSession($row);
-                if($row->password===$_POST['password']){
+                echo "hello";
+            
+                //$this->createUserSession($row);
+                if(password_verify($_POST['password'],
+                $row->password)){
                     $_SESSION['USER'] = $row;
+                    $_SESSION['email'] = $row->email;
+                    $_SESSION['usertype'] = $row->usertype;
                     if($row->usertype=="member") {
                         redirect('memberdash');
                     } else if($row->usertype=="gyminstructor") {
@@ -45,17 +74,11 @@ class Login {
     //     $this->view('home');
     // }
 
-    public function createUserSession($user) {
-        $_SESSION['id'] = $user->id;
-        $_SESSION['email'] = $user->email;
-        $_SESSION['username'] = $user->username;
-    }
+    // public function createUserSession($user) {
+    //     $_SESSION['id'] = $user->id;
+    //     $_SESSION['email'] = $user->email;
+    //     $_SESSION['username'] = $user->username;
+    // }
 
-    public function isLoggedIn() {
-        if(isset($_SESSION['user_id'])) {
-            return true;
-        } else {
-            return false;
-        }
-    }
+   
 }
