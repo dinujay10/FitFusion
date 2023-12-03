@@ -4,6 +4,10 @@ class Gymmanagerdash {
     use Controller;
 
     public function index() {
+        //echo "user session id =".$_SESSION['email'];
+        if(!isset($_SESSION['email'])){
+           redirect('login');
+        }
         // $member = new Member;
         // $arr['name'] = "Mary";
         // $arr['age'] = 30;
