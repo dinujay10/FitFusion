@@ -198,7 +198,9 @@ section {
 
 /* gym and nutri list */
 .gym-list {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+    gap: 2rem;
 }
 
 .nutri-list {
@@ -208,12 +210,8 @@ section {
 }
 
 .gym-row {
-   
+    position: relative;
     transition: all .40s;
-    width: 200px;
-    height: 200px;
-    margin:20px;
-    
 }
 
 .nutri-row {
@@ -222,8 +220,8 @@ section {
 }
 
 .gym-row img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: auto;
     position: relative;
     transition: all.40s;
 }
@@ -246,7 +244,7 @@ section {
 }
 
 .gym-text h5 {
-  
+    position: absolute;
     top: 13px;
     left: 13px;
     color: #000000;
@@ -272,7 +270,7 @@ section {
 }
 
 .heart-icon {
-    position:relative;
+    position: absolute;
     right: 0;
     font-size: 20px;
 }
@@ -367,6 +365,11 @@ section {
     align-items: center;
     justify-content: center;
     padding-bottom: 0%;
+    margin-bottom: 40px;
+}
+.search-container h3{
+    margin-left: 100px;
+    color: #12e32e;
 }
 
 .search-bar {
@@ -397,4 +400,182 @@ section {
     border: 0;
     border-radius: 10px;
     cursor: pointer;
+}
+
+
+
+.secondblock{
+    display: flex;
+}
+.secondblock .left{
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+}
+.secondblock .right{
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+}
+.secondblock .left .leftcontent{
+    margin: 30px;
+    height: 150px;
+    width: 650px;
+    text-align: center;
+    padding: 20px;
+    padding-top: 10px;
+    background-color: rgb(241, 241, 241);
+
+}
+.right .packages{
+    width: 470px;
+    display: flex;
+    flex-direction: column;
+}
+.right .packages .package{
+    margin: 10px;;
+    height: 40px;
+    width: 450px;
+    text-align: center;
+    padding: 10px;
+    background-color: beige;
+    border-radius: 10px;
+}
+.right .facilities{
+    margin: 30px;
+    margin-left: 0px;
+    height: 200px;
+    width: 470px;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+    background-color: rgb(241, 241, 241);
+    margin-top: 60px;
+}
+.packages h2{
+    color: rgb(248, 161, 46);
+    margin: 20px;
+    text-align: center;
+}
+.facility img{
+    width: 30px;
+    height: 30px;
+   
+}
+.facility{
+    margin: 10px;
+}
+.facilities h2{
+    color: rgb(255, 153, 127);
+    text-align: center;
+    margin: 10px;
+}
+.leftcontent h3{
+    padding: 10px;
+    color: rgb(236, 117, 19);
+}
+ul {
+    list-style-type: square; /* Change bullet type for unordered list */
+  }
+
+.imageblock-1 img{
+    width: 650px;
+    height: 170px;
+    border-radius: 20px;
+}
+.imageblock-2{
+    display: flex;
+    flex-direction: row;
+}
+
+.imageblock-2 img{
+    width: 200px;
+    height: 135px;
+    border-radius: 20px;
+    margin: 8px;
+}
+.container{
+    margin-left: 130px;
+}
+.equipment{
+    margin: 30px;
+    height: 250px;
+    width: 650px;
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(241, 241, 241);
+    display: flex;
+    
+}
+.equipment h3{
+    padding: 10px;
+    color: rgb(236, 117, 19);
+}
+.equipment-1{
+    margin: 20px;
+}
+.allpackages{
+    padding: 10px;
+    height: 45px;
+    width: 450px;
+    background-color: #ff3434;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px;
+    
+}
+.allpackages a{
+    color:black;
+}
+.singleentry{
+    padding: 10px;
+    height: 45px;
+    width: 450px;
+    background-color: #ffd034;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px;
+    
+}
+.singleentry a{
+    color:black;
+}
+.location{
+    display: flex;
+    background-color: rgb(241, 241, 241);
+    height: 70px;
+    text-align: center;
+    padding: 10px;
+    width: 450px;
+    margin: 10px;
+    border-radius: 10px;
+}
+.location img{
+    width:50px;
+    height:50px;
+    border-radius: 10px;
+}
+.gymname{
+    width: 200px;
+    height: 35px;
+    margin: 10px;
+    margin-bottom: 0px;
+    color: #12e32e;
+    border-radius: 10px;
+    text-align: center;
+    padding: 10px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+}
+.apply{
+    padding: 10px;
+    height: 45px;
+    width: 450px;
+    background-color:#ffd034;
+    border-radius: 10px;
+    text-align: center;
+    margin: 10px;
+}
+.apply a{
+    color:black;
 }
