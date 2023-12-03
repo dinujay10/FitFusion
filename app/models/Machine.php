@@ -11,12 +11,12 @@ class Machine {
         'machineType',
         'price',
         'warranty',
-        'adjustability'
+        'adjustability',
+        'manageremail'
     ];
-
+    //$errors = [];
     public function validate($data) {
-        $this->errors = [];
-
+        $errors=[];
         // validate email
       
         // validate password
@@ -24,21 +24,22 @@ class Machine {
             $this->errors['id'] = "Id is required";
         } 
         if(empty($data['machineType'])) {
-            $this->errors['id'] = "Machine type is required";
+            $this->errors['machineType'] = "Machine type is required";
         } 
         if(empty($data['price'])) {
-            $this->errors['id'] = "Price is required";
+            $this->errors['price'] = "Price is required";
         } 
         if(empty($data['warranty'])) {
-            $this->errors['id'] = "Warranty is required";
+            $this->errors['warranty'] = "Warranty is required";
         } 
-        if(empty($data['adjustabulity'])) {
-            $this->errors['id'] = "Adjustability is required";
+        if(empty($data['adjustability'])) {
+            $this->errors['adjustability'] = "Adjustability is required";
         } 
 
         if(empty($this->errors)) {
             return true;
         }
+        //print_r($this->errors);
         return false;
     }
 
@@ -52,8 +53,7 @@ class Machine {
             $this->errors['id'] = "ID is already in use";
         } 
 
-          
-
+        
         if(empty($this->errors)) {
             return true;
         }
