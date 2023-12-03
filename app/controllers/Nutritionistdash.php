@@ -4,6 +4,10 @@ class Nutritionistdash {
     use Controller;
 
     public function index() {
+
+        if(!isset($_SESSION['email'])){
+            redirect('login');
+         }
         // $member = new Member;
         // $arr['name'] = "Mary";
         // $arr['age'] = 30;
