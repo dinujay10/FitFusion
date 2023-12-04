@@ -10,6 +10,9 @@ class Manageresources{
             $data = [];
             $usertable = new Machine;
             $data=$usertable->findAll();
+            if($data==false){
+                $data = [];
+            }
             /////////////////////////////////////
             if(isset($_GET['deleteid'])){
                 $idd=$_GET['deleteid'];
@@ -20,10 +23,8 @@ class Manageresources{
             ////////////////////////////////
 
             if ($_SERVER['REQUEST_METHOD']=='POST') {
-                
-               
-                
                 $usertable->insert($_POST);
+                $data = $usertable->findAll();
                 redirect('manageresources');
                // $data['errors'] = $usertable->errors;
             }

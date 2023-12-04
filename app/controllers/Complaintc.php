@@ -10,6 +10,9 @@ class Complaintc{
             $data = [];
             $usertable = new Complaint;
             $data=$usertable->findAll();
+            if($data==false){
+                $data = [];
+            }
             /////////////////////////////////////
             if(isset($_GET['deleteid'])){
                 $idd=$_GET['deleteid'];
@@ -20,10 +23,8 @@ class Complaintc{
             ////////////////////////////////
 
             if ($_SERVER['REQUEST_METHOD']=='POST') {
-                
-               
-                
                 $usertable->insert($_POST);
+                $data = $usertable->findAll();
                 redirect('complaintc');
                // $data['errors'] = $usertable->errors;
             }

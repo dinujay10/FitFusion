@@ -9,6 +9,9 @@ class Packages
         $data = [];
         $usertable = new Package;
         $data = $usertable->findAll();
+        if($data==false){
+            $data = [];
+        }
         /////////////////////////////////////
         if (isset($_GET['deleteid'])) {
             $id = $_GET['deleteid'];
@@ -19,10 +22,8 @@ class Packages
         ////////////////////////////////
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-
-
             $usertable->insert($_POST);
+            $data = $usertable->findAll();
             redirect('packages');
             $data['errors'] = $usertable->errors;
         }
