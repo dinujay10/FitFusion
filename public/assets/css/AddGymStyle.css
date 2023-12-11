@@ -6,9 +6,9 @@
     
 }
 nav{
-    padding: 40px;
+    padding: 30px;
     background-color: orange;
-    height: 15%;
+    height: 5%;
 }
 .logo p{
     font-size:30px;
@@ -79,6 +79,8 @@ ul{
 
 .inputBx{
     margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
 }
  .inputBx span{
     font-size: 16px;
@@ -111,12 +113,13 @@ ul{
     font-weight: 500;
     cursor:pointer;
     background-color: #453303;
+    margin-left: 230px;
     
 }
 
 .inputBx input[type="submit"]:hover{
     background: rgb(216, 57, 13);
-
+   
 }
 
 form{
@@ -142,10 +145,12 @@ form{
     align-items: left;
     align-content: left;
 }
+.fac1{
+    margin-right: 140px;
+}
 .title{
     
     height: 70px;
-    
     margin: 20px;
     text-align: center;
     padding-top: 15px;
@@ -162,6 +167,10 @@ span{
 }
 .nameAndEmail{
     display: flex;
+    
+}
+.nameAndEmail .inputBx{
+    margin-right: 150px;
     
 }
 .gymimage{
