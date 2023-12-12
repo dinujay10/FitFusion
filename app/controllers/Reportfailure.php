@@ -11,31 +11,32 @@ class Reportfailure{
             /////////////////////////////////////
             if(isset($_GET['machineid'])){
                 $idd=$_GET['machineid'];
-                $arr['id'] = $idd;
+                $data['id'] = $idd;
                
-                $temp=$usertable->first($arr);
+                // $temp=$usertable->first($arr);
                
-                if($_SESSION['email']==$temp->manageremail){
-                    $data['id']=$temp->id;
-                    $data['failure']=$temp->failure;
-                    $data['notes']=$temp->notes;
+                // if($_SESSION['email']==$temp->manageremail){
+                //     $data['id']=$temp->id;
+                //     $data['failure']=$temp->failure;
+                //     $data['notes']=$temp->notes;
                    
-                     print_r($data);
+                //      print_r($data);
 
-                    $this->view('reportfailure', $data);
-                }
-                else{
-                    echo "UNAUTHORIZED ACCESS";
-                }
+                //     $this->view('reportfailure', $data);
+                // }
+                // else{
+                //     echo "UNAUTHORIZED ACCESS";
+                // }
                
             }
             ////////////////////////////////
 
             if ($_SERVER['REQUEST_METHOD']=='POST') {
                 
-               if(!empty($_POST['id']) && !empty($_POST['failure']) && !empty($_POST['notes'])){
-                    $usertable->update($_POST['id'],$_POST);
-                    redirect('machinefailure');
+               if( !empty($_POST['failure']) && !empty($_POST['notes'])){
+                    $_POST['id']=$data['id'];
+                    $usertable->insert($_POST);
+                    //redirect('machinefailure');
                 }
                 else{
                     $data['errors']='Please fill all the fields';
