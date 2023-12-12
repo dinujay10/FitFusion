@@ -122,8 +122,6 @@ trait Model
       
        $data[$id_column] = $id;
        $query = "delete from $this->table where $id_column = :$id_column ";
-<<<<<<< HEAD
-=======
         
        //echo $query;
        $this->query($query, $data);
@@ -161,7 +159,6 @@ trait Model
         $result=mysqli_query($con,$sql);
        // $data[$id_column] = $id;
        // $query = "delete from $this->table where $id_column = :$id_column ";
->>>>>>> 864879dff98943582f4b900d541ecfe1273733c8
         
        //echo $query;
        $this->query($query, $data);
@@ -169,28 +166,28 @@ trait Model
         return false;
     }
 
-    public function deletemachine($id, $id_column = 'id') {
-        $con=new mysqli('localhost','root','','fitfusion');
-        //$con = $this->connect();
-        $sql="delete from `machines` where id=$id";
-        $result=mysqli_query($con,$sql);
-       // $data[$id_column] = $id;
-       // $query = "delete from $this->table where $id_column = :$id_column ";
+    // public function deletemachine($id, $id_column = 'id') {
+    //     $con=new mysqli('localhost','root','','fitfusion');
+    //     //$con = $this->connect();
+    //     $sql="delete from `machines` where id=$id";
+    //     $result=mysqli_query($con,$sql);
+    //    // $data[$id_column] = $id;
+    //    // $query = "delete from $this->table where $id_column = :$id_column ";
 
-    }
-    public function deletepackage($id, $id_column = 'id')
-    {
-        $con = new mysqli('localhost', 'root', '', 'fitfusion');
-        //$con = $this->connect();
-        $sql = "delete from `packages` where id=$id";
-        $result = mysqli_query($con, $sql);
-        // $data[$id_column] = $id;
-        // $query = "delete from $this->table where $id_column = :$id_column ";
+    // }
+    // public function deletepackage($id, $id_column = 'id')
+    // {
+    //     $con = new mysqli('localhost', 'root', '', 'fitfusion');
+    //     //$con = $this->connect();
+    //     $sql = "delete from `packages` where id=$id";
+    //     $result = mysqli_query($con, $sql);
+    //     // $data[$id_column] = $id;
+    //     // $query = "delete from $this->table where $id_column = :$id_column ";
 
-        // echo $query;
-       // $this->query($query, $data);
+    //     // echo $query;
+    //    // $this->query($query, $data);
 
-        return false;
-    }
+    //     return false;
+    // }
 }
 
