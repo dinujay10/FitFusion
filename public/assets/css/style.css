@@ -1,0 +1,853 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    /* CHANGE FONT */
+    font-family: 'Poppins', sans-serif; 
+    list-style: none;
+    text-decoration: none;
+}
+
+/* nav bar */
+header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10%;
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+    vertical-align: middle;
+}
+
+.logo p {
+    max-width: 120px;
+    height: auto;
+}
+
+.navmenu {
+    display: flex;
+}
+
+.navmenu a {
+    color: #000000;
+    font-size: 16px;
+    text-transform: capitalize;
+    padding: 10px 20px;
+    font-weight: 400;
+    transition: all .42s ease;
+}
+
+.navmenu a:hover {
+    color: #645a3b;
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon i {
+    margin-right: 20px;
+    color: #424242;
+    font-size: 25px;
+    font-weight: 400;
+    transition: all .42 ease;
+}
+
+.nav-icon i:hover {
+    transform: scal(1.1);
+    color: #424242;
+}
+
+/* #menu-icon {
+    font-size: 35px;
+    color: #2c2c2c;
+    z-index: 10001;
+    cursor: pointer;
+} */
+
+/* header #icon {
+    color: #424242;
+    font-size: 25px;
+    line-height: 8opx;
+    float: right;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+} */
+.checkbtn {
+    font-size: 25px;
+    color: #424242;
+    float: right;
+    line-height: 8opx;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+}
+
+#check {
+    display: none;
+}
+
+/* end of nav bar */
+
+/* home main section ----------------------------------------------------------------------*/
+section {
+    padding: 5% 10%;
+}
+
+.main-home {
+    width: 100%;
+    height: 100vh;
+    background-color: #ffd034;
+    /* background-image: url("../images/gym1.jpg"); */
+    background-position: center;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    align-items: center;
+}
+
+.main-text h5 {
+    color: #2c2c2c;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+.main-text h1 {
+    color: #2c2c2c;
+    font-size: 65px;
+    text-transform: capitalize;
+    line-height: 1.1;
+    font-weight: 600;
+    margin: 6px 0 10px;
+}
+
+.main-text p {
+    color: #2c2c2c;
+    font-size: 20px;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.main-btn {
+    display: inline-block;
+    color: #111;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    border: 2px solid #111;
+    padding: 12px 25px;
+    transition: all .42s ease;
+}
+
+.main-btn:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+.main-btn i{
+    vertical-align: middle;
+}
+
+.down-arrow {
+    position: absolute;
+    top: 85%;
+    right: 11%;
+}
+
+.down i{
+    font-size: 30px;
+    color: #2c2c2c;
+    border: 2px solid #2c2c2c;
+    border-radius: 50px;
+    padding: 12px 12px;
+}
+
+.down i:hover {
+    background-color: #2c2c2c;
+    color: #fff;
+    transition: all .42s ease;
+}
+/* end of home main section */
+
+/* sticky nav bar */
+header.sticky {
+    background: #f3f4f6;
+    padding: 20px 10%;
+    box-shadow: 0px 0px 10px rgb(0 0 0 / 10%);
+}
+
+/* gym list title */
+.center-text h2 {
+    color: #111;
+    font-size: 28px;
+    text-transform: capitalize;
+    text-align: center;
+    margin-bottom: 30px;
+    
+}
+
+/* gym and nutri list */
+.gym-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+    gap: 2rem;
+}
+
+.nutri-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
+    gap: 2rem;
+}
+
+.gym-row {
+    position: relative;
+    transition: all .40s;
+}
+
+.nutri-row {
+    position: relative;
+    transition: all .40s;
+}
+
+.gym-row img {
+    width: 100%;
+    height: auto;
+    position: relative;
+    transition: all.40s;
+    border-radius: 50px;
+}
+
+.nutri-row img {
+    width: 100%;
+    height: auto;
+    border-radius: 100px;
+    margin: 10px 0;
+    position: relative;
+    transition: all.40s;
+}
+
+.gym-row img:hover {
+    transform: scale(0.9);
+}
+
+.nutri-row img:hover {
+    transform: scale(0.9);
+}
+
+.gym-text h5 {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: #ffd034;
+    padding: 3px 10px;
+    border-radius: 2px;
+}
+
+.nutri-text h5 {
+    position: absolute;
+    top: 13px;
+    left: 13px;
+    color: #000000;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    background-color: #ffd034;
+    padding: 3px 10px;
+    border-radius: 2px;
+}
+
+.heart-icon {
+    position: absolute;
+    right: 0;
+    font-size: 20px;
+}
+
+.heart-icon:hover {
+    color: #ffd034;
+}
+
+.rating {
+    color: #ffd034;
+    font-size: 18px;
+}
+
+.price h4 {
+    color: #111;
+    font-size: 16px;
+    text-transform: capitalize;
+    font-weight: 400;
+}
+
+.price p {
+    color: #151515;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* footer */
+.footer {
+    background-color: #f3f4f6;
+}
+
+.footer img {
+    width: 140px;
+    height: auto;
+}
+
+/* responsive css */
+@media(max-width: 890px) {
+    header {
+        padding: 20px 3%;
+        transition: .4s;
+    }
+}
+
+@media(max-width: 630px) {
+    .main-text h1 {
+        font-size: 50px;
+        transition: .4s;
+    }
+    .main-text p {
+        font-size: 18px;
+        transition: .4s;
+    }
+    .main-btn {
+        padding: 10px 20px;
+        transition: .4s;
+    }
+}
+
+@media(max-width:750px) {
+    .checkbtn{
+        display: block;
+    }
+    .navmenu {
+        position: fixed;
+        top: 80px;
+        /* right: -100%; */
+        width: 100%;
+        height: 100vh;
+        left: -100%;
+        background: #f3f4f6;
+        /* display: flex;
+        flex-direction: column; */
+        align-items: center;
+        padding: 120px 30px;
+        text-align: center;
+        transition: .4s;
+    }
+    .navmenu a {
+        display: block;
+        margin: 18px 0;
+    }
+
+    #check:checked ~ header ul{
+        left: 0;
+    }
+}
+
+/* search bar */
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0%;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 400px;
+    height: 30px;
+    background: #f3f4f6;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.search-bar input {
+    background: transparent;
+    flex: 1;
+    border: 0;
+    outline: none;
+    padding: 24px 0;
+    font-size: 15px;
+}
+
+.search-bar button img {
+    width: 20px;
+}
+
+.search-bar button {
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* Sign up image */
+.split-screen {
+    display: flex;
+    flex-direction: column;
+}
+
+.split-left {
+    height: 200px;
+}
+
+.split-left, .split-right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30%;
+}
+
+.split-right .formBx {
+    color: black;
+    text-align: center;
+    width: 328px;
+}
+
+.split-right .formBx .inputBx p {
+    margin: 1,5em 0;
+    font-size: 0.875rem;
+}
+
+form .inputBx, .selectType {
+    display: block;
+    width: 100%;
+}
+
+/* section .signup-imgBx{
+    position: relative;
+    width:70%;
+    height: 90%
+} */
+/* section .signup-imgBx::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    
+} */
+/* section .signup-imgBx img{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+} */
+
+/* signup content box */
+/* section .signup-contentBx{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 90%;
+    margin-right: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 8px;
+    backdrop-filter:blur(5px);
+} */
+
+/* section .signup-contentBx .formBx{
+    width: 50%;
+} */
+
+/* section .signup-contentBx .formBx h2{
+    color: black;
+    font-weight: 600;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #ffe366;
+    display: inline-block;
+    letter-spacing: 1px;
+} */
+
+/* section .signup-contentBx .formBx .inputBx{
+    margin-bottom: 20px;
+}
+
+section .signup-contentBx .formBx .inputBx span{
+    font-size: 16px;
+    margin-bottom:5px;
+    display: inline-block;
+    color: black;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 1px;
+} */
+
+/* section .signup-contentBx .formBx .inputBx input{
+    width: 100%;
+    padding: 10px 20px;
+    outline:none;
+    font-weight: 400;
+    border: 1px solid black;
+    font-size: 16px;
+    letter-spacing: 1px;
+    color:black;
+    background: transparent;
+    border-radius: 30px;
+}
+
+section .signup-contentBx .formBx .inputBx input[type="submit"]{
+    background:#ffe366;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 500;
+    cursor:pointer;  
+}
+
+section .signup-contentBx .formBx .inputBx input[type="submit"]:hover{
+    background: #ffe366;
+}
+
+section .signup-contentBx .formBx .remember{
+    margin-bottom: 10px;
+    color: black;
+    font-weight: 400;
+    font-size: 14px;
+} */
+
+/* section .signup-contentBx .formBx .inputBx p{
+    color:black
+}
+
+section .signup-contentBx .formBx .inputBx p a{
+    color:#ffe366;
+} */
+
+
+section .package-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    width: 50%;
+    height: 90%;
+    margin-right: 0px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.5);
+    backdrop-filter:blur(5px);
+
+}
+
+/* side menu */
+.side-menu {
+    position: fixed;
+    background: #ffd034;
+    width: 20vw;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.side-menu img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.side-menu .brand-name {
+    height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.side-menu li {
+    font-size: 24px;
+    padding: 10px 40px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.side-menu li:hover {
+    background: white;
+    color: #ffd034;
+}
+
+/* ADMIN DASHBOARD */
+/* .admin-container {
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+    height: 100%;
+    margin: 100px;
+    justify-content: center;
+}
+
+.admin-container .box {
+    flex: 1;
+    width: 100px;
+    height: 100px;
+    border-color: #2f4a7e;
+    border-style: double;
+    margin: 20px;
+    justify-content: center;
+
+}
+
+.admin-container .box .a {
+    text-decoration: none;
+} */
+
+.admin-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Distributes space between boxes */
+    margin: 100px;
+    height: 50%;
+  }
+  
+  .admin-container .box {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #ffd034;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center; /* Center the text horizontally */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the text vertically */
+  }
+  
+  .admin-container .box a {
+    text-decoration: none; /* Remove the default underline for links */
+    color: #333; /* Text color for links */
+  }
+  
+/* ADD GYM MANAGER BY ADMIN */
+/* .add-manager-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: auto;
+    margin: 100px;
+}
+
+.add-manager-container .box {
+    flex: 1;
+    width: 50px;
+    height: 50px; 
+}
+
+.add-manager-form-container {
+    display: flex;
+    width: 100%;
+    height: auto;
+    justify-content: center; */
+    /* border: 1px solid rgb(221, 221, 221); */
+/* }
+
+.add-manager-container .box input[type="text"] {
+    width: 10px;
+} */
+
+/* Add Manager Form */
+.add-manager-main-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 100px;
+}
+
+.add-manager-container {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .add-manager-container h2 {
+    font-size: 18px;
+    margin: 0 0 10px;
+  }
+  
+  .add-manager-container .box {
+    margin-bottom: 10px;
+  }
+  
+  .add-manager-container input[type="text"],
+  .add-manager-container input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .add-manager-container select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .add-manager-container input[type="submit"] {
+    background-color: #ffd034;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-manager-container input[type="submit"]:hover {
+    background-color: #ffd034;
+  }
+  
+  /* Manager Table */
+  .add-manager-form-container {
+    margin: 20px auto;
+    width: 80%;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  table thead {
+    background-color: #ffd034;
+    color: #fff;
+  }
+  
+  table th,
+  table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+  }
+  
+  table th {
+    font-weight: bold;
+  }
+  
+  table tbody tr:nth-child(2n) {
+    background-color: #f2f2f2;
+  }
+  
+  table tbody tr:hover {
+    background-color: #e0e0e0;
+  }
+  
+  table button {
+    background-color: #ffd034;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 5px;
+  }
+  
+  table a {
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  table button:hover {
+    background-color: #ffd034;
+  }
+
+  /* DASHBOARD SIDE BAR - D */
+  nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    background: #ffd034;
+    width: 90px;
+    overflow: hidden;
+    transition: width 0.2s linear;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar-logo {
+    text-align: center;
+    display: flex;
+    transition: all 0.5s ease;
+    margin: 10px 0 0 10px;
+  }
+  .sidebar-logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 10%;
+    /* added below */
+    /* background-color: #ffffff; */
+  }
+  .sidebar-logo span {
+    font-weight: bold;
+    padding-left: 15px;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+
+  nav a {
+    position: relative;
+    color: #000;
+    font-size: 14px;
+    display: table;
+    width: 300px;
+    padding: 10px;
+  }
+
+  .material-symbols-outlined {
+    position: relative;
+    width: 70px;
+    height: 40px;
+    top: 14px;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .nav-item {
+    position: relative;
+    top: 12px;
+    margin-left: 10px;
+  }
+
+  nav a:hover {
+    background: #eee;
+  }
+
+  nav:hover {
+    width: 280px;
+    transition: all 0.5s ease;
+  }
+
+.logout {
+    position: absolute;
+    bottom: 0;
+}  
