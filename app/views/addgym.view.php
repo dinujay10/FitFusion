@@ -44,36 +44,45 @@
         
         <div class="inputBx">
             <span>Description</span>
-            <textarea name="description" id="description" cols="50" rows="7"></textarea>
+            <div>
+                <textarea name="description" id="description" cols="68" rows="7"></textarea>
+            </div>
+            
             
         </div>
         <div class="inputBx">
             <span>Location</span>
+            <div>
             <input type="text" name="location1" id="location1" placeholder="first line" required>
+            </div>
+            <div>
             <input type="text" name="location2" id="location2" placeholder="second line" required>
+            </div>
+            <div>
             <input type="text" name="location3" id="location3" placeholder="third line" required>
+            </div>    
         </div>
         <div class="openhours">
             <span>Open Hours</span><br><br>
             <span>Weekdays</span>
-            <span>From</span>
-            <input type="time" name="openhourswf" id="openhourswf" required>
+            <span>From</span>&nbsp;&nbsp;
+            <input type="time" name="openhourswf" id="openhourswf" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>To</span>
             <input type="time" name="openhourswt" id="openhourswt" required><br><br>
-            <span>Saturday</span>
-            <span>From</span>
-            <input type="time" name="openhourssaf" id="openhourssaf" required>
+            <span>Saturday&nbsp;</span>
+            <span>From</span>&nbsp;&nbsp;
+            <input type="time" name="openhourssaf" id="openhourssaf" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>To</span>
             <input type="time" name="openhourssat" id="openhourssat" required><br><br>
-            <span>Sunday</span>
-            <span>From</span>
-            <input type="time" name="openhourssuf" id="openhourssuf" required>
+            <span>Sunday&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span>From</span>&nbsp;&nbsp;
+            <input type="time" name="openhourssuf" id="openhourssuf" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>To</span>
             <input type="time" name="openhourssut" id="openhourssut" required><br><br>
         </div>
      
        <div class="facilities">
-        <span>Facilities</span><br><br><br>
+        <span>Facilities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br><br><br>
         <div class="fac1">
             <input type="checkbox" id="wifi" name="wifi" value="wifi">
             <label for="wifi"> Wifi</label><br>
@@ -96,7 +105,8 @@
 
         </div>
         <div class="gymimage">
-            <input type="file" name="firstimage">
+            <span>Select Gym Images</span><br><br> 
+            <input type="file" name="images[]" multiple accept="image/*" required>
         </div>
         
         <div class="inputBx">

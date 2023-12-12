@@ -195,7 +195,6 @@ header.sticky {
     text-transform: capitalize;
     text-align: center;
     margin-bottom: 30px;
-    
 }
 
 /* gym and nutri list */
@@ -226,7 +225,6 @@ header.sticky {
     height: auto;
     position: relative;
     transition: all.40s;
-    border-radius: 50px;
 }
 
 .nutri-row img {

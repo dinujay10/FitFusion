@@ -1,6 +1,7 @@
 <?php
 
-Trait Model {
+trait Model
+{
     use Database;
 
     protected $limit = 10;
@@ -9,71 +10,77 @@ Trait Model {
     protected $order_column = 'id';
     public $errors = [];
 
-    function test() {
+    function test()
+    {
         $query = "select * from users";
         $result = $this->query($query);
         show($result);
     }
 
     // Where function - to get one or more than one record
-    public function findAll() {
-        $query = "select * from $this->table order by $this->order_column $this->order_type limit $this->limit offset $this->offset"; 
-        
+    public function findAll()
+    {
+        $query = "select * from $this->table order by $this->order_column $this->order_type limit $this->limit offset $this->offset";
+
         return $this->query($query);
     }
 
-    public function where($data, $data_not = []) {
+    public function where($data, $data_not = [])
+    {
         $keys = array_keys($data);
         $keys_not = array_keys($data_not);
         $query = "select * from $this->table where ";
 
-        foreach($keys as $key) {
+        foreach ($keys as $key) {
             $query .= $key . " = :" . $key . " && "; // the :id tells that its a variable and not a query($id), therefore SQL attacks can be prevented
         }
-        foreach($keys_not as $key) {
+        foreach ($keys_not as $key) {
             $query .= $key . " != :" . $key . " && ";
         }
 
         $query = trim($query, " && ");
-        $query .= " order by $this->order_column $this->order_type limit $this->limit offset $this->offset"; 
+        $query .= " order by $this->order_column $this->order_type limit $this->limit offset $this->offset";
         $data = array_merge($data, $data_not);
 
         return $this->query($query, $data);
     }
 
-    public function first($data, $data_not = []) {
+    public function first($data, $data_not = [])
+    {
         $keys = array_keys($data);
         $keys_not = array_keys($data_not);
         $query = "select * from $this->table where ";
 
-        foreach($keys as $key) {
+        foreach ($keys as $key) {
             $query .= $key . " = :" . $key . " && "; // the :id tells that its a variable and not a query($id), therefore SQL attacks can be prevented
         }
-        foreach($keys_not as $key) {
+        foreach ($keys_not as $key) {
             $query .= $key . " != :" . $key . " && ";
         }
 
         $query = trim($query, " && ");
-        $query .= " limit $this->limit offset $this->offset"; 
+        $query .= " limit $this->limit offset $this->offset";
         $data = array_merge($data, $data_not);
 
         $result = $this->query($query, $data);
 
-        if($result)
+        if ($result)
             return $result[0];
         return false;
     }
 
-    public function insert($data) {
+    public function insert($data)
+    {
         // remove unwanted data
-        if(!empty($this->allowedColumns)) {
-            foreach($data as $key => $value) {
-                if(!in_array($key, $this->allowedColums)) {
+
+        if (!empty($this->allowedColumns)) {
+            foreach ($data as $key => $value) {
+                if (!in_array($key, $this->allowedColumns)) {
                     unset($data[$key]);
                 }
             }
         }
-        
+
         $keys = array_keys($data);
         $query = "insert into $this->table (" . implode(",", $keys) . ") values (:" . implode(",:", $keys) . ")";
 
@@ -81,11 +88,13 @@ Trait Model {
         return false;
     }
 
-    public function update($id, $data, $id_column = 'id') {
+    public function update($id, $data, $id_column = 'id')
+    {
         // remove unwanted data
-        if(!empty($this->allowedColumns)) {
-            foreach($data as $key => $value) {
-                if(!in_array($key, $this->allowedColums)) {
+
+        if (!empty($this->allowedColumns)) {
+            foreach ($data as $key => $value) {
+                if (!in_array($key, $this->allowedColumns)) {
                     unset($data[$key]);
                 }
             }
@@ -94,12 +103,12 @@ Trait Model {
         $keys = array_keys($data);
         $query = "update $this->table set ";
 
-        foreach($keys as $key) {
+        foreach ($keys as $key) {
             $query .= $key . " = :" . $key . ", "; // the :id tells that its a variable and not a query($id), therefore SQL attacks can be prevented
         }
 
         $query = trim($query, ", ");
-        $query .= " where $id_column = :$id_column "; 
+        $query .= " where $id_column = :$id_column ";
 
         $data[$id_column] = $id;
         // echo $query;
@@ -113,6 +122,46 @@ Trait Model {
       
        $data[$id_column] = $id;
        $query = "delete from $this->table where $id_column = :$id_column ";
+<<<<<<< HEAD
+=======
+        
+       //echo $query;
+       $this->query($query, $data);
+
+        return false;
+    }
+
+    public function deletemachine($id, $id_column = 'id') {
+        $con=new mysqli('localhost','root','','fitfusion');
+        //$con = $this->connect();
+        $sql="delete from `machines` where id=$id";
+        $result=mysqli_query($con,$sql);
+       // $data[$id_column] = $id;
+       // $query = "delete from $this->table where $id_column = :$id_column ";
+    }
+
+    public function deletepackage($id, $id_column = 'id')
+    {
+        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        //$con = $this->connect();
+        $sql = "delete from `packages` where id=$id";
+        $result = mysqli_query($con, $sql);
+        // $data[$id_column] = $id;
+        // $query = "delete from $this->table where $id_column = :$id_column ";
+
+        // echo $query;
+        // $this->query($query, $data);
+
+        return false;
+    }
+    public function deletecomplaint($id, $id_column = 'id') {
+        $con=new mysqli('localhost','root','','fitfusion');
+        //$con = $this->connect();
+        $sql="delete from `complaint` where id=$id";
+        $result=mysqli_query($con,$sql);
+       // $data[$id_column] = $id;
+       // $query = "delete from $this->table where $id_column = :$id_column ";
+>>>>>>> 864879dff98943582f4b900d541ecfe1273733c8
         
        //echo $query;
        $this->query($query, $data);
@@ -139,7 +188,7 @@ Trait Model {
         // $query = "delete from $this->table where $id_column = :$id_column ";
 
         // echo $query;
-        $this->query($query, $data);
+       // $this->query($query, $data);
 
         return false;
     }

@@ -12,6 +12,7 @@ class Gympagetest {
         $address=new Address;
         $openhours=new Openhours;
         $packages=new Package;
+        $gymimages=new Gymimages;
 
         if(isset($_GET['id'])){
             $idd=$_GET['id'];
@@ -65,6 +66,20 @@ class Gympagetest {
                 $data[$x]['amount']=$packagesdata[$x]->amount;
             }
             $data['limit']=$limit;
+<<<<<<< HEAD
+=======
+
+            //get gym images
+            $arr4['manageremail'] = $data['manageremail'];
+            $gymimagesdata=$gymimages->where($arr4);
+            //print_r($gymimagesdata);
+            $y=0;
+            foreach($gymimagesdata as $img){
+                $data['image'][$y]=$img->image_url;
+                $y=$y+1;
+            }
+       
+>>>>>>> 864879dff98943582f4b900d541ecfe1273733c8
            
 
 

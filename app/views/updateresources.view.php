@@ -6,7 +6,6 @@
     <title>Document</title>
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManageResourcesStyle.css">
 </head>
-
 <body>
     <nav>
         <div class = "logo">

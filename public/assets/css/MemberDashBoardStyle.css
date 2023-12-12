@@ -70,7 +70,7 @@ td {
 }
 .side-menu {
     position: fixed;
-    background: rgba(240, 138, 4, 0.918);
+    background: #ffe366;
     width: 20vw;
     min-height: 100vh;
     display: flex;

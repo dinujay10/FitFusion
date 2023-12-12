@@ -98,10 +98,13 @@
                 <!-- GYM 1 -->
            
                 <?php
+
+
+
                     for($x=0;$x<count($data);$x++){
                     echo '<a href="gympagetest?id='.$data[$x]['id'].'">
                     <div class="gym-row">
-                    <img src="'.ROOT.'/assets/images/gym3.jpg" alt="">
+                    <img src="'.ROOT.'/assets/uploadgymimages/'.$data[$x]['gymimages'].'" alt="">
                     
                     <div class="gym-text">
                         <h5>'.$data[$x]['location2'].' ,'.$data[$x]['location3'].'</h5>

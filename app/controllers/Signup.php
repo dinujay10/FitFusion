@@ -19,9 +19,8 @@ class Signup {
             } else if($_POST['usertype']=='nutritionist') {
                 $user = new Nutritionist;
             }
-             else if($_POST['usertype']=='gymmanager') {
-                $user = new Gymmanager;
-             }
+            // } else if($_POST['usertype']=='gymmanager') {
+            //     $user = new Gymmanager;
             // } else if($_POST['usertype']=='gymowner') {
             //     $user = new Gymowner;
             // }

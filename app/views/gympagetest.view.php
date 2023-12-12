@@ -100,14 +100,25 @@
             <div class="left">
                 <div class="imageblock">
                     <div class="imageblock-1">
-                        <img src="<?=ROOT?>/assets/images/gym5.jpg" alt="">
-                    </div>
+                        <img src="<?=ROOT?>/assets/uploadgymimages/<?=$data['image'][0]?>" alt="">
+                    </div> 
+                           
+                             
                     <div class="imageblock-2">
-                        <img src="<?=ROOT?>/assets/images/gym1.jpg" alt="">
-                        <img src="<?=ROOT?>/assets/images/gym2.jpg" alt="">
-                        <img src="<?=ROOT?>/assets/images/gym3.jpg" alt="">
-                    </div>
-                  
+                        <?php
+                        $x=0;
+                        foreach($data['image'] as $im){
+                            //echo $im;
+                            echo '<img src="' . ROOT . '/assets/uploadgymimages/' . $data['image'][$x+1] . '" alt="">';
+                            $x=$x+1;
+                            if($x==3){
+                                break;
+                            }
+
+                        }
+                        ?>
+                        
+                    </div> 
                 </div>
                 <div class="gymname">
                     <h3>Fitness First-WTC</h3>

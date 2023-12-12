@@ -22,7 +22,6 @@ class Updateresources{
                     $data['price']=$temp->price;
                     $data['warranty']=$temp->warranty;
                     $data['adjustability']=$temp->adjustability;
-                    
                     $this->view('updateresources', $data);
                 }
                 else{

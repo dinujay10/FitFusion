@@ -9,7 +9,7 @@ class Addgym {
          }
         $data = [];
 
-        if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_FILES['firstimage'])) {
+        if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_FILES['images'])) {
             $gyms = new Gym;
             $facilities=new Facilities;
             $addres=new Address;
@@ -74,50 +74,56 @@ class Addgym {
             }
 
             //insert gym images///////////////////////////////////////////////////////
-            $img_name=$_FILES['firstimage']['name'];
-            $img_size=$_FILES['firstimage']['size'];
-            $tmp_name=$_FILES['firstimage']['tmp_name'];
-            $error=$_FILES['firstimage']['error'];
-            print_r($_FILES);
-            if($error===0){
-                if($img_size>125000){
-                    $em="Sorry, your file is too large.";
-                    //header("Location: index.php?error=$em");
-                }else{
-                    $img_ex=pathinfo($img_name,PATHINFO_EXTENSION);
-                    $img_ex_lc=strtolower($img_ex);
-        
-                    $allowed_exs=array("jpg","jpeg","png");
-        
-                    if(in_array($img_ex_lc,$allowed_exs)){
-                        $new_img_name=uniqid("IMG-",true).'.'.$img_ex_lc;
+            //print_r($_FILES);  
+            foreach ($_FILES['images']['tmp_name'] as $key => $tmp_name) {
+                $img_name = $_FILES['images']['name'][$key];
+                $img_size = $_FILES['images']['size'][$key];
+                $error = $_FILES['images']['error'][$key];
+                $tmp_name = $_FILES['images']['tmp_name'][$key];
 
-                        
+                    
+          
+            //print_r($_FILES);
+                if($error===0){
+                    if($img_size>125000){
+                        $em="Sorry, your file is too large.";
+                        //header("Location: index.php?error=$em");
+                    }else{
+                        $img_ex=pathinfo($img_name,PATHINFO_EXTENSION);
+                        $img_ex_lc=strtolower($img_ex);
+            
+                        $allowed_exs=array("jpg","jpeg","png");
+            
+                        if(in_array($img_ex_lc,$allowed_exs)){
+                            $new_img_name=uniqid("IMG-",true).'.'.$img_ex_lc;
 
-                        $img_upload_path='C:/xa/htdocs/FitFusion/public/assets/uploadgymimages/'.$new_img_name;
-                        move_uploaded_file($tmp_name,$img_upload_path);
+                            
 
-                        $gymimagesArr['manageremail']=$_POST['manageremail'];
-                        $gymimagesArr['image_url']=$new_img_name;
-                        //print_r($gymimagesArr);
-                        $gymimages->insert($gymimagesArr);
+                            $img_upload_path='C:/xa/htdocs/FitFusion/public/assets/uploadgymimages/'.$new_img_name;
+                            move_uploaded_file($tmp_name,$img_upload_path);
+
+                            $gymimagesArr['manageremail']=$_POST['manageremail'];
+                            $gymimagesArr['image_url']=$new_img_name;
+                            //print_r($gymimagesArr);
+                            $gymimages->insert($gymimagesArr);
 
 
-                        redirect('gymmanagerdash');
-        
-                        //$sql="INSERT INTO images(image_url)VALUES('$new_img_name')";
-                        //mysqli_query($conn,$sql);
-                        //header("Location:view.php");
-                    }
-                    else{
-                        $em="You can't upload files of this type";
-                       // header("Location:index.php?error=$em");
+                            //redirect('gymmanagerdash');
+            
+                            //$sql="INSERT INTO images(image_url)VALUES('$new_img_name')";
+                            //mysqli_query($conn,$sql);
+                            //header("Location:view.php");
+                        }
+                        else{
+                            $em="You can't upload files of this type";
+                        // header("Location:index.php?error=$em");
+                        }
                     }
                 }
-            }
-            else{
-                $em="unknown error occurred!";
-                //header("Location:index.php?error=$em");
+                else{
+                    $em="unknown error occurred!";
+                    //header("Location:index.php?error=$em");
+                }
             }
 
             ///////////////////////////////////////////////////////////////////////////

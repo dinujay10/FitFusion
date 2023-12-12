@@ -6,9 +6,9 @@
     
 }
 nav{
-    padding: 40px;
+    padding: 30px;
     background-color: orange;
-    height: 15%;
+    height: 5%;
 }
 .logo p{
     font-size:30px;
@@ -79,14 +79,25 @@ ul{
 
 .inputBx{
     margin-bottom: 5px;
+<<<<<<< HEAD
+=======
+    display: flex;
+    flex-direction: column;
+>>>>>>> 864879dff98943582f4b900d541ecfe1273733c8
 }
  .inputBx span{
     font-size: 16px;
     margin-bottom:5px;
     display: inline-block;
+<<<<<<< HEAD
     color: black;
     font-weight: 300;
     font-size: 16px;
+=======
+    color: #00296B;
+    font-weight: 300;
+    font-size: 20px;
+>>>>>>> 864879dff98943582f4b900d541ecfe1273733c8
     letter-spacing: 1px;
 }
 .inputBx input{
@@ -111,12 +122,20 @@ ul{
     font-weight: 500;
     cursor:pointer;
     background-color: #453303;
+<<<<<<< HEAD
+=======
+    margin-left: 230px;
+>>>>>>> 864879dff98943582f4b900d541ecfe1273733c8
     
 }
 
 .inputBx input[type="submit"]:hover{
     background: rgb(216, 57, 13);
+<<<<<<< HEAD
 
+=======
+   
+>>>>>>> 864879dff98943582f4b900d541ecfe1273733c8
 }
 
 form{
@@ -142,10 +161,19 @@ form{
     align-items: left;
     align-content: left;
 }
+<<<<<<< HEAD
 .title{
     
     height: 70px;
     
+=======
+.fac1{
+    margin-right: 140px;
+}
+.title{
+    
+    height: 70px;
+>>>>>>> 864879dff98943582f4b900d541ecfe1273733c8
     margin: 20px;
     text-align: center;
     padding-top: 15px;
@@ -163,4 +191,14 @@ span{
 .nameAndEmail{
     display: flex;
     
+<<<<<<< HEAD
+=======
+}
+.nameAndEmail .inputBx{
+    margin-right: 150px;
+    
+}
+.gymimage{
+    margin:0px;
+>>>>>>> 864879dff98943582f4b900d541ecfe1273733c8
 }

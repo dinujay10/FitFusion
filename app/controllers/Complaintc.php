@@ -4,6 +4,8 @@ class Complaintc{
     use Controller;
 
    
+       
+
         public function index() {
             $data = [];
             $usertable = new Complaint;
