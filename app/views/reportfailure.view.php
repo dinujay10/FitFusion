@@ -27,9 +27,10 @@
                         <div class="addMachine">
                             <h2>Machine failure</h2>
                             <form method="post">
+                                
                                 <div class="inputBx">
                                     <span>id</span>
-                                    <input type="text" name="id" id="id" >
+                                    <input type="text" name="id" id="id"  value="<?= $data['id']?>">
                                 </div>
                               
                                 <div class="inputBx">
