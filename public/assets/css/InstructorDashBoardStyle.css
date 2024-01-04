@@ -49,7 +49,7 @@ td {
 }
 .side-menu {
     position: fixed;
-    background: orange;
+    background: rgb(223, 147, 5);
     width: 20vw;
     min-height: 100vh;
     display: flex;
@@ -74,8 +74,9 @@ td {
     align-items: center;
 }
 .side-menu li:hover {
-    background: white;
-    color: orange;
+    background: rgb(245, 249, 233);
+    color: black;
+    border-radius: 10px;
 }
 .container {
     position: absolute;
@@ -244,7 +245,7 @@ td {
     margin-left: 10px;
 }
 .gyms{
-    display: flex;
+     display: flex; 
    
     width: 100%;
     height: 100%;
@@ -255,7 +256,7 @@ td {
 .gym{
     justify-content: center;
     align-items: center;
-    background-color: aliceblue;
+    background-color: aliceblue; 
    width:150px;
    height: 160px;
    text-align: center;
