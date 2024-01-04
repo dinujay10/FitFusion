@@ -15,6 +15,7 @@ class Addgym {
             $addres=new Address;
             $openhours=new Openhours;
             $gymimages=new Gymimages;
+            $notifications=new Managernotifications;
 
             $data1=[];
             $facility=[];
@@ -72,6 +73,16 @@ class Addgym {
                 $openhours->insert($openhoursArr);  
                 //redirect('gymmanagerdash');
             }
+            //insert notifications
+            $notificationsdata['manageremail']=$_POST['manageremail'];
+            $notificationsdata['nsub']="Insert Packages";
+            $notificationsdata['nmsg']="Please insert your gym packages details.";
+            $notifications->insert($notificationsdata);
+
+            $notificationsdata['manageremail']=$_POST['manageremail'];
+            $notificationsdata['nsub']="Insert Machines";
+            $notificationsdata['nmsg']="Please insert your gym machines details.";
+            $notifications->insert($notificationsdata);
 
             //insert gym images///////////////////////////////////////////////////////
             //print_r($_FILES);  
@@ -130,6 +141,7 @@ class Addgym {
           
     
             $data['errors'] = $gyms->errors;
+            redirect('gymmanagerdash');
         }
 
         $this->view('addgym');
