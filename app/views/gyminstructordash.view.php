@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/MemberDashBoardStyle.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/InstructorDashBoardStyle.css">
     <title>Admin Panel</title>
 </head>
 <body>
@@ -13,7 +13,7 @@
             <h1>Fit Fusion</h1>
         </div>
         <ul>
-            <li><img src="dashboard (2).png" alt="">&nbsp; <h5>Dashboard</h5> </li>
+        <li><img src="<?=ROOT?>/assets/images/dashboards/g2.jpeg" alt="">&nbsp; <h5>Dashboard</h5> </li>
             <li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>My Profile</h6> </li>
             <li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Gym Schedule</h6> </li>
             <li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Workout Plan</h6> </li>
@@ -28,14 +28,14 @@
         <div class="header">
             <div class="nav">
                 <div class="search">
-                    <input type="text" placeholder="Search..">
-                    <button type="submit"><img src="search.png" alt=""></button>
+                    <input type="text" placeholder="Search...">
+                    <button type="submit"><img src="<?=ROOT?>/assets/images/dashboards/location.jpeg" alt=""></button>
                 </div>
                 <div class="user">
                     <a href="#" class="btn">Add New</a>
-                    <img src="notifications.png" alt="">
+                    <img src="<?=ROOT?>/assets/images/dashboards/notification.jpeg" alt="">
                     <div class="img-case">
-                        <img src="user.png" alt="">
+                    <img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">
                     </div>
                 </div>
             </div>
