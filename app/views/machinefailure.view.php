@@ -34,7 +34,9 @@
                 </thead>
                 <tbody>
                     <?php
-                    for($x=0;$x<count($data);$x++){
+                       
+
+                        for($x=0;$x<count($data)-2;$x++){
                         $row=$data[$x];
                         $id=$row->id;
                         $machineType=$row->machineType;
