@@ -57,18 +57,18 @@
         <div class="openhours">
             <span>Open Hours</span><br><br>
             <span>Weekdays</span>
-            <span>From</span>
-            <input type="time" name="openhourswf" id="openhourswf" value="<?= $data['openhourswf']?>" required>
+            <span>From</span>&nbsp;&nbsp;
+            <input type="time" name="openhourswf" id="openhourswf" value="<?= $data['openhourswf']?>" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>To</span>
             <input type="time" name="openhourswt" id="openhourswt" value="<?= $data['openhourswt']?>" required><br><br>
             <span>Saturday</span>
-            <span>From</span>
-            <input type="time" name="openhourssaf" id="openhourssaf" value="<?= $data['openhourssaf']?>" required>
+            <span>From</span>&nbsp;&nbsp;
+            <input type="time" name="openhourssaf" id="openhourssaf" value="<?= $data['openhourssaf']?>" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>To</span>
             <input type="time" name="openhourssat" id="openhourssat" value="<?= $data['openhourssat']?>" required><br><br>
             <span>Sunday</span>
-            <span>From</span>
-            <input type="time" name="openhourssuf" id="openhourssuf" value="<?= $data['openhourssuf']?>" required>
+            <span>From</span>&nbsp;&nbsp;
+            <input type="time" name="openhourssuf" id="openhourssuf" value="<?= $data['openhourssuf']?>" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>To</span>
             <input type="time" name="openhourssut" id="openhourssut" value="<?= $data['openhourssut']?>" required><br><br>
         </div>
