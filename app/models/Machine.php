@@ -13,6 +13,7 @@ class Machine {
         'warranty',
         'adjustability',
         'manageremail'
+
     ];
     //$errors = [];
     public function validate($data) {
@@ -32,8 +33,10 @@ class Machine {
         if(empty($data['warranty'])) {
             $this->errors['warranty'] = "Warranty is required";
         } 
+
         if(empty($data['adjustability'])) {
             $this->errors['adjustability'] = "Adjustability is required";
+
         } 
 
         if(empty($this->errors)) {

@@ -13,10 +13,8 @@
         </div>
 
         <ul>
-            <li><a href ="#">Home</a></li>
-            <li><a href ="#">AboutUs</a></li>
-            <li><a href ="#">Services</a></li>
-            <li><a href ="login">Logout</a></li>
+            <li><a href ="gymmanagerdash">Dashboard</a></li>
+            <li><a href ="home">Logout</a></li>
         </ul>
     </nav>
             <div class="maincontainer">
@@ -29,7 +27,7 @@
                         <td scope=cole>Machinetype</td>
                         <td scope=cole>Price</td>
                         <td scope=cole>Warranty</td>
-                        <td scope=cole>Adjustability</td>
+                        <td scope=cole>Status</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +38,7 @@
                         $machineType=$row->machineType;
                         $price=$row->price;
                         $warranty=$row->warranty;
-                        $adjustability=$row->adjustability;
+                        $status=$row->status;
 
                         echo ' <tr>
                         <th scope="row"></th>
@@ -48,7 +46,7 @@
                         <td>'.$machineType.'</td>
                         <td>'.$price.'</td>
                         <td>'.$warranty.'</td>
-                        <td>'.$adjustability.'</td>
+                        <td>'.$status.'</td>
                         <td>
                             <button><a href="updateresources?updateid='.$id.'">Update</a></button>
                             <button><a href="manageresources?deleteid='.$id.'">Remove</a></button>
@@ -88,6 +86,7 @@
                                 </div>
                                 
                                 <div class="inputBx">
+
                                     <span>Adjustability</span>
                                     <input type="" name="adjustability" id="adjustability" value="<?= $data['post']['adjustability']?>">
                                 </div>
@@ -100,6 +99,7 @@
                                             //print_r(array_values($data['errors']));
                                         }
                                     ?>
+
                                 </div>
                                 <div class="inputBx">
                                     <input type="submit" value="Submit">

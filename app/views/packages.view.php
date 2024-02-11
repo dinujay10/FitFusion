@@ -1,25 +1,23 @@
-<html lang="en">
+<html>
+    <head>
+        <title>FitFusion</title>
+        <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/style.css">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/packagesStyle.css">
-</head>
+        <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
 
-<body>
-    <nav>
-        <div class="logo">
-            <p>FitFusion</p>
-        </div>
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">AboutUs</a></li>
-            <li><a href="#">Services</a></li>
-        </ul>
-    </nav>
+    </head>
+    <body>
+        <header>
+            <a href="#" class = "logo">
+                <img src="<?=ROOT?>/assets/images/LogoFinal.png" alt="logo">
+            </a>
+            <ul class="navmenu">
+                <li><a href ="gymmanagerdash">Dashboard</a></li>
+                <li><a href ="home">Log Out</a></li>
+            </ul>
 
     <div class="maincontainer">
     <div class="tbl">
@@ -80,6 +78,7 @@
             </div> -->
 
 
+
     <div class="frm">
     <div class="container">
         <div class="addMachine">
@@ -109,6 +108,7 @@
 
             </form>
         </div>
+
     </div>
     </div>
     </div>
