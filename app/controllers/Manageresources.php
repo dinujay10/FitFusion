@@ -3,30 +3,58 @@
 class Manageresources{
     use Controller;
 
-   
+        
        
 
         public function index() {
+
+            if(!isset($_SESSION['email'])){
+                redirect('login');
+            }
+            
             $data = [];
             $usertable = new Machine;
-            $data=$usertable->findAll();
-            if($data==false){
-                $data = [];
-            }
+
+
+            $arr1['manageremail'] = $_SESSION['email'];
+            $data=$usertable->where($arr1);
+
             /////////////////////////////////////
             if(isset($_GET['deleteid'])){
                 $idd=$_GET['deleteid'];
 
-                $s=$usertable->deletemachine($idd);
-                redirect('manageresources');
+                $arr2['id'] = $idd;
+               
+                $temp=$usertable->first($arr2);
+                if($_SESSION['email']==$temp->manageremail)
+                {
+                    $s=$usertable->delete($idd);
+                    redirect('manageresources');
+                }
+                else{
+                    echo "UNAUTHORIZED ACCESS";
+                }
             }
             ////////////////////////////////
 
             if ($_SERVER['REQUEST_METHOD']=='POST') {
-                $usertable->insert($_POST);
-                $data = $usertable->findAll();
-                redirect('manageresources');
-               // $data['errors'] = $usertable->errors;
+
+                
+                $arr['id']=$_POST['id'];
+                if($usertable->unique($arr)  && $usertable->validate($_POST))
+                {
+                    print_r($_POST);
+                   
+                    $usertable->insert($_POST);
+                    redirect('manageresources');
+                }
+                else{
+                    $data['errors'] = $usertable->errors;
+                    $data['post']=$_POST;
+                   // print_r($data);
+                }
+               // 
+
             }
             // if($_SERVER['REQUEST_METHOD']=='GET'){
             //     if(isset($_GET['deleteid'])){
@@ -36,7 +64,15 @@ class Manageresources{
             //         redirect('manageresources');
             //     }
             // }
-    
+            if(!isset($data['post'])){
+                $empty_post=['id'=>'','machineType'=>'','price'=>'','warranty'=>'','adjustability'=>''];
+                $data['post']=$empty_post;
+            }
+            if(!isset($data['errors'])){
+                $data['errors']='';
+            }
+           
+
             $this->view('manageresources', $data);
         }
    

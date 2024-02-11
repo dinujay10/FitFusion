@@ -6,12 +6,18 @@ class Packages
 
     public function index()
     {
+        if(!isset($_SESSION['email'])){
+            redirect('login');
+        }
+
         $data = [];
         $usertable = new Package;
-        $data = $usertable->findAll();
-        if($data==false){
-            $data = [];
-        }
+
+
+        $arr1['manageremail'] = $_SESSION['email'];
+        $data=$usertable->where($arr1);
+        //print_r($data);
+
         /////////////////////////////////////
         if (isset($_GET['deleteid'])) {
             $id = $_GET['deleteid'];

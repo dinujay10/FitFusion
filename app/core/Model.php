@@ -138,6 +138,8 @@ trait Model
        // $query = "delete from $this->table where $id_column = :$id_column ";
 
     }
+
+
     public function deletepackage($id, $id_column = 'id')
     {
         $con = new mysqli('localhost', 'root', '', 'fitfusion');

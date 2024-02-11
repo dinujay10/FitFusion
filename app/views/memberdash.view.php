@@ -77,7 +77,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="home" class="logout">
+                    <a href="logout" class="logout">
                         <span class="material-symbols-outlined">logout</span> 
                         <span class="nav-item">Logout</span>
                     </a>
@@ -96,145 +96,38 @@
         <section class="gym" id="gym">
             <div class="gym-list">
                 <!-- GYM 1 -->
-                <div class="gym-row">
-                    <img src="<?=ROOT?>/assets/images/gym8.jpg" alt="">
+           
+                <?php
+
+
+
+                    for($x=0;$x<count($data);$x++){
+                    echo '<a href="gympagetest?id='.$data[$x]['id'].'">
+                    <div class="gym-row">
+                    <img src="'.ROOT.'/assets/uploadgymimages/'.$data[$x]['gymimages'].'" alt="">
                     
                     <div class="gym-text">
-                        <h5>Nugegoda, Colombo</h5>
+                        <h5>'.$data[$x]['location2'].' ,'.$data[$x]['location3'].'</h5>
                     </div>
-                    <div class="heart-icon">
-                        <i class='bx bx-heart'></i>
-                    </div>
-                    <div class="rating">
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                    </div>
-                    <div class="price">
-                        <h4>Colombo Fitness Gym</h4>
-                        <p>Rs. 3000 onwards</p>
-                    </div>
-                </div>
-
-                <!-- GYM 2 -->
-                <div class="gym-row">
-                    <img src="<?=ROOT?>/assets/images/gym2.jpg" alt="">
-                    <div class="gym-text">
-                        <h5>Nugegoda, Colombo</h5>
-                    </div>
-                    <div class="heart-icon">
-                        <i class='bx bx-heart'></i>
-                    </div>
-                    <div class="rating">
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                    </div>
-
-                    <div class="price">
-                        <h4>Colombo Fitness Gym</h4>
-                        <p>Rs. 3000 onwards</p>
-                    </div>
-                </div>
-
-                <!-- GYM 3 -->
-                <div class="gym-row">
-                    <img src="<?=ROOT?>/assets/images/gym3.jpg" alt="">
                     
-                    <div class="gym-text">
-                        <h5>Nugegoda, Colombo</h5>
-                    </div>
-                    <div class="heart-icon">
-                        <i class='bx bx-heart'></i>
-                    </div>
                     <div class="rating">
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                    </div>
+                        <i class="bx bx-star" ></i>
+                        <i class="bx bx-star" ></i>
+                        <i class="bx bx-star" ></i>
+                        <i class="bx bx-star" ></i>
+                        <i class="bx bx-star" ></i>
 
+                    </div>
                     <div class="price">
-                        <h4>Colombo Fitness Gym</h4>
+                        <h4>'.$data[$x]['gymName'].'</h4>
                         <p>Rs. 3000 onwards</p>
                     </div>
-                </div>
+                </div>   </a> '  ;
+                    }
+                ?>
+                
 
-                <!-- GYM 4 -->
-                <div class="gym-row">
-                    <img src="<?=ROOT?>/assets/images/gym4.jpg" alt="">
-                    
-                    <div class="gym-text">
-                        <h5>Nugegoda, Colombo</h5>
-                    </div>
-                    <div class="heart-icon">
-                        <i class='bx bx-heart'></i>
-                    </div>
-                    <div class="rating">
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                    </div>
-
-                    <div class="price">
-                        <h4>Colombo Fitness Gym</h4>
-                        <p>Rs. 3000 onwards</p>
-                    </div>
-                </div>
-
-                <!-- GYM 5 -->
-                <div class="gym-row">
-                    <img src="<?=ROOT?>/assets/images/gym5.jpg" alt="">
-                    
-                    <div class="gym-text">
-                        <h5>Nugegoda, Colombo</h5>
-                    </div>
-                    <div class="heart-icon">
-                        <i class='bx bx-heart'></i>
-                    </div>
-                    <div class="rating">
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                    </div>
-
-                    <div class="price">
-                        <h4>Colombo Fitness Gym</h4>
-                        <p>Rs. 3000 onwards</p>
-                    </div>
-                </div>
-
-                <!-- GYM 6 -->
-                <div class="gym-row">
-                    <img src="<?=ROOT?>/assets/images/gym6.jpg" alt="">
-                    <div class="gym-text">
-                        <h5>Nugegoda, Colombo</h5>
-                    </div>
-                    <div class="heart-icon">
-                        <i class='bx bx-heart'></i>
-                    </div>
-                    <div class="rating">
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                    </div>
-
-                    <div class="price">
-                        <h4>Colombo Fitness Gym</h4>
-                        <p>Rs. 3000 onwards</p>
-                    </div>
-                </div>
+               
             </div>
         </section>
 
