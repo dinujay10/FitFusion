@@ -6,8 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
     <title>Admin Panel</title>
+ 
 </head>
 <body>
+
     <div class="side-menu">
         <div class="brand-name">
             <h1>FIT FUSION</h1>
@@ -15,15 +17,15 @@
         <ul>
             <li>&nbsp; <h5>Dashboard</h5> </li>
             <a href="packages"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>Packages</h6> </li></a>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Gym Schedule</h6> </li>
+            <a href="handlemembercomplaint"><li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Member complaints</h6> </li></a>
             <a href="addgym"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Add Gym</h6> </li></a>
 
             <a href="manageresources"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Manage Gym Resources</h6> </li></a>
 
             <a href="editgym"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Edit Gym</h6> </li></a>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Meetings</h6> </li>
+            <a href="appliedinstructors"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Approve Instructors</h6> </li>
             <a href="logout"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Logout</h6></li></a>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Settings</h6> </li>
+            <a href="newmembersreport"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Reports</h6> </li></a>
         </ul>
     </div>
     <div class="container">
@@ -35,7 +37,14 @@
                 </div>
                 <div class="user">
                     
+                <button onclick="toggleDropdown()">
+                    <span class="counter">5</span>
                     <img src="<?=ROOT?>/assets/images/dashboards/notification.jpeg" alt="">
+                </button>
+                    <ul class="dropdownList" id="dropdownList">
+                        <li><a href="#">Germany jagath dammika</a></li>
+                        <li><a href="#">Australia suagthdasa</a></li>
+                    </ul>
                     
                 </div>
             </div>
@@ -166,5 +175,65 @@
             </div>
         </div>
     </div>
+    <script>
+        function toggleDropdown() {
+            // Get the dropdown list element
+            //alert("this is an alert");
+            fetch('Gymmanagerdash.php')
+                .then(response => {
+                    console.log(JSON.stringify(response, null, 3));
+                    //alert(response);
+                    // Check if the request was successful (status code 200-299)
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    // Parse the JSON in the response
+                    return response.json();
+                })
+                .then(data => {
+                    // Display the notifications
+                    alert("Hey");
+                    showNotifications(data);
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                });
+
+            
+            
+
+            var dropdown = document.getElementById('dropdownList');
+           
+            // Toggle the display property based on the current state
+            dropdown.style.display = (dropdown.style.display === 'none') ? 'block' : 'none';
+        }
+        
+        function showNotifications(notifications) {
+                alert("hey");
+                var counter=0;
+            // Get the notification list element
+                const notificationList = document.getElementById('dropdownList');
+
+                // Clear existing notifications
+                notificationList.innerHTML = '';
+
+                // Display each notification in the list
+                notifications.forEach(notification => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = notification.nmsg;
+                    notificationList.appendChild(listItem);
+                    counter++;
+                });
+                var cnt = document.getElementById('counter');
+                cnt.innerHTML=counter;
+
+                // If there are no notifications, display a message
+                if (notifications.length === 0) {
+                    const noNotificationsMessage = document.createElement('li');
+                    noNotificationsMessage.textContent = 'No new notifications';
+                    notificationList.appendChild(noNotificationsMessage);
+                }
+        }
+    </script>
 </body>
 </html>
