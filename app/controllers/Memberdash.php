@@ -23,9 +23,6 @@ class Memberdash {
             $data[$x]['location1']=$locationdata->location1;
             $data[$x]['location2']=$locationdata->location2;
             $data[$x]['location3']=$locationdata->location3;
-<<<<<<< HEAD
-        }
-=======
 
             //get images
             $arr4['manageremail']=$gymdata[$x]->manageremail;
@@ -38,7 +35,6 @@ class Memberdash {
         
         //$data['image']=$img->image_url;
       
->>>>>>> 864879dff98943582f4b900d541ecfe1273733c8
        
         
         
