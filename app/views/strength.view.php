@@ -105,7 +105,6 @@
                                             value="<?= $strengthPlan['suppliment'] ?>">
                                     <?php endif; ?>
                                 </div>
-
                                 <div class="inputBx">
                                     <span><b>Equipments</b></span>
                                     <?php if (is_array($strengthPlan['equipment'])): ?>
