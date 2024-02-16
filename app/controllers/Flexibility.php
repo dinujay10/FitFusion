@@ -39,11 +39,11 @@ class Flexibility{
 
 
 
-                $equipmentData = $table2->findAll(['id'=>$temp->id]);
+                $equipmentData = $table2->where(['id'=>$temp->id]);
                 // Store equipment data in the cardio plan data
                 $flexibilityPlanData['equipment'] = $equipmentData;
 
-                $supplimentData = $table3->findAll(['id' => $temp->id]);
+                $supplimentData = $table3->where(['id' => $temp->id]);
                 // Store supplement data in the cardio plan data
                 $flexibilityPlanData['suppliment'] = $supplimentData;
                  
