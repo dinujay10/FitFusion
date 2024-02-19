@@ -1,0 +1,148 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    
+}
+nav{
+    padding: 40px;
+    background-color: orange;
+    height: 4%;
+}
+.logo p{
+    font-size:30px;
+    font-weight:bold;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    float:left;
+    color:rgb(16, 4, 4);
+    text-transform:uppercase;
+    letter-spacing: 1.5px;
+    cursor:pointer;
+
+}
+ul{
+    float:right;
+    
+}
+
+ li{
+    padding-top:0px;
+    display:inline-block;
+    list-style:none;
+}
+
+ li a{
+    font-size: 16px;
+    text-transform: uppercase;
+    padding:0px 40px;
+   
+    color:white;
+    text-decoration:none;
+}
+
+ li a:hover{
+      color:brown;
+      transition: all 0.4s ease 0s;
+}
+@media(max-width:735px){
+    nav{
+        
+        background-color: orange;
+        height: 15%;
+        padding-bottom: 20px;
+       
+    }
+    ul{
+        float:left;
+        padding-top: 20px;
+        
+        
+    }
+    
+}
+@media(max-width:540px){
+    nav{
+        
+        background-color: orange;
+        height: 20%;
+        padding-bottom: 20px;
+       
+    }
+    li{
+        
+        padding-top:8px;
+        list-style:none;
+    }
+   
+}
+
+.complaint{ 
+    margin-top: 8px;
+    margin-bottom: 50px;
+    padding: 20px;
+    width: 500px;
+    height: 300px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin-left: 450px;
+
+}
+input[type="submit"] {
+    border: none;
+    outline: none;
+    padding: 9px 25px;
+    background-color: #86e49d;
+    color: #006b21;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 4px;
+    font-weight: 600;
+    width: 100px;
+    margin: 10px;
+    position: relative;
+    
+}
+input[type="text"] {
+    height: 45px;
+    width: 200px;
+    padding: 10px;
+    margin: 6px;
+}
+
+
+
+.right{
+    background-color: rgb(240, 237, 233);
+    margin-top: 60px;
+    padding: 10px;
+    
+}
+.right .complaint{
+    height:350px ;
+}
+.complaint.delete{
+    height: 270px;
+}
+.delete input[type="submit"]{
+    border: none;
+    outline: none;
+    padding: 9px;
+    background-color: #d893a3;
+    color: #b30021;
+    cursor: pointer;
+    font-size: 0.9em;
+    border-radius: 4px;
+    font-weight: 600;
+    width: 150px;
+    margin: 10px;
+    position: relative;
+    color: black;
+}
+
+
+.right h2{
+    text-align: center;
+    margin-top: 10px;
+    color: rgb(12, 100, 71);
+}

@@ -238,3 +238,21 @@ td {
         display: none;
     }
 }
+.dropdownList {
+    display: none;
+    background-color: azure;
+    margin-top: 260px;
+    height:260px;
+    overflow: auto;
+}
+
+.dropdownList li {
+    width: 200px;
+    height:60px;
+    padding: 5px;
+}
+.counter{
+    color: red;
+    font-size: 20px;
+    
+}

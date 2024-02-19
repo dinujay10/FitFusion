@@ -4,6 +4,11 @@ class Signup {
     use Controller;
 
     public function index() {
+        if(isset($_SESSION['email'])){
+            redirect('gymmanagerdash');
+            die();
+        }
+        
         $data = [];
 
         if ($_SERVER['REQUEST_METHOD']=='POST') {
@@ -24,6 +29,9 @@ class Signup {
 
             if($user->validate($_POST) && $usertable->unique($_POST)){
                 if($_POST['password']==$_POST['passwordConfirm']) {
+                    $enc_password=password_hash($_POST['password'],PASSWORD_DEFAULT);
+                    $_POST['password']=$enc_password;
+                    $_POST['passwordConfirm']=$enc_password;
                     $user->insert($_POST);
                     $usertable->insert($_POST);
                     redirect('login');

@@ -21,7 +21,7 @@
     </nav>
     <div class="container">
         <div class="gymimg">
-            <img src="<?=ROOT?>/assets/images/dashboards/gymm.jpg" alt="">
+            <img src="<?=ROOT?>/assets/images/dashboards/g1.jpeg" alt="">
         </div>
         <div class="secondblock">
             <div class="left">

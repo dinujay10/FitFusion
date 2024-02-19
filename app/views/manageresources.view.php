@@ -19,80 +19,97 @@
     </nav>
             <div class="maincontainer">
                 <div class="tbl">
-                    <table>
-                        <thead>
-                            <tr>
-                                <td scope=cole></td>
-                                <td scope=cole>MachineID</td>
-                                <td scope=cole>Machinetype</td>
-                                <td scope=cole>Price</td>
-                                <td scope=cole>Warranty</td>
-                                <td scope=cole>Status</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            for($x=0;$x<count($data);$x++){
-                                $row=$data[$x];
-                                $id=$row->id;
-                                $machineType=$row->machineType;
-                                $price=$row->price;
-                                $warranty=$row->warranty;
-                                $status=$row->status;
 
-                                echo ' <tr>
-                                <th scope="row"></th>
-                                <td>'.$id.'</td>
-                                <td>'.$machineType.'</td>
-                                <td>'.$price.'</td>
-                                <td>'.$warranty.'</td>
-                                <td>'.$status.'</td>
-                                <td>
-                                    <button><a href="deletemachine">Update</a></button>
-                                    <button><a href="manageresources?deleteid='.$id.'">Remove</a></button>
-                                </td>
-                                <br>
-                            </tr> ';
-                            }
-                            //$raw= mysqli_fetch_assoc($data);
-                            //echo '<pre>'; print_r($data); echo '</pre>';
-                            //var_dump($data[0]);
+                <table>
+                <thead>
+                    <tr>
+                        <td scope=cole></td>
+                        <td scope=cole>MachineID</td>
+                        <td scope=cole>Machinetype</td>
+                        <td scope=cole>Price</td>
+                        <td scope=cole>Warranty</td>
+                        <td scope=cole>Status</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    for($x=0;$x<count($data)-2;$x++){
+                        $row=$data[$x];
+                        $id=$row->id;
+                        $machineType=$row->machineType;
+                        $price=$row->price;
+                        $warranty=$row->warranty;
+                        $status=$row->status;
 
-                        ?>
-                        </tbody>
-                    </table>
+                        echo ' <tr>
+                        <th scope="row"></th>
+                        <td>'.$id.'</td>
+                        <td>'.$machineType.'</td>
+                        <td>'.$price.'</td>
+                        <td>'.$warranty.'</td>
+                        <td>'.$status.'</td>
+                        <td>
+                            <button><a href="updateresources?updateid='.$id.'">Update</a></button>
+                            <button><a href="manageresources?deleteid='.$id.'">Remove</a></button>
+                        </td>
+                        <br>
+                    </tr> ';
+                    }
+                    //$raw= mysqli_fetch_assoc($data);
+                    //echo '<pre>'; print_r($data); echo '</pre>';
+                    //var_dump($data[0]);
+
+                    ?>
+                </tbody>
+            </table>
+
                 </div>
                 <div class="frm">
                     <div class="container">
                         <div class="addMachine">
                             <h2>Add Machine</h2>
-                                <form method="post">
-                                    <div class="inputBx">
-                                        <span>Machine Type</span>
-                                        <input type="text" name="machineType" id="machineType">
-                                    </div>
-                                    <div class="inputBx">
-                                        <span>Machine ID</span>
-                                        <input type="" name="id" id="id">
-                                    </div>
-                                    <div class="inputBx">
-                                        <span>Price</span>
-                                        <input type="" name="price" id="price">
-                                    </div>
-                                    <div class="inputBx">
-                                        <span>Warranty</span>
-                                        <input type="" name="warranty" id="warranty">
-                                    </div>
-                                    
-                                    <div class="inputBx">
-                                        <span>Status</span>
-                                        <input type="" name="status" id="status">
-                                    </div>
-                                    <div class="inputBx">
-                                        <input type="submit" value="Submit">
-                                    </div>
+
+                            <form method="post">
+                                <input type="hidden" name="manageremail" id="manageremail" value="<?= $_SESSION['email']?>">
+                                <div class="inputBx">
+                                    <span>Machine Type</span>
+                                    <input type="text" name="machineType" id="machineType" value="<?= $data['post']['machineType']?>">
+                                </div>
+                                <div class="inputBx">
+                                    <span>Machine ID</span>
+                                    <input type="" name="id" id="id" value="<?= $data['post']['id']?>">
+                                </div>
+                                <div class="inputBx">
+                                    <span>Price</span>
+                                    <input type="" name="price" id="price" value="<?= $data['post']['price']?>">
+                                </div>
+                                <div class="inputBx">
+                                    <span>Warranty</span>
+                                    <input type="" name="warranty" id="warranty" value="<?= $data['post']['warranty']?>">
+                                </div>
                                 
-                                </form>
+                                <div class="inputBx">
+
+                                    <span>Adjustability</span>
+                                    <input type="" name="adjustability" id="adjustability" value="<?= $data['post']['adjustability']?>">
+                                </div>
+                                <div>
+                                    <?php
+                                        if($data['errors']!=''){
+                                            for($x=0;$x<count($data['errors']);$x++){
+                                                echo '<h5 style="color: red; font-family: Arial; ">'.array_values($data['errors'])[$x].'</h5>';
+                                            }
+                                            //print_r(array_values($data['errors']));
+                                        }
+                                    ?>
+
+                                </div>
+                                <div class="inputBx">
+                                    <input type="submit" value="Submit">
+                                </div>
+                            
+                            </form>
+
                         </div>
                     </div>
                 </div>
