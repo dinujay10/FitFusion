@@ -21,16 +21,16 @@ h3 {
     color: #999;
 }
 .btn {
-    background: orange;
+    background: #FFE078;
     color: white;
     padding: 5px 10px;
     text-align: center;
 }
 .btn:hover {
-    color: orange;
+    color: #FFE078;
     background: white;
     padding: 3px 8px;
-    border: 2px solid orange;
+    border: 2px solid #FFE078;
 }
 .title {
     display: flex;
@@ -49,7 +49,7 @@ td {
 }
 .side-menu {
     position: fixed;
-    background: orange;
+    background: #FFE078;
     width: 20vw;
     min-height: 100vh;
     display: flex;
@@ -75,7 +75,7 @@ td {
 }
 .side-menu li:hover {
     background: white;
-    color: orange;
+    color: #FFE078;
 }
 .container {
     position: absolute;
@@ -217,7 +217,7 @@ td {
         height: 40px;
     }
     .side-menu li:hover {
-        background: orange;
+        background: #FFE078;
         padding: 8px 38px;
         border: 2px solid white;
     }
