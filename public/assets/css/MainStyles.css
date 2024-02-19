@@ -1,0 +1,70 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* Navigation Bar -- Home, Login, SignUp */
+nav {
+    position: relative;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 10%;
+    background-color: #FFE078;
+}
+.logo p{
+    font-size:30px;
+    font-weight:bold;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    float:left;
+    color:rgb(16, 4, 4);
+    text-transform:uppercase;
+    letter-spacing: 1.5px;
+    cursor:pointer;
+}
+.logo img {
+    width: 120px;
+    height: auto;
+    vertical-align: middle;
+}
+.navmenu {
+    display: flex;
+    list-style: none;
+    vertical-align: middle;
+    align-items: center;
+    align-content: center;
+}
+.navmenu a {
+    display: flex;
+    color: #000000;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: capitalize;
+    padding: 10px 20px;
+    font-weight: 400;
+    transition: all .4s ease;
+}
+.navmenu a:hover {
+    color: #645a3b;
+}
+.nav-icon {
+    display: flex;
+    align-items: center;
+}
+.nav-icon i {
+    margin-right: 20px;
+    color: #424242;
+    font-size: 25px;
+    font-weight: 400;
+    transition: all .42 ease;
+}
+.nav-icon i:hover {
+    transform: scal(1.1);
+    color: #424242;
+}

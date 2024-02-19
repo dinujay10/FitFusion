@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
-    <title>Admin Panel</title>
+    <title>Manager Dashboard</title>
 </head>
 <body>
     <div class="side-menu">
@@ -35,9 +35,7 @@
                     <button type="submit"><img src="<?=ROOT?>/assets/images/dashboards/search.jpeg" alt=""></button>
                 </div>
                 <div class="user">
-                    
                     <img src="<?=ROOT?>/assets/images/dashboards/notification.jpeg" alt="">
-                    
                 </div>
             </div>
         </div>
