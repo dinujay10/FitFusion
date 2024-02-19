@@ -10,13 +10,15 @@
 <body>
     <div class="side-menu">
         <div class="brand-name">
-            <h1>Fit Fusion</h1>
+            <h1><u>Fit Fusion</u></h1>
         </div>
         <ul>
         <li><img src="<?=ROOT?>/assets/images/dashboards/g2.jpeg" alt="">&nbsp; <h5>Dashboard</h5> </li>
             <li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>My Profile</h6> </li>
             <li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Gym Schedule</h6> </li>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Workout Plan</h6> </li>
+            <a href="createworkoutplan"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Create Workout Plan</h6> </li></a>
+            <a href="workoutcategory"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Available Categories</h6> </li></a>
+           
             <a href="machinefailure"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Report Machine Failure</h6> </li></a>
             <li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Feedback</h6> </li>
             <li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Meetings</h6> </li>
@@ -43,7 +45,7 @@
 
         <div class="gymAndNutritionist">
            
-            <h3>Search For Gyms</h3>
+            <h3>Search For Members</h3>
             <div class="gyms">
                 <div class="gym">
                     <img src="<?=ROOT?>/assets/images/dashboards/g1.jpeg" alt="">
@@ -197,7 +199,12 @@
             </div>
         </div>
         
+
         </div>
     
 </body>
+<footer>
+        <p>&copy; 2024 Gym Instructor Dashboard</p>
+    </footer>
+
 </html>
