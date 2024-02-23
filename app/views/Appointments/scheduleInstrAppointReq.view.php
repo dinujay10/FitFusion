@@ -83,13 +83,13 @@
                 <input type="date" id="date" name="date" value="2023-12-10" min="2023-12-10" max="2024-12-31" />
             </div>
             
-            <div class="form-item">
+            <!-- <div class="form-item">
                 <p>Choose the type of appointment that you are planning to have</p>
                     <select name="appointType" id="appointType">
                         <option value="initial">Initial Meeting</option>
                         <option value="progress">Progress Meeting</option>
                     </select>
-            </div>
+            </div> -->
 
             <div class="bottom-container">
                 <button class="next-button">
