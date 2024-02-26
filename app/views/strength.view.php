@@ -21,7 +21,7 @@
             <li><a href="login">Logout</a></li>
         </ul>
     </nav>
-    <h2><b>Strength Plans</b></h2>
+    <h2><b>Basic Strength Plans</b></h2>
     <div class="maincontainer">
         <!-- //<h2><b>Workout Plans</b></h2> -->
 
@@ -80,6 +80,7 @@
                                 <span><b>Program Duration</b></span>
                                 <input type="text" name="programduration" id="programduration"
                                     value="<?= $strengthPlan['programduration'] ?>">
+                            
                                 <div class="inputBx">
                                     <span><b>DaysPerWeek</b></span>
                                     <input type="text" name="daysperweek" id="daysperweek"
@@ -123,7 +124,7 @@
 
 
                                 <button type="submit" name="submit" value="submit">Assign to a member</button>
-
+                            </div>
 
 
                         </form>

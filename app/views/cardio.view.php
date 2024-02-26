@@ -21,7 +21,7 @@
             <li><a href="login">Logout</a></li>
         </ul>
     </nav>
-    <h2><b>Cardio Plans</b></h2>
+    <h2><b>Basic Cardio Plans</b></h2>
     <div class="maincontainer">
         <!-- //<h2><b>Workout Plans</b></h2> -->
 
@@ -125,7 +125,7 @@
 
                                 <button type="submit" name="submit" value="submit">Assign to a member</button>
 
-
+                            </div>
 
                         </form>
 

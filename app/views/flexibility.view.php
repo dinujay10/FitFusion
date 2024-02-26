@@ -21,44 +21,18 @@
             <li><a href="login">Logout</a></li>
         </ul>
     </nav>
-    <h2><b>Flexibility Plans</b></h2>
-    <!-- <?php print_r($data['flexibilityPlans']); ?> -->
-
-    <!-- <?php foreach ($data['flexibilityPlans'] as $flexibilityPlan): ?>
-        <?= $flexibilityPlan['id'] ?>
-    <?php endforeach; ?> -->
-
+    <h2><b>Basic Flexibility Plans</b></h2>
+ 
     <div class="maincontainer">
 
     <?php foreach ($data['flexibilityPlans'] as $flexibilityPlan): ?>
+        
 
-
-
-
-
-            <!-- //<h2><b>Workout Plans</b></h2> -->
-
-
-
-            <!-- $id=$data['id'];
-                $iemail=$data['iemail'];
-                $maingoal=$data['maingoal'];
-                $workouttype=$data['workouttype'];
-                $traininglevel=$data['traininglevel'];
-                $programduration=$data['programduration'];
-                $daysperweek=$data['daysperweek'];
-                $targetgender=$data['targetgender'];
-                $suppliment=$data['suppliment'];
-                $equipment=$data['equipment'];
-            
-            //$raw= mysqli_fetch_assoc($data);
-            //echo '<pre>'; print_r($data); echo '</pre>'; 
-            //var_dump($data[0]);
-              
-            ?> -->
 
             <div class="frm">
+            
                 <div class="container">
+                    
                     <div class="addMachine">
                         <h2><u>Plan</u></h2>
                         <form method="post">
@@ -132,12 +106,14 @@
                                     <?php endif; ?>
                                 </div>
 
-
-                                <button type="submit" name="submit" value="submit">Assign to a member</button>
+                                <button><a href="members?planid='<?= $flexibilityPlan['id'] ?>'">Assign to a member</a></button>
+                            </div>
 
 
 
                         </form>
+
+                        
 
                     </div>
                 </div>
