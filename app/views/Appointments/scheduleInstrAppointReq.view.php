@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <nav class="sidebar sidebar-offcanvas" id="sidebar">
+    <!-- <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="nav-container">
             <div class="top-container">
                 <div class="center-image">
@@ -65,16 +65,26 @@
                 </button>
             </div>
         </div>
-    </nav>
+    </nav> -->
 
 
     <div class="form" style="margin-left:16%">
             <div class="form-item">
                 <p>Choose the Instructor</p>
                     <select name="InstrName" id="InstrName">
+                        <!-- <?php 
+                            // for($x = 0; $x < count($data['instructors']); $x++) {
+                            //     echo '
+                            //         <option value="Instructor1"> . $data['instructors'][$x] . </option>
+                            //     '
+                            // }
+                        ?> -->
                         <option value="Instructor1">Instructor1</option>
                         <option value="Instructor2">Instructor2</option>
                         <option value="Instructor3">Instructor3</option>
+                        <?php 
+                        // $data['gymemail'] 
+                        ?>
                     </select>
             </div>
             
