@@ -8,6 +8,8 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /> 
         <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
+
     </head>
     <body>
         <!-- <header> -->
@@ -32,7 +34,7 @@
             </div>
         </header> -->
 
-        <nav>
+        <!-- <nav>
             <ul>
                 <li>
                     <a href="#" class="sidebar-logo">
@@ -83,8 +85,33 @@
                     </a>
                 </li>
             </ul>
-        </nav>
+        </nav> -->
 
+
+        <!-- //////////////////////////// -->
+        <div class="side-menu">
+        <div class="brand-name">
+            <h1>FIT FUSION</h1>
+        </div>
+        <ul>
+            <li>&nbsp; <h5>Dashboard</h5> </li>
+            <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>My Profile</h6> </li></a>
+            <a href="taskList"><li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Task List</h6> </li></a>
+            <a href="addgym"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Attendance</h6> </li></a>
+
+            <a href="manageresources"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Packages</h6> </li></a>
+            <a href="scheduleInstrAppointReq"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Meetings</h6> </li></a>
+            <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Complaints</h6> </li></a>
+            <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Reviews</h6> </li></a>
+            <a href="home"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Payments</h6></li></a>
+            <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Logout</h6> </li></a>
+
+        </ul>
+        </div>
+        <!-- //////////////////////////// -->
+
+        <!-- ADDED THE CONTAINER CLASS -->
+    <div class="container">
         <section class="search-container">
             <form action="" class="search-bar">
                 <input type="text" placeholder="Seach for a Gym or a Nutritionist" name="search">
@@ -107,7 +134,7 @@
                     <img src="'.ROOT.'/assets/uploadgymimages/'.$data[$x]['gymimages'].'" alt="">
                     
                     <div class="gym-text">
-                        <h5>'.$data[$x]['location2'].' ,'.$data[$x]['location3'].'</h5>
+                        <h5>'.$data[$x]['location2'].', '.$data[$x]['location3'].'</h5>
                     </div>
                     
                     <div class="rating">
@@ -276,6 +303,9 @@
                 </div>
             </div>
         </section>
+
+    </div>
+    <!-- CLOSED THE CONTAINER CLASS DIV -->
 
         <!-- footer -->
         <section class="footer">
