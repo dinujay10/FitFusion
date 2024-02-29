@@ -134,7 +134,7 @@
                     <img src="'.ROOT.'/assets/uploadgymimages/'.$data[$x]['gymimages'].'" alt="">
                     
                     <div class="gym-text">
-                        <h5>'.$data[$x]['location2'].' ,'.$data[$x]['location3'].'</h5>
+                        <h5>'.$data[$x]['location2'].', '.$data[$x]['location3'].'</h5>
                     </div>
                     
                     <div class="rating">

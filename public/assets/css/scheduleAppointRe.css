@@ -57,9 +57,19 @@ nav a {
     color: black;
 } */
 
-body {
-    background-color: #F5F5F5;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
 }
+body {
+    min-height: 100vh;
+}
+
+/* body {
+    background-color: #F5F5F5;
+} */
 
 .form {
     background-color: #FFE078; /* Off white for the form background */
@@ -133,4 +143,64 @@ body {
     margin-bottom: 10px;
 } */
 
-/* Add additional styles as needed */
+
+/* Style the select container */
+.select-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Style the select box */
+.select-box {
+  appearance: none; /* Remove default styling */
+  -webkit-appearance: none; /* Remove default styling for Safari */
+  -moz-appearance: none; /* Remove default styling for Firefox */
+  padding: 8px 30px 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* Style the arrow icon */
+.select-arrow {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+/* Style the dropdown menu */
+.select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  margin-top: 4px;
+  padding: 0;
+  list-style: none;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the dropdown options */
+.select-option {
+  padding: 8px 10px;
+  cursor: pointer;
+}
+
+/* Hover effect for dropdown options */
+.select-option:hover {
+  background-color: #f0f0f0;
+}
+
+/* Show the dropdown menu when the select box is focused */
+.select-box:focus + .select-dropdown {
+  display: block;
+}
+
+

@@ -27,10 +27,41 @@ class ScheduleInstrAppointReq{
             // print_r($reginstructors);
             $arr2['gymemail'] = $gymemail;
             // print_r($arr2['gymemail']);
-            $instructordetails = $reginstructors->where($arr2);
-            $instructoremails = $instructordetails[0]->instructoremail;
-            // $data['instructoremail'] = $instructoremail;
-            // print_r($data['instructoremail']);
+            $instructordetails = $reginstructors->where($arr2); // array of details are here
+
+            // $instructoremails = [];
+            $instrnamelist = [];
+            for ($i=0; $i < count($instructordetails); $i++) { 
+
+                $instructoremails = $instructordetails[$i]->instructoremail;
+                // print_r($instructoremails);
+                $data['instructoremail'] = $instructoremails;
+                // print_r($data['instructoremail']);
+
+                $instructors = new Gyminstructor;
+                // print_r($instructors);
+                $arr3['email'] = $instructoremails;
+                // print_r($arr3['email']);
+                $instrdetails = $instructors->where($arr3);
+                $instrnames = $instrdetails[0]->name;
+                // print_r($instrnames);
+                // print_r($instrdetails);
+                array_push($instrnamelist, $instrnames);
+            }
+
+            $data['instructorlist'] = $instrnamelist;
+
+            // print_r($instrnamelist);
+            // print_r($data['instructorlist']);
+
+            if ($_SERVER['REQUEST_METHOD']=='POST') {
+                $selectedInstructor = $_POST['selectedName'];
+                // print_r($selectedInstructor);
+                echo "Selected Name: " . $selectedInstructor;
+            }
+
+            
+
 
             $this->view('Appointments/scheduleInstrAppointReq', $data);
         }
