@@ -13,9 +13,11 @@ class Packages
         $data = [];
         $usertable = new Package;
 
+
         $arr1['manageremail'] = $_SESSION['email'];
         $data=$usertable->where($arr1);
         //print_r($data);
+
         /////////////////////////////////////
         if (isset($_GET['deleteid'])) {
             $id = $_GET['deleteid'];
@@ -26,10 +28,8 @@ class Packages
         ////////////////////////////////
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-
-
             $usertable->insert($_POST);
+            $data = $usertable->findAll();
             redirect('packages');
             $data['errors'] = $usertable->errors;
         }
