@@ -60,6 +60,8 @@ class ScheduleInstrAppointReq{
                 echo "Selected Name: " . $selectedInstructor;
             }
 
+            // $selectedInstructor = $_POST['selectedName'];
+            // print_r($selectedInstructor);
             
 
 
