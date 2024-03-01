@@ -10,7 +10,8 @@ class Registeredinstructor{
         'id',
         'instructoremail',
         'manageremail',
-        'gymemail'
+
+
         
     ];
 

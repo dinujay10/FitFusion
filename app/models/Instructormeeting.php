@@ -1,16 +1,16 @@
 <?php
 
 // user class
-class Member {
+class Instructormeeting {
     use Model;
 
-    protected $table = 'member';
+    protected $table = 'instructormeeting';
     
     protected $allowedColumns = [
+        'id',
         'name',
-        'username',
-        'email',
-        'password'
+        'email'
+        
     ];
 
     public function validate($data) {
@@ -28,9 +28,7 @@ class Member {
         // validate password
         if(empty($data['password'])) {
             $this->errors['password'] = "Password is required";
-        } else if(strlen($data['password'])<6) {
-            $this->errors['password'] = "Password must be at least 6 characters long";
-        }
+        } 
 
         if(empty($this->errors)) {
             return true;
@@ -42,6 +40,7 @@ class Member {
         $this->errors = [];
         $arr['email'] = $data['email'];
         //check unique email
+        // echo $data[2];
         $unique = $this->first($arr);
         if(!empty($unique)) {
             $this->errors['email'] = "Email is already in use";

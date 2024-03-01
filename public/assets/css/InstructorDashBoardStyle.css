@@ -22,6 +22,7 @@ h3 {
 }
 .btn {
     background:orange;
+    border-radius: 20px;
     color: white;
     padding: 5px 10px;
     text-align: center;
@@ -49,11 +50,12 @@ td {
 }
 .side-menu {
     position: fixed;
-    background: orange;
+    background:rgb(239, 179, 69);
     width: 20vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+   
 }
 .side-menu img{
     width: 40px;
@@ -74,21 +76,23 @@ td {
     align-items: center;
 }
 .side-menu li:hover {
-    background: white;
-    color: orange;
+    background: rgb(245, 249, 233);
+    color: black;
+    border-radius: 10px;
 }
 .container {
     position: absolute;
     right: 0;
-    width: 80vw;
+    width: 79.8%;
     height: 100vh;
     background: #f1f1f1;
+     
 }
 .container .header {
     position: fixed;
     top: 0;
     right: 0;
-    width: 80vw;
+    width: 79.8%;
     height: 10vh;
     background: white;
     display: flex;
@@ -96,6 +100,7 @@ td {
     justify-content: center;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     z-index: 1;
+    border-radius: 10px;
 }
 .container .header .nav {
     width: 90%;
@@ -106,6 +111,7 @@ td {
     flex: 3;
     display: flex;
     justify-content: center;
+    border-radius: 40px;
 }
 .container .header .nav .search input[type=text] {
     border: none;
@@ -116,7 +122,8 @@ td {
 .container .header .nav .search button {
     width: 40px;
     height: 40px;
-    border: none;
+    border-radius:20px;
+    border:none;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -134,6 +141,7 @@ td {
 .container .header .nav .user img {
     width: 40px;
     height: 40px;
+    border-radius: 20px;
 }
 .container .header .nav .user .img-case {
     position: relative;
@@ -148,10 +156,11 @@ td {
     height: 100%;
 }
 .container .content {
-    position: relative;
+    position:relative;
     margin-top: 10vh;
     min-height: 90vh;
     background: #f1f1f1;
+    
 }
 .container .content .cards {
     padding: 20px 15px;
@@ -169,7 +178,16 @@ td {
     align-items: center;
     justify-content: space-around;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+     
 }
+
+.container .content .cards .card:hover {
+    transform: scale(1.1);
+    
+    transition: transform 0.3s ease-in-out;
+}
+
+
 .container .content .content-2 {
     min-height: 60vh;
     display: flex;
@@ -216,7 +234,7 @@ td {
         height: 40px;
     }
     .side-menu li:hover {
-        background: orange;
+        background: rgb(232, 217, 187);
         padding: 8px 38px;
         border: 2px solid white;
     }
@@ -244,7 +262,7 @@ td {
     margin-left: 10px;
 }
 .gyms{
-    display: flex;
+     display: flex; 
    
     width: 100%;
     height: 100%;
@@ -255,7 +273,7 @@ td {
 .gym{
     justify-content: center;
     align-items: center;
-    background-color: aliceblue;
+    background-color: aliceblue; 
    width:150px;
    height: 160px;
    text-align: center;
@@ -315,6 +333,7 @@ input[type="submit"] {
    padding-top: 10px;
    box-shadow: 0px 0px 10px rgba(0, 0, 0, 20);
    border-radius: 5%;
+   transition: transform 0.3s ease-in-out;
 }
 .nutritionists{
     display: flex;
@@ -328,3 +347,18 @@ input[type="submit"] {
 .gymAndNutritionist h3{
     margin-top: 50px;
 }
+
+footer {
+    position:relative;
+    background-color: #fff;
+    color:  #333;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transition: bottom 0.3s ease-in-out; 
+    
+}
+
+
