@@ -11,7 +11,8 @@ class Registeredmembers
         'id',
         'memberemail',
         'gymname',
-        'gymemail'
+        'gymemail',
+        'packageid'
     ];
 
     public function validate($data)
