@@ -20,7 +20,7 @@
         </ul>
     </nav>
             <div class="maincontainer">
-              <h2>Already Reported</h2>
+              <h2><b>Already Reported!</b></h2>
 
               <?php
                 
