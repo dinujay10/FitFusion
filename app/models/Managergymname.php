@@ -1,16 +1,15 @@
 <?php
 
 // user class
-class Registeredinstructor{
+class Managergymname{
     use Model;
 
-    protected $table = 'registeredinstructors';
+    protected $table = 'managergymname';
 
     protected $allowedColumns = [
         'id',
-        'instructoremail',
         'manageremail',
-        'gymemail'
+        'gymemail',
         
     ];
 
