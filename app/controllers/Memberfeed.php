@@ -2,7 +2,6 @@
 
 class Memberfeed{
     use Controller;
- 
 
 
         public function index() {
@@ -12,32 +11,18 @@ class Memberfeed{
             }
             
             $data = [];
-            $table1 = new Memberfeedback ;
-           
-            $feedbacks = $table1->findAll();
-          
-
-            // Convert the fetched cardio plan to an associative array
-          //  $data['cardioPlan'] = (array) $cardioPlan;
-
-             $data['feedbacks'] = [];  
-    
-            foreach($feedbacks as $temp){
-               
-                $data['feedbacks'][]  = [
-                    'id' => $temp->id,
-                    'name' => $temp->name,
-                    'email' => $temp->email,
-                    'feedback' => $temp->feedback
-                  
-                ];
-
-
+            $feedbacktable = new Memberfeedback ;
+        
+            $feedbacks = $feedbacktable->findAll();
             
+            foreach($feedbacks as $feedback){
+                $data[] = $feedback;
             }
 
-
+           
             $this->view('memberfeed', $data);
+
+           
           
             if(!isset($data['errors'])){
                 $data['errors']='';
@@ -45,10 +30,26 @@ class Memberfeed{
            
  
         }
+        public function  feedback(){
+            //$id=$_POST['id'];
+            //$data = json_decode(file_get_contents('php://input'), true);
+            if($_SERVER['REQUEST_METHOD'] == 'POST')
+            {
+                $feedbacktable = new Memberfeedback ;
+                $arr2['id']=$_POST['i'];
+                $fd = $feedbacktable->where($arr2);
+                $arr['feedback']=$fd[0]->feedback;
+                echo json_encode($fd[0]->feedback);
+            }
+            
+            
+            //print_r($fd);
+            
+            // exit();
+
+
+        }
    
 
-    // public function edit($a = '', $b = '', $c = '') {
-    //     show("from the edit function");
-    //     $this->view('home');
-    // }
+    
 }
