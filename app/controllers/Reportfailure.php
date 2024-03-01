@@ -108,7 +108,7 @@ class Reportfailure{
                 $this->view('reportfailure',$data);
 
                 if( !empty($_POST['failure']) && !empty($_POST['notes'])){
-                     $_POST['id']=$data['id'];
+                     
                      $usertable->insert($_POST);
 
                      
