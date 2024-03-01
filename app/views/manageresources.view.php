@@ -5,18 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManageResourcesStyle.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
 </head>
 <body>
-    <nav>
-        <div class = "logo">
-            <p>FitFusion</p>
+    <div class="side-menu">
+        <div class="brand-name">
+            <h1>FIT FUSION</h1>
         </div>
-
         <ul>
-            <li><a href ="gymmanagerdash">Dashboard</a></li>
-            <li><a href ="home">Logout</a></li>
+            <li>&nbsp; <h5>Dashboard</h5> </li>
+            <a href="packages"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>Packages</h6> </li></a>
+            <a href="handlemembercomplaint"><li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Member complaints</h6> </li></a>
+            <a href="addgym"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Add Gym</h6> </li></a>
+
+            <a href="manageresources"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Manage Gym Resources</h6> </li></a>
+
+            <a href="editgym"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Edit Gym</h6> </li></a>
+            <a href="appliedinstructors"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Approve Instructors</h6> </li>
+            <a href="logout"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Logout</h6></li></a>
+            <a href="newmembersreport"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Reports</h6> </li></a>
         </ul>
-    </nav>
+    </div>
+    <div class="container">
             <div class="maincontainer">
                 <div class="tbl">
 
@@ -65,7 +75,9 @@
 
                 </div>
                 <div class="frm">
-                    <div class="container">
+
+                                <div class="secondcontainer">
+
                         <div class="addMachine">
                             <h2>Add Machine</h2>
 
@@ -114,7 +126,10 @@
                     </div>
                 </div>
                         
-            </div>
+
+                </div>
+                </div>
+
             
        
             

@@ -15,22 +15,26 @@ li {
 }
 h1,
 h2 {
-    color: #444;
+    color: white;
 }
 h3 {
-    color: #999;
+    color: white;
 }
 .btn {
-    background: #FFE078;
+
+    background: #45474B;
+
     color: white;
     padding: 5px 10px;
     text-align: center;
 }
 .btn:hover {
-    color: #FFE078;
+
+    color: #45474B;
     background: white;
     padding: 3px 8px;
-    border: 2px solid #FFE078;
+    border: 2px solid #45474B;
+
 }
 .title {
     display: flex;
@@ -49,7 +53,9 @@ td {
 }
 .side-menu {
     position: fixed;
-    background: #FFE078;
+
+    background:  #F4CE14;
+
     width: 20vw;
     min-height: 100vh;
     display: flex;
@@ -66,22 +72,29 @@ td {
     align-items: center;
     justify-content: center;
 }
+.side-menu .brand-name h1 {
+  color: #45474B;
+}
 .side-menu li {
     font-size: 24px;
     padding: 10px 40px;
-    color: white;
+    color: #45474B;
     display: flex;
     align-items: center;
 }
 .side-menu li:hover {
-    background: white;
-    color: #FFE078;
+
+    background: #45474B;
+    color: #F4CE14;
+
 }
 .container {
     position: absolute;
     right: 0;
-    width: 79vw;
-    height: 250vh;
+
+    width: 80vw;
+    height: 170vh;
+
     background: #f1f1f1;
 }
 .container .header {
@@ -169,7 +182,7 @@ td {
     align-items: center;
     justify-content: space-around;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    background-color: rgb(254, 210, 129);
+    background-color: #45474B;
 }
 .container .content .content-2 {
     min-height: 60vh;
@@ -217,7 +230,9 @@ td {
         height: 40px;
     }
     .side-menu li:hover {
-        background: #FFE078;
+
+        background: #F4CE14;
+
         padding: 8px 38px;
         border: 2px solid white;
     }
@@ -240,7 +255,7 @@ td {
 }
 .dropdownList {
     display: none;
-    background-color: azure;
+    background-color: rgb(238, 208, 15);
     margin-top: 260px;
     height:260px;
     overflow: auto;

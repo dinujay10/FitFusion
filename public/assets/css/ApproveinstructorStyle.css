@@ -88,14 +88,15 @@ body{
     background-size: cover;
 }
 
-.container{
+.containera{
     width: 100%;
     max-width: 650px;
-    background: rgba(0, 0, 0, 0.5);
+    background: #333533;
     padding: 28px;
-    margin:40px 40px 350px 350px;
+    margin:40px 40px 250px 250px;
     border-radius: 10px;
     box-shadow: inset -2px 2px 2px white;
+    margin-top: 70px;
     
 }
 
@@ -180,9 +181,9 @@ body{
 .form-submit-btn input{
     display: block;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 20px;
-    padding: 10px;
+    padding: 5px;
     border:none;
     border-radius: 3px;
     color: rgb(209, 209, 209);
@@ -200,7 +201,7 @@ body{
     }
 
     .user-input-box{
-        margin-bottom: 12px;
+        margin-bottom: 6px;
         width: 100%;
     }
 

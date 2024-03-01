@@ -76,7 +76,9 @@ ul{
     }
    
 }
-.container{ 
+
+.secondcontainer{
+
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -119,7 +121,7 @@ ul{
 }
 
 .addMachine{
-    border-color:orange;
+    border-color:#333533;
     width: 400px;
     height: 550px;
     border-style: double;
@@ -173,7 +175,9 @@ section .contentBx .formBx h2{
     border-radius: 30px;
 }
 .inputBx input[type="submit"]{
-    background:#ffd034;
+
+    background:#333533;
+
     color: #fff;
     outline: none;
     border: none;
@@ -196,7 +200,9 @@ section .contentBx .formBx .remember{
     color:black
 }
 .inputBx p a{
-    color: #ffd034;
+
+    color:#333533
+
 }
 
 
@@ -226,7 +232,7 @@ table {
   }
   
   table thead {
-    background-color: #ffd034;
+    background-color: #333533;
     color: #fff;
   }
   
@@ -250,13 +256,14 @@ table {
   }
   
   table button {
-    background-color: #ffd034;
+    background-color: #333533;
     color: #fff;
     border: none;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
     margin-right: 5px;
+    margin-bottom: 5px;
   }
   
   table a {
