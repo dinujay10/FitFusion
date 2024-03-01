@@ -106,7 +106,8 @@
                                     <?php endif; ?>
                                 </div>
 
-                                <button><a href="members?planid='<?= $flexibilityPlan['id'] ?>'">Assign to a member</a></button>
+                                <a href="members?planid=<?= $flexibilityPlan['id'] ?>">Assign to a member</a>
+
                             </div>
 
 
