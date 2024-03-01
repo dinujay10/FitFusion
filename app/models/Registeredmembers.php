@@ -10,7 +10,9 @@ class Registeredmembers
     protected $allowedColumns = [
         'id',
         'memberemail',
-        'gymname'
+        'gymname',
+        'gymemail',
+        'packageid'
     ];
 
     public function validate($data)

@@ -8,20 +8,17 @@ class Complaint {
     
     protected $allowedColumns = [
         'id',
+        'memberEmail',
+        'type',
         'complaint'
     ];
 
     public function validate($data) {
         $this->errors = [];
-
-        // validate email
-      
-        // validate password
      
         if(empty($data['complaint'])) {
             $this->errors['id'] = "Complaint is required";
-        } 
-        
+        }
 
         if(empty($this->errors)) {
             return true;
