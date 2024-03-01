@@ -11,11 +11,12 @@
 <body>
 
     <div class="side-menu">
-        <div class="brand-name">
+        <div class="brand-name">  
             <h1>FIT FUSION</h1>
         </div>
         <ul>
             <li>&nbsp; <h5>Dashboard</h5> </li>
+            <a href="gymmanagerdash"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>Home</h6> </li></a>
             <a href="packages"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>Packages</h6> </li></a>
             <a href="handlemembercomplaint"><li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Member complaints</h6> </li></a>
             <a href="addgym"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Add Gym</h6> </li></a>
@@ -38,12 +39,12 @@
                 <div class="user">
                     
                 <button onclick="toggleDropdown()">
-                    <span class="counter">5</span>
+                    <span class="counter"></span>
                     <img src="<?=ROOT?>/assets/images/dashboards/notification.jpeg" alt="">
                 </button>
                     <ul class="dropdownList" id="dropdownList">
-                        <li><a href="#">Germany jagath dammika</a></li>
-                        <li><a href="#">Australia suagthdasa</a></li>
+                        <!-- <li><a href="#">Germany jagath dammika</a></li>
+                        <li><a href="#">Australia suagthdasa</a></li> -->
                     </ul>
                     
                 </div>
@@ -179,11 +180,11 @@
         function toggleDropdown() {
             // Get the dropdown list element
             //alert("this is an alert");
-            fetch('Gymmanagerdash.php')
+            let baselink = window.location.origin
+            let link = `${baselink}/FitFusion/public/gymmanagerdash/notification`
+            console.log(link)
+            fetch(link)
                 .then(response => {
-                    console.log(JSON.stringify(response, null, 3));
-                    //alert(response);
-                    // Check if the request was successful (status code 200-299)
                     if (!response.ok) {
                         throw new Error(`HTTP error! Status: ${response.status}`);
                     }
@@ -191,9 +192,10 @@
                     return response.json();
                 })
                 .then(data => {
-                    // Display the notifications
-                    alert("Hey");
+                    // // Display the notifications
+                    // alert("Hey");
                     showNotifications(data);
+                    //console.log(data);
                 })
                 .catch(error => {
                     console.error('Fetch error:', error);
@@ -209,7 +211,7 @@
         }
         
         function showNotifications(notifications) {
-                alert("hey");
+                // alert("hey");
                 var counter=0;
             // Get the notification list element
                 const notificationList = document.getElementById('dropdownList');
