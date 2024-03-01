@@ -11,7 +11,12 @@ class Registeredmembers
         'id',
         'memberemail',
         'gymname',
+
         'workoutid'
+
+        'gymemail',
+        'packageid'
+
     ];
 
     public function validate($data)
@@ -59,3 +64,4 @@ class Registeredmembers
         return false;
     }
 }
+

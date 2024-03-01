@@ -13,9 +13,8 @@
         </div>
 
         <ul>
-            <li><a href ="#">Home</a></li>
-            <li><a href ="#">AboutUs</a></li>
-            <li><a href ="#">Services</a></li>
+            <li><a href ="memberdash">Dashboard</a></li>
+            <li><a href ="home">Log Out</a></li>
         </ul>
     </nav>
     
@@ -27,6 +26,7 @@
                      
                         <td scope=cole></td>
                         <td scope=cole>id</td>
+                        <td scope=cole>complaint</td>
                     </tr>
                 </thead>
                 <tbody>

@@ -15,8 +15,10 @@ class Manageresources{
             $data = [];
             $usertable = new Machine;
 
+
             $arr1['manageremail'] = $_SESSION['email'];
             $data=$usertable->where($arr1);
+
             /////////////////////////////////////
             if(isset($_GET['deleteid'])){
                 $idd=$_GET['deleteid'];
@@ -36,6 +38,7 @@ class Manageresources{
             ////////////////////////////////
 
             if ($_SERVER['REQUEST_METHOD']=='POST') {
+
                 
                 $arr['id']=$_POST['id'];
                 if($usertable->unique($arr)  && $usertable->validate($_POST))
@@ -51,6 +54,7 @@ class Manageresources{
                    // print_r($data);
                 }
                // 
+
             }
             // if($_SERVER['REQUEST_METHOD']=='GET'){
             //     if(isset($_GET['deleteid'])){

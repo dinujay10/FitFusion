@@ -16,6 +16,7 @@ class Machinefailure{
 
             $arr1['instructoremail'] = $_SESSION['email'];
             $data=$registeredinstructors->where($arr1);
+
             // print_r($data);
 
             $arr2['manageremail'] = $data[0]->manageremail;
@@ -24,6 +25,7 @@ class Machinefailure{
             // print_r($data);
            
             $this->view('machinefailure', $data);
+
 
             /////////////////////////////////////
       

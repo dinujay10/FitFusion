@@ -7,20 +7,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/AddGymStyle.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
 </head>
 <body>
-    <nav>
-            <div class = "logo">
-                <p>FitFusion</p>
-            </div>
+    <div class="side-menu">
+        <div class="brand-name">
+            <h1>FIT FUSION</h1>
+        </div>
+        <ul>
+            <li>&nbsp; <h5>Dashboard</h5> </li>
+            <a href="packages"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>Packages</h6> </li></a>
+            <a href="handlemembercomplaint"><li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Member complaints</h6> </li></a>
+            <a href="addgym"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Add Gym</h6> </li></a>
 
-            <ul>
-                <li><a href ="#">Home</a></li>
-                <li><a href ="#">AboutUs</a></li>
-                <li><a href ="#">Services</a></li>
-                <li><a href ="login">Logout</a></li>
-            </ul>
-    </nav>
+            <a href="manageresources"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Manage Gym Resources</h6> </li></a>
+
+            <a href="editgym"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Edit Gym</h6> </li></a>
+            <a href="appliedinstructors"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Approve Instructors</h6> </li>
+            <a href="logout"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Logout</h6></li></a>
+            <a href="newmembersreport"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Reports</h6> </li></a>
+        </ul>
+    </div>
+    <div class="container">
     <form method="POST" enctype="multipart/form-data">
         <?php if(!empty($errors)):?>
         <div class="alert">
@@ -45,11 +53,11 @@
         <div class="inputBx">
             <span>Description</span>
             <div>
-                <textarea name="description" id="description" cols="68" rows="7"></textarea>
+                <textarea name="description" id="description" cols="54" rows="7"></textarea>
             </div>
             
             
-        </div>
+        </div><br><br>
         <div class="inputBx">
             <span>Location</span>
             <div>
@@ -61,11 +69,11 @@
             <div>
             <input type="text" name="location3" id="location3" placeholder="third line" required>
             </div>    
-        </div>
+        </div><br><br>
         <div class="openhours">
             <span>Open Hours</span><br><br>
             <span>Weekdays</span>
-            <span>From</span>&nbsp;&nbsp;
+            <span>From</span>
             <input type="time" name="openhourswf" id="openhourswf" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>To</span>
             <input type="time" name="openhourswt" id="openhourswt" required><br><br>
@@ -74,13 +82,13 @@
             <input type="time" name="openhourssaf" id="openhourssaf" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>To</span>
             <input type="time" name="openhourssat" id="openhourssat" required><br><br>
-            <span>Sunday&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <span>Sunday&nbsp;&nbsp;&nbsp;</span>
             <span>From</span>&nbsp;&nbsp;
             <input type="time" name="openhourssuf" id="openhourssuf" required>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <span>To</span>
             <input type="time" name="openhourssut" id="openhourssut" required><br><br>
         </div>
-     
+     <br><br>
        <div class="facilities">
         <span>Facilities&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><br><br><br>
         <div class="fac1">
@@ -104,6 +112,7 @@
         </div>
 
         </div>
+        <br><br>
         <div class="gymimage">
             <span>Select Gym Images</span><br><br> 
             <input type="file" name="images[]" multiple accept="image/*" required>
@@ -113,5 +122,6 @@
             <input type="submit" value="Add Gym">
         </div>
     </form>
+    </div>
 </body>
 </html>

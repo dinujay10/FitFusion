@@ -5,22 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManageResourcesStyle.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
 </head>
 <body>
-    <nav>
-        <div class = "logo">
-            <p>FitFusion</p>
+    <div class="side-menu">
+        <div class="brand-name">
+            <h1>FIT FUSION</h1>
         </div>
-
         <ul>
-            <li><a href ="#">Home</a></li>
-            <li><a href ="#">AboutUs</a></li>
-            <li><a href ="#">Services</a></li>
-            <li><a href ="login">Logout</a></li>
+            <li>&nbsp; <h5>Dashboard</h5> </li>
+            <a href="packages"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>Packages</h6> </li></a>
+            <a href="handlemembercomplaint"><li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Member complaints</h6> </li></a>
+            <a href="addgym"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Add Gym</h6> </li></a>
+
+            <a href="manageresources"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Manage Gym Resources</h6> </li></a>
+
+            <a href="editgym"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Edit Gym</h6> </li></a>
+            <a href="appliedinstructors"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Approve Instructors</h6> </li>
+            <a href="logout"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Logout</h6></li></a>
+            <a href="newmembersreport"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Reports</h6> </li></a>
         </ul>
-    </nav>
+    </div>
+    <div class="container">
             <div class="maincontainer">
                 <div class="tbl">
+
                 <table>
                 <thead>
                     <tr>
@@ -29,7 +38,7 @@
                         <td scope=cole>Machinetype</td>
                         <td scope=cole>Price</td>
                         <td scope=cole>Warranty</td>
-                        <td scope=cole>Adjustability</td>
+                        <td scope=cole>Status</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -40,7 +49,7 @@
                         $machineType=$row->machineType;
                         $price=$row->price;
                         $warranty=$row->warranty;
-                        $adjustability=$row->adjustability;
+                        $status=$row->status;
 
                         echo ' <tr>
                         <th scope="row"></th>
@@ -48,7 +57,7 @@
                         <td>'.$machineType.'</td>
                         <td>'.$price.'</td>
                         <td>'.$warranty.'</td>
-                        <td>'.$adjustability.'</td>
+                        <td>'.$status.'</td>
                         <td>
                             <button><a href="updateresources?updateid='.$id.'">Update</a></button>
                             <button><a href="manageresources?deleteid='.$id.'">Remove</a></button>
@@ -63,11 +72,15 @@
                     ?>
                 </tbody>
             </table>
+
                 </div>
                 <div class="frm">
-                                <div class="container">
+
+                                <div class="secondcontainer">
+
                         <div class="addMachine">
                             <h2>Add Machine</h2>
+
                             <form method="post">
                                 <input type="hidden" name="manageremail" id="manageremail" value="<?= $_SESSION['email']?>">
                                 <div class="inputBx">
@@ -88,6 +101,7 @@
                                 </div>
                                 
                                 <div class="inputBx">
+
                                     <span>Adjustability</span>
                                     <input type="" name="adjustability" id="adjustability" value="<?= $data['post']['adjustability']?>">
                                 </div>
@@ -100,17 +114,22 @@
                                             //print_r(array_values($data['errors']));
                                         }
                                     ?>
+
                                 </div>
                                 <div class="inputBx">
                                     <input type="submit" value="Submit">
                                 </div>
                             
                             </form>
+
                         </div>
                     </div>
                 </div>
                         
+
                 </div>
+                </div>
+
             
        
             
