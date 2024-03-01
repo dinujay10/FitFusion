@@ -66,33 +66,34 @@
             <thead>
             <tr>
                 <td scope="col"></td>
-                <td scope="col">Member name</td>
-                <td scope="col">Username</td>
+                <td scope="col">Member id</td>
+                <td scope="col">Name</td>
                 <td scope="col">Email</td>
                 <td scope="col">Actions</td>
             </tr>
             </thead>
             <tbody>
             <?php
-            for ($x = 0; $x < count($data); $x++) {
-                $id = [$x]['id'];  
-                $row = $data[$x];
-                $name = $row->name;
-                $username = $row->username;
-                $email = $row->email;
-                // Use htmlspecialchars to escape special characters
-                echo '<tr>
-                            <th></th>
-                            <td>' . $id . '</td>
-                            <td>' . $name . '</td>
-                            <td>' . $username . '</td>
-                            <td>' . $email . '</td>
-                            <td>
-                                <button onclick="showFeedbackCard(' . $name . ')">View</button>
-                            </td>
-                        </tr>';
-            }
-            ?>
+            $workoutid=$data['workoutid'];
+for ($x = 0; $x < count($data)-1; $x++) {
+    $row = $data[$x];
+    $memberid = $row->id;
+    $name = $row->gymname;
+    $email = $row->memberemail;
+    
+    // Use htmlspecialchars to escape special characters
+    echo '<tr>
+                <th></th>
+                <td>' . $memberid . '</td>
+                <td>' . $name . '</td>
+                <td>' . $email . '</td>
+                <td>
+                    <a href="members/assign?memberid=' . $memberid . '&workoutid=' . $workoutid . '"><button>Assign</button></a>
+                </td>
+            </tr>';
+}
+?>
+
             </tbody>
         </table>
     </div>
