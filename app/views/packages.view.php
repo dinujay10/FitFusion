@@ -1,4 +1,7 @@
-<html lang="en">
+<html>
+    <head>
+        <title>FitFusion</title>
+        <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/style.css">
 
 <head>
     <meta charset="UTF-8">
@@ -88,6 +91,7 @@
             </div> -->
 
 
+
     <div class="frm">
     <div class="secondcontainer">
         <div class="addMachine">
@@ -117,6 +121,7 @@
 
             </form>
         </div>
+
     </div>
     </div>
     </div>
