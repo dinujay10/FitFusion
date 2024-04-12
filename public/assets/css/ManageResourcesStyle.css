@@ -7,7 +7,7 @@
 }
 nav{
     padding: 40px;
-    background-color: orange;
+    background-color: #ffd034;
     height: 15%;
 }
 .logo p{
@@ -42,13 +42,13 @@ ul{
 }
 
  li a:hover{
-      color:brown;
+      color:black;
       transition: all 0.4s ease 0s;
 }
 @media(max-width:735px){
     nav{
         
-        background-color: orange;
+        background-color: #ffd034;
         height: 15%;
         padding-bottom: 20px;
        
@@ -64,7 +64,7 @@ ul{
 @media(max-width:540px){
     nav{
         
-        background-color: orange;
+        background-color: #ffd034;
         height: 20%;
         padding-bottom: 20px;
        
@@ -76,9 +76,14 @@ ul{
     }
    
 }
+
 .secondcontainer{
+
     display: flex;
     flex-direction: row;
+    align-items: center;
+    padding-left: 10%;
+    /* padding-top: 10px; */
 }
 
 .machines{
@@ -94,7 +99,7 @@ ul{
     padding: 30px;
     width: 70%;
     height: 300px;
-    border-color: aqua;
+    border-color: #ffd034;
     border-style: double;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
    
@@ -123,10 +128,12 @@ ul{
     padding: 15px;
     margin: 30px; 
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 10);
+    align-items: center;
 }
 .addMachine h2{
     padding: 30px;
-    color: rgb(35, 230, 103);
+    color: #ffd034;
+    text-align: center;
 }
 
 section .contentBx .formBx{
@@ -138,7 +145,7 @@ section .contentBx .formBx h2{
     font-size: 1.5em;
     text-transform: uppercase;
     margin-bottom: 20px;
-    border-bottom: 4px solid orange;
+    border-bottom: 4px solid #ffd034;
     display: inline-block;
     letter-spacing: 1px;
 
@@ -168,7 +175,9 @@ section .contentBx .formBx h2{
     border-radius: 30px;
 }
 .inputBx input[type="submit"]{
+
     background:#333533;
+
     color: #fff;
     outline: none;
     border: none;
@@ -191,7 +200,9 @@ section .contentBx .formBx .remember{
     color:black
 }
 .inputBx p a{
+
     color:#333533
+
 }
 
 
@@ -261,10 +272,25 @@ table {
   }
   
   table button:hover {
-    background-color: #ffd034;
-  }
+    background-color:#ffd034;
+}
 
 .maincontainer{
-    display:flex;
+    display: flex;
+/*     align-items: self-start; */
+/*     padding: 50px; */
+}
+
+.frm{
+    flex:1;
+    /* text-align: center;
+    position: absolute; */
+
+}
+.tbl{
+    flex:1;
+    /* text-align: center;
+    position: absolute; */
+    padding-left: 8%;
 }
 
