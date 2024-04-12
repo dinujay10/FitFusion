@@ -20,6 +20,7 @@ class Gympagetest {
             $arr1['id'] = $idd;
            
             $gymdata=$gym->first($arr1);
+            $data['id']=$idd;
             $data['gymName']=$gymdata->gymName;
             $data['email']=$gymdata->email;
             $data['manageremail']=$gymdata->manageremail;
