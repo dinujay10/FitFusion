@@ -17,31 +17,35 @@
         <ul>
             <li><img src="<?= ROOT ?>/assets/images/dashboards/g2.jpeg" alt="">&nbsp; <h5>Dashboard</h5>
             </li>
-            <li><img src="<?= ROOT ?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>My Profile</h6>
-            </li>
-            <li><img src="<?= ROOT ?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Gym Schedule</h6>
-            </li>
+            <a href="showmealitems">
+                <li><img src="<?= ROOT ?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>Show meal items </h6>
+                </li>
+            </a>
+            <a href="addfooditems">
+                <li><img src="<?= ROOT ?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Add food items</h6>
+                </li>
+            </a>
             <a href="createmealplan">
                 <li><img src="<?= ROOT ?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Create Meal Plan
                     </h6>
                 </li>
             </a>
-            <a href="workoutcategory">
-                <li><img src="<?= ROOT ?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Available Categories
+            <a href="availablemealplans">
+                <li><img src="<?= ROOT ?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Available meal plans
                     </h6>
                 </li>
             </a>
 
-            <a href="machinefailure">
+            <!-- <a href="machinefailure">
                 <li><img src="<?= ROOT ?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Report Machine Failure
                     </h6>
                 </li>
-            </a>
-            <li><img src="<?= ROOT ?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Feedback</h6>
+            </a> -->
+            <!-- <li><img src="<?= ROOT ?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Feedback</h6>
             </li>
             <li><img src="<?= ROOT ?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Meetings</h6>
-            </li>
-            <a href="logout">
+            </li> -->
+            <a href="http://localhost/FitFusion/public/login">
                 <li><img src="<?= ROOT ?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Logout</h6>
                 </li>
             </a>
