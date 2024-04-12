@@ -63,15 +63,32 @@
         #submit-btn {
             margin-top: 20px;
             padding: 10px;
-            background-color: #4CAF50;
-            color: white;
+            background-color: yellow;
+            color: black;
             border: none;
             border-radius: 4px;
             cursor: pointer;
         }
 
         #submit-btn:hover {
-            background-color: #45a049;
+            color: yellow;
+            background-color: black;
+        }
+
+        .show-items-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: yellow;
+            color: black;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .show-items-btn:hover {
+            color: yellow;
+            background-color: black;
         }
     </style>
 </head>
@@ -97,6 +114,8 @@
         <div id="cloned-rows-container"></div>
 
         <button type="submit" id="submit-btn">Submit</button>
+
+        <a href="showmealitems" class="show-items-btn">Show Meal Items</a>
 
         <script>
             function duplicateRow() {
