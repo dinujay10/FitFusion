@@ -53,6 +53,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="scheduleinterface">
+                        <span class="material-symbols-outlined">schedule</span> 
+                        <span class="nav-item">My Schedule</span>
+                    </a>
+                </li>
+                <li>
                     <a href="#">
                         <span class="material-symbols-outlined">monitoring</span> 
                         <span class="nav-item">My Progress</span>
