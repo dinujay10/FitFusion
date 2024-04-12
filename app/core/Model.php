@@ -167,4 +167,34 @@ trait Model
 
         return false;
     }
+    public function findMachineIds($managerEmail, $machineType) {
+        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        if ($con->connect_error) {
+            die("Connection failed: " . $con->connect_error);
+        }
+        
+        // Prepare the statement
+        $sql = "SELECT id FROM machines WHERE manageremail = ? AND machineType = ?";
+        $stmt = $con->prepare($sql);
+        if (!$stmt) {
+            die("Error in preparing statement: " . $con->error);
+        }
+
+        $stmt->bind_param("ss", $managerEmail, $machineType);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $ids = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $ids[] = $row['id'];
+        }
+
+        $stmt->close();
+        $con->close();
+        return $ids;
+    }
+    
 }
