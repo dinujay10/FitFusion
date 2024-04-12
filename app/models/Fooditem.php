@@ -1,5 +1,4 @@
 <?php
-// Adjust the path based on your project structure
 
 class Fooditem
 {
@@ -48,17 +47,29 @@ class Fooditem
     }
 
     // Example method to fetch all food items from the database
-    public function getAllFoodItems()
+    public function getAllFoodItems($columns = ['mealitem', 'calories'])
     {
         return $this->findAll();
     }
-    public function getFoodItemById($id)
+
+    // Example method to fetch a food item by ID
+    public function getFoodItemById($id, $columns = ['mealitem', 'calories'])
     {
-        $query = "SELECT * FROM $this->table WHERE id = :id";
+        $query = "SELECT " . implode(",", $columns) . " FROM $this->table WHERE id = :id";
         $data = ['id' => $id];
 
-        return $this->query($query, $data);
+        return $this->get_row($query, $data);
     }
+    // private function validateInput($data)
+    // {
+    //     // Example: Validate numeric input
+    //     if (!is_numeric($data['calories'])) {
+    //         echo 'Invalid calories value';
+    //         return;
+    //     }
+
+    //     // Add more validation as needed
+    // }
 }
 
 ?>
