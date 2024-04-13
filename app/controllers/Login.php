@@ -37,7 +37,7 @@ class Login {
             $row = $user->first($arr);
 
             if($row) {
-                echo "hello";
+                // echo "hello";
             
                 //$this->createUserSession($row);
                 if(password_verify($_POST['password'],

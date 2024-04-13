@@ -1,10 +1,11 @@
 <?php
 
-class MakeReview{
+class Makepayment{
     use Controller;
         public function index() {
             $data = [];
-            
-            $this->view('makereview', $data);
+
+            $this->view('makepayment', $data);
         }
+
 }

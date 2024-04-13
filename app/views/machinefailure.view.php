@@ -34,11 +34,7 @@
                 </thead>
                 <tbody>
                     <?php
-
-                       
-
-                        for($x=0;$x<count($data);$x++){
-
+                    for($x=0;$x<count($data);$x++){
                         $row=$data[$x];
                         $id=$row->id;
                         $machineType=$row->machineType;
@@ -69,9 +65,7 @@
             </table>
                
                         
-
-            </div>
-
+                </div>
             
        
             

@@ -10,8 +10,6 @@ class Registeredinstructor{
         'id',
         'instructoremail',
         'manageremail',
-
-
         
     ];
 

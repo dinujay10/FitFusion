@@ -37,7 +37,7 @@
     </nav>
     <section>
         <div class="imgBx">
-            <img src="<?=ROOT?>/assets/images/gymLogin.jpg" alt="">
+            <img src="<?=ROOT?>/assets/images/gym pic 2.jpg" alt="">
         </div>
         <div class="contentBx">
             <div class="formBx"> 

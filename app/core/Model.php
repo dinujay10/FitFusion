@@ -154,42 +154,47 @@ trait Model
 
         return false;
     }
-    // public function deletecomplaint($id, $id_column = 'id') {
-    //     $con=new mysqli('localhost','root','','fitfusion');
-    //     //$con = $this->connect();
-    //     $sql="delete from `complaint` where id=$id";
-    //     $result=mysqli_query($con,$sql);
-    //    // $data[$id_column] = $id;
-    //    // $query = "delete from $this->table where $id_column = :$id_column ";
+    public function deletecomplaint($id, $id_column = 'id') {
+        $con=new mysqli('localhost','root','','fitfusion');
+        //$con = $this->connect();
+        $sql="delete from `complaint` where id=$id";
+        $result=mysqli_query($con,$sql);
+       // $data[$id_column] = $id;
+       // $query = "delete from $this->table where $id_column = :$id_column ";
         
-    //    //echo $query;
-    //    $this->query($query, $data);
+        // echo $query;
+       // $this->query($query, $data);
 
-    //     return false;
-    // }
+        return false;
+    }
+    public function findMachineIds($managerEmail, $machineType) {
+        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        if ($con->connect_error) {
+            die("Connection failed: " . $con->connect_error);
+        }
+        
+        // Prepare the statement
+        $sql = "SELECT id FROM machines WHERE manageremail = ? AND machineType = ?";
+        $stmt = $con->prepare($sql);
+        if (!$stmt) {
+            die("Error in preparing statement: " . $con->error);
+        }
 
-    // public function deletemachine($id, $id_column = 'id') {
-    //     $con=new mysqli('localhost','root','','fitfusion');
-    //     //$con = $this->connect();
-    //     $sql="delete from `machines` where id=$id";
-    //     $result=mysqli_query($con,$sql);
-    //    // $data[$id_column] = $id;
-    //    // $query = "delete from $this->table where $id_column = :$id_column ";
+        $stmt->bind_param("ss", $managerEmail, $machineType);
 
-    // }
-    // public function deletepackage($id, $id_column = 'id')
-    // {
-    //     $con = new mysqli('localhost', 'root', '', 'fitfusion');
-    //     //$con = $this->connect();
-    //     $sql = "delete from `packages` where id=$id";
-    //     $result = mysqli_query($con, $sql);
-    //     // $data[$id_column] = $id;
-    //     // $query = "delete from $this->table where $id_column = :$id_column ";
+        $stmt->execute();
 
-    //     // echo $query;
-    //    // $this->query($query, $data);
+        $result = $stmt->get_result();
 
-    //     return false;
-    // }
+        $ids = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $ids[] = $row['id'];
+        }
+
+        $stmt->close();
+        $con->close();
+        return $ids;
+    }
+    
 }
-
