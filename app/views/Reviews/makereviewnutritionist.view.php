@@ -43,21 +43,19 @@
 
                 <div class="container-tabs-bar">
                     <div class="tab">
-                        <div class="current-button">
-                            <button>Gym</button>
-                        </div>
+                        <a href="makereviewgym"><button>Gym</button></a>
                     </div>
                     <div class="tab">
-                        <button>Instructor</button>
+                        <a href="makereviewinstructor"><button>Instructor</button></a>
                     </div>
                     <div class="tab">
-                        <button>Nutritionist</button>
+                        <a href="makereviewnutritionist"><button class="current-button">Nutritionist</button></a>
                     </div>
                 </div>
     
                 <div class="form">
                     <div class="form-content">
-                        <label>Give your review about your gym: "Gym Name"</label>
+                        <label>Give your review about your nutritionist: "Nutritionist Name"</label>
                     </div>
 
                     <div class="form-content">

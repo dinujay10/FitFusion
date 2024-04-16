@@ -50,18 +50,18 @@
 
         <div class="container-tabs-bar">
             <div class="tab">
-                <a href="scheduleInstrAppointReq"><button class="current-button">Instructor</button></a>
+                <a href="#"><button>Instructor</button></a>
             </div>
             <div class="tab">
-                <a href="scheduleNutriAppointReq"><button>Nutritionist</button></a>
+                <a href="#"><button class="current-button">Nutritionist</button></a>
             </div>
         </div>
 
         <div class="form">
-            <form method="POST">
+            <!-- <form method="POST"> -->
                 <div class="form-content">
                     <!-- <p>Choose the Instructor:   </p> -->
-                    Choose the Instructor:
+                    Choose the Nutritionist:
 
                         <!-- <div class="select-container"> -->
                             <select class="select-box" name="InstrName" id="InstrName" onchange="sendSelectedInstructor()">
@@ -103,8 +103,8 @@
                     <div class="select-container">
                         Choose your time slot:
                         <select class="select-box" name="timeslot" id="timeslot">
-                                <option value="Time Slot 1">Time Slot 1</option>
-                                <option value="Time Slot 2">Time Slot 2</option>
+                                <option value="initial">Time Slot 1</option>
+                                <option value="progress">Time Slot 2</option>
                         </select>
                         <!-- <div class="select-arrow">&#9660;</div> -->
                     </div>
@@ -113,14 +113,14 @@
                 <div class="form-content">
                     <div class="select-container">
                         Your Name:  
-                        <input type="text" id="membername" name="membername"/>
+                        <input type="text" id="name" name="name"/>
                     </div>
                 </div>
 
                 <div class="form-content">
                     <div class="select-container">
                         Your Age:   
-                        <input type="text" id="memberage" name="memberage"/>
+                        <input type="text" id="age" name="age"/>
                     </div>
                 </div>
 
@@ -140,15 +140,15 @@
 
                 <div class="form-content">
                     <div class="select-container">
-                        Mention any illnesses that you have (Ex: Asthma, Scoliosis, etc.):   
-                        <input type="text" id="illness" name="illness"/>
+                        Mention any allergies that you have:   
+                        <input type="text" id="allergy" name="allergy"/>
                     </div>
                 </div>
 
                 <div class="form-content">
                         <center><input type="submit" value="Submit Request"></center>
                 </div>
-            </form>
+            <!-- </form> -->
             
         
         </div>

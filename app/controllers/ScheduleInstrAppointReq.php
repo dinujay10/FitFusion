@@ -8,13 +8,13 @@ class ScheduleInstrAppointReq{
             if ($_SERVER['REQUEST_METHOD']=='POST') {
                 $instrschedule = new Instrschedule; // table content -> instructorID, timeSlot
 
-                if($instrschedule->exists($_POST)) {
-                    $data['errors'] = $instrschedule->errors;    
-                } else {
+                // if($instrschedule->exists($_POST)) {
+                //     $data['errors'] = $instrschedule->errors;    
+                // } else {
                     
-                }
+                // }
 
-                $data['errors'] = $user->errors;
+                // $data['errors'] = $user->errors;
             }
 
             $regmembers = new Registeredmembers;
@@ -29,6 +29,8 @@ class ScheduleInstrAppointReq{
             // print_r($arr2['gymemail']);
             $instructordetails = $reginstructors->where($arr2); // array of details are here
 
+            // echo $instructordetails;
+            // echo "hiiiii";
             // $instructoremails = [];
             $instrnamelist = [];
             for ($i=0; $i < count($instructordetails); $i++) { 
@@ -46,6 +48,7 @@ class ScheduleInstrAppointReq{
                 $instrnames = $instrdetails[0]->name;
                 // print_r($instrnames);
                 // print_r($instrdetails);
+                // print_r($instructors->where($arr3));
                 array_push($instrnamelist, $instrnames);
             }
 
@@ -54,14 +57,20 @@ class ScheduleInstrAppointReq{
             // print_r($instrnamelist);
             // print_r($data['instructorlist']);
 
+            // SEND THE TIMESLOTS USING AJAX
             if ($_SERVER['REQUEST_METHOD']=='POST') {
-                $selectedInstructor = $_POST['selectedName'];
+                // $selectedInstructor = $_POST['selectedName'];
                 // print_r($selectedInstructor);
-                echo "Selected Name: " . $selectedInstructor;
+                // echo "Selected Name: " . $selectedInstructor;
             }
 
             // $selectedInstructor = $_POST['selectedName'];
             // print_r($selectedInstructor);
+            // print_r("hiiiiii");
+
+            //add all the needed stuff and insert to the DB
+            $finaldata = [];
+            // print_r($_POST);
             
 
 

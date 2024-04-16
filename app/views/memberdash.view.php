@@ -11,86 +11,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <!-- <header> -->
-            <!-- <a href="#" class = "logo">
-                <img src="<?=ROOT?>/assets/images/LogoFinal.png" alt="logo">
-            </a> -->
-            <!-- <ul class="navmenu"> -->
-                <!-- <li><a href ="home">Home</a></li>
-                <li><a href ="signup">Sign Up</a></li> -->
-                <!-- <li><a href ="home">Log Out</a></li>
-            </ul> -->
-
-            <!-- <div class="nav-icon"> -->
-                <!-- <a href="#"><i class='bx bx-search-alt'></i></a>
-                <a href="searchgyms"><i class='bx bx-dumbbell' ></i></a>
-                <a href="searchnutritionists"><i class='bx bxs-bowl-rice'></i></a> -->
-
-                <!-- <div class="bx bx-menu" id="menu-icon"></div> -->
-                <!-- <label for="check" class="checkbtn">
-                    <i class="fa fa-bars"></i>
-                </label>
-            </div>
-        </header> -->
-
-        <!-- <nav>
-            <ul>
-                <li>
-                    <a href="#" class="sidebar-logo">
-                    <img src="<?=ROOT?>/assets/images/Logo.png" alt="">
-                    <span class="nav-item">Member Dashboard</span>
-                </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">account_circle</span>
-                        <span class="nav-item">Profile</span>                    
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">schedule</span> 
-                        <span class="nav-item">Gym Schedule</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="myschedule">
-                        <span class="material-symbols-outlined">schedule</span> 
-                        <span class="nav-item">My Schedule</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">monitoring</span> 
-                        <span class="nav-item">My Progress</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">task</span> 
-                        <span class="nav-item">Task List</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">groups</span> 
-                        <span class="nav-item">Meetings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="complaintc">
-                        <span class="material-symbols-outlined">star</span> 
-                        <span class="nav-item">Make Complaints</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="logout" class="logout">
-                        <span class="material-symbols-outlined">logout</span> 
-                        <span class="nav-item">Logout</span>
-                    </a>
-                </li>
-            </ul>
-        </nav> -->
 
         <!-- //////////////////////////// -->
         <div class="side-menu">
@@ -106,7 +26,7 @@
                 <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Packages</h6> </li></a>
                 <a href="scheduleInstrAppointReq"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Meetings</h6> </li></a>
                 <a href="makeComplaint"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Complaints</h6> </li></a>
-                <a href="makereview"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Reviews</h6> </li></a>
+                <a href="makereviewgym"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Reviews</h6> </li></a>
                 <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Payments</h6></li></a>
                 <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Logout</h6> </li></a>
 

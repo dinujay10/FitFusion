@@ -1,10 +1,10 @@
 <?php
 
-class MakeReview{
+class MakeReviewInstructor{
     use Controller;
         public function index() {
             $data = [];
             
-            $this->view('makereview', $data);
+            $this->view('Reviews/makereviewinstructor', $data);
         }
 }
