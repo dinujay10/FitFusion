@@ -150,3 +150,22 @@ input[type=submit]:hover {
     background-color: #F4CE14;
     color: black;
 } 
+
+.timeslot {
+    background-color: white;
+    width: max-content;
+    height: 30px;
+    color: black;
+    padding:7px;
+    margin-top: 5px;
+    font-size: 14px;
+    border-radius: 3px;
+    vertical-align: center;
+    text-align:center;
+    display: inline-block;
+  }
+  
+  .timeslot:hover { 
+    background-color: #F4CE14;
+    cursor: pointer;
+  }

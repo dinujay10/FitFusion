@@ -102,10 +102,22 @@
                 <div class="form-content">
                     <div class="select-container">
                         Choose your time slot:
-                        <select class="select-box" name="timeslot" id="timeslot">
+                            <br/>
+                        <div class="timeslot">09:00am</div>
+                        <div class="timeslot">10:00am</div>
+                        <div class="timeslot">11:00am</div>
+                        <div class="timeslot">12:00pm</div>
+                        <div class="timeslot">13:00pm</div>
+                        <div class="timeslot">14:00pm</div>
+                        <div class="timeslot">15:00pm</div>
+                        <div class="timeslot">16:00pm</div>
+                        <div class="timeslot">17:00pm</div>
+
+
+                        <!-- <select class="select-box" name="timeslot" id="timeslot">
                                 <option value="Time Slot 1">Time Slot 1</option>
                                 <option value="Time Slot 2">Time Slot 2</option>
-                        </select>
+                        </select> -->
                         <!-- <div class="select-arrow">&#9660;</div> -->
                     </div>
                 </div>
