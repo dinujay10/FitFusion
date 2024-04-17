@@ -22,9 +22,9 @@
     <div class="container">
         <div class="card">
             <div class="profile-img">
-                <img src="instructor.jpg" alt="Instructor">
+                <img src="<?= ROOT ?>/assets/images/dashboards/profile.jpeg" alt="Instructor">
             </div>
-            <h1>Gym Instructor Profile</h1>
+            <h1>My Profile</h1>
             <form>
                 <div class="form-group">
                     <label for="name">Name:</label>

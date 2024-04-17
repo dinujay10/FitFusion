@@ -100,35 +100,6 @@ for ($x = 0; $x < count($data)-1; $x++) {
 </div>
 
 
- <div id="feedbackCard" class="feedback-card">
-    <h3>Feedback</h3>
-    <!-- Placeholder for feedback content -->
-     <p id = "feedbackContent"></p>
-    <button onclick="hideFeedbackCard()">Close</button>
-</div> 
-
-<!-- JavaScript to handle showing and hiding feedback card -->
- <script>
-    function showFeedbackCard(id) {
-        // Display the feedback card
-        document.getElementById('feedbackCard').style.display = 'block';
-        // Fetch feedback data using AJAX
-        fetch('getFeedback.php?id=' + id)
-            .then(response => response.text())
-            .then(data => {
-                // Set the fetched feedback content to the feedback card
-                document.getElementById('feedbackContent').textContent = data;
-            })
-            .catch(error => {
-                console.error('Error fetching feedback:', error);
-            });
-    }
-
-    function hideFeedbackCard() {
-        // Hide the feedback card
-        document.getElementById('feedbackCard').style.display = 'none';
-    }
-</script>
 </body>
 </html>
 
