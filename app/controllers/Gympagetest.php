@@ -67,6 +67,8 @@ class Gympagetest {
                 $data[$x]['amount']=$packagesdata[$x]->amount;
             }
             $data['limit']=$limit;
+<<<<<<< HEAD
+=======
 
             //get gym images
             $arr4['manageremail'] = $data['manageremail'];
@@ -78,6 +80,7 @@ class Gympagetest {
                 $y=$y+1;
             }
        
+>>>>>>> 864879dff98943582f4b900d541ecfe1273733c8
            
 
 

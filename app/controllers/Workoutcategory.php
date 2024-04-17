@@ -1,6 +1,6 @@
 <?php
 
-class Machinefailure{
+class Workoutcategory{
     use Controller;
 
 
@@ -10,22 +10,21 @@ class Machinefailure{
                 redirect('login');
             }
             
-            $data = [];
-            $machines = new Machine ;
-            $registeredinstructors = new Registeredinstructor;
+             $data = [];
+            // $machines = new Machine ;
+            // $registeredinstructors = new Registeredinstructor;
 
-            $arr1['instructoremail'] = $_SESSION['email'];
-            $data=$registeredinstructors->where($arr1);
+            // $arr1['instructoremail'] = $_SESSION['email'];
+            // $data=$registeredinstructors->where($arr1);
+            // // print_r($data);
 
-            // print_r($data);
-
-            $arr2['manageremail'] = $data[0]->manageremail;
-            // print_r($arr2);
-            $data=$machines->where($arr2);
-            // print_r($data);
+            // $arr2['manageremail'] = $data[0]->manageremail;
+            // // print_r($arr2);
+            // $data=$machines->where($arr2);
+            // // print_r($data);
            
-            $this->view('machinefailure', $data);
-
+            //redirect('workoutcategory');
+            $this->view('workoutcategory', $data);
 
             /////////////////////////////////////
       
@@ -51,11 +50,11 @@ class Machinefailure{
             //         //$s=$usertable->delete($idd);
                    
             //     }
-            // }
+            // // }
           
-            if(!isset($data['errors'])){
-                $data['errors']='';
-            }
+            // if(!isset($data['errors'])){
+            //     $data['errors']='';
+            // }
            
  
         }

@@ -1,6 +1,7 @@
 <?php
     define('MAILHOST',"smtp.gmail.com");
 
+
     define('USERNAME',"jagathdammika17595@gmail.com");
 
     define('PASSWORD',"lzat czas smgm jymr");
@@ -12,3 +13,4 @@
     define('REPLY_TO',"jagathdammika17595@gmail.com");
 
     define('REPLY_TO_NAME',"George");
+

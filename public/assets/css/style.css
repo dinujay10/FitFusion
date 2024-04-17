@@ -225,6 +225,7 @@ header.sticky {
     height: auto;
     position: relative;
     transition: all.40s;
+    border-radius: 20px;
 }
 
 .nutri-row img {

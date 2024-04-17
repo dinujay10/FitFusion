@@ -43,7 +43,7 @@ class Manageresources{
                 $arr['id']=$_POST['id'];
                 if($usertable->unique($arr)  && $usertable->validate($_POST))
                 {
-                    print_r($_POST);
+                    // print_r($_POST);
                    
                     $usertable->insert($_POST);
                     redirect('manageresources');
