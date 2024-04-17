@@ -18,7 +18,9 @@ class Workoutplans {
         'exercise',
         'machine',
         'time',
-        'rest'
+        'rest',
+        'workoutname'
+
         
     ];
 
