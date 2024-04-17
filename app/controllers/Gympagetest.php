@@ -91,6 +91,7 @@ class Gympagetest {
 
         // show($result);
         // show("from the index function");
+        //print_r($data);
         $this->view('gympagetest',$data);
     }
 
