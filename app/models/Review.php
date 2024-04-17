@@ -4,12 +4,13 @@
 class Review {
     use Model;
 
-    protected $table = 'review';
+    protected $table = 'reviews';
     
     protected $allowedColumns = [
         'reviewid',
         'memberemail',
         'reviewtype',
+        'typeemail',
         'reviewcontent',
     ];
 

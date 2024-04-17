@@ -54,22 +54,20 @@
                 </div>
     
                 <div class="form">
-                    <div class="form-content">
-                        <label>Give your review about your instructor: "Instructor Name"</label>
-                    </div>
+                    <form method="POST">
+                        <div class="form-content">
+                            <label>Give your review about your instructor: "Instructor Name"</label>
+                        </div>
 
-                    <div class="form-content">
-                        <input
-                            type="textarea"
-                            placeholder="Type your review here"
-                            value=""
-                            />
-                    </div>
+                        <div class="form-content">
+                            <textarea name="review" id="review" cols="87" rows="10" placeholder="Type your review here"></textarea>
+                        </div>
 
 
-                    <div class="form-content">
-                        <center><button>Submit Review</button></center>
-                    </div>
+                        <div class="form-content">
+                            <center><input type="submit" value="Submit Review"></center>
+                        </div>
+                    </form>
                 </div>
     </div>
 
