@@ -49,7 +49,7 @@
                         $machineType=$row->machineType;
                         $price=$row->price;
                         $warranty=$row->warranty;
-                        $status=$row->status;
+                        $adjustability=$row->adjustability;
 
                         echo ' <tr>
                         <th scope="row"></th>
@@ -57,7 +57,7 @@
                         <td>'.$machineType.'</td>
                         <td>'.$price.'</td>
                         <td>'.$warranty.'</td>
-                        <td>'.$status.'</td>
+                        <td>'.$adjustability.'</td>
                         <td>
                             <button><a href="updateresources?updateid='.$id.'">Update</a></button>
                             <button><a href="manageresources?deleteid='.$id.'">Remove</a></button>

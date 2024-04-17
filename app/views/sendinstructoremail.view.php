@@ -30,7 +30,7 @@
     </div>
     <div class="container">
     <div class="containera">
-      <h1 class="form-title">Send Email to Instructor </h1>
+      <h1 class="form-title">Send Email </h1>
       <form action="#" method="POST" >
         <div class="main-user-info">
           
