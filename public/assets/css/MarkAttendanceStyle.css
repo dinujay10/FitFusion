@@ -111,7 +111,7 @@ main{
     margin-right: 6px;
 }
 main.table {
-    width: 72vw;
+    width: 52vw;
     height: 90vh;
     background-color: #fff5;
     margin-left: 20px;
@@ -282,27 +282,34 @@ tbody tr.hide td img {
 
 .status.pending {
     background-color: #ebc474;
-    margin: 5px;
 }
 
 .status.view {
     background-color: #6fcaea;
     margin-bottom: 2px;
 }
-.addbutton{
-    width: 90px;
-    height: 45px;
-    padding: .4rem 0;
-    border-radius: 1rem;
-    text-align: center;
-    background-color: #d2e3d6;
-    color: #151716;
-    box-shadow: 0 .4rem .8rem #0005;
+.container{
+    display:flex;
+    flex-direction:row;
 }
-.addbutton:hover{
-    width: 110px;
+.scanner-con h3{
+    margin: 40px;
+    color: black;
+}
+.qr-detected-container h3{
+    margin: 40px;
+    margin-left: 90px;
+    color: rgb(187, 27, 27);
+}
+.qr-detected-container button{
+    width:150px;
     height: 50px;
+    border-radius: 8px;
+    background-color: #0da43d;
+    margin: 40px;
+    margin-left: 90px;
 }
+
 
 @media (max-width: 1000px) {
     td:not(:first-of-type) {

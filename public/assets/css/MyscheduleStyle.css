@@ -90,10 +90,10 @@ body{
 
 .containera{
     width: 100%;
-    max-width: 650px;
+    max-width: 950px;
     background: #333533;
     padding: 28px;
-    margin:40px 40px 250px 250px;
+    margin:40px 40px 50px 50px;
     border-radius: 10px;
     box-shadow: inset -2px 2px 2px white;
     margin-top: 70px;
@@ -112,19 +112,19 @@ body{
 
 .main-user-info{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: space-between;
     padding: 20px 0;
 }
 
-.user-input-box:nth-child(2n){
+.user-input-box:nth-child(n){
     justify-content: end;
 }
 
 .user-input-box{
     display: flex;
     flex-wrap: wrap;
-    width: 50%;
+    width: 30%;
     padding-bottom: 15px;
 }
 .user-input-box img{
@@ -135,50 +135,29 @@ body{
     
 }
 
-.user-input-box label,label{
-    width: 95%;
+.user-input-box label{
+    width: 20px;
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 400;
-    margin: 5px 0;
+    margin-right: 15px ;
+}
+.formHeader{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+.formHeader h2{
+    margin-left: 85px;
 }
 
-.user-input-box input,select{
+.user-input-box input{
     height: 40px;
-    width: 95%;
+    width: 60%;
     border-radius: 7px;
     outline: none;
     border: 1px solid grey;
     padding: 0 10px;
-}
-.user-input-box .specialization input{
-    height: 15px;
-    width: 15px;
-    /* border-radius: 7px; */
-    outline: none;
-    border: 1px solid grey;
-    padding: 0 5px;
-}
-.user-input-box .specialization label{
-    width: 95%;
-    color: white;
-    font-size: 15px;
-    font-weight: 400;
-    margin: 5px 0;
-}
-.instructorimage span{ 
-    width: 95%;
-    color: white;
-    font-size: 20px;
-    font-weight: 400;
-    margin: 5px 0;
-}
-.certificates span{ 
-    width: 95%;
-    color: white;
-    font-size: 20px;
-    font-weight: 400;
-    margin: 5px 0;
 }
 
 .gender-title{
@@ -217,18 +196,6 @@ body{
     border-radius: 3px;
     color: rgb(209, 209, 209);
     background: rgba(63, 114, 76, 0.7);
-}
-.qrbutton{
-    display: block;
-    width: 25%;
-    height: 10%;
-    margin-top: 35px;
-    font-size: 20px;
-    padding: 5px;
-    border:none;
-    border-radius: 3px;
-    color: rgb(209, 209, 209);
-    background: rgba(56, 204, 93, 0.7);
 }
 
 .form-submit-btn input:hover{

@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
   </head>
   <body>
-      <div class="side-menu">
+    <div class="side-menu">
         <div class="brand-name">
             <h1>FIT FUSION</h1>
         </div>
@@ -30,93 +30,44 @@
     </div>
     <div class="container">
     <div class="containera">
-      <h1 class="form-title">Send Email </h1>
-      <form action="#" method="POST" >
+      <h1 class="form-title">Nutritionist Agreement</h1>
+      <form action="#" method="POST" enctype="multipart/form-data">
         <div class="main-user-info">
           
           
         
           <div class="user-input-box">
-            <label for="email">Email</label>
-            <input type="text"
-                    id="email"
-                    name="email"
+            <label for="registereddate">Registered Date</label>
+            <input type="date"
+                    id="registereddate"
+                    name="registereddate"
                     required
             />
           </div>
           <div class="user-input-box">
-            <label for="subject">Enter a Subject</label>
-            <input type="text"
-                    id="subject"
-                    name="subject"
+            <label for="agreementduration">Agreement Closing Date</label>
+            <input type="date"
+                    id="agreementduration"
+                    name="agreementduration"
                     required
             />
           </div>
           <div class="user-input-box">
-            <label for="message">Enter the Message</label>
-            <textarea id="message" name="message" rows="7" cols="33" required></textarea><br>
+            <label for="pdfFile">Select Agreement PDF File</label>
+                        <input type="file" name="pdfFile"  id="pdfFile" required>
           </div>
-          
-          
+          <input type="hidden"
+                    id="instructorid"
+                    name="instructorid"
+                    value="<?= $data['instructorid']?>"
+                    required
+            />
         </div>
         
         <div class="form-submit-btn">
-          <input type="submit" value="Send Email">
+          <input type="submit" value="Add Nutritionist">
         </div>
       </form>
-      <?php
-        use PHPMailer\PHPMailer\Exception;
-        use PHPMailer\PHPMailer\PHPMailer;
-        use PHPMailer\PHPMailer\SMTP;
-       if(isset($_POST['email']))
-        {
-          
-        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/Exception.php';
-        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/PHPMailer.php';
-        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/SMTP.php';
-    
-        require 'C:/xa/htdocs/FitFusion/public/assets/mailconfig.php';
-        $email=$_POST['email'];
-        $subject=$_POST['subject'];
-        $message=$_POST['message'];
-
-        $mail=new PHPMailer(true);
-
-        $mail->isSMTP();
-
-        $mail->SMTPAuth=true;
-
-        $mail->Host=MAILHOST;
-
-        $mail->Username=USERNAME;
-
-        $mail->Password=PASSWORD;
-
-        $mail->SMTPSecure=PHPMailer::ENCRYPTION_STARTTLS;
-
-        $mail->Port=587;
-
-        $mail->setFrom(SEND_FROM,SEND_FROM_NAME);
-
-        $mail->addAddress($email);
-        $mail->addReplyTo(REPLY_TO,REPLY_TO_NAME);
-
-        $mail->IsHTML(true);
-        $mail->Subject=$subject;
-        $mail->Body=$message;
-        $mail->AltBody=$message;
-
-        if(!$mail->send()){
-            //return "Email not send.Please try again";
-        }else{
-            //return "Success";
-        }
-
-        }
-    
-      
-      
-      ?>
     </div>
     </div>
   </body>

@@ -15,6 +15,12 @@ class Workoutplans {
         'programduration',
         'daysperweek',
         'targetgender',
+        'exercise',
+        'machine',
+        'time',
+        'rest'
+        
+
 
     ];
 
@@ -65,6 +71,7 @@ class Workoutplans {
         return false;
     }
 
+
     public function unique($data) {
         
         $this->errors = [];
@@ -81,6 +88,7 @@ class Workoutplans {
         }
         return false;
     }
+
 }
 
 // make models for each table in DB, and add the editable columns of each

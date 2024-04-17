@@ -15,7 +15,10 @@ class Registeredmembers
         'workoutid'
 
         'gymemail',
-        'packageid'
+        'packageid',
+        'workoutid',
+        'mealplanname',
+        'generatedcode'
 
     ];
 
