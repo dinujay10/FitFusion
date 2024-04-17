@@ -81,7 +81,7 @@
                     </div>
                 </div>
 
-                <div class="form-content">
+                <!-- <div class="form-content">
                     <div class="select-container">
                         Choose your time slot:
                             <br>
@@ -94,15 +94,28 @@
                         <div class="timeslot">15:00pm</div>
                         <div class="timeslot">16:00pm</div>
                         <div class="timeslot">17:00pm</div>
+                    </div>
+                </div> -->
 
+                <input type="hidden" name="timeslot" id="timeslot" value="">
 
-                        <!-- <select class="select-box" name="timeslot" id="timeslot">
-                                <option value="Time Slot 1">Time Slot 1</option>
-                                <option value="Time Slot 2">Time Slot 2</option>
-                        </select> -->
-                        <!-- <div class="select-arrow">&#9660;</div> -->
+                <div class="form-content">
+                    <div class="select-container">
+                        
+                        Choose your time slot:
+                        <br>
+                        <div id="slot09" class="timeslot" onclick="selectTimeSlot(this)">09:00am</div>
+                        <div id="slot10" class="timeslot" onclick="selectTimeSlot(this)">10:00am</div>
+                        <div id="slot11" class="timeslot" onclick="selectTimeSlot(this)">11:00am</div>
+                        <div id="slot12" class="timeslot" onclick="selectTimeSlot(this)">12:00pm</div>
+                        <div id="slot13" class="timeslot" onclick="selectTimeSlot(this)">13:00pm</div>
+                        <div id="slot14" class="timeslot" onclick="selectTimeSlot(this)">14:00pm</div>
+                        <div id="slot15" class="timeslot" onclick="selectTimeSlot(this)">15:00pm</div>
+                        <div id="slot16" class="timeslot" onclick="selectTimeSlot(this)">16:00pm</div>
+                        <div id="slot17" class="timeslot" onclick="selectTimeSlot(this)">17:00pm</div>
                     </div>
                 </div>
+
 
                 <div class="form-content">
                     <div class="select-container">
@@ -194,6 +207,7 @@
             xhr.send(array);
         }
 
+        // var timeslotsArray;
         function sendDate() {
             var myElement = document.getElementById("date");
             var date = myElement.value;
@@ -213,7 +227,19 @@
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     // alert(xhr.responseText); //sends an alert
+                    var timeslotsJson = xhr.responseText;
                     console.log(xhr.responseText);
+                    timeslotsArray = JSON.parse(timeslotsJson);
+
+                    // Now, you can use timeslotsArray to display the timeslots in your view
+                    // For example:
+                    timeslotsArray.forEach(function (slot) {
+                        // console.log(slot); // Do whatever you need with the timeslots
+                        var slotid =  slot.slice(0, 2);
+                        // console.log(slotid);
+                        var myElement = document.getElementById("slot"+slotid);
+                        myElement.classList.add("disabled");
+                    });
                 }
             }
             xhr.send(array);
@@ -228,6 +254,28 @@
             sendInstructorName(); // Call the sendInstructorName() function
             enableDate(); // Call the enableDate() function
         }
+
+        var selectedTimeSlot = null;
+
+        function selectTimeSlot(element) {
+            // Check if the clicked slot is disabled
+            if (element.classList.contains('disabled')) {
+                return; // Exit the function if the slot is disabled
+            }
+            
+            // If a time slot was previously selected, remove the 'selected' class
+            if (selectedTimeSlot !== null) {
+                selectedTimeSlot.classList.remove('selected');
+            }
+
+            // Mark the clicked time slot as selected
+            element.classList.add('selected');
+            selectedTimeSlot = element;
+
+            document.getElementById("timeslot").value = element.textContent;
+        }
+
+
 
     </script>
 

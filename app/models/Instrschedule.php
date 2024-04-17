@@ -10,10 +10,12 @@ class InstrSchedule {
         'instructoremail',
         'date',
         'timeslot',
+        'memberemail',
         'membername',
         'memberage',
         'goal',
-        'illness'
+        'illness',
+        'status'
     ];
 
     public function validate($data) {

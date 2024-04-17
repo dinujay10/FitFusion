@@ -7,17 +7,18 @@ class ScheduleInstrAppointReq{
             
 
             // print_r("hiiiiiiiii");
-            if ($_SERVER['REQUEST_METHOD']=='POST') {
-                $instrschedule = new Instrschedule; // table content -> instructorID, timeSlot
+            // if ($_SERVER['REQUEST_METHOD']=='POST') {
+            //     // $instrschedule = new Instrschedule; // table content -> instructorID, timeSlot
 
-                // if($instrschedule->exists($_POST)) {
-                //     $data['errors'] = $instrschedule->errors;    
-                // } else {
+            //     // print_r($instrschedule);
+            //     // if($instrschedule->exists($_POST)) {
+            //     //     $data['errors'] = $instrschedule->errors;    
+            //     // } else {
                     
-                // }
+            //     // }
 
-                // $data['errors'] = $user->errors;
-            }
+            //     // $data['errors'] = $user->errors;
+            // }
 
             $regmembers = new Registeredmembers;
             $arr['memberemail'] = $_SESSION['email'];
@@ -61,20 +62,55 @@ class ScheduleInstrAppointReq{
 
             // SEND THE TIMESLOTS USING AJAX
             if ($_SERVER['REQUEST_METHOD']=='POST') {
-                // $selectedInstructor = $_POST['selectedName'];
-                // print_r($selectedInstructor);
-                // echo "Selected Name: " . $selectedInstructor;
+                
+                // print_r($_POST);
+                // print_r($_POST['InstrName']);
+
+                $instructorname = $_POST['InstrName'];
+
+                $instructor = new Gyminstructor;
+                // print_r($instructors);
+                $instrdeets['name'] = $instructorname;
+                // print_r($arr3['email']);
+                $instrdetails = $instructor->where($instrdeets);
+                $instructoremail = $instrdetails[0]->email; /////////////////
+                // print_r($instructoremail);
+
+                $date = $_POST['date'];////////////////
+                $timeslot = $_POST['timeslot'];////////////////////
+                $memberemail = $_SESSION['email'];//////////
+
+                $membername = $_POST['membername'];
+                $memberage = $_POST['memberage'];
+                $goal = $_POST['goal'];
+                $illness = $_POST['illness'];
+
+                $status = "Pending";
+
+                // print_r($status);
+
+                //add all the needed stuff and insert to the DB
+            $resArray = [
+                "instructoremail" => $instructoremail,
+                "date" => $date,
+                "timeslot" => $timeslot,
+                "memberemail" => $memberemail,
+                "membername" => $membername,
+                "memberage" => $memberage,
+                "goal" => $goal,
+                "illness" => $illness,
+                "status" => $status
+            ];
+            // print_r($resArray);
+
+            $instrschedule = new Instrschedule; 
+            $instrschedule->insert($resArray);
             }
 
-            // $selectedInstructor = $_POST['selectedName'];
-            // print_r($selectedInstructor);
-            // print_r("hiiiiii");
 
-            //add all the needed stuff and insert to the DB
-            $finaldata = [];
-            // print_r($_POST);
+
+
             
-
 
             $this->view('Appointments/scheduleInstrAppointReq', $data);
         }
@@ -87,8 +123,8 @@ class ScheduleInstrAppointReq{
             $instrname = $data[0]['instructorname'];
 
     
-            echo json_encode($date);
-            echo json_encode($instrname);
+            // echo json_encode($date);
+            // echo json_encode($instrname);
 
             $this->getTimeSlots($date,$instrname);
 
@@ -102,8 +138,28 @@ class ScheduleInstrAppointReq{
             // echo json_encode($instrname);
         }
 
-        public function getTimeSlots() {
+        public function getTimeSlots($date,$instructorname) {
+            $instrschedule = new InstrSchedule;
+            $detailarr['date'] = $date;
+            // $detailarr['instructorname'] = $instructorname;
 
+            $instructor = new GymInstructor;
+            $array['name'] = $instructorname;
+            // echo json_encode($array);
+
+            $instrdetails = $instructor->where($array);
+            $detailarr['instructoremail'] = $instrdetails[0]->email;
+            // echo json_encode($detailarr);
+
+            $scheduledetails = $instrschedule->where($detailarr);
+            // echo json_encode($scheduledetails);
+
+            $timeslots = [];
+            for ($i=0; $i < count($scheduledetails); $i++) { 
+                // $timeslots = $scheduledetails[$i]->timeslot;
+                array_push($timeslots, $scheduledetails[$i]->timeslot);
+            }
+            echo json_encode($timeslots);
         }
-
+        
 }

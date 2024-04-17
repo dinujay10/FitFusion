@@ -34,6 +34,7 @@ trait Model
         foreach ($keys as $key) {
             $query .= $key . " = :" . $key . " && "; // the :id tells that its a variable and not a query($id), therefore SQL attacks can be prevented
         }
+        
         foreach ($keys_not as $key) {
             $query .= $key . " != :" . $key . " && ";
         }
