@@ -20,6 +20,9 @@ class Workoutplans {
         'time',
         'rest'
 
+        
+
+
     ];
 
     public function validate($data) {
@@ -69,6 +72,7 @@ class Workoutplans {
         return false;
     }
 
+
     public function unique($data) {
         
         $this->errors = [];
@@ -85,6 +89,7 @@ class Workoutplans {
         }
         return false;
     }
+
 }
 
 // make models for each table in DB, and add the editable columns of each

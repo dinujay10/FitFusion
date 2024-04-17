@@ -12,7 +12,8 @@ class Myschedule{
             $schedule=new Schedule;
 
 
-            if ($_SERVER['REQUEST_METHOD']=='POST') {
+
+            if ($_SERVER['REQUEST_METHOD']=='GET') {
                 $email=$_SESSION['email'];
                 $arr1['memberemail']=$email;
                 $isregistered=$regmems->where($arr1);
@@ -27,9 +28,10 @@ class Myschedule{
                 $manageremail=$gymdata[0]->manageremail;
                 // print_r($manageremail);
                 // print_r($isregistered);
-                $date=$_POST['date'];
-                $stime=$_POST['stime'];
-                $etime=$_POST['etime'];
+
+                $date=$_GET['date'];
+                $stime=$_GET['stime'];
+                $etime=$_GET['etime'];
 
                 //workout plan table
                 $arr3['id']=$workoutid;
@@ -193,6 +195,10 @@ class Myschedule{
             //         redirect('manageresources');
             //     }
             // }
+
+            $arr7['memberEmail']=$_SESSION['email'];
+            $data=$schedule->where($arr7);
+           // print_r($data);
     
             $this->view('myschedule', $data);
         }
