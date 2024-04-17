@@ -4,7 +4,9 @@ class ScheduleInstrAppointReq{
     use Controller;
         public function index() {
             $data = [];
+            
 
+            // print_r("hiiiiiiiii");
             if ($_SERVER['REQUEST_METHOD']=='POST') {
                 $instrschedule = new Instrschedule; // table content -> instructorID, timeSlot
 
@@ -75,6 +77,33 @@ class ScheduleInstrAppointReq{
 
 
             $this->view('Appointments/scheduleInstrAppointReq', $data);
+        }
+
+       
+        public function getDate() {
+            $data = json_decode(file_get_contents('php://input'), true);
+
+            $date = $data[0]['date'];
+            $instrname = $data[0]['instructorname'];
+
+    
+            echo json_encode($date);
+            echo json_encode($instrname);
+
+            $this->getTimeSlots($date,$instrname);
+
+        }
+
+        public function getInstructorName() {
+            $data = json_decode(file_get_contents('php://input'), true);
+
+            $instrname = $data[0]['instructorname'];
+    
+            // echo json_encode($instrname);
+        }
+
+        public function getTimeSlots() {
+
         }
 
 }

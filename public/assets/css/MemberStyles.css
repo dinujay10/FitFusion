@@ -181,6 +181,19 @@ input[type=submit]:hover {
     cursor: pointer;
   }
 
+/* dropdowns */
+
+/* Initially hide the dropdown options */
+.select-box option {
+    display: none;
+}
+
+/* Display the dropdown options when the select box is focused */
+.select-box:focus option {
+    display: block;
+}
+
+
 /* textareas */
 input[type=textarea] {
     height: 200px;

@@ -63,46 +63,28 @@
                     <!-- <p>Choose the Instructor:   </p> -->
                     Choose the Instructor:
 
-                        <!-- <div class="select-container"> -->
-                            <select class="select-box" name="InstrName" id="InstrName" onchange="sendSelectedInstructor()">
+                            <select class="select-box" name="InstrName" id="instrname" onchange="sendInstructorAndEnableDate()">
+                                <option value="Select an instructor" disabled selected>Instructor</option>
                                 <?php 
-                                    // echo $data['instructorlist'];
-                                    for($x = 0; $x < count($data['instructorlist']); $x++) {
-                                        echo '<option value="instructor">' . $data['instructorlist'][$x] . '</option>';
-                                    }
+                                // echo $data['instructorlist'];
+                                for($x = 0; $x < count($data['instructorlist']); $x++) {
+                                    echo '<option value="' . $data['instructorlist'][$x] . '">' . $data['instructorlist'][$x] . '</option>';
+                                }
                                 ?>
                             </select>
-
-                            <!-- <div class="select-arrow">&#9660;</div> -->
-                            <!-- no need??? -->
-                            <!-- <ul class="select-dropdown">
-                                <li class="select-option">Option 1</li>
-                                <li class="select-option">Option 2</li>
-                                <li class="select-option">Option 3</li>
-                            </ul> -->
-
-                        <!-- </div> -->
                 </div>
             
                 <div class="form-content">
                     <div class="select-container">
                         Choose a date for the Appointment:  
-                        <input type="date" id="date" name="date" value="2023-12-10" min="2023-12-10" max="2024-12-31" />
+                            <input type="date" id="date" name="date" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')); ?>" onchange="sendDate()" disabled/>
                     </div>
                 </div>
-            
-                <!-- <div class="form-item">
-                    <p>Choose the type of appointment that you are planning to have</p>
-                        <select name="appointType" id="appointType">
-                            <option value="initial">Initial Meeting</option>
-                            <option value="progress">Progress Meeting</option>
-                        </select>
-                </div> -->
 
                 <div class="form-content">
                     <div class="select-container">
                         Choose your time slot:
-                            <br/>
+                            <br>
                         <div class="timeslot">09:00am</div>
                         <div class="timeslot">10:00am</div>
                         <div class="timeslot">11:00am</div>
@@ -167,32 +149,6 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <!-- <script>
-        function sendSelectedInstructor() {
-            // Get the selected value
-            var selectedInstructor = document.getElementById("InstrName").value;
-
-            // Create a new XMLHttpRequest object
-            var xhr = new XMLHttpRequest();
-
-            // Configure it: POST-request for the URL /your_controller.php
-            xhr.open("POST", "ScheduleInstrAppointReq.php", true);
-
-            // Set the request header
-            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-
-            // Send the request with the selected name
-            xhr.send("selectedInstr=" + selectedInstr);
-
-            // This function will be called after the response is received
-            xhr.onload = function () {
-                if (xhr.status == 200) {
-                    // Handle the response from the controller if needed
-                    console.log(xhr.responseText);
-                }
-            };
-        }
-    </script> -->
 
     <script>
         function sendSelectedName() {
@@ -210,6 +166,69 @@
                 }
             });
         }
+
+        var instructorselected = "Dinu";
+
+        function sendInstructorName() {
+            var myElement = document.getElementById("instrname");
+            var instrname = myElement.value;
+            instructorselected = instrname;
+
+            var array = [
+                {
+                    "instructorname": instrname
+                }
+            ];
+
+            var array = JSON.stringify(array);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "ScheduleInstrAppointReq/getInstructorName", true);
+            xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // alert(xhr.responseText); //sends an alert
+                    console.log(xhr.responseText);
+                }
+            }
+            xhr.send(array);
+        }
+
+        function sendDate() {
+            var myElement = document.getElementById("date");
+            var date = myElement.value;
+
+            var array = [
+                {
+                    "date": date,
+                    "instructorname": instructorselected,
+                }
+            ];
+
+            var array = JSON.stringify(array);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "ScheduleInstrAppointReq/getDate", true);
+            xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // alert(xhr.responseText); //sends an alert
+                    console.log(xhr.responseText);
+                }
+            }
+            xhr.send(array);
+        }
+
+        function enableDate() {
+            // Enable the date input when an instructor is selected
+            document.getElementById('date').disabled = false;
+        }
+
+        function sendInstructorAndEnableDate() {
+            sendInstructorName(); // Call the sendInstructorName() function
+            enableDate(); // Call the enableDate() function
+        }
+
     </script>
 
 
