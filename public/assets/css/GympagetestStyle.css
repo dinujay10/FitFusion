@@ -579,3 +579,65 @@ ul {
 .apply a{
     color:black;
 }
+/* .mainpackage{
+    margin-left:150px;
+    padding: 30px;
+    display: flex;
+    flex-direction: row;
+}
+.package{
+    width: 180px;
+    height: 180px;
+    background-color: #ffd034;
+    border-radius: 9px;
+    padding: 15px;
+    margin:20px;
+
+}
+.package h3{
+    margin: 8px;
+    text-align: center;
+}
+.package h5{
+    margin: 8px;
+} */
+/* Style for the main package container */
+.mainpackage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-left: 100px;
+}
+
+/* Style for each package */
+.pkg {
+    width: 300px;
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #f8f389;
+}
+
+/* Style for pkg title */
+.pkg h3 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+/* Style for pkg description */
+.pkg p {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+/* Style for pkg period and amount */
+.pkg h5 {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
