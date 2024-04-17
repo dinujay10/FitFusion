@@ -1,201 +1,326 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/MemberDashBoardStyle.css">
-    <title>Admin Panel</title>
-</head>
-<body>
-    <div class="side-menu">
+
+
+<html>
+    <head>
+        <title>FitFusion</title>
+        <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/sidebarnew.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /> 
+        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
+
+    </head>
+    <body>
+        <!-- <header> -->
+            <!-- <a href="#" class = "logo">
+                <img src="<?=ROOT?>/assets/images/LogoFinal.png" alt="logo">
+            </a> -->
+            <!-- <ul class="navmenu"> -->
+                <!-- <li><a href ="home">Home</a></li>
+                <li><a href ="signup">Sign Up</a></li> -->
+                <!-- <li><a href ="home">Log Out</a></li>
+            </ul> -->
+
+            <!-- <div class="nav-icon"> -->
+                <!-- <a href="#"><i class='bx bx-search-alt'></i></a>
+                <a href="searchgyms"><i class='bx bx-dumbbell' ></i></a>
+                <a href="searchnutritionists"><i class='bx bxs-bowl-rice'></i></a> -->
+
+                <!-- <div class="bx bx-menu" id="menu-icon"></div> -->
+                <!-- <label for="check" class="checkbtn">
+                    <i class="fa fa-bars"></i>
+                </label>
+            </div>
+        </header> -->
+
+        <!-- <nav>
+            <ul>
+                <li>
+                    <a href="#" class="sidebar-logo">
+                    <img src="<?=ROOT?>/assets/images/Logo.png" alt="">
+                    <span class="nav-item">Member Dashboard</span>
+                </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-outlined">account_circle</span>
+                        <span class="nav-item">Profile</span>                    
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-outlined">schedule</span> 
+                        <span class="nav-item">Gym Schedule</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="scheduleinterface">
+                        <span class="material-symbols-outlined">schedule</span> 
+                        <span class="nav-item">My Schedule</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-outlined">monitoring</span> 
+                        <span class="nav-item">My Progress</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-outlined">task</span> 
+                        <span class="nav-item">Task List</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <span class="material-symbols-outlined">groups</span> 
+                        <span class="nav-item">Meetings</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="complaintc">
+                        <span class="material-symbols-outlined">star</span> 
+                        <span class="nav-item">Make Complaints</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="logout" class="logout">
+                        <span class="material-symbols-outlined">logout</span> 
+                        <span class="nav-item">Logout</span>
+                    </a>
+                </li>
+            </ul>
+        </nav> -->
+
+
+        <!-- //////////////////////////// -->
+        <div class="side-menu">
         <div class="brand-name">
-            <h1>Fit Fusion</h1>
+            <h1>FIT FUSION</h1>
         </div>
+        <!-- <div class="center-image">
+                <img src="<?=ROOT?>/assets/images/LogoFinal.png" alt="logo">
+        </div> -->
         <ul>
-            <li><img src="dashboard (2).png" alt="">&nbsp; <h5>Dashboard</h5> </li>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>My Profile</h6> </li>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/mealplan.jpeg" alt="">&nbsp;<h6>Meal Plan</h6> </li>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Feedback</h6> </li>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Meetings</h6> </li>
-            <a href="logout"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Logout</h6></li></a>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Settings</h6> </li>
+            <a href="memberdash"><li>&nbsp; <h5>Dashboard</h5> </li></a>
+            <a href="memberprofile"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>My Profile</h6> </li></a>
+            <a href="scheduleInstrAppointReq"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Meetings</h6> </li></a>
+            <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Complaints</h6> </li></a>
+            <a href="addfooditems"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Add Food Ittems</h6></li></a>
+            <a href="createmealplan"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Create Meal Plan</h6> </li></a>
+            <a href="nutritionistviewmealplan"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>View Meal Plans</h6> </li></a>
+            <a href="logout"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Logout</h6> </li></a>
+
         </ul>
-    </div>
+        </div>
+        <!-- //////////////////////////// -->
+
+        <!-- ADDED THE CONTAINER CLASS -->
     <div class="container">
-        <div class="header">
-            <div class="nav">
-                <div class="search">
-                    <input type="text" placeholder="Search..">
-                    <button type="submit"><img src="search.png" alt=""></button>
-                </div>
-                <div class="user">
-                    <a href="#" class="btn">Add New</a>
-                    <img src="notifications.png" alt="">
-                    <div class="img-case">
-                        <img src="user.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
+        <section class="search-container">
+            <form action="" class="search-bar">
+                <input type="text" placeholder="Seach for a Gym or a Nutritionist" name="search">
+                <button type="submit"><img src="<?=ROOT?>/assets/images/search-btn.png" alt="search"></button>
+            </form>
+        </section>
 
-        <div class="gymAndNutritionist">
+        <!-- Gyms section -->
+        <section class="gym" id="gym">
+            <div class="gym-list">
+                <!-- GYM 1 -->
            
-            <h3>Search For Gyms</h3>
-            <div class="gyms">
-                <div class="gym">
-                    <img src="<?=ROOT?>/assets/images/dashboards/g1.jpeg" alt="">
-                    <br>
-                    <h5>Fitness first</h5>
-                    <h6>Colombo 001000</h6>
+                <?php
 
-                   
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
+
+
+                    for($x=0;$x<count($data);$x++){
+                    echo '<a href="gympagetest?id='.$data[$x]['id'].'">
+                    <div class="gym-row">
+                    <img src="'.ROOT.'/assets/uploadgymimages/'.$data[$x]['gymimages'].'" alt="">
+                    
+                    <div class="gym-text">
+                        <h5>'.$data[$x]['location2'].', '.$data[$x]['location3'].'</h5>
                     </div>
-                </div>
+                    
+                    <div class="rating">
+                        <i class="bx bx-star" ></i>
+                        <i class="bx bx-star" ></i>
+                        <i class="bx bx-star" ></i>
+                        <i class="bx bx-star" ></i>
+                        <i class="bx bx-star" ></i>
 
-                <div class="gym">
-                    <img src="<?=ROOT?>/assets/images/dashboards/g2.jpeg" alt="">
-                    <br>
-                    <h5>Fitness first</h5>
-                    <h6>Colombo 001000</h6>
-
-                   
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
                     </div>
-                </div>
-                <div class="gym">
-                    <img src="<?=ROOT?>/assets/images/dashboards/g3.jpeg" alt="">
-                    <br>
-                    <h5>Fitness first</h5>
-                    <h6>Colombo 001000</h6>
-
-                   
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
+                    <div class="price">
+                        <h4>'.$data[$x]['gymName'].'</h4>
+                        <p>Rs. 3000 onwards</p>
                     </div>
-                </div>
-                <div class="gym">
-                    <img src="<?=ROOT?>/assets/images/dashboards/g4.jpeg" alt="">
-                    <br>
-                    <h5>Fitness first</h5>
-                    <h6>Colombo 001000</h6>
+                </div>   </a> '  ;
+                    }
+                ?>
+                
 
-                   
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
-                    </div>
-                </div>
-                <div class="gym">
-                    <img src="<?=ROOT?>/assets/images/dashboards/g5.jpeg" alt="">
-                    <br>
-                    <h5>Fitness first</h5>
-                    <h6>Colombo 001000</h6>
-
-                   
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
-                    </div>
-                </div>
-                <div class="gym">
-                    <img src="<?=ROOT?>/assets/images/dashboards/g6.jpeg" alt="">
-                    <br>
-                    <h5>Fitness first</h5>
-                    <h6>Colombo 001000</h6>
-
-                   
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
-                    </div>
-                </div>
-                <div class="gym">
-                    <img src="<?=ROOT?>/assets/images/dashboards/g7.jpeg" alt="">
-                    <br>
-                    <h5>Fitness first</h5>
-                    <h6>Colombo 001000</h6>
-
-                   
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
-                    </div>
-                </div>
-                <div class="gym">
-                    <img src="<?=ROOT?>/assets/images/dashboards/g8.jpeg" alt="">
-                    <br>
-                    <h5>Fitness first</h5>
-                    <h6>Colombo 001000</h6>
-
-                   
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
-                    </div>
-                </div>
-            </div>
-            
-            <div class="nutritionists">
                
-                <div class="nutritionist">
-                    <img src="<?=ROOT?>/assets/images/dashboards/m1.jpeg" alt="">
-                    <br>
-                    <h5>Supun Bandara</h5> 
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
+            </div>
+        </section>
+
+        <!-- Nutritionist List -->
+        <section class="nutritionist" id="nutritionist">
+            <div class="nutri-list">
+                <!-- NUTRI 1 -->
+                <div class="nutri-row">
+                    <img src="<?=ROOT?>/assets/images/nutri1.jpg" alt="">
+                    
+                    <!-- <div class="nutri-text">
+                        <h5>Nugegoda, Colombo</h5>
+                    </div> -->
+                    <div class="heart-icon">
+                        <i class='bx bx-heart'></i>
+                    </div>
+                    <div class="rating">
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                    </div>
+                    <div class="price">
+                        <h4>Nutritionist1</h4>
+                        <p>Rs. 3000 onwards</p>
                     </div>
                 </div>
-                <div class="nutritionist">
-                    <img src="<?=ROOT?>/assets/images/dashboards/m2.jpeg" alt="">
-                    <br>
-                    <h5>Supun Bandara</h5> 
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
+
+                <!-- GYM 2 -->
+                <div class="nutri-row">
+                    <img src="<?=ROOT?>/assets/images/nutri2.jpg" alt="">
+                    <!-- <div class="nutri-text">
+                        <h5>Nugegoda, Colombo</h5>
+                    </div> -->
+                    <div class="heart-icon">
+                        <i class='bx bx-heart'></i>
+                    </div>
+                    <div class="rating">
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                    </div>
+
+                    <div class="price">
+                        <h4>Nutritionist2</h4>
+                        <p>Rs. 3000 onwards</p>
                     </div>
                 </div>
-                <div class="nutritionist">
-                    <img src="<?=ROOT?>/assets/images/dashboards/m3.jpeg" alt="">
-                    <br>
-                    <h5>Supun Bandara</h5> 
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
+
+                <!-- GYM 3 -->
+                <div class="nutri-row">
+                    <img src="<?=ROOT?>/assets/images/nutri3.jpg" alt="">
+                    
+                    <!-- <div class="nutri-text">
+                        <h5>Nugegoda, Colombo</h5>
+                    </div> -->
+                    <div class="heart-icon">
+                        <i class='bx bx-heart'></i>
+                    </div>
+                    <div class="rating">
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                    </div>
+
+                    <div class="price">
+                        <h4>Nutritionist3</h4>
+                        <p>Rs. 3000 onwards</p>
                     </div>
                 </div>
-                <div class="nutritionist">
-                    <img src="<?=ROOT?>/assets/images/dashboards/m4.jpeg" alt="">
-                    <br>
-                    <h5>Supun Bandara</h5> 
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
+
+                <!-- GYM 4 -->
+                <div class="nutri-row">
+                    <img src="<?=ROOT?>/assets/images/nutri4.jpg" alt="">
+                    
+                    <!-- <div class="nutri-text">
+                        <h5>Nugegoda, Colombo</h5>
+                    </div> -->
+                    <div class="heart-icon">
+                        <i class='bx bx-heart'></i>
+                    </div>
+                    <div class="rating">
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                    </div>
+
+                    <div class="price">
+                        <h4>Nutritionist4</h4>
+                        <p>Rs. 3000 onwards</p>
                     </div>
                 </div>
-                <div class="nutritionist">
-                    <img src="<?=ROOT?>/assets/images/dashboards/m5.jpeg" alt="">
-                    <br>
-                    <h5>Supun Bandara</h5> 
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
+
+                <!-- GYM 5 -->
+                <div class="nutri-row">
+                    <img src="<?=ROOT?>/assets/images/nutri5.jpg" alt="">
+                    
+                    <!-- <div class="nutri-text">
+                        <h5>Nugegoda, Colombo</h5>
+                    </div> -->
+                    <div class="heart-icon">
+                        <i class='bx bx-heart'></i>
+                    </div>
+                    <div class="rating">
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                    </div>
+
+                    <div class="price">
+                        <h4>Nutritionist5</h4>
+                        <p>Rs. 3000 onwards</p>
                     </div>
                 </div>
-                <div class="nutritionist">
-                    <img src="<?=ROOT?>/assets/images/dashboards/m6.jpeg" alt="">
-                    <br>
-                    <h5>Supun Bandara</h5> 
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
+
+                <!-- GYM 6 -->
+                <div class="nutri-row">
+                    <img src="<?=ROOT?>/assets/images/nutri6.jpg" alt="">
+                    <!-- <div class="nutri-text">
+                        <h5>Nugegoda, Colombo</h5>
+                    </div> -->
+                    <div class="heart-icon">
+                        <i class='bx bx-heart'></i>
                     </div>
-                </div>
-                <div class="nutritionist">
-                    <img src="<?=ROOT?>/assets/images/dashboards/m7.jpeg" alt="">
-                    <br>
-                    <h5>Supun Bandara</h5> 
-                    <div class="inp">
-                        <img src="<?=ROOT?>/assets/images/dashboards/rating.jpeg" alt="">
+                    <div class="rating">
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                        <i class='bx bx-star' ></i>
+                    </div>
+
+                    <div class="price">
+                        <h4>Nutritionist6</h4>
+                        <p>Rs. 3000 onwards</p>
                     </div>
                 </div>
             </div>
+        </section>
+
+    </div>
+    <!-- CLOSED THE CONTAINER CLASS DIV -->
+
+        <!-- footer -->
+        <section class="footer">
+        <div class="footer-info">
+            <img src="<?=ROOT?>/assets/images/LogoFinal.png" alt="logo">
         </div>
-        
-        </div>
-    
-</body>
+        </section>
+
+        <script src="<?=ROOT?>/assets/js/java.js"></script>
+
+    </body>
 </html>
