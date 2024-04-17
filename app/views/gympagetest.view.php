@@ -217,7 +217,7 @@
                     <a href="instructorapplygym?id=<?php echo $data['id'];?>&manageremail=<?php echo $data['manageremail'];?>"><h5>Apply as an Instructor</h5></a>
                 </div>
                 <div class="apply">
-                    <a href="#"><h5>Apply as a Nutritionist</h5></a>
+                    <a href="nutritionistapplygym?id=<?php echo $data['id'];?>&manageremail=<?php echo $data['manageremail'];?>"><h5>Apply as a Nutritionist</h5></a>
                 </div>
 
             </div>
