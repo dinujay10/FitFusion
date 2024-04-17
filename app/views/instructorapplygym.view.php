@@ -115,11 +115,13 @@
           </div>
         <div class="instructorimage">
             <span>Select Your Image</span><br><br> 
-            <input type="file" name="images" accept="image/*" required>
+            <input type="file" name="images" accept="image/*" required><br>
+            <br>
          </div>
          <div class="certificates">
             <span>Select Your Certificates</span><br><br> 
             <input type="file" name="pdf_file[]" multiple accept="application/pdf" required>
+            
         </div>
         
         <div class="form-submit-btn">
