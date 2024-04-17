@@ -166,8 +166,6 @@ trait Model
         // echo $query;
        // $this->query($query, $data);
 
-        return false;
-    }
     public function findMachineIds($managerEmail, $machineType) {
         $con = new mysqli('localhost', 'root', '', 'fitfusion');
         if ($con->connect_error) {
@@ -198,4 +196,6 @@ trait Model
         return $ids;
     }
     
+
 }
+
