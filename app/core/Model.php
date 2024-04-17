@@ -167,6 +167,64 @@ trait Model
 
         return false;
     }
+    public function selectworkouttypes($iemail){
+        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        if ($con->connect_error) {
+            die("Connection failed: " . $con->connect_error);
+        }
+        
+        // Prepare the statement
+        $sql = "SELECT DISTINCT workouttype FROM workoutplans WHERE iemail = ? ";
+        $stmt = $con->prepare($sql);
+        if (!$stmt) {
+            die("Error in preparing statement: " . $con->error);
+        }
+
+        $stmt->bind_param("s", $iemail);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $workouttypes = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $workouttypes[] = $row['workouttype'];
+        }
+
+        $stmt->close();
+        $con->close();
+        return $workouttypes;        
+    }
+    public function selectworkoutnames($iemail,$workouttype){
+        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        if ($con->connect_error) {
+            die("Connection failed: " . $con->connect_error);
+        }
+        
+        // Prepare the statement
+        $sql = "SELECT DISTINCT workoutname FROM workoutplans WHERE iemail = ? AND workouttype = ?";
+        $stmt = $con->prepare($sql);
+        if (!$stmt) {
+            die("Error in preparing statement: " . $con->error);
+        }
+
+        $stmt->bind_param("ss", $iemail,$workouttype);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $workoutnames = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $workoutnames[] = $row['workoutname'];
+        }
+
+        $stmt->close();
+        $con->close();
+        return $workoutnames;        
+    }
     public function findMachineIds($managerEmail, $machineType) {
         $con = new mysqli('localhost', 'root', '', 'fitfusion');
         if ($con->connect_error) {
