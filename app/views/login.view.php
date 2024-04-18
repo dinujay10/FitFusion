@@ -3,6 +3,7 @@
 <html>
     <head>
         <title>FitFusion</title>
+        <link rel="stylesheet" href="<?=ROOT?>/assets/css/MainStyles.css">
         <link rel="stylesheet" href="<?=ROOT?>/assets/css/SignUpStyle.css">
         <!-- <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/style.css"> -->
 
@@ -36,7 +37,7 @@
     </nav>
     <section>
         <div class="imgBx">
-            <img src="<?=ROOT?>/assets/images/gym pic 2.jpg" alt="">
+            <img src="<?=ROOT?>/assets/images/gymLogin.jpg" alt="">
         </div>
         <div class="contentBx">
             <div class="formBx"> 

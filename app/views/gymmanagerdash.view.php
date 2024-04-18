@@ -5,25 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
-    <title>Admin Panel</title>
+
+    <title>Manager Dashboard</title>
+
 </head>
 <body>
+
     <div class="side-menu">
-        <div class="brand-name">
+        <div class="brand-name">  
             <h1>FIT FUSION</h1>
         </div>
         <ul>
             <li>&nbsp; <h5>Dashboard</h5> </li>
+            <a href="gymmanagerdash"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>Home</h6> </li></a>
             <a href="packages"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>Packages</h6> </li></a>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Gym Schedule</h6> </li>
+            <a href="handlemembercomplaint"><li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Member complaints</h6> </li></a>
             <a href="addgym"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Add Gym</h6> </li></a>
 
             <a href="manageresources"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Manage Gym Resources</h6> </li></a>
+            <a href="packages"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Add Package</h6> </li></a>
+            <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Feedback</h6> </li></a>
+            <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Meetings</h6> </li></a>
+            <a href="home"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Logout</h6></li></a>
+            <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Settings</h6> </li></a>
 
             <a href="editgym"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Edit Gym</h6> </li></a>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Meetings</h6> </li>
+            <a href="appliedinstructors"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Approve Instructors</h6> </li>
             <a href="logout"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Logout</h6></li></a>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Settings</h6> </li>
+            <a href="newmembersreport"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Reports</h6> </li></a>
+
         </ul>
     </div>
     <div class="container">
@@ -34,8 +44,16 @@
                     <button type="submit"><img src="<?=ROOT?>/assets/images/dashboards/search.jpeg" alt=""></button>
                 </div>
                 <div class="user">
+
                     
+                <button onclick="toggleDropdown()">
+                    <span class="counter"></span>
                     <img src="<?=ROOT?>/assets/images/dashboards/notification.jpeg" alt="">
+                </button>
+                    <ul class="dropdownList" id="dropdownList">
+                        <!-- <li><a href="#">Germany jagath dammika</a></li>
+                        <li><a href="#">Australia suagthdasa</a></li> -->
+                    </ul>
                     
                 </div>
             </div>
@@ -166,5 +184,66 @@
             </div>
         </div>
     </div>
+    <script>
+        function toggleDropdown() {
+            // Get the dropdown list element
+            //alert("this is an alert");
+            let baselink = window.location.origin
+            let link = `${baselink}/FitFusion/public/gymmanagerdash/notification`
+            console.log(link)
+            fetch(link)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    // Parse the JSON in the response
+                    return response.json();
+                })
+                .then(data => {
+                    // // Display the notifications
+                    // alert("Hey");
+                    showNotifications(data);
+                    //console.log(data);
+                })
+                .catch(error => {
+                    console.error('Fetch error:', error);
+                });
+
+            
+            
+
+            var dropdown = document.getElementById('dropdownList');
+           
+            // Toggle the display property based on the current state
+            dropdown.style.display = (dropdown.style.display === 'none') ? 'block' : 'none';
+        }
+        
+        function showNotifications(notifications) {
+                // alert("hey");
+                var counter=0;
+            // Get the notification list element
+                const notificationList = document.getElementById('dropdownList');
+
+                // Clear existing notifications
+                notificationList.innerHTML = '';
+
+                // Display each notification in the list
+                notifications.forEach(notification => {
+                    const listItem = document.createElement('li');
+                    listItem.textContent = notification.nmsg;
+                    notificationList.appendChild(listItem);
+                    counter++;
+                });
+                var cnt = document.getElementById('counter');
+                cnt.innerHTML=counter;
+
+                // If there are no notifications, display a message
+                if (notifications.length === 0) {
+                    const noNotificationsMessage = document.createElement('li');
+                    noNotificationsMessage.textContent = 'No new notifications';
+                    notificationList.appendChild(noNotificationsMessage);
+                }
+        }
+    </script>
 </body>
 </html>

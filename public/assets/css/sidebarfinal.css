@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    /* CHANGE FONT */
+    font-family: 'Poppins', sans-serif; 
+    list-style: none;
+    text-decoration: none;
+    font-size: 20px;
+    /* font-family:Georgia, 'Times New Roman', Times, serif; */
+}
+
+.side-bar {
+    position: relative;
+    width:70%;
+    height: 90%
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 230px;
+    height: 100%;
+    background-color: #FFE078;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding-top: 20px;
+    z-index: 100; /* Ensure the sidebar stays above other content */
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+    }
+}
+
+/* Rest of the CSS remains the same */
+
+
+/* Remove ul disc style */
+.nav {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.nav-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+}
+.nav-item {
+    margin-bottom: 10px;
+}
+
+.nav-link {
+    color: black; /* New text color */
+    font-size: 20px; /* Increase the font size */
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+    border-radius: 5px;
+   
+}
+
+.current-nav-link {
+    background-color: #F5F5F5; /* Theme color on hover */
+    color: black; /* Text color on hover */
+    border-radius: 20px 0px 0px 20px;
+    width: 230px;
+    text-decoration: none;
+    display: block;
+    padding: 10px 20px;
+}
+
+.nav-item:hover {
+    background-color: #F5F5F5; /* Theme color on hover */
+    color: black; /* Text color on hover */
+    border-radius: 20px 0px 0px 20px;
+    width: 230px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #F5F5F5;
+    padding: 20px;
+    margin: 0;
+    color: #333;
+    
+}
+.nav-item a:hover {
+    background-color: #F5F5F5; /* Theme color on hover */
+    color: black; /* Text color on hover */
+    border-radius: 20px;
+}
+
+/* Active menu item */
+.nav-item.active {
+    background-color: #FFE078; /* Theme color for active item */
+    color: #fff; /* Text color for active item */
+}
+
+.center-image {
+    display: flex;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 10px;
+}
+
+.center-image img {
+    width: 100%; /* Adjust the size as needed */
+}
+
+.top-container {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.bottom-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.logout-button {
+    width: 80%;
+    height: 45px;
+    border: none;
+    color: #fff;
+    background-color: white;
+    border-radius: 5px;
+    margin-bottom: 40px;
+    font-size: 20px; /* Increase the font size */
+    text-decoration: none;
+    
+}
+
+.logout-button a {
+    text-decoration: none;
+    color: black;
+}
+
+.logout-button:hover {
+    background-color: #F5F5F5; /* Theme color on hover */
+    color: #fff; /* Text color on hover */
+}

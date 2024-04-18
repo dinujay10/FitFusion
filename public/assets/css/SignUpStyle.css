@@ -1,10 +1,10 @@
-
-*{
+/* in MainStyles.css */
+/* *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     
-}
+} */
 section{
     position: relative;
     width: 100%;
@@ -152,7 +152,8 @@ section .contentBx .formBx .inputBx p a{
     height: 10%;
 } */
 
-nav {
+/* in MainStyles.css */
+/* nav {
     position: relative;
     width: 100%;
     top: 0;
@@ -179,8 +180,9 @@ nav {
     width: 120px;
     height: auto;
     vertical-align: middle;
-}
+} */
 
+/* only in this code */
 /* ul{
     float:right;
 }
@@ -205,7 +207,8 @@ li a:hover{
       transition: all 0.4s ease 0s;
 } */
 
-.navmenu {
+/* in MainStyles.css */
+/* .navmenu {
     display: flex;
     list-style: none;
     vertical-align: middle;
@@ -226,7 +229,7 @@ li a:hover{
 
 .navmenu a:hover {
     color: #645a3b;
-}
+} */
 
 @media(max-width:735px){
     nav{  
@@ -252,7 +255,8 @@ li a:hover{
     }
 }
 
-.nav-icon {
+/* in MainStyles.css */
+/* .nav-icon {
     display: flex;
     align-items: center;
 }
@@ -268,7 +272,7 @@ li a:hover{
 .nav-icon i:hover {
     transform: scal(1.1);
     color: #424242;
-}
+} */
 
 #check {
     display: none;

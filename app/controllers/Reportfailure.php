@@ -28,6 +28,7 @@ class Reportfailure{
                 //     echo "UNAUTHORIZED ACCESS";
                 // }
                
+
                 }
 
             // $arr['id'] = $data['id'];
@@ -147,6 +148,7 @@ class Reportfailure{
             //     // redirect('machinefailure');
             //    // $data['errors'] = $usertable->errors;
             // }
+
             // if($_SERVER['REQUEST_METHOD']=='GET'){
             //     if(isset($_GET['deleteid'])){
             //         $idd=$_GET['deleteid'];
@@ -155,9 +157,11 @@ class Reportfailure{
             //         redirect('manageresources');
             //     }
             // }
+
             //  $this->view('reportfailure', $data);
            
         
+
 
          
    
@@ -165,7 +169,8 @@ class Reportfailure{
     // public function edit($a = '', $b = '', $c = '') {
     //     show("from the edit function");
     //     $this->view('home');
-    // }
+
     }
 }
 }
+

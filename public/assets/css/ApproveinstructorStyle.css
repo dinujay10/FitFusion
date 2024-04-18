@@ -151,6 +151,7 @@ body{
     border: 1px solid grey;
     padding: 0 10px;
 }
+<<<<<<< HEAD
 .user-input-box .specialization input{
     height: 15px;
     width: 15px;
@@ -173,6 +174,8 @@ body{
     font-weight: 400;
     margin: 5px 0;
 }
+=======
+>>>>>>> dd1e73822ed0deb2decc1746fd9eec720e6667af
 
 .gender-title{
     color:white;
