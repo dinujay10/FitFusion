@@ -1,22 +1,18 @@
 <?php
 
 // user class
-class Instructormeeting {
+class Exercisedetails {
     use Model;
 
-    protected $table = 'instrschedule';
+    protected $table = 'exercisedetails';
     
     protected $allowedColumns = [
-      'id',
-      'instructoremail',
-      'date',
-      'timeslot',
-      'memberemail',
-      'membername',
-      'memberage',
-      'goal',
-      'illness',
-      'status'
+        'workoutid',
+        'exercisename',
+        'machine',
+        'sets',
+        'timeduration',
+        'rest'
         
     ];
 

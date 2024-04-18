@@ -151,6 +151,7 @@ body{
     border: 1px solid grey;
     padding: 0 10px;
 }
+
 .user-input-box .specialization input{
     height: 15px;
     width: 15px;
@@ -166,6 +167,7 @@ body{
     font-weight: 400;
     margin: 5px 0;
 }
+
 .instructorimage span{ 
     width: 95%;
     color: white;
@@ -180,6 +182,7 @@ body{
     font-weight: 400;
     margin: 5px 0;
 }
+
 
 .gender-title{
     color:white;

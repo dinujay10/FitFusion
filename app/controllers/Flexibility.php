@@ -1,147 +1,188 @@
-<?php
+<!-- 
 
-class Flexibility{
-    use Controller;
+// class Flexibility{
+//     use Controller;
 
 
-        public function index() {
+        // public function index() {
 
-            if(!isset($_SESSION['email'])){
-                redirect('login');
-            }
+            // if(!isset($_SESSION['email'])){
+            //     redirect('login');
+            // }
             
-            $data = [];
-            $table1 = new Workoutplans ;
-            $table2 = new Workoutequipments;
-            $table3 = new Workoutsuppliments;
+            // $data = [];
+            // $table1 = new Workoutplans ;
             
-
-
+            // $table3 = new Workoutsuppliments;
+            
          
-            $flexibilityPlans = $table1->where(['workouttype'=>'flexibility']);
+            // $flexibilityPlans = $table1->where(['workouttype'=>'flexibility']);
 
             // Convert the fetched cardio plan to an associative array
           //  $data['cardioPlan'] = (array) $cardioPlan;
-            $data['flexibilityPlans'] = [];  
+            // $data['flexibilityPlans'] = [];  
     
-            foreach($flexibilityPlans as $temp){
-               
-                $flexibilityPlanData = [
-                    'id' => $temp->id,
-                    'iemail' => $temp->iemail,
-                    'maingoal' => $temp->maingoal,
-                    'workouttype' => $temp->workouttype,
-                    'traininglevel' => $temp->traininglevel,
-                    'programduration' => $temp->programduration,
-                    'daysperweek' => $temp->daysperweek,
-                    'targetgender' => $temp->targetgender
-                ];
+            // foreach($flexibilityPlans as $temp){
 
+            //   if(!$table1->unique($temp->id)){
 
-
-                $equipmentData = $table2->where(['id'=>$temp->id]);
-                // Store equipment data in the cardio plan data
-                $flexibilityPlanData['equipment'] = $equipmentData;
-
-                $supplimentData = $table3->where(['id' => $temp->id]);
-                // Store supplement data in the cardio plan data
-                $flexibilityPlanData['suppliment'] = $supplimentData;
+         
+            //     foreach($exercises as $exercise){
+            //       $exerciseData = [
+            //           'exercise' => $exercise->exercise,
+            //           'machine' => $exercise->machine,
+            //           'sets' => $exercise->sets,
+            //           'time' => $exercise->time,
+            //           'rest' => $exercise->rest
+            //       ];
+            //       $flexibilityPlanData['exercises'][] = $exerciseData;   
                  
-                $data['flexibilityPlans'][] = $flexibilityPlanData;
 
+              //   }
+              // }else{
 
-            //     $data2=$table2->findAll($data['id']);
+              //   $flexibilityPlanData = [
+              //       'id' => $temp->id,
+              //       'iemail' => $temp->iemail,
+              //       'maingoal' => $temp->maingoal,
+              //       'workouttype' => $temp->workouttype,
+              //       'traininglevel' => $temp->traininglevel,
+              //       'programduration' => $temp->programduration,
+              //       'daysperweek' => $temp->daysperweek,
+              //       'targetgender' => $temp->targetgender
 
-            //     if ($data2) {
-            //       // Initialize an array to store all equipment data
-            //       $equipmentData = [];
+              //   ];
+
+                
+              //   $supplimentData = $table3->where(['id' => $temp->id]);
+             
+              //   $flexibilityPlanData['suppliment'] = $supplimentData;
+                 
+              //   //$data['flexibilityPlans'][] = $flexibilityPlanData;
+
               
-            //       foreach ($data2 as $temp2) {
-            //           // Assuming $temp2->equipment is the field containing equipment data
-            //           $equipmentData[] = $temp2->equipment;
-            //       }
-              
-            //       // Assign the array to $data1['equipment']
-            //       $data['equipment'] = $equipmentData;
-              
-            //       // Now, $data1['equipment'] will contain an array of all equipment data
-            //       // You can use this array as needed, for example, passing it to the view
-            //       // or processing further.
-            //   }
-            //     $data3=$table3->findAll($data['id']);
 
-            //     if ($data3) {
-            //       // Initialize an array to store all equipment data
-            //       $SuppData = [];
-              
-            //       foreach ($data3 as $temp3) {
-            //           // Assuming $temp2->equipment is the field containing equipment data
-            //           $SuppData[] = $temp3->suppliment;
-            //       }
-              
-            //       // Assign the array to $data1['equipment']
-            //       $data['suppliment'] = $SuppData;
-              
-            //       // Now, $data1['equipment'] will contain an array of all equipment data
-            //       // You can use this array as needed, for example, passing it to the view
-            //       // or processing further.
-            //   }
-            
+                
+              //     $exercises= $table1->where(['id'=>$temp->id]);
+
+              //     foreach($exercises as $exercise){
+              //       $exerciseData = [
+              //           'exercise' => $exercise->exercise,
+              //           'machine' => $exercise->machine,
+              //           'sets' => $exercise->sets,
+              //           'time' => $exercise->time,
+              //           'rest' => $exercise->rest
+              //       ];
+              //       $flexibilityPlanData['exercises'][] = $exerciseData; 
+              //       $data['flexibilityPlans'][] = $flexibilityPlanData;
 
 
-            
-              //  $this->view('cardio', $data);
-            }
+              //     }
 
 
-            $this->view('flexibility', $data);
-            // if($cardioPlans){
-            //       foreach($cardioPlans as $temp1){
+                // }
 
-            //       }
-            // }
 
-          //  $data=$machines->where($arr2);
-            // print_r($data);
-           
-            //$this->view('cardio', $data);
 
-            /////////////////////////////////////
-      
-            ////////////////////////////////
+                // $supplimentData = $table3->where(['id' => $temp->id]);
+                // // Store supplement data in the cardio plan data
+                // $flexibilityPlanData['suppliment'] = $supplimentData;
+                 
+                // $data['flexibilityPlans'][] = $flexibilityPlanData;
 
-           
-            // if($_SERVER['REQUEST_METHOD']=='GET'){
-            //     if(isset($_GET['machineid'])){
-            //         $idd=$_GET['machineid'];
-                      
-            //         $arr2['id'] = $idd;
-               
-            //         $temp=$usertable->first($arr2);
-            //         if($_SESSION['email']==$temp->instructoremail)
-            //         {
-                       
-            //             redirect('machinefailure');
-            //         }
-            //         else{
-            //             echo "UNAUTHORIZED ACCESS";
-            //         }
 
-            //         //$s=$usertable->delete($idd);
-                   
-            //     }
-            // }
+//             }
+
+
+//             $this->view('flexibility', $data);
+         
           
-            if(!isset($data['errors'])){
-                $data['errors']='';
-            }
+//             if(!isset($data['errors'])){
+//                 $data['errors']='';
+//             }
            
  
-        }
+//         }
    
 
-    // public function edit($a = '', $b = '', $c = '') {
-    //     show("from the edit function");
-    //     $this->view('home');
-    // }
+// }
+
+
+
+<?php
+
+class Flexibility {
+    use Controller;
+
+    public function index() {
+        if (!isset($_SESSION['email'])) {
+            redirect('login');
+        }
+
+        $data = [];
+        $table1 = new Workoutplans;
+        $table3 = new Workoutsuppliments;
+
+        // Fetch all flexibility plans
+        $flexibilityPlans = $table1->where(['workouttype' => 'flexibility']);
+
+        // Initialize an associative array to store grouped flexibility plans
+        $groupedFlexibilityPlans = [];
+
+        foreach ($flexibilityPlans as $plan) {
+            $id = $plan->id;
+
+            // If the plan ID is not in the grouped array, initialize it
+            if (!isset($groupedFlexibilityPlans[$id])) {
+                $groupedFlexibilityPlans[$id] = [
+                    'id' => $id,
+                    'iemail' => $plan->iemail,
+                    'maingoal' => $plan->maingoal,
+                    'workouttype' => $plan->workouttype,
+                    'traininglevel' => $plan->traininglevel,
+                    'programduration' => $plan->programduration,
+                    'daysperweek' => $plan->daysperweek,
+                    'targetgender' => $plan->targetgender,
+                    'suppliments' => [],
+                    'exercises' => []
+                ];
+            }
+
+            // Fetch suppliments for the plan
+            $suppliments = $table3->where(['id' => $id]);
+
+            // Add suppliments to the plan data
+            foreach ($suppliments as $suppliment) {
+                $groupedFlexibilityPlans[$id]['suppliments'][] = $suppliment;
+            }
+
+            // Fetch exercises for the plan
+            $exercises = $table1->where(['id' => $id]);
+
+            // Add exercises to the plan data
+            foreach ($exercises as $exercise) {
+                $groupedFlexibilityPlans[$id]['exercises'][] = [
+                    'exercise' => $exercise->exercise,
+                    'machine' => $exercise->machine,
+                    'sets' => $exercise->sets,
+                    'time' => $exercise->time,
+                    'rest' => $exercise->rest
+                ];
+            }
+        }
+
+        // Pass the grouped flexibility plans to the view
+        $data['flexibilityPlans'] = $groupedFlexibilityPlans;
+      
+
+        if (!isset($data['errors'])) {
+            $data['errors'] = '';
+        }
+
+        $this->view('flexibility', $data);
+        
+    }
+ 
 }
+?>
+
