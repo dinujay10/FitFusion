@@ -14,11 +14,11 @@
 
         
 nav {
-    background-color:  rgb(226, 139, 33);
+    background-color: black;
     font-family:Georgia, 'Times New Roman', Times, serif;
     font-weight: 600;
     padding: 10px;
-    color: rgb(15, 14, 14);
+    color:  orange;
     display: flex;
     justify-content: space-between;
     align-items:center;
@@ -40,14 +40,14 @@ li {
 
 a {
     text-decoration: none;
-    color: black;
+    color: orange;
     font-weight: bold;
 }
         .container {
             max-width: 800px;
             margin: 20px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: black;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-top: 100px;
@@ -55,6 +55,7 @@ a {
         h1 {
             text-align: center;
             margin-bottom: 20px;
+            color:orange;
         }
         .button {
             display: block;
@@ -73,6 +74,21 @@ a {
         .button:hover {
             background-color:   #555;
         }
+
+
+        footer {
+    position:relative;
+    background-color: black;
+    color: orange;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    transition: bottom 0.3s ease-in-out; 
+    
+}
+
     </style>
 </head>
 <body>
@@ -97,4 +113,8 @@ a {
         <button class="button" onclick="window.location.href='Flexibility';">Flexibility</button>
     </div>
 </body>
+<footer>
+        <p>&copy; 2024 workout Categories</p>
+    </footer>
+
 </html>

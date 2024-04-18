@@ -53,10 +53,16 @@
             <thead>
             <tr>
                 <td scope="col"></td>
-                <td scope="col">Member ID</td>
-                <td scope="col">Name</td>
-                <td scope="col">Email</td>
-                <td scope="col">Actions</td>
+                <td scope="col">id</td>
+                <td scope="col">Instructor email</td>
+                <td scope="col">Date</td>
+                <td scope="col">Timeslot</td>
+                <td scope="col">Memberemail</td>
+                <td scope="col">Membername</td>
+                <td scope="col">Memberage</td>
+                <td scope="col">Goal</td>
+                <td scope="col">Illness</td>
+                <td scope="col">Status</td>
             </tr>
             </thead>
             <tbody>
@@ -64,20 +70,33 @@
             for ($x = 0; $x < count($data); $x++) {
                 $row = $data[$x];
                 $id = $row->id;
-                $name = $row->name;
-                $email = $row->email;
+                $instructoremail = $row->instructoremail ;
+                $date = $row->date;
+                $timeslot = $row->timeslot;
+                $memberemail =  $row->memberemail;
+                $membername = $row->membername;
+                $memberage = $row->memberage;
+                $goal = $row->goal ;
+                $illness = $row->illness;
+                $status = $row->status;
                 // Use htmlspecialchars to escape special characters
                 echo '<tr>
                             <th></th>
-                            <td>' . $id . '</td>
-                            <td>' . $name . '</td>
-                            <td>' . $email . '</td>
+                            <td>' . $id  . '</td>
+                            <td>' . $instructoremail  . '</td>
+                            <td>' . $date . '</td>
+                            <td>' . $timeslot . '</td>
+                            <td>' . $memberemail . '</td>
+                            <td>' . $membername . '</td>
+                            <td>' . $memberage . '</td>
+                            <td>' . $goal . '</td>
+                            <td>' . $illness . '</td>
+                            <td>' . $status . '</td>
                             <td>
                                 <form method="post">
-                                    <input type="hidden" name="email" value="' . $email . '">
-                                    <button type="submit" class="confirm" name="submit">confirm</button>
-                                    <button type="button" class="cancel" onclick="deactivateConfirmButton(this)">cancel</button>
-                                </form>
+                               <button type="submit" class="confirm" name="submit"><a href="sendmemberemail?email='.$memberemail.' & id='.$id.'">confirm</a></button>
+                                <button type="button" class="cancel" onclick="deactivateConfirmButton(this)">cancel</button>
+                             </form>
                             </td>
                         </tr>';
             }
@@ -87,63 +106,21 @@
     </div>
 </div>
 
-<!-- PHP code to handle email sending -->
-<?php
-    use PHPMailer\PHPMailer\Exception;
-    use PHPMailer\PHPMailer\PHPMailer;
-    use PHPMailer\PHPMailer\SMTP;
-
-
-if (isset($_POST['submit'])) {
     
-   
-    require 'C:/xampp/htdocs/FitFusion/public/assets/PHPMailer/src/Exception.php';
-    require 'C:/xampp/htdocs/FitFusion/public/assets/PHPMailer/src/PHPMailer.php';
-    require 'C:/xampp/htdocs/FitFusion/public/assets/PHPMailer/src/SMTP.php';
-    require 'C:/xampp/htdocs/FitFusion/public/assets/mailconfig.php';
+<script>
+        function deactivateConfirmButton(button) {
 
-    $email = $_POST['email'];
-    $subject = 'Confirmation Email';
-    $message = 'Your confirmation message here.';
+            var form = button.parentNode; // Get the parent form element
+            var confirmButton = form.querySelector('.confirm'); // Find the confirm button within the form
+            confirmButton.style.backgroundColor = 'lightgreen'; // Change the color of the cancel button
+            confirmButton.disabled = true; // Disable the confirm button
 
-    require 'C:/xampp/htdocs/FitFusion/public/assets/PHPMailer/src/PHPMailer.php';
-    $mail = new PHPMailer(true);
+            button.textContent = 'Cancelled'; // Change the text of the cancel button
+            button.style.backgroundColor = 'lightcoral'; // Change the color of the cancel button
+            button.disabled = true; // Disable the cancel button
 
-    $mail->isSMTP();
-    $mail->SMTPAuth = true;
-    $mail->Host = MAILHOST;
-    $mail->Username = USERNAME;
-    $mail->Password = PASSWORD;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Port = 587;
-    $mail->setFrom(SEND_FROM, SEND_FROM_NAME);
-    $mail->addAddress($email);
-    $mail->addReplyTo(REPLY_TO, REPLY_TO_NAME);
-    $mail->IsHTML(true);
-    $mail->Subject = $subject;
-    $mail->Body = $message;
-    $mail->AltBody = $message;
-
-    if (!$mail->send()) {
-        // Handle email sending failure
-        echo 'Error sending email';
-    } else {
-        // Handle email sending success
-        echo 'Email sent successfully';
-    }
-}
-?>
-    
- <script>
-    function deactivateConfirmButton(button) {
-        button.textContent = 'Cancelled';
-        // Change color of the cancel button
-        button.style.backgroundColor = 'lightcoral';
-        // Deactivate the confirm button
-        var confirmButton = button.parentNode.querySelector('.confirm');
-        confirmButton.disabled = true;
-    }
-</script>
+        }
+    </script>
 
 
 </body>
