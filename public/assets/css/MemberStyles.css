@@ -22,7 +22,7 @@ body {
 }
 
 .container-right{
-    border: 1px solid red;
+    /* border: 1px solid red; */
 
     float: right;
     width: 80%;

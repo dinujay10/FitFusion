@@ -53,7 +53,7 @@
                 <a href="scheduleInstrAppointReq"><button class="current-button">Instructor</button></a>
             </div>
             <div class="tab">
-                <a href="scheduleNutriAppointReq"><button>Nutritionist</button></a>
+                <a href="#"><button>Nutritionist</button></a>
             </div>
         </div>
 
@@ -80,22 +80,6 @@
                             <input type="date" id="date" name="date" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')); ?>" onchange="sendDate()" disabled/>
                     </div>
                 </div>
-
-                <!-- <div class="form-content">
-                    <div class="select-container">
-                        Choose your time slot:
-                            <br>
-                        <div class="timeslot">09:00am</div>
-                        <div class="timeslot">10:00am</div>
-                        <div class="timeslot">11:00am</div>
-                        <div class="timeslot">12:00pm</div>
-                        <div class="timeslot">13:00pm</div>
-                        <div class="timeslot">14:00pm</div>
-                        <div class="timeslot">15:00pm</div>
-                        <div class="timeslot">16:00pm</div>
-                        <div class="timeslot">17:00pm</div>
-                    </div>
-                </div> -->
 
                 <input type="hidden" name="timeslot" id="timeslot" value="">
 

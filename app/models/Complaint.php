@@ -8,6 +8,8 @@ class Complaint {
     
     protected $allowedColumns = [
         'id',
+        'memberEmail',
+        'type',
         'complaint'
     ];
 
