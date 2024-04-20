@@ -10,7 +10,9 @@ class Complaint {
         'id',
         'memberEmail',
         'type',
-        'complaint'
+        'complaint',
+        'status',
+        'reply'
     ];
 
     public function validate($data) {

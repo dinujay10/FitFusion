@@ -34,6 +34,6 @@ class MakeReviewInstructor{
             }
 
 
-            $this->view('Reviews/makereviewinstructor', $data);
+            $this->view('Member/makereviewinstructor', $data);
         }
 }

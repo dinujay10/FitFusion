@@ -5,6 +5,6 @@ class MakeReviewNutritionist{
         public function index() {
             $data = [];
             
-            $this->view('Reviews/makereviewnutritionist', $data);
+            $this->view('Member/makereviewnutritionist', $data);
         }
 }

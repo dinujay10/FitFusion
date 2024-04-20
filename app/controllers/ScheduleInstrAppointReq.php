@@ -4,21 +4,6 @@ class ScheduleInstrAppointReq{
     use Controller;
         public function index() {
             $data = [];
-            
-
-            // print_r("hiiiiiiiii");
-            // if ($_SERVER['REQUEST_METHOD']=='POST') {
-            //     // $instrschedule = new Instrschedule; // table content -> instructorID, timeSlot
-
-            //     // print_r($instrschedule);
-            //     // if($instrschedule->exists($_POST)) {
-            //     //     $data['errors'] = $instrschedule->errors;    
-            //     // } else {
-                    
-            //     // }
-
-            //     // $data['errors'] = $user->errors;
-            // }
 
             $regmembers = new Registeredmembers;
             $arr['memberemail'] = $_SESSION['email'];

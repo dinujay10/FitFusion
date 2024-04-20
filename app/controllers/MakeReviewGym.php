@@ -37,6 +37,6 @@ class MakeReviewGym{
             }
 
 
-            $this->view('Reviews/makereviewgym', $data);
+            $this->view('Member/makereviewgym', $data);
         }
 }
