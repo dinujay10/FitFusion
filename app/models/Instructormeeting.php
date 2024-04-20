@@ -4,12 +4,19 @@
 class Instructormeeting {
     use Model;
 
-    protected $table = 'instructormeeting';
+    protected $table = 'instrschedule';
     
     protected $allowedColumns = [
         'id',
-        'name',
-        'email'
+        'date',
+        'instructoremail',
+        'timeslot',
+        'memberemail',
+        'membername',
+        'memberage',
+        'goal',
+        'illness',
+        'status'
         
     ];
 
