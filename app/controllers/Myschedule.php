@@ -101,40 +101,12 @@ class Myschedule{
                                 $timestamptemp = strtotime($stime);
                                 $timestamptemp += 60*$onemachine['time']; 
                                 $tempTime = date("H:i:s", $timestamptemp);
-                                if($a->date!=$date){
-                                    $arr6=[];
-                                    $arr6['id']=$mid;
-                                    $arr6['date']=$date;
-                                   // print_r($mid);
-                                    $timestamp = strtotime($stime);
-                                    $timestamp += 60*$onemachine['time']; 
-                                    $newTime = date("H:i:s", $timestamp);
-                                    //print_r($newTime);
-                                    $arr6['fromTime']=$stime;
-                                    $arr6['toTime']=$newTime;
-                                    $arr6['machineType']=$onemachine['machineType'];
-                                    $arr6['managerEmail']=$manageremail;
-                                    $arr6['memberEmail']=$email;
-                                    $schedule->insert($arr6);
-
-                                    $timestamp = strtotime($newTime);
-                                    $timestamp += 60; 
-                                    $stime = date("H:i:s", $timestamp);
-
-                                    break 2;
-                                }
-                                //date matched
-                                
-                                //no time overlap
-                               
-                                ////
-                                ////
-                                elseif($a->date==$date and ($a->toTime<$stime or $a->fromTime>$tempTime )){
-                                   
-                                    print_r($a->fromTime);
-                                     print_r($a->toTime);
-                                    print_r($stime);
-                                    print_r($tempTime); 
+                                $tbldate=$a->date;
+                                if(strtotime($a->date)==strtotime($date) and ($a->toTime<$stime or $a->fromTime>$tempTime )){
+                                    // print_r($a->fromTime);
+                                    //  print_r($a->toTime);
+                                    // print_r($stime);
+                                    // print_r($tempTime); 
                                     if($count3==count($idpresent)){
                                         $arr6=[];
                                         $arr6['id']=$mid;
@@ -159,8 +131,38 @@ class Myschedule{
                                         break 2;  
                                         ///////////////////////////////////////////////////////////////////    
                                     }
+                                }
+                                //date matched
+                                
+                                //no time overlap
+                               
+                                ////
+                                ////
+                                elseif(strtotime($a->date)!=strtotime($date) ){
                                    
-                                    
+                                    $arr6=[];
+                                    $arr6['id']=$mid;
+                                    $arr6['date']=$date;
+                                   // print_r($mid);
+                                    $timestamp = strtotime($stime);
+                                    $timestamp += 60*$onemachine['time']; 
+                                    $newTime = date("H:i:s", $timestamp);
+                                    //print_r($newTime);
+                                    $arr6['fromTime']=$stime;
+                                    $arr6['toTime']=$newTime;
+                                    $arr6['machineType']=$onemachine['machineType'];
+                                    $arr6['managerEmail']=$manageremail;
+                                    $arr6['memberEmail']=$email;
+                                    // print_r($a->date);
+                                    // print_r("hello");
+                                    // print_r($date);
+                                    $schedule->insert($arr6);
+
+                                    $timestamp = strtotime($newTime);
+                                    $timestamp += 60; 
+                                    $stime = date("H:i:s", $timestamp);
+
+                                    break 2;
                                                               
                                 }
                                 //data and time overlap
