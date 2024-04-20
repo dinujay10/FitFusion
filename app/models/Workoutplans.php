@@ -15,8 +15,10 @@ class Workoutplans {
         'programduration',
         'daysperweek',
         'targetgender',
-        'exercise',
+
+        'exercise',	
         'machine',
+        'sets',
         'time',
         'rest',
         'workoutname'

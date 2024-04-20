@@ -89,6 +89,12 @@
                     </a>
                 </li>
                 <li>
+                    <a href="viewworkoutplans">
+                        <span class="material-symbols-outlined">groups</span> 
+                        <span class="nav-item">Workout Plans</span>
+                    </a>
+                </li>
+                <li>
                     <a href="logout" class="logout">
                         <span class="material-symbols-outlined">logout</span> 
                         <span class="nav-item">Logout</span>
