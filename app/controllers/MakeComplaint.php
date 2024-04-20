@@ -9,12 +9,19 @@ class MakeComplaint{
                 
                 $complaint = new Complaint;
     
-                if($complaint->validate($_POST)){
-                    $complaint->insert($_POST);
-                    redirect('makeComplaint');
-                }
+                $resArray = [
+                    "memberEmail" => $_SESSION['email'],
+                    "type" => $_POST['complainttype'],
+                    "complaint" => $_POST['complaint'],
+                ];
+
+                $complaint->insert($resArray);
+                // if($complaint->validate($_POST)){
+                //     // $complaint->insert($_POST);
+                //     redirect('makeComplaint');
+                // }
     
-                $data['errors'] = $user->errors;
+                $data['errors'] = $complaint->errors;
             }
     
             $this->view('makeComplaint', $data);
