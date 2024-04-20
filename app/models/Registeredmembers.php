@@ -12,13 +12,13 @@ class Registeredmembers
         'memberemail',
         'gymname',
 
-        'workoutid'
+        'workoutid',
 
         'gymemail',
         'packageid',
         'workoutid',
         'mealplanname',
-        'generatedcode'
+        'generatedcode',
 
     ];
 
