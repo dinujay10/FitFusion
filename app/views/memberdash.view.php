@@ -10,113 +10,39 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
 
+        <link rel="stylesheet" href="<?=ROOT?>/assets/css/Sidebar.css"> 
+        <!-- <link rel="stylesheet" href="<?=ROOT?>/assets/css/MemberStyles.css">  -->
+
     </head>
     <body>
-        <!-- <header> -->
-            <!-- <a href="#" class = "logo">
-                <img src="<?=ROOT?>/assets/images/LogoFinal.png" alt="logo">
-            </a> -->
-            <!-- <ul class="navmenu"> -->
-                <!-- <li><a href ="home">Home</a></li>
-                <li><a href ="signup">Sign Up</a></li> -->
-                <!-- <li><a href ="home">Log Out</a></li>
-            </ul> -->
 
-            <!-- <div class="nav-icon"> -->
-                <!-- <a href="#"><i class='bx bx-search-alt'></i></a>
-                <a href="searchgyms"><i class='bx bx-dumbbell' ></i></a>
-                <a href="searchnutritionists"><i class='bx bxs-bowl-rice'></i></a> -->
 
-                <!-- <div class="bx bx-menu" id="menu-icon"></div> -->
-                <!-- <label for="check" class="checkbtn">
-                    <i class="fa fa-bars"></i>
-                </label>
-            </div>
-        </header> -->
-
-        <!-- <nav>
-            <ul>
-                <li>
-                    <a href="#" class="sidebar-logo">
-                    <img src="<?=ROOT?>/assets/images/Logo.png" alt="">
-                    <span class="nav-item">Member Dashboard</span>
-                </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">account_circle</span>
-                        <span class="nav-item">Profile</span>                    
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">schedule</span> 
-                        <span class="nav-item">Gym Schedule</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="scheduleinterface">
-                        <span class="material-symbols-outlined">schedule</span> 
-                        <span class="nav-item">My Schedule</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">monitoring</span> 
-                        <span class="nav-item">My Progress</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">task</span> 
-                        <span class="nav-item">Task List</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">groups</span> 
-                        <span class="nav-item">Meetings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="complaintc">
-                        <span class="material-symbols-outlined">star</span> 
-                        <span class="nav-item">Make Complaints</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="logout" class="logout">
-                        <span class="material-symbols-outlined">logout</span> 
-                        <span class="nav-item">Logout</span>
-                    </a>
-                </li>
-            </ul>
-        </nav> -->
 
 
         <!-- //////////////////////////// -->
-        <div class="side-menu">
-        <div class="brand-name">
-            <h3>FIT FUSION</h3>
-        </div>
-        <!-- <div class="center-image">
-                <img src="<?=ROOT?>/assets/images/LogoFinal.png" alt="logo">
-        </div> -->
-        <ul>
-            <a href="memberdash"><li>&nbsp; <h5>Dashboard</h5> </li></a>
-            <a href="memberprofile"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h7>My Profile</h7> </li></a>
-            <a href="taskList"><li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h7>Task List</h7> </li></a>
-            <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h7>Attendance</h7> </li></a>
+        <div class="container-left">
+            <div class="side-menu">
+            <div class="brand-name">
+                <h3>FIT FUSION</h3>
+            </div>
+            <!-- <div class="center-image">
+                    <img src="<?=ROOT?>/assets/images/LogoFinal.png" alt="logo">
+            </div> -->
+            <ul>
+                <a href="memberdash"><li>&nbsp; <h5>Dashboard</h5> </li></a>
+                <a href="memberprofile"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>My Profile</h6> </li></a>
+                <a href="taskList"><li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Task List</h6> </li></a>
+                <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Attendance</h6> </li></a>
 
-            <a href="scheduleInstrAppointReq"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h7>Meetings</h7> </li></a>
-            <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h7>Complaints</h7> </li></a>
-            <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h7>Reviews</h7> </li></a>
-            <a href="scheduleinterface"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h7>My schedule</li></a>
-            <a href="#"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h7>Payments</h7></li></a>
-            <a href="memberviewmealplan"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h7>Meal Plan</h7> </li></a>
-            <a href="logout"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h7>Logout</h7> </li></a>
+                <a href="scheduleInstrAppointReq"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Meetings</h6> </li></a>
+                <a href="makeComplaint"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Complaints</h6> </li></a>
+                <a href="makereviewgym"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Reviews</h6> </li></a>
+                <a href="scheduleinterface"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>My schedule</h6></li></a>
+                <a href="memberviewmealplan"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Meal Plan</h6> </li></a>
+                <a href="logout"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Logout</h6> </li></a>
 
-        </ul>
+            </ul>
+            </div>
         </div>
         <!-- //////////////////////////// -->
 
