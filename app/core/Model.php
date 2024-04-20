@@ -154,16 +154,40 @@ trait Model
 
         return false;
     }
-    public function deletecomplaint($id, $id_column = 'id') {
-        $con=new mysqli('localhost','root','','fitfusion');
-        //$con = $this->connect();
-        $sql="delete from `complaint` where id=$id";
-        $result=mysqli_query($con,$sql);
-       // $data[$id_column] = $id;
-       // $query = "delete from $this->table where $id_column = :$id_column ";
+    // public function deletecomplaint($id, $id_column = 'id') {
+    //     $con=new mysqli('localhost','root','','fitfusion');
+    //     //$con = $this->connect();
+    //     $sql="delete from `complaint` where id=$id";
+    //     $result=mysqli_query($con,$sql);
+    //    // $data[$id_column] = $id;
+    //    // $query = "delete from $this->table where $id_column = :$id_column ";
         
-        // echo $query;
-       // $this->query($query, $data);
+    //    //echo $query;
+    //    $this->query($query, $data);
+
+    //     return false;
+    // }
+
+    // public function deletemachine($id, $id_column = 'id') {
+    //     $con=new mysqli('localhost','root','','fitfusion');
+    //     //$con = $this->connect();
+    //     $sql="delete from `machines` where id=$id";
+    //     $result=mysqli_query($con,$sql);
+    //    // $data[$id_column] = $id;
+    //    // $query = "delete from $this->table where $id_column = :$id_column ";
+
+    // }
+    // public function deletepackage($id, $id_column = 'id')
+    // {
+    //     $con = new mysqli('localhost', 'root', '', 'fitfusion');
+    //     //$con = $this->connect();
+    //     $sql = "delete from `packages` where id=$id";
+    //     $result = mysqli_query($con, $sql);
+    //     // $data[$id_column] = $id;
+    //     // $query = "delete from $this->table where $id_column = :$id_column ";
+
+    //     // echo $query;
+    //    // $this->query($query, $data);
 
         return false;
     }
@@ -256,3 +280,4 @@ trait Model
     }
     
 }
+

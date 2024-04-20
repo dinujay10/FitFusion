@@ -3,7 +3,7 @@
 // A trait cannot be used unless its inside another class
 Trait Database {
     private function connect() {
-        $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME; //;dbname=my_db ADD THIS LATER WITH DB NAME
+        $string = "mysql:hostname=" . DBHOST . ";dbname=" . DBNAME ; //;dbname=my_db ADD THIS LATER WITH DB NAME
         $con = new PDO($string, DBUSER, DBPASS);
         return $con;
     }

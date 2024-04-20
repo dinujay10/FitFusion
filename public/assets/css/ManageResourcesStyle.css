@@ -77,6 +77,7 @@ ul{
    
 }
 
+
 .secondcontainer{
 
     display: flex;
@@ -84,6 +85,7 @@ ul{
     align-items: center;
     padding-left: 10%;
     /* padding-top: 10px; */
+
 }
 
 .machines{
@@ -121,19 +123,23 @@ ul{
 }
 
 .addMachine{
+
     border-color:#333533;
     width: 400px;
+
     height: 550px;
-    border-style: double;
+    border-radius:30px;
     padding: 15px;
-    margin: 30px; 
+    margin-top: 50px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 10);
     align-items: center;
 }
 .addMachine h2{
     padding: 30px;
+
     color: #ffd034;
     text-align: center;
+
 }
 
 section .contentBx .formBx{
@@ -151,19 +157,21 @@ section .contentBx .formBx h2{
 
 }
 .inputBx{
-    margin-bottom: 5px;
+    margin-bottom: 15px;
 }
  .inputBx span{
     font-size: 16px;
-    margin-bottom:5px;
+    margin-bottom:20px;
     display: inline-block;
     color: black;
     font-weight: 300;
     font-size: 16px;
     letter-spacing: 1px;
+    font-weight:700;
+    margin-left:50px;
 }
 .inputBx input{
-    width: 100%;
+    width: 80%;
     padding: 10px 20px;
     outline:none;
     font-weight: 400;
@@ -173,6 +181,7 @@ section .contentBx .formBx h2{
     color:black;
     background: transparent;
     border-radius: 30px;
+    margin-left:100px;
 }
 .inputBx input[type="submit"]{
 
@@ -180,7 +189,7 @@ section .contentBx .formBx h2{
 
     color: #fff;
     outline: none;
-    border: none;
+    border-radius: 20px;
     font-weight: 500;
     cursor:pointer;
     
@@ -222,13 +231,15 @@ input[type="submit"] {
 }
 /* Style for the table */
 table {
-    width: 100%;
-    border-collapse: collapse;
+    width: 90%;
+    border-collapse:separate;
     background-color: #fff;
     border: 1px solid #ddd;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-    margin-left: 20px;
-    margin-right: 5px;
+    margin-left: 4%;
+    /* margin-right: 5px; */
+    margin-top: 4%;
+    border-radius: 20px;
   }
   
   table thead {
@@ -239,7 +250,7 @@ table {
   table th,
   table td {
     padding: 10px;
-    text-align: left;
+    text-align: center;
     border: 1px solid #ddd;
   }
   
@@ -249,6 +260,7 @@ table {
   
   table tbody tr:nth-child(2n) {
     background-color: #f2f2f2;
+    
   }
   
   table tbody tr:hover {
@@ -271,11 +283,13 @@ table {
     color: #fff;
   }
   
+
   table button:hover {
     background-color:#ffd034;
 }
 
-.maincontainer{
+
+
     display: flex;
 /*     align-items: self-start; */
 /*     padding: 50px; */
@@ -293,4 +307,5 @@ table {
     position: absolute; */
     padding-left: 8%;
 }
+
 
