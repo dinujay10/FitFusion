@@ -100,7 +100,7 @@
     </select>
     <br><br>
 
-    <label for="planname">Workout Plan Name:</label><br>
+    <label for="planname">Meal Plan Name:</label><br>
     <input type="text" name="planname" placeholder="Meal Plan Name"><br><br>
 
     <label for="day">Select Day:</label><br>
