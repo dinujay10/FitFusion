@@ -53,39 +53,39 @@
                     </a>
                 </li>
                 <li>
-                    <a href="scheduleinterface">
+                    <a href="workoutcategory">
                         <span class="material-symbols-outlined">schedule</span> 
-                        <span class="nav-item">My Schedule</span>
+                        <span class="nav-item">Available Categories</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="createworkoutplan">
                         <span class="material-symbols-outlined">monitoring</span> 
-                        <span class="nav-item">My Progress</span>
+                        <span class="nav-item">Create Workout Plan</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="machinefailure">
                         <span class="material-symbols-outlined">task</span> 
-                        <span class="nav-item">Task List</span>
+                        <span class="nav-item">Machine Failure</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="instructormeetings">
                         <span class="material-symbols-outlined">groups</span> 
                         <span class="nav-item">Meetings</span>
                     </a>
                 </li>
                 <li>
-                    <a href="complaintc">
+                    <a href="memberfeed">
                         <span class="material-symbols-outlined">star</span> 
-                        <span class="nav-item">Make Complaints</span>
+                        <span class="nav-item">Feedbacks</span>
                     </a>
                 </li>
                 <li>
                     <a href="viewworkoutplans">
                         <span class="material-symbols-outlined">groups</span> 
-                        <span class="nav-item">Workout Plans</span>
+                        <span class="nav-item">View Workout Plans</span>
                     </a>
                 </li>
                 <li>
