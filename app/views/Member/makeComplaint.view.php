@@ -167,7 +167,7 @@
                                     </div>
                                     <div class="form-content-textarea-bar">
                                         <!-- limit the number of characters!!!!! -->
-                                        <textarea class="textarea-tile" name="complaint" id="complaint" cols="87" rows="10" placeholder="Type your review here"></textarea>
+                                        <textarea class="textarea-tile" name="complaint" id="complaint" cols="87" rows="10" placeholder="Type your complaints here"></textarea>
                                     </div>
                                     <div class="form-content-bar">
                                         <input class="submit-button" type="submit" value="Submit Complaint">

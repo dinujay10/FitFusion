@@ -1,6 +1,6 @@
 <?php
 
-class ScheduleInstrAppointReq{
+class Scheduleinstrmeeting{
     use Controller;
         public function index() {
             $data = [];
@@ -91,13 +91,9 @@ class ScheduleInstrAppointReq{
             $instrschedule = new Instrschedule; 
             $instrschedule->insert($resArray);
             }
-
-
-
-
             
 
-            $this->view('Appointments/scheduleInstrAppointReq', $data);
+            $this->view('Member/scheduleinstrmeeting', $data);
         }
 
        

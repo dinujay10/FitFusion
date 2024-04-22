@@ -43,7 +43,7 @@ class ViewgymsTEST {
 
         // show($gymdata);
         // show("from the index function");
-        $this->view('memberdash',$data);
+        $this->view('viewgymsTEST',$data);
     }
 
     // public function edit($a = '', $b = '', $c = '') {

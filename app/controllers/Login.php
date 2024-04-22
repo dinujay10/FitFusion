@@ -46,7 +46,37 @@ class Login {
                     $_SESSION['email'] = $row->email;
                     $_SESSION['usertype'] = $row->usertype;
                     if($row->usertype=="member") {
-                        redirect('memberdash');
+
+                        $member = new Registeredmembers;
+                        $memberarr1['memberemail'] = $_POST['email'];
+                        $checkmember = $member->first($memberarr1);
+                        // print_r($checkmember);
+
+                        if($checkmember) {
+                            $checkworkout = $checkmember->workoutid;
+                            // print($checkworkout);
+                            if($checkworkout!=0) {
+                                $checkmealplan = $checkmember->mealplanname;
+                                // print_r($checkmealplan);
+                                if($checkmealplan!=0) {
+                                    redirect('memberdash');
+                                }
+                                elseif($checkmember->packagegroup=='instructor') {
+                                    // print_r($checkmember->packagegroup);
+                                    redirect('memberdash');
+                                }
+                                else {
+                                    redirect('schedulenutriappointreq');
+                                }
+                            }
+                            else {
+                                redirect('scheduleinstrmeeting');
+                            }
+                        }
+                        else {
+                            redirect('selectgym');
+                        }
+
                     } else if($row->usertype=="gyminstructor") {
                         redirect('gyminstructordash');
                     } else if($row->usertype=="nutritionist") {
@@ -66,19 +96,7 @@ class Login {
             $data['errors'] = $user->errors;
         }
 
-        $this->view('login', $data);
+        $this->view('Main/login', $data);
     }
-
-    // public function edit($a = '', $b = '', $c = '') {
-    //     show("from the edit function");
-    //     $this->view('home');
-    // }
-
-    // public function createUserSession($user) {
-    //     $_SESSION['id'] = $user->id;
-    //     $_SESSION['email'] = $user->email;
-    //     $_SESSION['username'] = $user->username;
-    // }
-
    
 }

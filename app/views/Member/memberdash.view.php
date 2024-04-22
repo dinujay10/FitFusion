@@ -122,7 +122,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="#">
+                <a class="side-bar-tile-link" href="logout">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -205,11 +205,11 @@
                         <div class="content-info">
                             <div class="content-info-key">Selected Package:</div>
                                 <div class="content-info-value">
-                                    <!-- Backend Data -->
+                                    Backend Data
 
                                     <!-- add a colum named STATUS and only get the current package that the member has. NOT the cancelled ones -->
                                     <?php 
-                                    echo $data['packagetype'] . " Package";
+                                    // echo $data['packagetype'] . " Package";
                                     ?>
                                 </div>
                             </div>

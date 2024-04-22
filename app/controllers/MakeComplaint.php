@@ -18,20 +18,23 @@ class MakeComplaint{
 
             $complaintarr = [];
             $replyarr = [];
-            for ($i=0; $i < count($allcomplaintdeets); $i++) {
-                $complaintcontent = $allcomplaintdeets[$i]->complaint;
-                // print_r($complaintcontent);
-                array_push($complaintarr,$complaintcontent);
-                // print_r($complaintarr['complaintsSent']);
+            
+            if($allcomplaintdeets) {
+                for ($i=0; $i < count($allcomplaintdeets); $i++) {
+                    $complaintcontent = $allcomplaintdeets[$i]->complaint;
+                    // print_r($complaintcontent);
+                    array_push($complaintarr,$complaintcontent);
+                    // print_r($complaintarr['complaintsSent']);
+    
+                    $replycontent = $allcomplaintdeets[$i]->reply;
+                    // print($replycontent);
+                    array_push($replyarr,$replycontent);
+                    // print_r($replyarr['repliesSent']);
+                }
 
-                $replycontent = $allcomplaintdeets[$i]->reply;
-                // print($replycontent);
-                array_push($replyarr,$replycontent);
-                // print_r($replyarr['repliesSent']);
+                $data['allcomplaints'] = $complaintarr;
+                $data['allreplies'] = $replyarr;
             }
-
-            $data['allcomplaints'] = $complaintarr;
-            $data['allreplies'] = $replyarr;
 
             // print_r($data);
 

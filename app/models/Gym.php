@@ -7,6 +7,7 @@ class Gym {
     protected $table = 'gyms';
     
     protected $allowedColumns = [
+        'id',
         'gymName',
         'description',
         'email',
