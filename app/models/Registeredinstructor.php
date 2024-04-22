@@ -10,7 +10,7 @@ class Registeredinstructor{
         'id',
         'instructoremail',
         'manageremail',
-        
+        'gymemail'
     ];
 
 //     public function validate($data)

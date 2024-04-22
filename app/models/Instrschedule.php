@@ -8,6 +8,7 @@ class InstrSchedule {
     
     protected $allowedColumns = [
         'instructoremail',
+        'gymemail',
         'date',
         'timeslot',
         'memberemail',

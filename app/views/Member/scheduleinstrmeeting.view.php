@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="common-body">
-            <form class="form-tile" method="POST">
+            <form class="form-tile" method="POST" style="height: 95%;">
                 <div class="form-tile-content">
                     <div class="form-tab-bar">
                         <div class="form-heading">Schedule Instructor Meeting</div>
@@ -97,7 +97,7 @@
                             </div>
                         </div>
                         <div class="form-content-bar">
-                            <input class="submit-button" type="submit" value="Schedule Meeting">
+                            <input class="submit-button" type="submit" value="Schedule Meeting" onclick="meetingAlert()">
                         </div>
                     </div>
                 </div>
@@ -141,7 +141,7 @@
             var array = JSON.stringify(array);
 
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "ScheduleInstrAppointReq/getInstructorName", true);
+            xhr.open("POST", "Scheduleinstrmeeting/getInstructorName", true);
             xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
@@ -167,7 +167,7 @@
             var array = JSON.stringify(array);
 
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", "ScheduleInstrAppointReq/getDate", true);
+            xhr.open("POST", "Scheduleinstrmeeting/getDate", true);
             xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
@@ -233,7 +233,9 @@
             document.getElementById("timeslot").value = element.textContent.trim();
         }
 
-
+        function meetingAlert() {
+            alert("Meeting Scheduled!");
+        }
 
     </script>
 </body>
