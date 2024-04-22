@@ -361,7 +361,25 @@
     font-size: 1em;
 }
 
+.select-box-meetings {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+    border: 1px solid #27374D;
+    height: 80%;
+    width: 95%;
+    text-align: center;
+    font-size: 1em;
+}
+
 .select-box:hover {
+    cursor: pointer;
+}
+
+.select-box-meetings:hover {
     cursor: pointer;
 }
 
@@ -382,4 +400,77 @@
     background-color: #27374D;
     cursor: pointer;
     color: white;
+}
+
+.date-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+    border: 1px solid #27374D;
+    height: 70%;
+    width: 95%;
+    text-align: center;
+    font-size: 1em;
+}
+
+.form-content-timeslot-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #ceb528; */
+    width: 97%;
+    height: 20%;
+    gap: 0.2rem;
+}
+
+.timeslot {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
+    border-radius: 10px;
+    border: 1px solid #27374D;
+    height: 100%;
+    width: 25%;
+    text-align: center;
+    font-size: 1em;
+    padding: 0 5px 0 5px;
+}
+
+.timeslot:hover {
+    cursor: pointer;
+    background-color: #27374D;
+    color: white;
+}
+
+/* Style for disabled time slots */
+.timeslot.disabled {
+    background-color: #CCCCCC; /* Change the background color to gray */
+    color: #777777; /* Change the text color to a darker shade of gray */
+    cursor: not-allowed; /* Change the cursor to indicate that it's not clickable */
+}
+
+/* Style for selected time slot */
+.timeslot.selected {
+    background-color: #27374D; /* Change the background color to a different color */
+    color: white; /* Change the text color to white */
+}
+
+.input-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
+    border-radius: 20px;
+    border: 1px solid #27374D;
+    height: 70%;
+    width: 95%;
+    text-align: center;
+    font-size: 1em;
 }

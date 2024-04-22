@@ -49,6 +49,10 @@ class Scheduleinstrmeeting{
             if ($_SERVER['REQUEST_METHOD']=='POST') {
                 
                 // print_r($_POST);
+
+
+                // INSERTING DATA INTO THE DB PROCESS
+
                 // print_r($_POST['InstrName']);
 
                 $instructorname = $_POST['InstrName'];
@@ -61,8 +65,16 @@ class Scheduleinstrmeeting{
                 $instructoremail = $instrdetails[0]->email; /////////////////
                 // print_r($instructoremail);
 
+                // print_r($_POST);
                 $date = $_POST['date'];////////////////
-                $timeslot = $_POST['timeslot'];////////////////////
+                // $timeslot = $_POST['timeslot'];////////////////////
+
+
+                if (!empty($_POST['timeslot'])) {
+                    $timeslot = $_POST['timeslot'];
+                    // process your data here
+                }
+
                 $memberemail = $_SESSION['email'];//////////
 
                 $membername = $_POST['membername'];
@@ -75,21 +87,21 @@ class Scheduleinstrmeeting{
                 // print_r($status);
 
                 //add all the needed stuff and insert to the DB
-            $resArray = [
-                "instructoremail" => $instructoremail,
-                "date" => $date,
-                "timeslot" => $timeslot,
-                "memberemail" => $memberemail,
-                "membername" => $membername,
-                "memberage" => $memberage,
-                "goal" => $goal,
-                "illness" => $illness,
-                "status" => $status
-            ];
-            // print_r($resArray);
+                $resArray = [
+                    "instructoremail" => $instructoremail,
+                    "date" => $date,
+                    "timeslot" => $timeslot,
+                    "memberemail" => $memberemail,
+                    "membername" => $membername,
+                    "memberage" => $memberage,
+                    "goal" => $goal,
+                    "illness" => $illness,
+                    "status" => $status
+                ];
+                // print_r($resArray);
 
-            $instrschedule = new Instrschedule; 
-            $instrschedule->insert($resArray);
+                $instrschedule = new Instrschedule; 
+                $instrschedule->insert($resArray);
             }
             
 

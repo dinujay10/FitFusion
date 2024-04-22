@@ -37,7 +37,7 @@
                         <div class="form-content-bar">
                             <div class="form-content-bar-value">Choose Instructor:</div>
                             <div class="form-content-bar-value">
-                                <select class="select-box" name="InstrName" id="instrname" onchange="sendInstructorAndEnableDate()">
+                                <select class="select-box-meetings" name="InstrName" id="instrname" onchange="sendInstructorAndEnableDate()">
                                     <option value="Select an instructor" disabled selected>Instructor</option>
                                     <?php 
                                     // echo $data['instructorlist'];
@@ -51,19 +51,50 @@
                         <div class="form-content-bar">
                             <div class="form-content-bar-value">Choose Date:</div>
                             <div class="form-content-bar-value">
-                                <input type="date" id="date" name="date" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')); ?>" onchange="sendDate()" disabled/>
+                                <input class="date-box" type="date" id="date" name="date" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')); ?>" onchange="sendDateAndEnableTImeslot()" disabled/>
                             </div>
                         </div>
-                        <div class="form-content-timeslot-bar">
-                            <div id="slot09" class="timeslot" onclick="selectTimeSlot(this)">09:00am</div>
-                            <div id="slot10" class="timeslot" onclick="selectTimeSlot(this)">10:00am</div>
-                            <div id="slot11" class="timeslot" onclick="selectTimeSlot(this)">11:00am</div>
-                            <div id="slot12" class="timeslot" onclick="selectTimeSlot(this)">12:00pm</div>
-                            <div id="slot13" class="timeslot" onclick="selectTimeSlot(this)">13:00pm</div>
-                            <div id="slot14" class="timeslot" onclick="selectTimeSlot(this)">14:00pm</div>
-                            <div id="slot15" class="timeslot" onclick="selectTimeSlot(this)">15:00pm</div>
-                            <div id="slot16" class="timeslot" onclick="selectTimeSlot(this)">16:00pm</div>
-                            <div id="slot17" class="timeslot" onclick="selectTimeSlot(this)">17:00pm</div>
+                        <input type="hidden" id="timeslot" name="timeslot" value="">
+                        <div class="form-content-timeslot-bar" id="timeslot-bar">
+                            <div id="slot09" class="timeslot disabled" onclick="selectTimeSlot(this)">09:00am</div>
+                            <div id="slot10" class="timeslot disabled" onclick="selectTimeSlot(this)">10:00am</div>
+                            <div id="slot11" class="timeslot disabled" onclick="selectTimeSlot(this)">11:00am</div>
+                            <div id="slot12" class="timeslot disabled" onclick="selectTimeSlot(this)">12:00pm</div>
+                            <div id="slot13" class="timeslot disabled" onclick="selectTimeSlot(this)">13:00pm</div>
+                            <div id="slot14" class="timeslot disabled" onclick="selectTimeSlot(this)">14:00pm</div>
+                            <div id="slot15" class="timeslot disabled" onclick="selectTimeSlot(this)">15:00pm</div>
+                            <div id="slot16" class="timeslot disabled" onclick="selectTimeSlot(this)">16:00pm</div>
+                            <div id="slot17" class="timeslot disabled" onclick="selectTimeSlot(this)">17:00pm</div>
+                        </div>
+                        <div class="form-content-bar">
+                            <div class="form-content-bar-value">Your Name:</div>
+                            <div class="form-content-bar-value">
+                                <input class="input-box" type="text" id="membername" name="membername">
+                            </div>
+                        </div>
+                        <div class="form-content-bar">
+                            <div class="form-content-bar-value">Your Age:</div>
+                            <div class="form-content-bar-value">
+                                <input class="input-box" type="text" id="memberage" name="memberage">
+                            </div>
+                        </div>
+                        <div class="form-content-bar">
+                            <div class="form-content-bar-value">Your Goal:</div>
+                            <div class="form-content-bar-value">
+                                <select class="select-box-meetings" name="goal" id="goal">
+                                    <option value="LoseWeight">Lose Weight</option>
+                                    <option value="GainWeight">Gain Weight</option>
+                                    <option value="ToneBody">Tone Body</option>
+                                    <option value="TrainForSport">Training for a Sport</option>
+                                    <option value="GainMuscles">Gain Muscles</option>
+                                </select>  
+                            </div>
+                        </div>
+                        <div class="form-content-bar">
+                            <div class="form-content-bar-value">Any Illnesses:</div>
+                            <div class="form-content-bar-value">
+                                <input class="input-box" type="text" id="illness" name="illness">
+                            </div>
                         </div>
                         <div class="form-content-bar">
                             <input class="submit-button" type="submit" value="Schedule Meeting">
@@ -169,6 +200,19 @@
             enableDate(); // Call the enableDate() function
         }
 
+        function enableTimeslot() {
+            // Enable the date input when an instructor is selected
+            var timeslots = document.getElementsByClassName('timeslot');
+            for (var i = 0; i < timeslots.length; i++) {
+                timeslots[i].classList.remove('disabled');
+            }
+        }
+
+        function sendDateAndEnableTImeslot() {
+            sendDate(); 
+            enableTimeslot(); 
+        }
+
         var selectedTimeSlot = null;
 
         function selectTimeSlot(element) {
@@ -186,7 +230,7 @@
             element.classList.add('selected');
             selectedTimeSlot = element;
 
-            document.getElementById("timeslot").value = element.textContent;
+            document.getElementById("timeslot").value = element.textContent.trim();
         }
 
 
