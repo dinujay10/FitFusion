@@ -14,31 +14,34 @@ class Scheduleinstrmeeting{
             $reginstructors = new Registeredinstructor;
             // print_r($reginstructors);
             $arr2['gymemail'] = $gymemail;
-            // print_r($arr2['gymemail']);
+            // print_r('gymemail'.$arr2['gymemail']);
             $instructordetails = $reginstructors->where($arr2); // array of details are here
 
             // echo $instructordetails;
             // echo "hiiiii";
             // $instructoremails = [];
             $instrnamelist = [];
-            for ($i=0; $i < count($instructordetails); $i++) { 
+            if($instructordetails) {
+                for ($i=0; $i < count($instructordetails); $i++) { 
 
-                $instructoremails = $instructordetails[$i]->instructoremail;
-                // print_r($instructoremails);
-                $data['instructoremail'] = $instructoremails;
-                // print_r($data['instructoremail']);
+                    $instructoremails = $instructordetails[$i]->instructoremail;
+                    // print_r($instructoremails);
+                    $data['instructoremail'] = $instructoremails;
+                    // print_r($data['instructoremail']);
 
-                $instructors = new Gyminstructor;
-                // print_r($instructors);
-                $arr3['email'] = $instructoremails;
-                // print_r($arr3['email']);
-                $instrdetails = $instructors->where($arr3);
-                $instrnames = $instrdetails[0]->name;
-                // print_r($instrnames);
-                // print_r($instrdetails);
-                // print_r($instructors->where($arr3));
-                array_push($instrnamelist, $instrnames);
+                    $instructors = new Gyminstructor;
+                    // print_r($instructors);
+                    $arr3['email'] = $instructoremails;
+                    // print_r($arr3['email']);
+                    $instrdetails = $instructors->where($arr3);
+                    $instrnames = $instrdetails[0]->name;
+                    // print_r($instrnames);
+                    // print_r($instrdetails);
+                    // print_r($instructors->where($arr3));
+                    array_push($instrnamelist, $instrnames);
+                }
             }
+                
 
             $data['instructorlist'] = $instrnamelist;
 
@@ -58,12 +61,12 @@ class Scheduleinstrmeeting{
                 $instructorname = $_POST['InstrName'];
 
                 $instructor = new Gyminstructor;
-                // print_r($instructors);
+                // print_r($instructor);
                 $instrdeets['name'] = $instructorname;
                 // print_r($arr3['email']);
                 $instrdetails = $instructor->where($instrdeets);
                 $instructoremail = $instrdetails[0]->email; /////////////////
-                // print_r($instructoremail);
+                print_r('instremail'.$instructoremail);
 
                 // print_r($_POST);
                 $date = $_POST['date'];////////////////
@@ -85,10 +88,11 @@ class Scheduleinstrmeeting{
                 $status = "Pending";
 
                 // print_r($status);
-
+                // print_r($gymemail);
                 //add all the needed stuff and insert to the DB
                 $resArray = [
                     "instructoremail" => $instructoremail,
+                    "gymemail" => $gymemail,
                     "date" => $date,
                     "timeslot" => $timeslot,
                     "memberemail" => $memberemail,
@@ -102,6 +106,15 @@ class Scheduleinstrmeeting{
 
                 $instrschedule = new Instrschedule; 
                 $instrschedule->insert($resArray);
+
+                // check package
+                // if package is instructor, redirect to dashboard
+                // if package is intrnutri, use member email and gym email and get the record of them in the nutritionistschedule table of the DB.
+                    // if record exists, get the status of the record
+                        // if status is Pending or Confirmed, redirect to dashboard
+                        // if status is Cancelled, redirect to nutritionistmeeting page
+                    // if record does not exist, redirect to nutritionistmeeting page
+
             }
             
 

@@ -70,6 +70,28 @@ class Login {
                                 }
                             }
                             else {
+                                $checkarr['gymemail'] = $checkmember->gymemail;
+                                $checkarr['memberemail'] = $checkmember->memberemail;
+                                $isMeeting = $checkmember->where($checkarr);
+
+                                if ($isMeeting) {
+                                    if ($isMeeting->status=="Pending" or $isMeeting->status=="Confirmed") {
+                                        // check if they have a instrnutri packagegroup. 
+                                        if ($checkmember->packagegroup=='instrnutri') {
+                                            // TODO make nutrschedule table. get the status of the member by using the memberemail and the gymemail
+                                            // TODO then check if nutrimeeting status is Pending or confirmed, then redirect to dashboard
+                                            // TODO if nutri meeting status is cancelled, then redirect to nutrimeeting page.
+                                        }
+                                        else {
+                                            redirect('memberdash');
+                                        }
+                                        
+                                        
+                                    }
+                                    elseif ($isMeeting->status=="Cancelled") {
+                                        redirect('scheduleinstrmeeting');
+                                    }
+                                }
                                 redirect('scheduleinstrmeeting');
                             }
                         }
