@@ -198,9 +198,7 @@ section {
 
 /* gym and nutri list */
 .gym-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, auto));
-    gap: 2rem;
+    display: flex;
 }
 
 .nutri-list {
@@ -210,8 +208,12 @@ section {
 }
 
 .gym-row {
-    position: relative;
+   
     transition: all .40s;
+    width: 200px;
+    height: 200px;
+    margin:20px;
+    
 }
 
 .nutri-row {
@@ -220,8 +222,8 @@ section {
 }
 
 .gym-row img {
-    width: 100%;
-    height: auto;
+    width: 200px;
+    height: 200px;
     position: relative;
     transition: all.40s;
 }
@@ -244,7 +246,7 @@ section {
 }
 
 .gym-text h5 {
-    position: absolute;
+  
     top: 13px;
     left: 13px;
     color: #000000;
@@ -270,7 +272,7 @@ section {
 }
 
 .heart-icon {
-    position: absolute;
+    position:relative;
     right: 0;
     font-size: 20px;
 }

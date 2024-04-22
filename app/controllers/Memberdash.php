@@ -1,22 +1,36 @@
 <?php
 
-class Memberdash {
+class Memberdash{
     use Controller;
+        public function index() {
+            $data = [];
 
-    public function index() {
-        // $member = new Member;
-        // $arr['name'] = "Mary";
-        // $arr['age'] = 30;
+            if(!isset($_SESSION['email'])){
+                redirect('login');
+             }
+             
+            if ($_SERVER['REQUEST_METHOD']=='POST') {
 
-        // $result = $user->findAll();
+                $data['errors'] = $user->errors;
+            }
 
-        // show($result);
-        // show("from the index function");
-        $this->view('memberdash');
-    }
+            // $regmembers = new Registeredmembers;
+            // $arr['memberemail'] = $_SESSION['email'];
+            // $memberdetails = $regmembers->where($arr);
+            // $packageid = $memberdetails[0]->packageid;
+            // // print_r($packageid);
+            // $data['packageid'] = $packageid;
 
-    // public function edit($a = '', $b = '', $c = '') {
-    //     show("from the edit function");
-    //     $this->view('home');
-    // }
+            // $package = new Package;
+            // $arr2['id'] = $packageid;
+            // // print_r($arr2);
+            // $packagedetails = $package->where($arr2);
+            // // print_r($packagedetails);
+            // $packagetype = $packagedetails[0]->packagetype;
+            // // print_r($packagetype);
+
+            // $data['packagetype'] = $packagetype;
+            
+            $this->view('Member/memberdash', $data);
+        }
 }

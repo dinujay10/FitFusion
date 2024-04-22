@@ -1,0 +1,149 @@
+ body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+nav {
+    background-color:  rgb(226, 139, 33);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-weight: 600;
+    padding: 10px;
+    color: rgb(15, 14, 14);
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+}
+
+.logo {
+    font-size: 1.5em;
+}
+
+ul {
+    list-style-type: none;
+    display: flex;
+    gap: 20px;
+}
+
+li {
+    margin-right: 10px;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+/* .maincontainer {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+} */
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+.frm {
+    display: flex;
+    margin-top: 20px;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #d6d2d2;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.addMachine {
+    text-align: center;
+    gap: 20px;
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 20px;
+}
+
+.inputBx {
+    display: flex;
+    flex-direction: column ;
+    
+    
+}
+
+span {
+    margin-bottom: 5px;
+    color: #333;
+}
+
+input {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width:80%;
+    box-sizing: border-box;
+}
+
+[type="submit"] {
+    margin-left:300px;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    width:40%;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+} 
+
+ [type="submit"]:hover {
+    background-color: orange;
+    
+}
+
+button{
+    background-color:orange;
+    
+    color: white;
+    cursor: pointer;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    width: 50%;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+}  
+
+/* .marked{
+    background-color: black;
+
+} */ 
+/* 
+button {
+    background-color: blue;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+button.clicked {
+    background-color: green;
+} 
