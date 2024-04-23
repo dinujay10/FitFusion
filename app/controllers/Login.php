@@ -72,10 +72,11 @@ class Login {
                             else {
                                 $checkarr['gymemail'] = $checkmember->gymemail;
                                 $checkarr['memberemail'] = $checkmember->memberemail;
-                                $isMeeting = $checkmember->where($checkarr);
+                                $checkmember1 = new InstrSchedule;
+                                $isMeeting = $checkmember1->where($checkarr);
 
                                 if ($isMeeting) {
-                                    if ($isMeeting->status=="Pending" or $isMeeting->status=="Confirmed") {
+                                    if ($isMeeting['status']=="Pending" or $isMeeting['status']=="Done") {
                                         // check if they have a instrnutri packagegroup. 
                                         if ($checkmember->packagegroup=='instrnutri') {
                                             // TODO make nutrschedule table. get the status of the member by using the memberemail and the gymemail
@@ -88,7 +89,7 @@ class Login {
                                         
                                         
                                     }
-                                    elseif ($isMeeting->status=="Cancelled") {
+                                    elseif ($isMeeting['status']=="Cancelled") {
                                         redirect('scheduleinstrmeeting');
                                     }
                                 }

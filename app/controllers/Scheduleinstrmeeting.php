@@ -29,7 +29,7 @@ class Scheduleinstrmeeting{
                     $data['instructoremail'] = $instructoremails;
                     // print_r($data['instructoremail']);
 
-                    $instructors = new Gyminstructor;
+                    $instructors = new User;
                     // print_r($instructors);
                     $arr3['email'] = $instructoremails;
                     // print_r($arr3['email']);
@@ -60,13 +60,13 @@ class Scheduleinstrmeeting{
 
                 $instructorname = $_POST['InstrName'];
 
-                $instructor = new Gyminstructor;
+                $instructor = new User;
                 // print_r($instructor);
                 $instrdeets['name'] = $instructorname;
                 // print_r($arr3['email']);
                 $instrdetails = $instructor->where($instrdeets);
                 $instructoremail = $instrdetails[0]->email; /////////////////
-                print_r('instremail'.$instructoremail);
+                // print_r('instremail'.$instructoremail);
 
                 // print_r($_POST);
                 $date = $_POST['date'];////////////////
@@ -108,12 +108,38 @@ class Scheduleinstrmeeting{
                 $instrschedule->insert($resArray);
 
                 // check package
+                $checkmember = new Registeredmembers();
+                $checkarr['memberemail'] = $memberemail;
+                $memberdeets = $checkmember->where($checkarr);
+                $memberpackagegroup = $memberdeets[0]->packagegroup;
                 // if package is instructor, redirect to dashboard
+                if ($memberpackagegroup=='instructor') {
+                    redirect('memberdash');
+                }
                 // if package is intrnutri, use member email and gym email and get the record of them in the nutritionistschedule table of the DB.
+                elseif ($memberpackagegroup=='instrnutri') {
+                    $checknutri = new Nutritionistschedule;
+                    $nutriarr['gymemail'] = $gymemail;
+                    $nutriarr['memberemail'] = $memberemail;
+                    $nutrideets = $checknutri->where($nutriarr);
                     // if record exists, get the status of the record
-                        // if status is Pending or Confirmed, redirect to dashboard
-                        // if status is Cancelled, redirect to nutritionistmeeting page
+                    if($nutrideets) {
+                        $nutristatus = $nutrideets[0]->status;
+                        // print_r($nutristatus);
+                        // if status is pending or done, redirect to dashboard
+                        if ($nutristatus=='Pending' or $nutristatus=='Done') {
+                            redirect('memberdash');
+                        }
+                        // if status is cancelled, redirect to nutritionistmeeting page
+                        elseif ($nutristatus=='Cancelled') {
+                            redirect('schedulenutrimeeting');
+                        }
+                    }
                     // if record does not exist, redirect to nutritionistmeeting page
+                    else {
+                        redirect('schedulenutrimeeting');
+                    }
+                }
 
             }
             
@@ -149,7 +175,7 @@ class Scheduleinstrmeeting{
             $detailarr['date'] = $date;
             // $detailarr['instructorname'] = $instructorname;
 
-            $instructor = new GymInstructor;
+            $instructor = new User;
             $array['name'] = $instructorname;
             // echo json_encode($array);
 
