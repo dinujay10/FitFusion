@@ -5,6 +5,31 @@ class Schedulenutrimeeting{
         public function index() {
             $data = [];
 
+            if(isset($_SESSION['email'])){
+                if($_SESSION['usertype']=="member") {
+                    // redirect('memberdash');
+                    // die();
+                } else if($_SESSION['usertype']=="gyminstructor") {
+                    redirect('gyminstructordash');
+                    die();
+                } else if($_SESSION['usertype']=="nutritionist") {
+                    redirect('nutritionistdash');
+                    die();
+                } else if($_SESSION['usertype']=="gymmanager") {
+                   redirect('gymmanagerdash');
+                   die();
+                } else if($_SESSION['usertype']=="gymowner") {
+                    redirect('gymownerdash');
+                    die();
+                } else if($_SESSION['usertype']=="admin") {
+                    redirect('admindash');
+                    die();
+                }
+                }
+            else{
+                redirect("login");
+            }
+
             $regmembers = new Registeredmembers;
             $arr['memberemail'] = $_SESSION['email'];
             $memberdetails = $regmembers->where($arr);
@@ -24,7 +49,7 @@ class Schedulenutrimeeting{
             if($nutritionistdetails) {
                 for ($i=0; $i < count($nutritionistdetails); $i++) { 
 
-                    $nutritionistemails = $nutritionistdetails[$i]->instructoremail;
+                    $nutritionistemails = $nutritionistdetails[$i]->nutritionistemail;
                     // print_r($instructoremails);
                     $data['nutritionistemail'] = $nutritionistemails;
                     // print_r($data['instructoremail']);
@@ -92,7 +117,7 @@ class Schedulenutrimeeting{
                 // print_r($gymemail);
                 //add all the needed stuff and insert to the DB
                 $resArray = [
-                    "instructoremail" => $nutritionistemail,
+                    "nutritionistemail" => $nutritionistemail,
                     "gymemail" => $gymemail,
                     "date" => $date,
                     "timeslot" => $timeslot,
@@ -109,6 +134,7 @@ class Schedulenutrimeeting{
                 $nutrischedule = new Nutritionistschedule; 
                 $nutrischedule->insert($resArray);
                 
+                redirect('memberdash');
 
             }
             
