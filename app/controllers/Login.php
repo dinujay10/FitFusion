@@ -66,7 +66,20 @@ class Login {
                                     redirect('memberdash');
                                 }
                                 else {
-                                    redirect('schedulenutriappointreq');
+                                    // what if a meeting is already scheduled????
+                                    $checkarr['gymemail'] = $checkmember->gymemail;
+                                    $checkarr['memberemail'] = $checkmember->memberemail;
+                                    $checkmembernutri = new Nutritionistschedule;
+                                    $isMeetingNutri = $checkmembernutri->where($checkarr);
+                                    if($isMeetingNutri) {
+                                        if($isMeetingNutri[0]->status=="Pending" or $isMeetingNutri[0]->status=="Done") {
+                                            redirect('memberdash');
+                                        }
+                                        elseif ($isMeetingNutri[0]['status']=="Cancelled") {
+                                            redirect('schedulenutrimeeting');
+                                        }
+
+                                    }
                                 }
                             }
                             else {
@@ -74,11 +87,23 @@ class Login {
                                 $checkarr['memberemail'] = $checkmember->memberemail;
                                 $checkmember1 = new InstrSchedule;
                                 $isMeeting = $checkmember1->where($checkarr);
-
+                                print_r($isMeeting);
                                 if ($isMeeting) {
-                                    if ($isMeeting['status']=="Pending" or $isMeeting['status']=="Done") {
+                                    if ($isMeeting[0]->status=="Pending" or $isMeeting[0]->status=="Done") {
+                                        print_r($isMeeting[0]->status);
                                         // check if they have a instrnutri packagegroup. 
                                         if ($checkmember->packagegroup=='instrnutri') {
+                                            $checkmembernutri = new Nutritionistschedule;
+                                            $isMeetingNutri = $checkmembernutri->where($checkarr);
+                                            if($isMeetingNutri) {
+                                                if($isMeetingNutri[0]->status=="Pending" or $isMeetingNutri[0]->status=="Done") {
+                                                    redirect('memberdash');
+                                                }
+                                                elseif ($isMeetingNutri[0]['status']=="Cancelled") {
+                                                    redirect('schedulenutrimeeting');
+                                                }
+
+                                            }
                                             // TODO make nutrschedule table. get the status of the member by using the memberemail and the gymemail
                                             // TODO then check if nutrimeeting status is Pending or confirmed, then redirect to dashboard
                                             // TODO if nutri meeting status is cancelled, then redirect to nutrimeeting page.
@@ -89,7 +114,7 @@ class Login {
                                         
                                         
                                     }
-                                    elseif ($isMeeting['status']=="Cancelled") {
+                                    elseif ($isMeeting[0]['status']=="Cancelled") {
                                         redirect('scheduleinstrmeeting');
                                     }
                                 }

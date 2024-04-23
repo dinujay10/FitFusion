@@ -5,6 +5,31 @@ class Scheduleinstrmeeting{
         public function index() {
             $data = [];
 
+            if(isset($_SESSION['email'])){
+                if($_SESSION['usertype']=="member") {
+                    // redirect('memberdash');
+                    // die();
+                } else if($_SESSION['usertype']=="gyminstructor") {
+                    redirect('gyminstructordash');
+                    die();
+                } else if($_SESSION['usertype']=="nutritionist") {
+                    redirect('nutritionistdash');
+                    die();
+                } else if($_SESSION['usertype']=="gymmanager") {
+                   redirect('gymmanagerdash');
+                   die();
+                } else if($_SESSION['usertype']=="gymowner") {
+                    redirect('gymownerdash');
+                    die();
+                } else if($_SESSION['usertype']=="admin") {
+                    redirect('admindash');
+                    die();
+                }
+                }
+            else{
+                redirect("login");
+            }
+
             $regmembers = new Registeredmembers;
             $arr['memberemail'] = $_SESSION['email'];
             $memberdetails = $regmembers->where($arr);
@@ -106,6 +131,7 @@ class Scheduleinstrmeeting{
 
                 $instrschedule = new Instrschedule; 
                 $instrschedule->insert($resArray);
+
 
                 // check package
                 $checkmember = new Registeredmembers();
