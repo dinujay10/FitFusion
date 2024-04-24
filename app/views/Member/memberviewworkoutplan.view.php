@@ -67,7 +67,7 @@
             </div>
             <ul class="side-bar-content">
                 
-                <a class="side-bar-tile-link" href="memberviewmealplan">
+                <a class="side-bar-tile-link" href="memberdash">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -93,29 +93,31 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="#">
-                    <li class="current-side-bar-tile">
-                        <div class="sb-tab-content">
-                            <span class="material-symbols-outlined">
-                                fitness_center
-                            </span>
-                        </div>
-                        <div class="sb-tab-content">
-                            Workout Plan
-                        </div>
-                    </li>
-                </a>
-
-                <li class="side-bar-tile">
+                
+                <li class="current-side-bar-tile">
                     <div class="sb-tab-content">
                         <span class="material-symbols-outlined">
-                            skillet
+                            fitness_center
                         </span>
                     </div>
                     <div class="sb-tab-content">
-                        Meal Plan
+                        Workout Plan
                     </div>
                 </li>
+                
+
+                <a class="side-bar-tile-link" href="memberviewmealplan">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                skillet
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Meal Plan
+                        </div>
+                    </li>
+                </a>
 
                 
 
@@ -168,7 +170,7 @@
                     <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
                     Welcome, 
                     <?php
-                    // echo $data['firstname'] . " " . $data['lastname'];
+                    echo $data['firstname'] . " " . $data['lastname'];
                     ?>
                 </div>
             </div>

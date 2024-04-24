@@ -128,7 +128,7 @@
                     <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
                     Welcome, 
                     <?php
-                    // echo $data['firstname'] . " " . $data['lastname'];
+                    echo $data['firstname'] . " " . $data['lastname'];
                     ?>
                 </div>
             </div>
