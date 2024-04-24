@@ -71,31 +71,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="taskList">
-                    <li class="side-bar-tile">
-                        <div class="sb-tab-content">
-                            <span class="material-symbols-outlined">
-                                checklist
-                            </span>
-                        </div>
-                        <div class="sb-tab-content">
-                            Task List
-                        </div>
-                    </li>
-                </a>
-
-                <a class="side-bar-tile-link" href="#">
-                    <li class="side-bar-tile">
-                        <div class="sb-tab-content">
-                            <span class="material-symbols-outlined">
-                                schedule
-                            </span>
-                        </div>
-                        <div class="sb-tab-content">
-                            Attendance
-                        </div>
-                    </li>
-                </a>
+                
 
                 <li class="current-side-bar-tile">
                     <div class="sb-tab-content">
@@ -180,35 +156,36 @@
                             <div class="reply-heading">Replies</div>
                             <div class="reply-tile">
                                 <div class="reply-select">
-                                    <select class="select-box" name="complaint" id="complaint">
+                                    <select class="select-box" name="complaint" id="complaint" onchange="showComplaintDetailsAndEnableReply()">
                                         
                                     <!-- remove the value? -->
                                         <option value="Select a Complaint" disabled selected>Complaints</option>
                                         
                                         <!-- iterate the submitted complaints -->
                                         <?php 
-                                            for($x = 0; $x < count($data['allcomplaints']); $x++) {
-                                                // Truncate the complaint text to 20 characters
-                                                $displayText = substr($data['allcomplaints'][$x], 0, 20);
-                                                // If the original text is longer than 20 characters, add an ellipsis
-                                                if (strlen($data['allcomplaints'][$x]) > 20) {
-                                                    $displayText .= '...';
-                                                }
-                                                echo '<option value="' . $data['allcomplaints'][$x] . '">' . $displayText . '</option>';
-                                            }
-                                        ?>
+                                            // for($x = 0; $x < count($data['allcomplaints']); $x++) {
+                                            //     // Truncate the complaint text to 20 characters
+                                            //     $displayText = substr($data['allcomplaints'][$x], 0, 20);
+                                            //     // If the original text is longer than 20 characters, add an ellipsis
+                                            //     if (strlen($data['allcomplaints'][$x]) > 20) {
+                                            //         $displayText .= '...';
+                                            //     }
+                                            //     echo '<option value="' . $data['allcomplaints'][$x] . '">' . $displayText . '</option>';
+                                            // }
+
+                                            foreach ($data['allcomplaints'] as $index => $complaint): ?>
+                                                <option value="<?= $index; ?>"><?= substr($complaint, 0, 20) . (strlen($complaint) > 20 ? '...' : ''); ?></option>
+                                            <?php endforeach; ?>
+                                        
                                     </select>
                                 </div>
-                                <div class="reply-content">
-                                    <div class="reply-selected">
-                                        <!-- default show the latest complaint -->
+                                <div class="reply-content" id="reply-content">
+                                    <div id="selected-complaint-text" class="reply-selected">
+                                        <!-- Selected complaint will be displayed here -->
                                         Complaint
-                                        <!-- if selected, show the selected complaint -->
                                     </div>
-                                    <div class="reply-selected">
-                                        <!-- default show the latest reply -->
-                                        Reply
-                                        <!-- if selected, show the selected reply -->
+                                    <div id="selected-reply-text" class="reply-selected">
+                                        <!-- Corresponding reply will be displayed here -->
                                     </div>
                                 </div>
                             </div>
@@ -217,5 +194,67 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // function showComplaintDetails() {
+        //     var selectBox = document.getElementById('complaint');
+        //     var selectedIndex = selectBox.value;
+        //     var complaintText = document.getElementById('selected-complaint-text');
+        //     var replyText = document.getElementById('selected-reply-text');
+
+        //     // Display the selected complaint
+        //     complaintText.textContent = '<?= $data['allcomplaints']; ?>';
+
+        //     // Display the corresponding reply
+        //     replyText.textContent = '<?= $data['allreplies']; ?>';
+        // }
+
+        function sendComplaint() {
+            var myElement = document.getElementById("complaint");
+            var complaint = myElement.value;
+            complaintselected = complaint;
+
+            var array = [
+                {
+                    "complaint": complaint
+                }
+            ];
+
+            var array = JSON.stringify(array);
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "MakeComplaint/getcomplaint", true);
+            xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // alert(xhr.responseText); //sends an alert
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.status === 'success') {
+                        // Update the DOM elements with the fetched data
+                        document.getElementById('selected-complaint-text').textContent = response.data.complaint;
+                        document.getElementById('selected-reply-text').textContent = response.data.reply;
+                        
+                        // Display the reply content
+                        document.getElementById('reply-content').style.display = 'block';
+                    } else {
+                        console.error('Error:', response.message);
+                    }
+                }
+            }
+            xhr.send(array);
+        }
+
+        function enableReply() {
+            var myElement = document.getElementById("reply");
+            myElement.disabled = false;
+        }
+
+        function sendComplaintAndEnableReply() {
+            sendComplaint();
+            enableReply();
+        }
+
+    </script>
+
 </body>
 </html>

@@ -133,6 +133,11 @@ class Schedulenutrimeeting{
 
                 $nutrischedule = new Nutritionistschedule; 
                 $nutrischedule->insert($resArray);
+
+                $membertable = new Registeredmembers;
+                $memberarr['height'] = $height; 
+                $memberarr['weight'] = $weight; 
+                $membertable->update($memberemail,$memberarr,'memberemail');
                 
                 redirect('memberdash');
 
@@ -176,9 +181,10 @@ class Schedulenutrimeeting{
 
             $nutridetails = $nutritionist->where($array);
             $detailarr['nutritionistemail'] = $nutridetails[0]->email;
+            $detailnotarr['status'] = "Cancelled";
             // echo json_encode($detailarr);
 
-            $scheduledetails = $nutrischedule->where($detailarr);
+            $scheduledetails = $nutrischedule->where($detailarr,$detailnotarr);
             // echo json_encode($scheduledetails);
 
             $timeslots = [];

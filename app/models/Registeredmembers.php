@@ -16,7 +16,10 @@ class Registeredmembers
         'packageid',
         'workoutid',
         'mealplanname',
-        'generatedcode'
+        'generatedcode',
+        'height',
+        'weight',
+        'age'
 
     ];
 

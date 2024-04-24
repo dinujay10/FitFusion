@@ -58,7 +58,36 @@ class MakeComplaint{
             $this->view('Member/makeComplaint', $data);
         }
 
-        // public function getAllReplies {
+        public function getComplaint() {
+            // Assume you receive a JSON payload with the complaint
+            $data = json_decode(file_get_contents("php://input"), true);
+        
+            // Extract the complaint from the received data
+            $complaint = $data[0]['complaint'];
+        
+            // Fetch the complaint and reply from the database
+            // Assuming you have a database method to get the complaint details and its reply
+            $newcomplaint = new Complaint;
+            $arr['memberEmail'] = $_SESSION['email']; 
+            $arr['complaint'] = $complaint;
+            $complaintdeets = $newcomplaint->where($arr);
+            $result['complaint'] = $complaintdeets['complaint'];
+            $result['reply'] = $complaintdeets['reply'];
 
-        // }
+
+            if ($result) {
+                // If details are found, return them as JSON
+                echo json_encode([
+                    'status' => 'success',
+                    'data' => $result
+                ]);
+            } else {
+                // Return an error message if no details are found
+                echo json_encode([
+                    'status' => 'error',
+                    'message' => 'No details found for the provided complaint.'
+                ]);
+            }
+        }
+        
 }

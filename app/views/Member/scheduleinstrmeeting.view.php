@@ -51,7 +51,7 @@
                         <div class="form-content-bar">
                             <div class="form-content-bar-value">Choose Date:</div>
                             <div class="form-content-bar-value">
-                                <input class="date-box" type="date" id="date" name="date" min="<?php echo date('Y-m-d'); ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')); ?>" onchange="sendDateAndEnableTImeslot()" disabled/>
+                                <input class="date-box" type="date" id="date" name="date" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')); ?>" onchange="sendDateAndEnableTImeslot()" disabled/>
                             </div>
                         </div>
                         <input type="hidden" id="timeslot" name="timeslot" value="">
