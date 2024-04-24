@@ -625,3 +625,7 @@
     background-color: #27374D;
     color: white;
 }
+
+.upload-container {
+    display: none;
+}
