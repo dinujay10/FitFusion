@@ -1,10 +1,12 @@
 <?php
 
-class Memberviewmealplan{
+class Memberviewworkoutplan{
     use Controller;
 
         public function index() {
             $data = [];     
+
+            
             
             if ($_SERVER['REQUEST_METHOD']=='POST') {
 
@@ -24,7 +26,7 @@ class Memberviewmealplan{
             }
 
     //print_r($data['mememail']);
-            $this->view('Member/memberviewmealplan', $data);
+            $this->view('Member/memberviewworkoutplan', $data);
         }
    
 
