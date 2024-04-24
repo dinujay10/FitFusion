@@ -44,7 +44,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="#">
+                <a class="side-bar-tile-link" href="memberviewworkoutplan">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">

@@ -9,16 +9,19 @@
     <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/body-template.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> -->
+
     <style>
+       
 
         
-        
+
     </style>
+    
 </head>
 <body>
+    
     <div class="main-container">
-        <div class="side-bar-container">
+        <div class="side-bar-container" style="position: relative;">
             <div class="logo-tab">
                 FITFUSION
             </div>
@@ -63,18 +66,18 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="memberviewmealplan">
-                    <li class="side-bar-tile">
-                        <div class="sb-tab-content">
-                            <span class="material-symbols-outlined">
-                                skillet
-                            </span>
-                        </div>
-                        <div class="sb-tab-content">
-                            Meal Plan
-                        </div>
-                    </li>
-                </a>
+                <li class="current-side-bar-tile">
+                    <div class="sb-tab-content">
+                        <span class="material-symbols-outlined">
+                            skillet
+                        </span>
+                    </div>
+                    <div class="sb-tab-content">
+                        Meal Plan
+                    </div>
+                </li>
+
+                
 
                 <a class="side-bar-tile-link" href="makeComplaint">
                     <li class="side-bar-tile">
@@ -89,18 +92,20 @@
                     </li>
                 </a>
 
-                <li class="current-side-bar-tile">
-                    <div class="sb-tab-content">
-                        <span class="material-symbols-outlined">
-                            editor_choice
-                        </span>
-                    </div>
-                    <div class="sb-tab-content">
-                        Reviews
-                    </div>
-                </li>
+                <a class="side-bar-tile-link" href="makereviewgym">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                editor_choice
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Reviews
+                        </div>
+                    </li>
+                </a>
 
-                <a class="side-bar-tile-link" href="#">
+                <a class="side-bar-tile-link" href="logout">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -121,48 +126,27 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
-                    Welcome, MemberName
+                    Welcome, 
+                    <?php
+                    // echo $data['firstname'] . " " . $data['lastname'];
+                    ?>
                 </div>
             </div>
-            <div class="body-content">
-                    <form class="form-tile" method="POST">
-                            <div class="form-tile-content">
-                                <div class="form-tab-bar">
-                                    <div class="form-heading">Give Reviews</div>
-                                    <a class="tab-link" href="makereviewgym">
-                                        <div class="form-tab">Gym</div>
-                                    </a>
-                                    <a class="tab-link" href="makereviewinstructor">
-                                        <div class="form-tab">Instructor</div>
-                                    </a>
-                                    <a class="tab-link" href="makereviewnutritionist">
-                                        <div class="current-form-tab">Nutritionist</div>
-                                    </a>
-                                </div>
-                                <hr class="form-divider">
-                                <div class="form-content">
-                                    <div class="form-content-bar-text">
-                                        You can give your review on your Nutritionist: 
-                                        <!-- display the nutrionist name -->
-                                        <!-- <?php 
-                                            echo $data["gymname"];
-                                        ?> -->
-                                    </div>
-                                    <div class="form-content-bar">
-                                        
-                                    </div>
-                                    <div class="form-content-textarea-bar">
-                                        <!-- limit the number of characters!!!!! -->
-                                        <textarea class="textarea-tile" name="review" id="review" cols="87" rows="10" placeholder="Type your review here"></textarea>
-                                    </div>
-                                    <div class="form-content-bar">
-                                        <input class="submit-button" type="submit" value="Submit Review">
-                                    </div>
-                                </div>
-                            </div>
-                    </form>
+            <div class="body-content">                    
+                <div class="content-tile-column" style="height: 95%;">
+                    <div class="content-tile" style="height: 60%;"></div>
+                    <div class="content-tile" style="height: 60%;"></div>
+                </div>
+                <div class="content-tile-column" style="height: 95%;">
+                    <div class="content-tile" style="height: 60%;"></div>
+                    <div class="content-tile" style="height: 60%;"></div>
+                </div>
+                <div class="content-tile-column" style="height: 95%;">
+                    <div class="content-tile" style="height: 60%;"></div>
+                </div>
             </div>
         </div>
     </div>
+
 </body>
 </html>

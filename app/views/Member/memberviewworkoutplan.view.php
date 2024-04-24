@@ -11,31 +11,49 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <style>
-       
-        .meal-bar {
+        .workout-plan-bar {
             display: flex;
             flex-direction: row;
-            align-items: center;
             justify-content: center;
-            background-color: rgb(255, 140, 0);
-            width: 99%;
-            height: 90%;
-            gap: 1rem;
-        }
-
-        .meal-tile {
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
             background-color: aqua;
-            width: 30%;
-            height: 90%;
+            width: 100%;
+            height: 10%;
         }
 
-        /* newly added */
+        .workout-plan-heading {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(255, 217, 0);
+            width: 100%;
+            height: 100%;
+            font-weight: 700;
+            font-size: 150%;
+        }
 
-        
+        .workout-plan-mini-heading {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            /* background-color: blueviolet; */
+            width: 30%;
+            height: 100%;
+            font-weight: 600;
+            border-bottom: 1px solid #27374D;
+        }
+
+        .workout-plan-mini-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: blueviolet;
+            width: 30%;
+            height: 100%;
+        }
 
     </style>
     
@@ -76,7 +94,7 @@
                 </a>
 
                 <a class="side-bar-tile-link" href="#">
-                    <li class="side-bar-tile">
+                    <li class="current-side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
                                 fitness_center
@@ -88,7 +106,7 @@
                     </li>
                 </a>
 
-                <li class="current-side-bar-tile">
+                <li class="side-bar-tile">
                     <div class="sb-tab-content">
                         <span class="material-symbols-outlined">
                             skillet
@@ -155,16 +173,27 @@
                 </div>
             </div>
             <div class="body-content">                    
-                <div class="content-tile-column" style="height: 95%;">
-                    <div class="content-tile" style="height: 60%;"></div>
-                    <div class="content-tile" style="height: 60%;"></div>
-                </div>
-                <div class="content-tile-column" style="height: 95%;">
-                    <div class="content-tile" style="height: 60%;"></div>
-                    <div class="content-tile" style="height: 60%;"></div>
-                </div>
-                <div class="content-tile-column" style="height: 95%;">
-                    <div class="content-tile" style="height: 60%;"></div>
+                <div class="content-tile-column" style="height: 95%; width: 90%;">
+                    
+                    <div class="content-tile" style="height: 95%; justify-content: flex-start;">
+                        <div class="workout-plan-bar">
+                            <div class="workout-plan-heading">My Workout Plan</div>
+                        </div>
+                        <div class="workout-plan-bar">
+                            <div class="workout-plan-mini-heading">Machine</div>
+                            <div class="workout-plan-mini-heading">Reps</div>
+                            <div class="workout-plan-mini-heading">Sets</div>
+                            <div class="workout-plan-mini-heading">Max. Time</div>
+                        </div>
+
+                        <!-- have to run this on loop -->
+                        <div class="workout-plan-bar">
+                            <div class="workout-plan-mini-content"></div>
+                            <div class="workout-plan-mini-content"></div>
+                            <div class="workout-plan-mini-content"></div>
+                            <div class="workout-plan-mini-content"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
