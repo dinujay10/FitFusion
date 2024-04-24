@@ -29,6 +29,28 @@ class Memberdash{
             else{
                 redirect("login");
             }
+
+            
+            $nutrischedule = new Nutritionistschedule;
+            $arr1['memberemail'] = $_SESSION['email'];
+            // print_r($arr1['email']);
+
+            $nutrideets = $nutrischedule->first($arr1);
+            $data['height'] = $nutrideets->height;
+            $data['weight'] = $nutrideets->weight;
+
+            // print_r($arr1['email']);
+
+            $instrschedule = new InstrSchedule;
+            $instrdeets = $instrschedule->first($arr1);
+            $data['goal'] = $instrdeets->goal;
+            $data['age'] = $instrdeets->memberage;
+
+            $user = new User;
+            $arr2['email'] = $_SESSION['email'];
+            $memberdeets = $user->first($arr2);
+            $data['firstname'] = $memberdeets->name;
+            $data['lastname'] = $memberdeets->lastname;
              
             if ($_SERVER['REQUEST_METHOD']=='POST') {
 

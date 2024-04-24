@@ -76,31 +76,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="taskList">
-                    <li class="side-bar-tile">
-                        <div class="sb-tab-content">
-                            <span class="material-symbols-outlined">
-                                checklist
-                            </span>
-                        </div>
-                        <div class="sb-tab-content">
-                            Task List
-                        </div>
-                    </li>
-                </a>
-
-                <a class="side-bar-tile-link" href="#">
-                    <li class="side-bar-tile">
-                        <div class="sb-tab-content">
-                            <span class="material-symbols-outlined">
-                                schedule
-                            </span>
-                        </div>
-                        <div class="sb-tab-content">
-                            Attendance
-                        </div>
-                    </li>
-                </a>
+                
 
                 <a class="side-bar-tile-link" href="makeComplaint">
                     <li class="side-bar-tile">

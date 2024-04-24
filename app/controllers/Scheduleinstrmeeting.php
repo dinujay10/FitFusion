@@ -132,6 +132,10 @@ class Scheduleinstrmeeting{
                 $instrschedule = new Instrschedule; 
                 $instrschedule->insert($resArray);
 
+                $membertable = new Registeredmembers;
+                $memberarr['age'] = $memberage; 
+                $membertable->update($memberemail,$memberarr,'memberemail');
+
 
                 // check package
                 $checkmember = new Registeredmembers();
@@ -207,10 +211,12 @@ class Scheduleinstrmeeting{
 
             $instrdetails = $instructor->where($array);
             $detailarr['instructoremail'] = $instrdetails[0]->email;
+            $detailnotarr['status'] = "Cancelled";
             // echo json_encode($detailarr);
 
-            $scheduledetails = $instrschedule->where($detailarr);
+            $scheduledetails = $instrschedule->where($detailarr,$detailnotarr);
             // echo json_encode($scheduledetails);
+
 
             $timeslots = [];
             for ($i=0; $i < count($scheduledetails); $i++) { 
