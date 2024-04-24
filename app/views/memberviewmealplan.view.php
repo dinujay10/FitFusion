@@ -1,217 +1,174 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Meal Plan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/main-template.css">
+    <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/body-template.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        label {
-            font-weight: bold;
-            color: #555;
-        }
-
-        .food-item {
+       
+        .meal-bar {
             display: flex;
-            flex-direction:column;
-            margin-bottom: 10px;
-        }
-        .food{
-            display:flex;
-            flex=direction:row;
-        }
-
-        .food-item input[type="text"],
-        .food-item input[type="number"],select,input {
-            width: calc(50% - 10px);
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(255, 140, 0);
+            width: 99%;
+            height: 90%;
+            gap: 1rem;
         }
 
-        .food-item input[type="number"] {
-            margin-left: 10px;
+        .meal-tile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: aqua;
+            width: 30%;
+            height: 90%;
         }
 
-        button[type="button"], input[type="submit"] {
-            background-color: #4CAF50;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
+        /* newly added */
 
-        button[type="button"]:hover, input[type="submit"]:hover {
-            background-color: #45a049;
-        }
+        
+
     </style>
- 
+    
 </head>
 <body>
-
-<h2>View Your Meal Plan</h2>
-<form action="" method="POST">
-<label for="day">Select Day:</label><br>
-    <select id="day" name="day" class="day">
-        <option value="Sunday">Sunday</option>
-        <option value="Monday">Monday</option>
-        <option value="Tuesday">Tuesday</option>
-        <option value="Wendsday">Wendsday</option>
-        <option value="Thursday">Thursday</option>
-        <option value="Friday">Friday</option>
-        <option value="Saturday">Saturday</option>
-    </select>
-    <input type="submit" value="Select"><br><br>
-</form>
-
-<form action="" method="">
-   
-    <label for="planname">Meal Plan Name:</label><br>
-    <input type="text" name="planname" placeholder="Meal Plan Name" value=<?php if(!empty($data)){echo $data[0]->mealplanname;} ?>><br><br>
-
-    <label for="breakfast">Breakfast:</label><br><br>
-    <div id="breakfast-container">
-        <!-- Initial input fields for breakfast -->
-        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <label for="Quantity">Quantity:</label>  
-        <div class="food-item">
-            <?php
-            if(!empty($data)){
-                foreach($data as $row){
-                    if($row->mealtime=="breakfast"){
-                        echo '
-                        <div class="food">
-                            <input type="text" name="breakfast_name[]" placeholder="Food item" value="' . $row->mealitem . '">
-                            <input type="text" name="breakfast_quantity[]" placeholder="Quantity" value="' . $row->quantity . '">
-                       </div>';
-                    }
-                }
-            }
-            
-            ?>
-            
-        </div>
-
-    </div>
-   
-
-    <label for="snack1">Snack 1:</label><br><br>
-    <div id="snack1-container">
-        <!-- Initial input fields for snack1 -->
-        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <label for="Quantity">Quantity:</label>  
-        <div class="food-item">
-        <?php
-        if(!empty($data)){
-            foreach($data as $row){
-                if($row->mealtime=="snack1"){
-                    echo '
-                    <div class="food">
-                        <input type="text" name="snack1_name[]" placeholder="Food item" value="' . $row->mealitem . '">
-                        <input type="text" name="snack1_quantity[]" placeholder="Quantity" value="' . $row->quantity . '">
-                   </div>';
-                }
-            }
-        }
-
-            ?>
-        </div>
-    </div>
-   
-
-    <label for="lunch">Lunch:</label><br><br>
-    <div id="lunch-container">
-        <!-- Initial input fields for lunch -->
-        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <label for="Quantity">Quantity:</label>  
-        <div class="food-item">
-        <?php
-        if(!empty($data)){
-            foreach($data as $row){
-                if($row->mealtime=="lunch"){
-                    echo '
-                    <div class="food">
-                        <input type="text" name="lunch_name[]" placeholder="Food item" value="' . $row->mealitem . '">
-                        <input type="text" name="lunch_quantity[]" placeholder="Quantity" value="' . $row->quantity . '">
-                   </div>';
-                }
-            }
-        }
-
-            ?>
-        </div>
-    </div>
     
+    <div class="main-container">
+        <div class="side-bar-container" style="position: relative;">
+            <div class="logo-tab">
+                FITFUSION
+            </div>
+            <ul class="side-bar-content">
+                
+                <a class="side-bar-tile-link" href="memberviewmealplan">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                dashboard
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Dashboard
+                        </div>
+                    </li>
+                </a>
 
-    <label for="snack2">Snack 2:</label><br><br>
-    <div id="snack2-container">
-        <!-- Initial input fields for snack2 -->
-        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <label for="Quantity">Quantity:</label>  
-        <div class="food-item">
-        <?php
-        if(!empty($data)){
-            foreach($data as $row){
-                if($row->mealtime=="snack2"){
-                    echo '
-                    <div class="food">
-                        <input type="text" name="snack2_name[]" placeholder="Food item" value="' . $row->mealitem . '">
-                        <input type="text" name="snack2_quantity[]" placeholder="Quantity" value="' . $row->quantity . '">
-                   </div>';
-                }
-            }
-        }
+                <a class="side-bar-tile-link" href="scheduleinterface">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                calendar_month
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            My Schedule
+                        </div>
+                    </li>
+                </a>
 
-            ?>
+                <a class="side-bar-tile-link" href="#">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                fitness_center
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Workout Plan
+                        </div>
+                    </li>
+                </a>
+
+                <li class="current-side-bar-tile">
+                    <div class="sb-tab-content">
+                        <span class="material-symbols-outlined">
+                            skillet
+                        </span>
+                    </div>
+                    <div class="sb-tab-content">
+                        Meal Plan
+                    </div>
+                </li>
+
+                
+
+                <a class="side-bar-tile-link" href="makeComplaint">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                mood_bad
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Complaints
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="makereviewgym">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                editor_choice
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Reviews
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="logout">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                logout
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">Logout</div>
+                    </li>
+                </a>
+
+            </ul>
+        </div>
+        <div class="body-container">
+            <div class="body-header">
+                <div class="pfp">
+                    <!-- LET THE MEMBER UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
+                    <img src="#" alt="">
+                </div>
+                <div class="welcome-user">
+                    <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
+                    Welcome, 
+                    <?php
+                    // echo $data['firstname'] . " " . $data['lastname'];
+                    ?>
+                </div>
+            </div>
+            <div class="body-content">                    
+                <div class="content-tile-column" style="height: 95%;">
+                    <div class="content-tile" style="height: 60%;"></div>
+                    <div class="content-tile" style="height: 60%;"></div>
+                </div>
+                <div class="content-tile-column" style="height: 95%;">
+                    <div class="content-tile" style="height: 60%;"></div>
+                    <div class="content-tile" style="height: 60%;"></div>
+                </div>
+                <div class="content-tile-column" style="height: 95%;">
+                    <div class="content-tile" style="height: 60%;"></div>
+                </div>
+            </div>
         </div>
     </div>
-    
-
-    <label for="dinner">Dinner:</label><br><br>
-    <div id="dinner-container">
-        <!-- Initial input fields for dinner -->
-        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <label for="Quantity">Quantity:</label>  
-        <div class="food-item">
-        <?php
-        if(!empty($data)){
-            foreach($data as $row){
-                if($row->mealtime=="dinner"){
-                    echo '
-                    <div class="food">
-                        <input type="text" name="dinner_name[]" placeholder="Food item" value="' . $row->mealitem . '">
-                        <input type="text" name="dinner_quantity[]" placeholder="Quantity" value="' . $row->quantity . '">
-                   </div>';
-                }
-            }
-        }
-
-            ?>
-        </div>
-    </div>
-    
-
-</form>
 
 </body>
 </html>
