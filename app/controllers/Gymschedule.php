@@ -3,6 +3,7 @@
 class Gymschedule {
     use Controller;
 
+        
         public function index() {
             $data = [];     
 
@@ -41,15 +42,69 @@ class Gymschedule {
 
             // step 4 -> add the machines array to the $data
             $data['allmachines'] = $allmachines;
-            print_r($data);
+            // print_r($data);
 
 
             if ($_SERVER['REQUEST_METHOD']=='POST') {
 
+                // print_r('hiiiiiiii');
+                // check what day the selected date is
+                $dateInput = $_POST['date'];                
+                $date = new DateTime($dateInput);
+                $dayOfWeek = $date->format('N');
+        
+                if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+                    $dayType = "Weekday";
+                } elseif ($dayOfWeek == 6) {
+                    $dayType = "Saturday";
+                } elseif ($dayOfWeek == 7) {
+                    $dayType = "Sunday";
+                }
+                // print_r("The day is a " . $dayType);
+
+                // check the daytype and get the openhours of the gym
+                $gymtable = new Gym;
+
+                $arr4['email'] = $regmemberdeets->gymemail;
+                $gymdeets = $gymtable->where($arr4);
+                // print_r($arr4['email']);
+                // print_r($gymdeets);
+
+                $openhrstable = new Openhours;
+                $arr5['gymName'] = $gymdeets[0]->gymName;
+                // print_r($gymdeets[0]->gymName);
+                $openhoursdeets = $openhrstable->first($arr5);
+                // print_r($openhoursdeets);
+
+                
+
+                if ($dayType == 'Weekday') {
+                    $opentime = $openhoursdeets->openhourswf;
+                    $closetime = $openhoursdeets->openhourswt;
+                }
+                elseif ($dayType == 'Saturday') {
+                    $opentime = $openhoursdeets->openhourssaf;
+                    $closetime = $openhoursdeets->openhourssat;
+                }
+                elseif ($dayType == 'Sunday') {
+                    $opentime = $openhoursdeets->openhourssuf;
+                    $closetime = $openhoursdeets->openhourssut;
+                }
+
+                print_r($opentime);
+                print_r($closetime);
+
+
+                
             }
+
+            
 
             $this->view('Member/gymschedule', $data);
         }
+
+        
+        
    
 
 }
