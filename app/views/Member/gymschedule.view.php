@@ -140,20 +140,34 @@
                 echo '</pre>';
                 ?>
 
-                <div class="content-tile" style="height: 20%; flex-direction: row;">
-                    <input class="date-box" type="date" id="date" name="date" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')); ?>" onchange="sendDateAndEnableTImeslot()" disabled/>
-                    <!-- //TODO have to limit the time within gym hours -->
-                    <label for="timePicker">Choose a time:</label>
-                    <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300" onchange=validateTime()>
-                </div>
+                <form method="POST" style="height: 40%;">
+                    <div class="content-tile" style="height: 20%; flex-direction: row;">
+                        <input class="date-box" type="date" id="date" name="date" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')); ?>"/>
+                        <!-- //TODO have to limit the time within gym hours -->
+                        <label for="timePicker">Choose a time:</label>
+                        <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300" onchange=validateTime()>
+                    </div>
+                    <div class="content-tile" style="height: 20%; flex-direction: row;">
+                        <input class="db-link-button" style="width: 20%; height: 30%" type="submit" value="submit">
+                    </div>
+                </form>
+
+
                 <div class="content-tile" style="height: 20%; flex-direction: row;">
                 
-                    
+                    <?php
+                        // loop through all the machines in $data
+                        foreach($data['allmachines'] as $machine) {
+                            echo '<div class="machine-container">';
+                            echo '<div class="machine-name">';
+                            echo $machine;
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    ?>
 
                 </div>
-                <div class="content-tile" style="height: 20%; flex-direction: row;">
-                    <button class="db-link-button" style="width: 20%; height: 30%" type="submit">Create Gym Schedule</button>
-                </div>
+                
 
 
 
