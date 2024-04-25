@@ -126,18 +126,38 @@
                     <img src="#" alt="">
                 </div>
                 <div class="welcome-user">
-                    <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
                     Welcome, 
                     <?php
                     echo $data['firstname'] . " " . $data['lastname'];
                     ?>
                 </div>
             </div>
-            <div class="body-content">  
-                <input class="date-box" type="date" id="date" name="date" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')); ?>" onchange="sendDateAndEnableTImeslot()" disabled/>
-                <label for="timePicker">Choose a time:</label>
-                <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300" onchange=validateTime()>
-                <button type="submit">Submit</button>
+            <div class="body-content" style="flex-direction: column;">  
+            
+                <?php 
+                echo '<pre>';
+                var_dump($data);
+                echo '</pre>';
+                ?>
+
+                <div class="content-tile" style="height: 20%; flex-direction: row;">
+                    <input class="date-box" type="date" id="date" name="date" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')); ?>" onchange="sendDateAndEnableTImeslot()" disabled/>
+                    <!-- //TODO have to limit the time within gym hours -->
+                    <label for="timePicker">Choose a time:</label>
+                    <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300" onchange=validateTime()>
+                </div>
+                <div class="content-tile" style="height: 20%; flex-direction: row;">
+                
+                    
+
+                </div>
+                <div class="content-tile" style="height: 20%; flex-direction: row;">
+                    <button class="db-link-button" style="width: 20%; height: 30%" type="submit">Create Gym Schedule</button>
+                </div>
+
+
+
+                
             </div>
         </div>
     </div>
