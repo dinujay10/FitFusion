@@ -11,6 +11,15 @@ class Memberviewworkoutplan{
             $memberdeets = $user->first($arr2);
             $data['firstname'] = $memberdeets->name;
             $data['lastname'] = $memberdeets->lastname;
+
+            //get the workoutid of the member in the registeredmembers table
+            //if the workoutid is 0, store the flag as false
+            //if the workoutid is 1
+                // store the flag as 1
+                // get the workoutplanid from the workoutplans table
+                // get the workoutplan from the workoutplans table
+                // get the workoutequipments from the workoutequipments table
+                // get the equipment from the equipments table
             
             if ($_SERVER['REQUEST_METHOD']=='POST') {
 

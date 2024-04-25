@@ -32,7 +32,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="scheduleinterface">
+                <a class="side-bar-tile-link" href="gymschedule">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
