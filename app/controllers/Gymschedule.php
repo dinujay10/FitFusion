@@ -95,7 +95,41 @@ class Gymschedule {
                 print_r($closetime);
 
 
+                //get all relavent records from schedule table
+                $scheduletable = new Schedule;
+                $arr6['gymemail'] = $regmemberdeets->gymemail;
+                $arr6['date'] = $dateInput;
+                $scheduledeets = $scheduletable->where($arr6);
+                print_r($scheduledeets);
+
+                $machinelist = $data['allmachines'];
+                //while $machinelist is not empty
+                while (!empty($machinelist)) {
+                    $i = 0; // TODO increase this later
+                    //get all records from the machines table by giving the machineType and the gymemail
+                    $arr7['machine'] = $machinelist[$i];
+                    $arr7['gymemail'] = $regmemberdeets->gymemail;
+                    $machinetable = new Machine;
+                    $machinedeets = $machinetable->where($arr7);
+                    // get the max time from the first record taken
+                    // store the number of records taken in count1
+                    // get the records from the schedule table by giving the starting time, machineType and the gymemail
+                    // store that number of records as count2
+                    // if (count2 == count1) {
+                        // cannot schedule
+                        // pop the first element in the $machinelist and append it to the end of the array
+                    // }
+                    // else {
+                        // can schedule
+                        // startingtime = startingtime + maxtime;
+                        // pop the first element
+                    
+                    // }
+                }
+                    
                 
+
+
             }
 
             
