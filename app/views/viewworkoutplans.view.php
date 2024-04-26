@@ -1,54 +1,70 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Meal Plan</title>
+    <title>Workout Plan</title>
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <style>
-        body {
+        .workout{
+       
+            background-color:#27496A;
+            /* padding-top:40px; */
+            width:80vw;
+            overflow:auto;
+            height:100vh;
+            
+        }
+        .workout body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f2f2f2;
+            background-color: #5C8EB4;
+
         }
-        h1 {
+        .workout h1 {
             text-align: center;
-            color: #333;
+            color: #0C243D;
         }
-        h2{
-            margin-left:580px;
+        .workout h2{
+            margin-left:200px;
+            color:#0C243D;
         }
-        form {
-            max-width: 800px;
+        .workout form {
+           
+            max-width: 600px;
             margin: 0 auto;
-            background-color: #fff;
+            margin-top:40px;
+            background-color: white;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+         
         }
-        fieldset {
+        .workout fieldset {
             border: none;
             margin-bottom: 20px;
         }
-        legend {
+        .workout legend {
             font-size: 1.2em;
             font-weight: bold;
-            color: #555;
+            color: #0C243D;
             margin-bottom: 10px;
         }
-        label {
+        .workout label {
             display: block;
             margin-bottom: 5px;
-            color: #666;
+            color:black;
         }
-        input[type="text"],
+        .workout input[type="text"],
         input[type="number"],
         select {
-            width: calc(100% - 10px);
+            width: 90%;
             padding: 8px;
             border: 1px solid #ccc;
             border-radius: 4px;
             margin-bottom: 10px;
         }
-        input[type="submit"],
+        .workout input[type="submit"],
         button {
             padding: 10px 20px;
             background-color: #4CAF50;
@@ -57,24 +73,24 @@
             border-radius: 4px;
             cursor: pointer;
         }
-        input[type="submit"]:hover,
+        .workout input[type="submit"]:hover,
         button:hover {
             background-color: #45a049;
         }
-        table {
+        .workout table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 10px;
         }
-        th, td {
+        .workout th, td {
             padding: 8px;
             text-align: left;
             border-bottom: 1px solid #ddd;
         }
-        th {
+        .workout th {
             background-color: #f2f2f2;
         }
-        .add-btn {
+        .workout .add-btn {
             display: inline-block;
             background-color: #008CBA;
             color: white;
@@ -87,9 +103,127 @@
  
 </head>
 <body>
+<div class="main-container">
+<div class="side-bar-container">
+            <div class="logo-tab">
+                FITFUSION
+            </div>
+            <ul class="side-bar-content">
+                
+                <!-- <li class="current-side-bar-tile">
+                    <div class="sb-tab-content">
+                        <span class="material-symbols-outlined">
+                            dashboard
+                        </span>
+                    </div>
+                    <div class="sb-tab-content">
+                        Dashboard
+                    </div>
+                </li> -->
 
-<h2>View Workout Plans</h2>
+                <a class="side-bar-tile-link" href="managerdash">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Dashboard
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="createworkoutplan">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           Create Workout Plan
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="viewworkoutplans">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           View Workout Plan
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="machinefailure">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                fitness_center
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Machine Failure
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="instructormeetings">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                deployed_code
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                        Meetings
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="memberfeed">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                         Feedbacks
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="logout">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                logout
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">Logout</div>
+                    </li>
+                </a>
+
+            </ul>
+        </div>
+
+<div class="workout">
+<div class="body-header">
+                <div class="pfp">
+                    <!-- LET THE INSTRUCTOR UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
+                    <img src="#" alt="">
+                </div>
+                <div class="welcome-user">
+                    <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
+                    Welcome, InstructorName
+                </div>
+    </div>
 <form action="" method="POST">
+    <h2>View Workout Plans</h2>
     <br><br><label for="day">Select Workout Type:</label><br>
     <select id="workouttype" name="workouttype" class="workouttype">
         <?php
@@ -106,6 +240,7 @@
         <option value=""></option>
        
     </select>
+    <hr style="color: black;">
 
     <!-- <input type="submit" value="Select"><br><br> -->
 </form>
@@ -139,6 +274,8 @@
           <tr>
             <th>Exercise Name</th>
             <th>Machine</th>
+            <th>Sets</th>
+            <th>Reps</th>
             <th>Time</th>
             <th>Rest</th>
           </tr>
@@ -158,6 +295,7 @@
     <a id="link" href="">Assign This Workout To a Member</a>
     
 </form>
+</div>
 
 
 <script>
@@ -274,13 +412,17 @@ document.getElementById("workoutname").addEventListener("change", function() {
       const cell2 = newRow.insertCell(1);
       cell2.innerHTML = exercise['machine'];
       const cell3 = newRow.insertCell(2);
-      cell3.innerHTML = exercise['time'];
+      cell3.innerHTML = exercise['sets'];
       const cell4 = newRow.insertCell(3);
-      cell4.innerHTML = exercise['rest'];            
+      cell4.innerHTML = exercise['reps'];
+      const cell5 = newRow.insertCell(4);
+      cell5.innerHTML = exercise['time'];
+      const cell6 = newRow.insertCell(5);
+      cell6.innerHTML = exercise['rest'];            
       
     }
 
 </script>
-
+</div>
 </body>
 </html>
