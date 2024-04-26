@@ -8,12 +8,6 @@ class Admindash {
         $user = new Gymmanager;
         
         if ($_SERVER['REQUEST_METHOD']=='POST') {
-            // if($_POST['usertype']=='gymmanager') {
-            //     $user = new Gymmanager;
-            // } else if($_POST['usertype']=='gymowner') {
-            //     $user = new Gymowner;
-            // }
-
             $usertable = new User;
 
             if($user->validate($_POST) && $usertable->unique($_POST)){
