@@ -91,8 +91,12 @@ class Gymschedule {
                     $closetime = $openhoursdeets->openhourssut;
                 }
 
-                print_r($opentime);
-                print_r($closetime);
+                // $opentime = substr($opentime, 0, 2);
+                // $closetime = substr($closetime, 0, 2);
+                $opentime = DateTime::createFromFormat('H:i:s', $opentime);
+                $closetime = DateTime::createFromFormat('H:i:s', $closetime);
+                // print_r($opentime);
+                // print_r($closetime);
 
 
                 //get all relavent records from schedule table
@@ -100,31 +104,80 @@ class Gymschedule {
                 $arr6['gymemail'] = $regmemberdeets->gymemail;
                 $arr6['date'] = $dateInput;
                 $scheduledeets = $scheduletable->where($arr6);
-                print_r($scheduledeets);
+                // print_r($scheduledeets);
 
+                $startingtime = $_POST['time'];
+                // $startingtime = substr($startingtime, 0, 2);
+                $startingtime = DateTime::createFromFormat('H:i', $startingtime);
+                print_r($startingtime);
                 $machinelist = $data['allmachines'];
+
                 //while $machinelist is not empty
                 while (!empty($machinelist)) {
-                    $i = 0; // TODO increase this later
-                    //get all records from the machines table by giving the machineType and the gymemail
-                    $arr7['machine'] = $machinelist[$i];
-                    $arr7['gymemail'] = $regmemberdeets->gymemail;
-                    $machinetable = new Machine;
-                    $machinedeets = $machinetable->where($arr7);
-                    // get the max time from the first record taken
-                    // store the number of records taken in count1
-                    // get the records from the schedule table by giving the starting time, machineType and the gymemail
-                    // store that number of records as count2
-                    // if (count2 == count1) {
-                        // cannot schedule
-                        // pop the first element in the $machinelist and append it to the end of the array
-                    // }
-                    // else {
-                        // can schedule
-                        // startingtime = startingtime + maxtime;
-                        // pop the first element
+                    if ($startingtime < $opentime) {
+                        // TODO error
+                        print_r('error');
+                        break;
+                    }
+                    elseif ($startingtime > $closetime) {
+                        // TODO error
+                        print_r('error');
+                        break;
+                    }
+                    else {
+                        $i = 0; // TODO increase this later. tf is this?
+                        //get all records from the machines table by giving the machineType and the gymemail
+                        $arr7['machineType'] = $machinelist[$i];
+                        $arr7['gymemail'] = $regmemberdeets->gymemail;
+                        $machinetable = new Machine;
+                        $machinedeets = $machinetable->where($arr7);
+                        // print_r($machinedeets);
+
+                        // get the max time from the first record taken
+                        $maxtime = $machinedeets[0]->maxtime;
+                        // print_r($maxtime);
+
+                        // store the number of records taken in count1
+                        if($machinedeets) {
+                            $count1 = count($machinedeets);
+                            // print_r($count1);
+                        }
+
+                        // get the records from the schedule table by giving the starting time, machineType and the gymemail
+                        $scheduletable = new Schedule;
+                        $arr8['gymemail'] = $regmemberdeets->gymemail;
+                        $arr8['date'] = $dateInput;
+                        // print_r($startingtime);
+                        $arr8['startingtime'] = $startingtime->format('H:i:s');
+                        $relaventschedules = $scheduletable->where($arr8);
+                        print_r($relaventschedules);
+
+                        // store that number of records as count2
+                        if ($relaventschedules) {
+                            $count2 = count($relaventschedules);
+                            // print_r($count2);
+                        }
+
+                        if ($count2 == $count1) {
+                            // cannot schedule
+                            // pop the first element in the $machinelist and append it to the end of the array
+                        }
+                        else {
+                            // can schedule
+                            // startingtime = startingtime + maxtime;
+                            // pop the first element
+                        
+                        }
                     
-                    // }
+
+                        break;
+                        
+                        
+                        
+                        
+                        
+                    }
+                    
                 }
                     
                 
