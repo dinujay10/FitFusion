@@ -10,25 +10,42 @@
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
 </head>
 <body>
-    <div class="side-menu">
-        <div class="brand-name">
-            <h1>FIT FUSION</h1>
+<div class="main-container">
+        
+<div class="side-bar-container">
+            <div class="logo-tab">
+                FITFUSION
+            </div>
+            <ul class="side-bar-content">
+                
+                <!-- <li class="current-side-bar-tile">
+                    <div class="sb-tab-content">
+                        <span class="material-symbols-outlined">
+                            dashboard
+                        </span>
+                    </div>
+                    <div class="sb-tab-content">
+                        Dashboard
+                    </div>
+                </li> -->
+                
+             
+
+
+
+            </ul>
         </div>
-        <ul>
-            <li>&nbsp; <h5>Dashboard</h5> </li>
-            <a href="packages"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>Packages</h6> </li></a>
-            <a href="handlemembercomplaint"><li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Member complaints</h6> </li></a>
-            <a href="addgym"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Add Gym</h6> </li></a>
-
-            <a href="manageresources"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Manage Gym Resources</h6> </li></a>
-
-            <a href="editgym"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Edit Gym</h6> </li></a>
-            <a href="appliedinstructors"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Approve Instructors</h6> </li>
-            <a href="logout"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Logout</h6></li></a>
-            <a href="newmembersreport"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Reports</h6> </li></a>
-        </ul>
-    </div>
     <div class="container">
+    <div class="body-header">
+        <div class="pfp">
+            <!-- LET THE INSTRUCTOR UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
+            <img src="#" alt="">
+        </div>
+        <div class="welcome-user">
+            <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
+            Welcome, Manager
+        </div>
+    </div>
     <form method="POST" enctype="multipart/form-data">
         <?php if(!empty($errors)):?>
         <div class="alert">
@@ -53,7 +70,7 @@
         <div class="inputBx">
             <span>Description</span>
             <div>
-                <textarea name="description" id="description" cols="54" rows="7"></textarea>
+                <textarea name="description" id="description" cols="54" rows="7" required></textarea>
             </div>
             
             
@@ -116,12 +133,12 @@
         <div class="gymimage">
             <span>Select Gym Images</span><br><br> 
             <input type="file" name="images[]" multiple accept="image/*" required>
-        </div>
-        
+        </div>        
         <div class="inputBx">
             <input type="submit" value="Add Gym">
         </div>
     </form>
     </div>
+</div>
 </body>
 </html>
