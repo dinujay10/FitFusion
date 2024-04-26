@@ -11,7 +11,93 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <style>
-       
+
+        .schedule-tile {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            /* background-color: #27374D; */
+            background-color: #F5F5F5;
+            width: 60%;
+            height: 80%;
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);
+        }
+        .schedule-topic-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            /* background-color: aqua; */
+            width: 95%;
+            height: 10%;
+            border-bottom: 1px solid #27374D;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .schedule-headings-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            /* background-color: aqua; */
+            width: 95%;
+            height: 10%;
+            font-weight: 600;
+        }
+
+        .schedule-heading {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            /* background-color: aqua; */
+            width: 95%;
+            height: 100%;
+        }
+
+        .schedule-content-tile {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            /* background-color: #27374D; */
+            width: 100%;
+            height: 65%;
+            border-radius: 20px;
+            gap: 1rem;
+        }
+
+        .schedule-buttons-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            /* background-color: aqua; */
+            width: 95%;
+            height: 15%;
+        }
+
+        .schedule-button {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            /* background-color: aqua; */
+            width: 30%;
+            height: 60%;
+            border-radius: 20px;
+            font-size: 1rem;
+            border: 1px solid #27374D;
+        }
+
+        .schedule-button:hover {
+            cursor: pointer;
+            background-color: #27374D;
+            color: white;
+        }
 
         
 
@@ -127,39 +213,33 @@
                 </div>
                 <div class="welcome-user">
                     Welcome, 
-                    <?php
+                    <!-- <?php
                     echo $data['firstname'] . " " . $data['lastname'];
-                    ?>
+                    ?> -->
                 </div>
             </div>
             <div class="body-content" style="flex-direction: column;">  
             
-                <?php 
+                <!-- <?php 
                 // echo '<pre>';
                 // var_dump($data);
                 // echo '</pre>';
-                ?>
+                ?> -->
 
-                <div class="form-tile">
+                <div class="schedule-tile">
                     <div class="schedule-topic-bar">
                         MY SCHEDULE - date
                     </div>
                     <div class="schedule-headings-bar">
-                        Machine
-                        Starting Time
+                        <div class="schedule-heading">Machine</div>
+                        <div class="schedule-heading">Starting Time</div>
+                        
                     </div>
                     <div class="schedule-content-tile"></div>
-                    <div class="schedule-buttons-bar"></div>
+                    <div class="schedule-buttons-bar">
+                        <button class="schedule-button">Completed Schedule</button>
+                    </div>
                 </div>
-
-                
-
-
-                
-                
-
-
-
                 
             </div>
         </div>
