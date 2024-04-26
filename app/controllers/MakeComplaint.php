@@ -7,12 +7,12 @@ class MakeComplaint{
 
             
 
-            $newcomplaint = new Complaint;
+            $newcomplaint = new Membercomplaints;
 
             $arr['memberEmail'] = $_SESSION['email'];
             // print_r($_SESSION);
-            $arr['status'] = "replied";
-            $allcomplaintdeets = $newcomplaint->where($arr);
+            $arr1['reply'] = "not replied";
+            $allcomplaintdeets = $newcomplaint->where($arr,$arr1);
 
             // print_r($allcomplaintdeets);
 
@@ -40,13 +40,12 @@ class MakeComplaint{
 
             if ($_SERVER['REQUEST_METHOD']=='POST') {
                 
-                $complaint = new Complaint;
+                $complaint = new Membercomplaints;
     
                 $resArray = [
-                    "memberEmail" => $_SESSION['email'],
+                    "memberemail" => $_SESSION['email'],
                     "type" => $_POST['complainttype'],
-                    "complaint" => $_POST['complaint'],
-                    "status" => "pending",
+                    "description" => $_POST['complaint'],
                     "reply" => "not replied"
                 ];
 
@@ -67,9 +66,9 @@ class MakeComplaint{
         
             // Fetch the complaint and reply from the database
             // Assuming you have a database method to get the complaint details and its reply
-            $newcomplaint = new Complaint;
-            $arr['memberEmail'] = $_SESSION['email']; 
-            $arr['complaint'] = $complaint;
+            $newcomplaint = new Membercomplaints;
+            $arr['memberemail'] = $_SESSION['email']; 
+            $arr['description'] = $complaint;
             $complaintdeets = $newcomplaint->where($arr);
             $result['complaint'] = $complaintdeets['complaint'];
             $result['reply'] = $complaintdeets['reply'];

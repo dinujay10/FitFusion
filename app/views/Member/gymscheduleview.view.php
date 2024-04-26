@@ -99,6 +99,26 @@
             color: white;
         }
 
+        .schedule-content-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            /* background-color: aqua; */
+            width: 95%;
+            height: 15%;
+        }
+
+        .schedule-content {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            /* background-color: aqua; */
+            width: 95%;
+            height: 100%;
+        }
+
         
 
     </style>
@@ -126,7 +146,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="scheduleinterface">
+                <a class="side-bar-tile-link" href="gymschedule">
                     <li class="current-side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -152,7 +172,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="scheduleinterface">
+                <a class="side-bar-tile-link" href="memberviewmealplan">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -220,25 +240,52 @@
             </div>
             <div class="body-content" style="flex-direction: column;">  
             
-                <!-- <?php 
+                <?php 
                 // echo '<pre>';
                 // var_dump($data);
                 // echo '</pre>';
-                ?> -->
+                ?>
 
                 <div class="schedule-tile">
                     <div class="schedule-topic-bar">
-                        MY SCHEDULE - date
+                        MY SCHEDULE - 
+                        <?php
+                            echo $data['date'];
+                        ?>
                     </div>
                     <div class="schedule-headings-bar">
                         <div class="schedule-heading">Machine</div>
                         <div class="schedule-heading">Starting Time</div>
                         
                     </div>
-                    <div class="schedule-content-tile"></div>
-                    <div class="schedule-buttons-bar">
-                        <button class="schedule-button">Completed Schedule</button>
+                    <div class="schedule-content-tile">
+
+                    <?php
+                    
+                        for($x=count($data['allmachines'])-1;$x>=0;$x--){
+                            echo '<div class="schedule-content-bar">
+                                <div class="schedule-content">
+                                    '.$data['allmachines'][$x].'
+                                </div>
+                                <div class="schedule-content">
+                                    '.$data['alltimes'][$x].'
+                                </div>
+                                </div>
+                                '  ;
+                        }
+                        
+                    ?>
+                        
                     </div>
+                    <form class="schedule-buttons-bar" method="POST">
+                        <input type="submit" value="Make New Schedule" class="schedule-button">
+                    </form>
+
+                    <?php
+                        if ($data['errors'] == 1) {
+                            echo "<script>alert('The time entered by the user is wrong.');</script>";
+                        }
+                    ?>
                 </div>
                 
             </div>

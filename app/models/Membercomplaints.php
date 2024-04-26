@@ -9,7 +9,7 @@ class Membercomplaints {
     protected $allowedColumns = [
         'memberemail',
         'description',
-        'towhom',
+        'type',
         'reply'
     ];
 
