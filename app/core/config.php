@@ -25,4 +25,4 @@ define('APP_NAME', "FitFusion");
 define('APP_DESC', "Fitness and Nutrition Application");
 
 // truw means show errors
-define('DEBUG', false);
+define('DEBUG', true);
