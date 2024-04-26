@@ -7,12 +7,22 @@
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
             margin: 0;
-            padding: 20px;
+           
         }
 
-        h2 {
+        .meal{
+            background-color:#27496A;
+            height:100vh;
+            width:80vw;
+            overflow:auto;
+        }
+
+        .meal h2 {
             text-align: center;
-            color: #333;
+            color: white;
+            padding-top:10px;
+            padding-bottom:30px;
+            margin-left:75px;
         }
 
         form {
@@ -22,6 +32,7 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
             max-width: 600px;
             margin: 0 auto;
+            margin-left:300px;
         }
 
         label {
@@ -65,10 +76,129 @@
             background-color: #45a049;
         }
     </style>
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
  
 </head>
 <body>
+<div class="main-container">
+<div class="side-bar-container">
+            <div class="logo-tab">
+                FITFUSION
+            </div>
+            <ul class="side-bar-content">
+                
+                <!-- <li class="current-side-bar-tile">
+                    <div class="sb-tab-content">
+                        <span class="material-symbols-outlined">
+                            dashboard
+                        </span>
+                    </div>
+                    <div class="sb-tab-content">
+                        Dashboard
+                    </div>
+                </li> -->
 
+                <a class="side-bar-tile-link" href="nutritionistdash">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Dashboard
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="createmealplan">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           Create Meal Plan
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="nutritionistviewmealplan">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           View Meal Plan
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                fitness_center
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Meetings
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                deployed_code
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                        Complaints
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="addfooditems">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                         Add Food Items
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="logout">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                logout
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">Logout</div>
+                    </li>
+                </a>
+
+            </ul>
+        </div>
+<div class="meal">
+<div class="body-header">
+                <div class="pfp">
+                    <!-- LET THE INSTRUCTOR UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
+                    <img src="#" alt="">
+                </div>
+                <div class="welcome-user">
+                    <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
+                    Welcome, InstructorName
+                </div>
+            </div>
 <h2>View Member Meal Plan</h2>
 <form action="" method="POST">
     <label for="day">Select Day:</label><br>
@@ -94,11 +224,15 @@
 
     <input type="submit" value="Select"><br><br>
 </form>
+<?php
+if(!empty($data['mealplandetails'])){
 
+
+echo '
 <form action="" method="">
    
     <label for="planname">Meal Plan Name:</label><br>
-    <input type="text" name="planname" placeholder="Meal Plan Name" value=<?php if(!empty($data['mealplandetails'])){echo $data['mealplandetails'][0]->mealplanname;} ?>><br><br>
+    <input type="text" name="planname" placeholder="Meal Plan Name" value='.$data['mealplandetails'][0]->mealplanname.'><br><br>
 
     <label for="breakfast">Breakfast:</label><br><br>
     <div id="breakfast-container">
@@ -106,7 +240,7 @@
         <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
         <label for="Quantity">Quantity:</label>  
         <div class="food-item">
-            <?php
+          ';
             if(!empty($data['mealplandetails'])){
                 foreach($data['mealplandetails'] as $row){
                     if($row->mealtime=="breakfast"){
@@ -119,7 +253,7 @@
                 }
             }
             
-            ?>
+            echo '
             
         </div>
 
@@ -132,7 +266,7 @@
         <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
         <label for="Quantity">Quantity:</label>  
         <div class="food-item">
-        <?php
+        ';
         if(!empty($data['mealplandetails'])){
             foreach($data['mealplandetails'] as $row){
                 if($row->mealtime=="snack1"){
@@ -145,7 +279,7 @@
             }
         }
 
-            ?>
+         echo'
         </div>
     </div>
    
@@ -156,7 +290,8 @@
         <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
         <label for="Quantity">Quantity:</label>  
         <div class="food-item">
-        <?php
+        ';
+       
         if(!empty($data['mealplandetails'])){
             foreach($data['mealplandetails'] as $row){
                 if($row->mealtime=="lunch"){
@@ -169,7 +304,7 @@
             }
         }
 
-            ?>
+           echo '
         </div>
     </div>
     
@@ -180,7 +315,8 @@
         <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
         <label for="Quantity">Quantity:</label>  
         <div class="food-item">
-        <?php
+        ';
+    
         if(!empty($data['mealplandetails'])){
             foreach($data['mealplandetails'] as $row){
                 if($row->mealtime=="snack2"){
@@ -193,7 +329,7 @@
             }
         }
 
-            ?>
+           echo '
         </div>
     </div>
     
@@ -204,7 +340,7 @@
         <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
         <label for="Quantity">Quantity:</label>  
         <div class="food-item">
-        <?php
+        ';
         if(!empty($data['mealplandetails'])){
             foreach($data['mealplandetails'] as $row){
                 if($row->mealtime=="dinner"){
@@ -217,12 +353,16 @@
             }
         }
 
-            ?>
+           echo '
         </div>
     </div>
     
 
-</form>
+</form>';
+}
+?>
 
+</div>
+</div>
 </body>
 </html>
