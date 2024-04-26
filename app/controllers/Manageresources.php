@@ -20,21 +20,21 @@ class Manageresources{
             $data=$usertable->where($arr1);
 
             /////////////////////////////////////
-            if(isset($_GET['deleteid'])){
-                $idd=$_GET['deleteid'];
+            // if(isset($_GET['deleteid'])){
+            //     $idd=$_GET['deleteid'];
 
-                $arr2['id'] = $idd;
+            //     $arr2['id'] = $idd;
                
-                $temp=$usertable->first($arr2);
-                if($_SESSION['email']==$temp->manageremail)
-                {
-                    $s=$usertable->delete($idd);
-                    redirect('manageresources');
-                }
-                else{
-                    echo "UNAUTHORIZED ACCESS";
-                }
-            }
+            //     $temp=$usertable->first($arr2);
+            //     if($_SESSION['email']==$temp->manageremail)
+            //     {
+            //         $s=$usertable->delete($idd);
+            //         redirect('manageresources');
+            //     }
+            //     else{
+            //         echo "UNAUTHORIZED ACCESS";
+            //     }
+            // }
             ////////////////////////////////
 
             if ($_SERVER['REQUEST_METHOD']=='POST') {
@@ -64,10 +64,10 @@ class Manageresources{
             //         redirect('manageresources');
             //     }
             // }
-            if(!isset($data['post'])){
-                $empty_post=['id'=>'','machineType'=>'','price'=>'','warranty'=>'','adjustability'=>''];
-                $data['post']=$empty_post;
-            }
+            // if(!isset($data['post'])){
+            //     $empty_post=['id'=>'','machineType'=>'','price'=>'','warranty'=>'','adjustability'=>''];
+            //     $data['post']=$empty_post;
+            // }
             if(!isset($data['errors'])){
                 $data['errors']='';
             }
