@@ -14,15 +14,27 @@ class Createworkoutplan
         $data = [];
         $usertable1 = new Workoutplans;
         $usertable2 = new Workoutsuppliments;
+        $machine=new Machine;
+        $regins=new Registeredinstructor;
+        $arr1['instructoremail']=$_SESSION['email'];
+        $instructor=$regins->where($arr1);
+        $manageremail=$instructor[0]->manageremail;
+        $arr2['manageremail']=$manageremail;
+        $machines=$machine->where($arr2);
+        $machinearr=[];
+        foreach($machines as $x){
+           array_push($machinearr,$x->machineType);
+        }
+        $uniquemachinearr=array_unique($machinearr);
+        $data=$uniquemachinearr;
+        //print_r($uniquemachinearr);
         
 
 
         $data1 = [];
 
 
-        echo "<pre>";
-        print_r($_POST);
-        echo "</pre>";
+
 
 
 
@@ -35,6 +47,7 @@ class Createworkoutplan
                     // Extract exercise details from the exercise array
                     $exerciseData = [
                         'id' => $_POST['workout_id'],
+                        'workoutname' => $_POST['workoutname'],
                         'iemail' => $_SESSION['email'],
                         'maingoal' => $_POST['main_goal'],
                         'workouttype' => $_POST['workout_Type'],
@@ -46,6 +59,7 @@ class Createworkoutplan
                         'exercise' => $exercise['exercise'],
                         'machine' => $exercise['machine'],
                         'sets' => $exercise['sets'],
+                        'reps' => $exercise['reps'],
                         'time' => $exercise['time'],
                         'rest' => $exercise['rest_time']
                     ];
