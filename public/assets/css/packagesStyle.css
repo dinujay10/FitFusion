@@ -5,80 +5,11 @@
 
     
 }
-nav{
-    padding: 40px;
-    background-color: orange;
-    height: 15%;
-}
-.logo p{
-    font-size:30px;
-    font-weight:bold;
-    font-family:Georgia, 'Times New Roman', Times, serif;
-    float:left;
-    color:rgb(16, 4, 4);
-    text-transform:uppercase;
-    letter-spacing: 1.5px;
-    cursor:pointer;
 
-}
-ul{
-    float:right;
-    
-}
-
- li{
-    padding-top:0px;
-    display:inline-block;
-    list-style:none;
-}
-
- li a{
-    font-size: 16px;
-    text-transform: uppercase;
-    padding:0px 40px;
-   
-    color:white;
-    text-decoration:none;
-}
-
- li a:hover{
-      color:brown;
-      transition: all 0.4s ease 0s;
-}
-@media(max-width:735px){
-    nav{
-        
-        background-color: orange;
-        height: 15%;
-        padding-bottom: 20px;
-       
-    }
-    ul{
-        float:left;
-        padding-top: 20px;
-        
-        
-    }
-    
-}
-@media(max-width:540px){
-    nav{
-        
-        background-color: orange;
-        height: 20%;
-        padding-bottom: 20px;
-       
-    }
-    li{
-        
-        padding-top:8px;
-        list-style:none;
-    }
-   
-}
 .secondcontainer{
     display: flex;
     flex-direction: row;
+    margin-left: 20px;
 }
 
 .machines{
@@ -116,9 +47,9 @@ ul{
 }
 
 .addMachine{
-    border-color:#454545;
-    width: 400px;
-    height: 550px;
+    border-color:#27496A;
+    width: 370px;
+    height: 590px;
     border-style: double;
     padding: 15px;
     margin: 30px; 
@@ -126,7 +57,7 @@ ul{
 }
 .addMachine h2{
     padding: 30px;
-    color: rgb(35, 230, 103);
+    color: #0C243D;
 }
 
 section .contentBx .formBx{
@@ -138,7 +69,7 @@ section .contentBx .formBx h2{
     font-size: 1.5em;
     text-transform: uppercase;
     margin-bottom: 20px;
-    border-bottom: 4px solid #454545;
+    border-bottom: 4px solid #27496A;
     display: inline-block;
     letter-spacing: 1px;
 
@@ -168,17 +99,17 @@ section .contentBx .formBx h2{
     border-radius: 30px;
 }
 .inputBx input[type="submit"]{
-    background:#454545;
+    background:#27496A;
     color: #fff;
     outline: none;
     border: none;
     font-weight: 500;
     cursor:pointer;
-    
+    margin: 8px 8px 8px 220px;
 }
 
 .inputBx input[type="submit"]:hover{
-    background: rgb(216, 57, 13);
+    background: #9AB7CD;
 
 }
 section .contentBx .formBx .remember{
@@ -193,8 +124,14 @@ section .contentBx .formBx .remember{
 .inputBx p a{
     color:orange
 }
-
-
+.inputBx select{
+    margin: 10px;
+    height: 32px;
+}
+.alert{
+    color: red;
+    font-size: 15px;
+}
 input[type="submit"] {
     border: none;
     outline: none;
@@ -211,17 +148,17 @@ input[type="submit"] {
 }
 /* Style for the table */
 table {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
     background-color: #fff;
     border: 1px solid #ddd;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-    margin-left: 20px;
+    margin-left: 40px;
     margin-right: 5px;
   }
   
   table thead {
-    background-color: #454545;
+    background-color: #27496A;
     color: #fff;
   }
   
@@ -237,15 +174,18 @@ table {
   }
   
   table tbody tr:nth-child(2n) {
-    background-color: #f2f2f2;
+    background-color: #5C8EB4;
   }
   
-  table tbody tr:hover {
-    background-color: #e0e0e0;
+  table tbody tr:nth-child:hover(n) {
+    background-color: #5C8EB4;
+  }
+  table tbody tr:nth-child:hover(2n) {
+    background-color:#e0e0e0 ;
   }
   
   table button {
-    background-color: #454545;
+    background-color: #27496A;
     color: #fff;
     border: none;
     padding: 5px 10px;
@@ -261,10 +201,10 @@ table {
   }
   
   table button:hover {
-    background-color: #ffd034;
+    background-color: #9AB7CD;
   }
 
 .maincontainer{
-    display:flex;
+    display: flex;
 }
 
