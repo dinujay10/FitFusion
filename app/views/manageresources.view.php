@@ -248,12 +248,9 @@
         </section>
         </main>
                 <div class="frm">
-
                                 <div class="secondcontainer">
-
                         <div class="addMachine">
                             <h2>Add Machine</h2>
-
                             <form method="post">
                                 <input type="hidden" name="manageremail" id="manageremail" value="<?= $_SESSION['email']?>">
                                 <div class="inputBx">
@@ -292,15 +289,12 @@
                                 </div>
                             
                             </form>
-
                         </div>
                     </div>
                 </div>
                         
-
                 </div>
                 </div>
-
             
        
             

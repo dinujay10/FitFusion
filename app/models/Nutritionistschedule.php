@@ -1,50 +1,65 @@
 <?php
 
 // user class
-class Nutritionistschedule
-{
+class Nutritionistschedule {
     use Model;
 
     protected $table = 'nutritionistschedule';
-
+    
     protected $allowedColumns = [
-        'id',
-        'instructoremail',
+        'nutritionistemail',
+        'gymemail',
         'date',
         'timeslot',
         'memberemail',
         'membername',
         'memberage',
-        'goal',
-        'illness',
+        'height',
+        'weight',
+        'allergies',
         'status'
     ];
 
-    public function validate($data)
-    {
+    public function validate($data) {
         $this->errors = [];
 
         // validate email
+        if(empty($data['email'])) {
+            $this->errors['email'] = "Email is required";
+        } else {
+            if(!filter_var($data['email'], FILTER_VALIDATE_EMAIL)) {
+                $this->errors['email'] = "Email is not valid";
+            }
+        }
 
         // validate password
-      
+        if(empty($data['password'])) {
+            $this->errors['password'] = "Password is required";
+        } 
+
+        if(empty($this->errors)) {
+            return true;
+        }
         return false;
     }
 
-    public function unique($data)
-    {
-
+    public function unique($data) {
         $this->errors = [];
-        $arr['id'] = $data['id'];
+        $arr['email'] = $data['email'];
         //check unique email
+        // echo $data[2];
         $unique = $this->first($arr);
-        if (!empty($unique)) {
-            $this->errors['id'] = "ID is already in use";
-        }
+        if(!empty($unique)) {
+            $this->errors['email'] = "Email is already in use";
+        } 
 
+        //check unique username
+        $unique = $this->first($arr);
+        if(!empty($unique)) {
+            $this->errors['username'] = "Username is already in use";
+        }    
 
-
-        if (empty($this->errors)) {
+        if(empty($this->errors)) {
             return true;
         }
         return false;

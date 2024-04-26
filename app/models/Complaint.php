@@ -10,15 +10,22 @@ class Complaint {
         'id',
         'memberEmail',
         'type',
-        'complaint'
+        'complaint',
+        'status',
+        'reply'
     ];
 
     public function validate($data) {
         $this->errors = [];
+
+        // validate email
+      
+        // validate password
      
         if(empty($data['complaint'])) {
             $this->errors['id'] = "Complaint is required";
-        }
+        } 
+        
 
         if(empty($this->errors)) {
             return true;

@@ -49,7 +49,7 @@ class Login {
             $row = $user->first($arr);
 
             if($row) {
-                echo "hello";
+                // echo "hello";
             
                 //$this->createUserSession($row);
                 if(password_verify($_POST['password'],
@@ -58,7 +58,85 @@ class Login {
                     $_SESSION['email'] = $row->email;
                     $_SESSION['usertype'] = $row->usertype;
                     if($row->usertype=="member") {
-                        redirect('memberdash');
+
+                        $member = new Registeredmembers;
+                        $memberarr1['memberemail'] = $_POST['email'];
+                        $checkmember = $member->first($memberarr1);
+                        // print_r($checkmember);
+
+                        if($checkmember) {
+                            $checkworkout = $checkmember->workoutid;
+                            // print($checkworkout);
+                            if($checkworkout!=0) {
+                                $checkmealplan = $checkmember->mealplanname;
+                                // print_r($checkmealplan);
+                                if($checkmealplan!=0) {
+                                    redirect('memberdash');
+                                }
+                                elseif($checkmember->packagegroup=='instructor') {
+                                    // print_r($checkmember->packagegroup);
+                                    redirect('memberdash');
+                                }
+                                else {
+                                    // what if a meeting is already scheduled????
+                                    $checkarr['gymemail'] = $checkmember->gymemail;
+                                    $checkarr['memberemail'] = $checkmember->memberemail;
+                                    $checkmembernutri = new Nutritionistschedule;
+                                    $isMeetingNutri = $checkmembernutri->where($checkarr);
+                                    if($isMeetingNutri) {
+                                        if($isMeetingNutri[0]->status=="Pending" or $isMeetingNutri[0]->status=="Done") {
+                                            redirect('memberdash');
+                                        }
+                                        elseif ($isMeetingNutri[0]['status']=="Cancelled") {
+                                            redirect('schedulenutrimeeting');
+                                        }
+
+                                    }
+                                }
+                            }
+                            else {
+                                $checkarr['gymemail'] = $checkmember->gymemail;
+                                $checkarr['memberemail'] = $checkmember->memberemail;
+                                $checkmember1 = new InstrSchedule;
+                                $isMeeting = $checkmember1->where($checkarr);
+                                print_r($isMeeting);
+                                if ($isMeeting) {
+                                    if ($isMeeting[0]->status=="Pending" or $isMeeting[0]->status=="Done") {
+                                        print_r($isMeeting[0]->status);
+                                        // check if they have a instrnutri packagegroup. 
+                                        if ($checkmember->packagegroup=='instrnutri') {
+                                            $checkmembernutri = new Nutritionistschedule;
+                                            $isMeetingNutri = $checkmembernutri->where($checkarr);
+                                            if($isMeetingNutri) {
+                                                if($isMeetingNutri[0]->status=="Pending" or $isMeetingNutri[0]->status=="Done") {
+                                                    redirect('memberdash');
+                                                }
+                                                elseif ($isMeetingNutri[0]['status']=="Cancelled") {
+                                                    redirect('schedulenutrimeeting');
+                                                }
+
+                                            }
+                                            // TODO make nutrschedule table. get the status of the member by using the memberemail and the gymemail
+                                            // TODO then check if nutrimeeting status is Pending or confirmed, then redirect to dashboard
+                                            // TODO if nutri meeting status is cancelled, then redirect to nutrimeeting page.
+                                        }
+                                        else {
+                                            redirect('memberdash');
+                                        }
+                                        
+                                        
+                                    }
+                                    elseif ($isMeeting[0]['status']=="Cancelled") {
+                                        redirect('scheduleinstrmeeting');
+                                    }
+                                }
+                                redirect('scheduleinstrmeeting');
+                            }
+                        }
+                        else {
+                            redirect('selectgym');
+                        }
+
                     } else if($row->usertype=="gyminstructor") {
                         redirect('gyminstructordash');
                     } else if($row->usertype=="nutritionist") {
@@ -92,19 +170,7 @@ class Login {
             // $data['errors'] = $gym->errors;
         }
 
-        $this->view('login', $data);
+        $this->view('Main/login', $data);
     }
-
-    // public function edit($a = '', $b = '', $c = '') {
-    //     show("from the edit function");
-    //     $this->view('home');
-    // }
-
-    // public function createUserSession($user) {
-    //     $_SESSION['id'] = $user->id;
-    //     $_SESSION['email'] = $user->email;
-    //     $_SESSION['username'] = $user->username;
-    // }
-
    
 }

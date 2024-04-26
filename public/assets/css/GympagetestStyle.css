@@ -181,6 +181,14 @@ nav {
     bottom: 0;
 }  
 
+.container-right{
+    /* border: 1px solid red; */
+
+    float: right;
+    width: 80%;
+    min-height: 100vh;
+}
+
 /* gym list title ------------------------------------------------------------------------------------------------*/
 
 /* nothing changed from adding section */

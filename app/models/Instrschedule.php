@@ -1,23 +1,22 @@
 <?php
 
 // user class
-class Instructormeeting {
+class InstrSchedule {
     use Model;
 
     protected $table = 'instrschedule';
     
     protected $allowedColumns = [
-      'id',
-      'instructoremail',
-      'date',
-      'timeslot',
-      'memberemail',
-      'membername',
-      'memberage',
-      'goal',
-      'illness',
-      'status'
-        
+        'instructoremail',
+        'gymemail',
+        'date',
+        'timeslot',
+        'memberemail',
+        'membername',
+        'memberage',
+        'goal',
+        'illness',
+        'status'
     ];
 
     public function validate($data) {

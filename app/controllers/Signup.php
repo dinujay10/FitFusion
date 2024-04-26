@@ -1,5 +1,5 @@
 
-.<?php
+<?php
 
 class Signup {
     use Controller;
@@ -60,7 +60,7 @@ class Signup {
             $data['errors'] = $user->errors;
         }
 
-        $this->view('signup', $data);
+        $this->view('Main/signup', $data);
     }
 
     // public function edit($a = '', $b = '', $c = '') {

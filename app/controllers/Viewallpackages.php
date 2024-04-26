@@ -6,6 +6,7 @@ class Viewallpackages{
             $data=[];
 
             if ($_SERVER['REQUEST_METHOD']=='GET') {
+                print_r($_GET);
                 $packages=new Package;
                  //get package details
                 $arr1['manageremail'] = $_GET['memail'];

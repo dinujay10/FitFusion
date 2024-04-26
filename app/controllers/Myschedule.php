@@ -12,6 +12,7 @@ class Myschedule{
             $schedule=new Schedule;
 
 
+
             if ($_SERVER['REQUEST_METHOD']=='GET') {
                 $email=$_SESSION['email'];
                 $arr1['memberemail']=$email;
@@ -27,6 +28,7 @@ class Myschedule{
                 $manageremail=$gymdata[0]->manageremail;
                 // print_r($manageremail);
                 // print_r($isregistered);
+
                 $date=$_GET['date'];
                 $stime=$_GET['stime'];
                 $etime=$_GET['etime'];
@@ -195,6 +197,7 @@ class Myschedule{
             //         redirect('manageresources');
             //     }
             // }
+
             $arr7['memberEmail']=$_SESSION['email'];
             $data=$schedule->where($arr7);
            // print_r($data);

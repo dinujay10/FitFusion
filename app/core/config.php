@@ -9,6 +9,7 @@ if ($_SERVER['SERVER_NAME'] == 'localhost') {
     define('DBDRIVER', '');
 
     define('ROOT', 'http://localhost/FitFusion/public');
+    // define('ROOT', 'http://localhost'); //dinu
 } else {
     // DB config
     define('DBNAME', 'my_db');

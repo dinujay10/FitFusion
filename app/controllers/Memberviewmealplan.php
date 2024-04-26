@@ -5,6 +5,12 @@ class Memberviewmealplan{
 
         public function index() {
             $data = [];     
+
+            $user = new User;
+            $arr2['email'] = $_SESSION['email'];
+            $memberdeets = $user->first($arr2);
+            $data['firstname'] = $memberdeets->name;
+            $data['lastname'] = $memberdeets->lastname;
             
             if ($_SERVER['REQUEST_METHOD']=='POST') {
 
@@ -24,7 +30,7 @@ class Memberviewmealplan{
             }
 
     //print_r($data['mememail']);
-            $this->view('memberviewmealplan', $data);
+            $this->view('Member/memberviewmealplan', $data);
         }
    
 
