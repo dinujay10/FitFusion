@@ -43,7 +43,7 @@
             </div>
             <div class="contentBx">
                 <div class="formBx"> 
-                    <h2>Sign Up</h2>
+                    <h2>Member Sign Up</h2>
                     <form method="POST">
                         <?php if(!empty($errors)):?>
                         <div class="alert">
@@ -52,16 +52,16 @@
                         <?php endif ;?>
 
                         <div class="inputBx">
-                            <span>Name</span>
+                            <span>FirstName</span>
                             <input type="text" name="name" id="name" >
+                        <div class="inputBx">
+                            <span>Lastname</span>
+                            <input type="text" name="lastname" id="lastname">
+                        </div>
                         </div>
                         <div class="inputBx">
                             <span>Email</span>
                             <input type="text" name="email" id="email">
-                        </div>
-                        <div class="inputBx">
-                            <span>Username</span>
-                            <input type="text" name="username" id="username">
                         </div>
                         <div class="inputBx">
                             <span>Password</span>
@@ -71,16 +71,15 @@
                             <span>Confirm Password</span>
                             <input type="password" name="passwordConfirm" id="passwordConfirm">
                         </div>
-                        <div class="selectType">
+                        <!-- <div class="selectType">
                             <span>Who are you signing up as?</span>
                             <select name="usertype" id="usertype">
                                 <option value="member">Member</option>
                                 <option value="gyminstructor">Gym Instructor</option>
                                 <option value="nutritionist">Nutritionist</option>
-                                <!-- <option value="gymmanager">Gym Manager (Manages 1 gym)</option>
-                                <option value="gymowner">Gym Owner (Manages more than 1 gym)</option> -->
+                               
                             </select>                    
-                        </div>
+                        </div> -->
                         <div class="inputBx">
                             <input type="submit" value="Sign Up">
                         </div>
