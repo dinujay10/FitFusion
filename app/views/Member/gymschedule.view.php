@@ -135,22 +135,10 @@
             <div class="body-content" style="flex-direction: column;">  
             
                 <?php 
-                echo '<pre>';
-                var_dump($data);
-                echo '</pre>';
+                // echo '<pre>';
+                // var_dump($data);
+                // echo '</pre>';
                 ?>
-
-                <form method="POST" style="height: 40%;">
-                    <div class="content-tile" style="height: 20%; flex-direction: row;">
-                        <input class="date-box" type="date" id="date" name="date" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')); ?>"/>
-                        <!-- //TODO have to limit the time within gym hours -->
-                        <label for="timePicker">Choose a time:</label>
-                        <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300" onchange=validateTime()>
-                    </div>
-                    <div class="content-tile" style="height: 20%; flex-direction: row;">
-                        <input class="db-link-button" style="width: 20%; height: 30%" type="submit" value="submit">
-                    </div>
-                </form>
 
 
                 <div class="content-tile" style="height: 20%; flex-direction: row;">
@@ -167,6 +155,19 @@
                     ?>
 
                 </div>
+
+                <div class="content-tile" style="height: 20%; flex-direction: row;">
+                    <form class="schedule-form" method="POST" style="height: 40%;">
+                            <input class="date-box" type="date" id="date" name="date" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')); ?>"/>
+                            <!-- //TODO have to limit the time within gym hours -->
+                            <label for="timePicker">Choose a time:</label>
+                            <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300" onchange=validateTime()>
+                            <a class="schedule-form-button" href="gymscheduleview"><input class="schedule-submit-button" type="submit" value="submit"></a>
+                    </form>
+                </div>
+
+
+                
                 
 
 

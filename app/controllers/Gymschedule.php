@@ -109,7 +109,7 @@ class Gymschedule {
                 $startingtime = $_POST['time'];
                 // $startingtime = substr($startingtime, 0, 2);
                 $startingtime = DateTime::createFromFormat('H:i', $startingtime);
-                print_r($startingtime);
+                // print_r($startingtime);
                 $machinelist = $data['allmachines'];
 
                 //while $machinelist is not empty
@@ -150,9 +150,10 @@ class Gymschedule {
                         // print_r($startingtime);
                         $arr8['startingtime'] = $startingtime->format('H:i:s');
                         $relaventschedules = $scheduletable->where($arr8);
-                        print_r($relaventschedules);
+                        // print_r($relaventschedules);
 
                         // store that number of records as count2
+                        $count2 = 0;
                         if ($relaventschedules) {
                             $count2 = count($relaventschedules);
                             // print_r($count2);
@@ -161,21 +162,31 @@ class Gymschedule {
                         if ($count2 == $count1) {
                             // cannot schedule
                             // pop the first element in the $machinelist and append it to the end of the array
+                            array_push($machinelist, array_shift($machinelist));
                         }
-                        else {
+                        elseif ($count2 == 0 or $count2 < $count1) {
                             // can schedule
+                            // insert the row
+                            $newschedule = new Schedule;
+                            $arr9['date'] = $_POST['date'];
+                            $arr9['startingtime'] = $startingtime->format('H:i:s');
+                            $arr9['machine'] = $machinelist[$i];
+                            $arr9['gymemail'] = $regmemberdeets->gymemail;
+                            $arr9['memberemail'] = $_SESSION['email'];
+                            $newschedule->insert($arr9);
+                            // print_r($newschedule);
+
                             // startingtime = startingtime + maxtime;
-                            // pop the first element
+                            $interval = new DateInterval('PT' . $maxtime . 'M');
+                            $startingtime->add($interval);
+                            // echo $startingtime->format('Y-m-d H:i:s');
+                            // print_r($startingtime);
+
+                            // pop the first element in machinelist
+                            array_shift($machinelist);
                         
                         }
-                    
 
-                        break;
-                        
-                        
-                        
-                        
-                        
                     }
                     
                 }

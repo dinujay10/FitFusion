@@ -9,11 +9,10 @@ class Schedule {
     protected $allowedColumns = [
         'id',
         'date',
-        'fromTime',
-        'toTime',
-        'machineType',
-        'managerEmail',
-        'memberEmail'
+        'startingtime',
+        'machine',
+        'gymemail',
+        'memberemail'
         
     ];
 
