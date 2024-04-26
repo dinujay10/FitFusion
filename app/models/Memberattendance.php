@@ -11,7 +11,9 @@ class Memberattendance
         'id',
         'manageremail',
         'memberemail',
-        'timein'
+        'datee',
+        'time',
+        'weekdy'
     ];
 
     public function validate($data)
