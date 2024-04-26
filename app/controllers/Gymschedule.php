@@ -190,6 +190,8 @@ class Gymschedule {
                     }
                     
                 }
+
+                redirect('gymscheduleview');
                     
                 
 
