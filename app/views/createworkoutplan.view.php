@@ -5,16 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Create Workout Plan</title>
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/CreatedworkoutplansStyle.css">
+    <!-- <link rel="stylesheet" href="<?= ROOT ?>/assets/css/CreatedworkoutplansStyle.css"> -->
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!-- <link rel="stylesheet" href="<?=ROOT?>/assets/css/HandleMemberComplaintStyle.css"> -->
     <style>
         /* Add CSS styles for the buttons */
-        * {
+        /* * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        } */
+        .con2{
+            /* margin-left:200px; */
+            width:80vw;
+            background-color:#27496A;
+            /* padding-top:50px; */
+            height:100vh;
+            /* margin-top:940px; */
+            /* margin-right:200px; */
+            overflow:auto;
         }
-
-        body {
+        /* .con2 body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f2f2f2;
             margin: 0;
@@ -22,9 +34,9 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-        }
+        } */
 
-        nav {
+        .con2 nav {
             padding: 20px;
             background-color: orange;
             width: 100%;
@@ -34,7 +46,7 @@
             justify-content: space-between;
         }
 
-        .logo p {
+        .con2 .logo p {
             font-size: 30px;
             font-weight: bold;
             color: black;
@@ -43,53 +55,59 @@
             margin: 0;
         }
 
-        ul {
+        .con2 ul {
             list-style: none;
             display: flex;
             align-items: center;
         }
 
-        li {
+        .con2 li {
             margin-right: 20px;
         }
 
-        li a {
+        .con2 li a {
             font-size: 16px;
             color: black;
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
-        li a:hover {
+        .con2 li a:hover {
             color: white;
         }
 
-        form {
+        .con2 form {
             background-color: #fff;
             padding: 40px;
             border-radius: 20px;
             box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
             width: 70%;
-            margin-top: 20px;
+            /* margin-top: 20px; */
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 30px;
+            margin-left:80px;
+            margin-top:20px;
+            
+        
         }
 
-        h1 {
+        .con2 h1 {
             margin-bottom: 30px;
             color: #333;
             font-size: 28px;
         }
 
-        label {
+        .con2 label {
             font-size: 16px;
             color: #333;
             margin-bottom: 10px;
+            margin-top:7px;
+   
         }
 
-        input[type="text"],
+        .con2 input[type="text"],
         select,
         button {
             width: 60%;
@@ -100,7 +118,8 @@
             font-size: 16px;
         }
 
-        select {
+        .con2 select {
+            text-align:center;
             appearance: none;
             background-image: url('data:image/svg+xml;utf8,<svg fill="#666" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" width="18px" height="18px"><path d="M7 10l5 5 5-5z"/></svg>');
             background-repeat: no-repeat;
@@ -109,9 +128,9 @@
             padding-right: 30px;
         }
 
-        button[type="submit"] {
+        .con2 button[type="submit"] {
             margin-top: 20px;
-            margin-left: 700px;
+            margin-left: 500px;
             width: 20%;
             background-color: grey;
             color: #fff;
@@ -121,27 +140,28 @@
             transition: background-color 0.3s ease;
         }
 
-        button:hover {
+        .con2 button:hover {
             background-color: #0056b3;
         }
 
-        table {
+        .con2 table {
             width: 100%;
             border-collapse: collapse;
         }
 
-        th,
+        .con2 th,
         td {
             padding: 8px;
             text-align: left;
             border-bottom: 1px solid #ddd;
+            color:white;
         }
 
-        th {
-            background-color: orange;
+        .con2 th {
+            background-color: #0C243D;
         }
 
-        input[type="time"],
+        .con2 input[type="time"],
         select {
             width: 100%;
             padding: 6px;
@@ -150,24 +170,33 @@
             box-sizing: border-box;
         }
 
-        input[type="text"],
+        .con2 input[type="text"],.nums1,
         select {
-            width: 70%;
+            width: 100%;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top:15px;
+        }
+        .con2 .nums2{
+            width: 70px;
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            margin-top:0px;
+        }
+
+        .con2 select[id="workout_type"] {
+            width: 100%;
             padding: 6px;
             border: 1px solid #ccc;
             border-radius: 4px;
             box-sizing: border-box;
         }
 
-        select[id="workout_type"] {
-            width: 70%;
-            padding: 6px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        .add-btn {
+        .con2 .add-btn {
             background-color: #4CAF50;
             color: white;
             border: none;
@@ -179,28 +208,136 @@
             font-size: 16px;
             margin-bottom: 20px;
             cursor: pointer;
-            width: 5%;
-            margin-left: 900px;
+            width: 10%;
+            margin-left: 500px;
         }
 
-        .add-row-btn:hover {
+        .con2 .add-row-btn:hover {
             background-color: #45a049;
         }
     </style>
 </head>
 
 <body>
-    <nav>
-        <div class="logo">
-            <p>FitFusion</p>
+<div class="main-container">
+<div class="side-bar-container">
+            <div class="logo-tab">
+                FITFUSION
+            </div>
+            <ul class="side-bar-content">
+                
+                <!-- <li class="current-side-bar-tile">
+                    <div class="sb-tab-content">
+                        <span class="material-symbols-outlined">
+                            dashboard
+                        </span>
+                    </div>
+                    <div class="sb-tab-content">
+                        Dashboard
+                    </div>
+                </li> -->
+
+                <a class="side-bar-tile-link" href="managerdash">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Dashboard
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="createworkoutplan">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           Create Workout Plan
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="viewworkoutplans">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           View Workout Plan
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="machinefailure">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                fitness_center
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Machine Failure
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="instructormeetings">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                deployed_code
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                        Meetings
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="memberfeed">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                         Feedbacks
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="logout">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                logout
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">Logout</div>
+                    </li>
+                </a>
+
+            </ul>
         </div>
-        <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">AboutUs</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="login">Logout</a></li>
-        </ul>
-    </nav>
+        
+    <div class="con2">
+    <div class="body-header">
+                <div class="pfp">
+                    <!-- LET THE INSTRUCTOR UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
+                    <img src="#" alt="">
+                </div>
+                <div class="welcome-user">
+                    <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
+                    Welcome, InstructorName
+                </div>
+    </div>
 
     <form id="workoutForm" method="POST">
         <h1>Create Workout Plan</h1>
@@ -208,6 +345,9 @@
 
         <label for="workout_id"><b>workout id:</b></label>
         <input type="text" id="workout_id" name="workout_id" required>
+
+        <label for="workoutname"><b>workout name:</b></label>
+        <input type="text" id="workoutname" name="workoutname" required>
 
         <label for="main_goal"><b>Main Goal:</b></label>
         <input type="text" id="main_goal" name="main_goal" required>
@@ -227,14 +367,20 @@
             <option value="High">High</option>
         </select>
 
-        <label for="program_duration"><b>Program Duration:</b></label>
-        <input type="text" id="program_duration" name="program_duration" required>
-
+        <label for="program_duration"><b>Program Duration (months):</b></label>
+        <input class="nums1" type="number" id="program_duration" name="program_duration" min="0" required><br>
+        <br>
         <label for="days_per_week"><b>Days per week:</b></label>
-        <input type="text" id="days_per_week" name="days_per_week" required>
+        <input class="nums1" type="number" id="days_per_week" name="days_per_week" min="0" required>
 
+        <!-- <label for="target_gender"><b></b></label>
+        <input type="text" id="target_gender" name="target_gender" required> -->
+        <br>
         <label for="target_gender"><b>Target Gender:</b></label>
-        <input type="text" id="target_gender" name="target_gender" required>
+        <select id="target_gender" name="target_gender" required>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select>
 
         <label for="supplements"><b>Recommended Supps:</b></label>
         <div style="display: flex; gap: 20px;">
@@ -266,16 +412,17 @@
                     <th>Exercise</th>
                     <th>Machine</th>
                     <th>Sets</th>
+                    <th>Reps</th>
                     <th>Time(mins)</th>
                     <th>Rest Time(mins)</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="exerciseTableBody">
                 <label for="exercises"><b>Exercises:</b></label>
                 <tr>
 
                     <td>
-                        <select name="exercises[0][exercise]">
+                        <select name="exercises[0][exercise]" required>
                             <option value="">Select exercise...</option>
                             <option value="pushups">Pushups</option>
                             <option value="squats">Squats</option>
@@ -287,154 +434,120 @@
                         </select>
                     </td>
                     <td>
-                        <select name="exercises[0][machine]">
-                            <option value="">Select machine...</option>
+                        <select name="exercises[0][machine]" required>
+                            <?php
+                                foreach($data as $x){
+                                    echo '
+                                        <option value="'.$x.'">'.$x.'</option>
+                                    ';
+                                }
+                            ?>
+                            <!-- <option value="">Select machine...</option>
                             <option value="1">Treadmill</option>
                             <option value="2">Bench Press</option>
                             <option value="3">Exercise Bike</option>
                             <option value="4">Leg Press Machine</option>
-                            <option value="5">Rowing Machine</option>
+                            <option value="5">Rowing Machine</option> -->
                         </select>
                     </td>
                     <td>
-                        <select name="exercises[0][sets]">
+                        <!-- <select name="exercises[0][sets]">
                             <option value="">Select sets...</option>
                             <option value="1">1 set</option>
                             <option value="2">2 sets</option>
                             <option value="3">3 sets</option>
                             <option value="4">4 sets</option>
                             <option value="5">5 sets</option>
-                        </select>
+                        </select> -->
+                        <input class="nums2"  type="number" name="exercises[0][sets]" min="0" required>
                     </td>
                     <td>
-                        <input type="int" name="exercises[0][time]">
+                        <!-- <select name="exercises[0][reps]">
+                            <option value="">Select reps...</option>
+                            <option value="1">1 Rep</option>
+                            <option value="2">2 Reps</option>
+                            <option value="3">3 Reps</option>
+                            <option value="4">4 Reps</option>
+                            <option value="5">5 Reps</option>
+                        </select> -->
+                        <input class="nums2" type="number" name="exercises[0][reps]" min="0" required>
                     </td>
                     <td>
-                        <input type="int" name="exercises[0][rest_time]">
+                        <input class="nums2" type="number" name="exercises[0][time]" min="0" required>
+                    </td>
+                    <td>
+                        <input class="nums2" type="number" name="exercises[0][rest_time]" min="0" required>
                     </td>
                 </tr>
 
-                <tr>
-                    <td>
-                        <select name="exercises[1][exercise]">
-                            <option value="">Select exercise...</option>
-                            <option value="pushups">Pushups</option>
-                            <option value="squats">Squats</option>
-                            <option value="plank">Plank</option>
-                            <option value="lunges">Lunges</option>
-                            <option value="deadlifts">Deadlifts</option>
-                            <option value="burpees">Burpees</option>
-                            <!-- Add more exercise options as needed -->
-                        </select>
-                    </td>
-                    <td>
-                        <select name="exercises[1][machine]">
-                            <option value="">Select machine...</option>
-                            <option value="1">Treadmill</option>
-                            <option value="2">Bench Press</option>
-                            <option value="3">Exercise Bike</option>
-                            <option value="4">Leg Press Machine</option>
-                            <option value="5">Rowing Machine</option>
-                            <!-- Add more set options as needed -->
-                        </select>
-                    </td>
-                    <td>
-                        <select name="exercises[1][sets]">
-                            <option value="">Select sets...</option>
-                            <option value="1">1 set</option>
-                            <option value="2">2 sets</option>
-                            <option value="3">3 sets</option>
-                            <option value="4">4 sets</option>
-                            <option value="5">5 sets</option>
-                            <!-- Add more set options as needed -->
-                        </select>
-                    </td>
-                    <td>
-                        <input type="int" name="exercises[1][time]">
-                    </td>
-                    <td>
-                        <input type="int" name="exercises[1][rest_time]">
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <select name="exercises[2][exercise]">
-                            <option value="pushups">Pushups</option>
-                            <option value="squats">Squats</option>
-                            <option value="plank">Plank</option>
-                            <option value="lunges">Lunges</option>
-                            <option value="deadlifts">Deadlifts</option>
-                            <option value="burpees">Burpees</option>
-                            <!-- Add more exercise options as needed -->
-                        </select>
-                    </td>
-                    <td>
-                        <select name="exercises[2][machine]">
-                            <option value="">Select machine...</option>
-                            <option value="1">Treadmill</option>
-                            <option value="2">Bench Press</option>
-                            <option value="3">Exercise Bike</option>
-                            <option value="4">Leg Press Machine</option>
-                            <option value="5">Rowing Machine</option>
-                            <!-- Add more set options as needed -->
-                        </select>
-                    </td>
-                    <td>
-                        <select name="exercises[2][sets]">
-                            <option value="">Select sets...</option>
-                            <option value="1">1 set</option>
-                            <option value="2">2 sets</option>
-                            <option value="3">3 sets</option>
-                            <option value="4">4 sets</option>
-                            <option value="5">5 sets</option>
-                            <!-- Add more set options as needed -->
-                        </select>
-                    </td>
-                    <td>
-                        <input type="int" name="exercises[2][time]">
-                    </td>
-                    <td>
-                        <input type="int" name="exercises[2][rest_time]">
-                    </td>
-                </tr>
+                
+                
                 <!-- Add more rows for additional exercises -->
             </tbody>
         </table>
 
 
 
-        <button class="add-btn" onclick="duplicateRow()">ADD</button>
+        <button type="button" class="add-btn" onclick="duplicateRow()">ADD</button>
         <button type="submit"><b>Create</b></button>
     </form>
+    </div>
+    <!-- </div> -->
     <script>
-        function duplicateRow() {
-            // Check if elements exist before using them
-            const originalRow = document.getElementById('templateRow'); // Assuming the ID is changed
-            const container = document.getElementById('cloned-rows-container');
-            if (!originalRow || !container) {
-                console.error("Error: Missing elements for row duplication");
-                return;
-            }
+    function duplicateRow() {
+        // Get the table body
+        var tableBody = document.getElementById("exerciseTableBody");
+        
+        // Create a new row
+        var newRow = document.createElement("tr");
+        
+        // HTML content for the new row
+        newRow.innerHTML = `
+            <td>
+                <select name="exercises[${tableBody.rows.length}][exercise]" required>
+                    <option value="">Select exercise...</option>
+                    <option value="pushups">Pushups</option>
+                    <option value="squats">Squats</option>
+                    <option value="plank">Plank</option>
+                    <option value="lunges">Lunges</option>
+                    <option value="deadlifts">Deadlifts</option>
+                    <option value="burpees">Burpees</option>
+                    <!-- Add more exercise options as needed -->
+                </select>
+            </td>
+            <td>
+                <select name="exercises[${tableBody.rows.length}][machine]" required>
+                    <option value="">Select machine...</option>
+                    <option value="1">Treadmill</option>
+                    <option value="2">Bench Press</option>
+                    <option value="3">Exercise Bike</option>
+                    <option value="4">Leg Press Machine</option>
+                    <option value="5">Rowing Machine</option>
+                </select>
+            </td>
+            <td>
+                <input class="nums2" type="number" name="exercises[${tableBody.rows.length}][sets]" min="0" required>
+            </td>
+            <td>
+                <input class="nums2" type="number" name="exercises[${tableBody.rows.length}][reps]" min="0" required>
+            </td>
+            <td>
+                <input class="nums2" type="number" name="exercises[${tableBody.rows.length}][time]" min="0" required>
+            </td>
+            <td>
+                <input class="nums2" type="number" name="exercises[${tableBody.rows.length}][rest_time]" min="0" required>
+            </td>
+        `;
+        
+        // Append the new row to the table body
+        tableBody.appendChild(newRow);
+    }
+</script>
 
-            const clonedRow = originalRow.cloneNode(true);
 
-            // Clear the content of input boxes
-            clonedRow.querySelectorAll('.input-box').forEach(function (input) {
-                input.value = '';
-            });
 
-            // Reset selection state for checkboxes/radio buttons (if needed)
-            clonedRow.querySelectorAll('input[type="checkbox"], input[type="radio"]')
-                .forEach(input => input.checked = false);
-
-            // Optionally copy event listeners from original row (if needed)
-
-            // Append the cloned row to the container
-            container.appendChild(clonedRow);
-        }
-    </script>
-
+   
+</div>
 
 </body>
 
