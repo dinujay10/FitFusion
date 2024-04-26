@@ -11,33 +11,42 @@ class Packages
         }
 
         $data = [];
-        $usertable = new Package;
+        $package = new Package;
 
 
         $arr1['manageremail'] = $_SESSION['email'];
-        $data=$usertable->where($arr1);
+        $data=$package->where($arr1);
         //print_r($data);
 
         /////////////////////////////////////
         if (isset($_GET['deleteid'])) {
             $id = $_GET['deleteid'];
 
-            $s = $usertable->deletepackage($id);
+            $s = $package->deletepackage($id);
             redirect('packages');
         }
         ////////////////////////////////
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-            $usertable->insert($_POST);
-            $data = $usertable->findAll();
-            redirect('packages');
-            $data['errors'] = $usertable->errors;
+
+            if($package->unique($_POST) && $package->validate($_POST)){
+                $package->insert($_POST);
+                redirect('packages');
+            }
+            else{
+                //print_r("hello");
+            }
+            $arr2['manageremail']=$_SESSION['email'];
+            $data = $package->where($arr2);
+            
+            $data['errors'] = $package->errors;
+            //print_r($data['errors']);
         }
         // if($_SERVER['REQUEST_METHOD']=='GET'){
         //     if(isset($_GET['deleteid'])){
         //         $idd=$_GET['deleteid'];
 
-        //         //$s=$usertable->delete($idd);
+        //         //$s=$package->delete($idd);
         //         redirect('manageresources');
         //     }
         // }
