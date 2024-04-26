@@ -22,7 +22,7 @@ class Updateresources{
                     $data['price']=$temp->price;
                     $data['warranty']=$temp->warranty;
                     $data['adjustability']=$temp->adjustability;
-                    $this->view('updateresources', $data);
+                    
                 }
                 else{
                     echo "UNAUTHORIZED ACCESS";
@@ -34,10 +34,9 @@ class Updateresources{
 
             if ($_SERVER['REQUEST_METHOD']=='POST') {
                 
-               
-                
                 $usertable->update($_POST['id'],$_POST);
                 redirect('manageresources');
+                die();
                // $data['errors'] = $usertable->errors;
             }
             // if($_SERVER['REQUEST_METHOD']=='GET'){
@@ -48,7 +47,7 @@ class Updateresources{
             //         redirect('manageresources');
             //     }
             // }
-    
+            $this->view('updateresources', $data);
            
         }
    
