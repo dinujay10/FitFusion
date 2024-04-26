@@ -6,28 +6,129 @@
     <meta name="viewport" content="width=device-width,
       initial-scale=1.0"/>
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ApproveinstructorStyle.css" />
-    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
   </head>
   <body>
-      <div class="side-menu">
-        <div class="brand-name">
-            <h1>FIT FUSION</h1>
+   <div class="main-container">
+   <div class="side-bar-container">
+            <div class="logo-tab">
+                FITFUSION
+            </div>
+            <ul class="side-bar-content">
+                
+                <!-- <li class="current-side-bar-tile">
+                    <div class="sb-tab-content">
+                        <span class="material-symbols-outlined">
+                            dashboard
+                        </span>
+                    </div>
+                    <div class="sb-tab-content">
+                        Dashboard
+                    </div>
+                </li> -->
+
+                <a class="side-bar-tile-link" href="managerdash">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Dashboard
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="createworkoutplan">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           Create Workout Plan
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="viewworkoutplans">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           View Workout Plan
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="machinefailure">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                fitness_center
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Machine Failure
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="instructormeetings">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                deployed_code
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                        Meetings
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="memberfeed">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                         Feedbacks
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="logout">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                logout
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">Logout</div>
+                    </li>
+                </a>
+
+            </ul>
         </div>
-        <ul>
-        <li><img src="<?=ROOT?>/assets/images/dashboards/g2.jpeg" alt="">&nbsp; <h5>Dashboard</h5> </li>
-        <a href="profile"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>My Profile</h6> </li></a>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Gym Schedule</h6> </li>
-            <a href="createworkoutplan"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Create Workout Plan</h6> </li></a>
-            <a href="workoutcategory"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Available Categories</h6> </li></a>
-            <a href="machinefailure"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Report Machine Failure</h6> </li></a>
-            <a href="memberfeed"><li><img src="<?=ROOT?>/assets/images/dashboards/task list.jpeg" alt="">&nbsp;<h6>Feedbacks</h6> </li></a>
-            <a href="instructormeetings"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Meetings</h6> </li></a>
-            <a href="logout"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Logout</h6></li></a>
-            <li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Settings</h6> </li>
-        </ul>
-    </div>
+
     <div class="container">
+    <div class="body-header">
+                <div class="pfp">
+                    <!-- LET THE INSTRUCTOR UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
+                    <img src="#" alt="">
+                </div>
+                <div class="welcome-user">
+                    <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
+                    Welcome, InstructorName
+                </div>
+            </div>
     <div class="containera">
       <h1 class="form-title">Send Email to Member </h1>
       <form action="#" method="POST" >
@@ -67,11 +168,11 @@
        if(isset($_POST['email']))
         {
           
-        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/Exception.php';
-        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/PHPMailer.php';
-        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/SMTP.php';
+        require 'C:/xampp/htdocs/FitFusion/public/assets/PHPMailer/src/Exception.php';
+        require 'C:/xampp/htdocs/FitFusion/public/assets/PHPMailer/src/PHPMailer.php';
+        require 'C:/xampp/htdocs/FitFusion/public/assets/PHPMailer/src/SMTP.php';
     
-        require 'C:/xa/htdocs/FitFusion/public/assets/mailconfig.php';
+        require 'C:/xampp/htdocs/FitFusion/public/assets/mailconfig.php';
         $email=$_POST['email'];
         $subject=$_POST['subject'];
         $message=$_POST['message'];
@@ -113,6 +214,7 @@
       
       
       ?>
+    </div>
     </div>
     </div>
   </body>
