@@ -19,6 +19,7 @@ class Registeredmembers
         'workoutid',
         'mealplanname',
         'generatedcode',
+        'packagegroup'
 
     ];
 
