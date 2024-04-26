@@ -1,113 +1,195 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManageResourcesStyle.css">
-    <style>
-        /* Add CSS styles for the buttons */
-        button.confirm {
-            background-color: green;
-            color: white;
-        }
-
-        button.cancel {
-            background-color: red;
-            color: white;
-        }
-
-        /* Style for the alert */
-        .custom-alert {
-            position: fixed;
-            top: 10%;
-            left: 80%;
-            height: 100px;
-            width: 300px;
-            transform: translate(-50%, -50%);
-            background-color: rgba(0, 128, 0, 0.8); /* Light green background */
-            color: white;
-            padding: 40px 50px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-            z-index: 1000;
-        }
-    </style>
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/HandleMemberComplaintStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
 </head>
 <body>
-<nav>
-    <div class="logo">
-        <p>FitFusion</p>
-    </div>
-    <ul>
-        <li><a href="#">Home</a></li>
-        <li><a href="#">AboutUs</a></li>
-        <li><a href="#">Services</a></li>
-        <li><a href="login">Logout</a></li>
-    </ul>
-</nav>
-<div class="maincontainer">
-    <div class="tbl">
-        <table>
-            <thead>
-            <tr>
-                <td scope="col"></td>
-                <td scope="col">id</td>
-                <td scope="col">Instructor email</td>
-                <td scope="col">Date</td>
-                <td scope="col">Timeslot</td>
-                <td scope="col">Memberemail</td>
-                <td scope="col">Membername</td>
-                <td scope="col">Memberage</td>
-                <td scope="col">Goal</td>
-                <td scope="col">Illness</td>
-                <td scope="col">Status</td>
-            </tr>
-            </thead>
-            <tbody>
-            <?php
-            for ($x = 0; $x < count($data); $x++) {
-                $row = $data[$x];
-                $id = $row->id;
-                $instructoremail = $row->instructoremail ;
-                $date = $row->date;
-                $timeslot = $row->timeslot;
-                $memberemail =  $row->memberemail;
-                $membername = $row->membername;
-                $memberage = $row->memberage;
-                $goal = $row->goal ;
-                $illness = $row->illness;
-                $status = $row->status;
-                // Use htmlspecialchars to escape special characters
-                echo '<tr>
-                            <th></th>
-                            <td>' . $id  . '</td>
-                            <td>' . $instructoremail  . '</td>
-                            <td>' . $date . '</td>
-                            <td>' . $timeslot . '</td>
-                            <td>' . $memberemail . '</td>
-                            <td>' . $membername . '</td>
-                            <td>' . $memberage . '</td>
-                            <td>' . $goal . '</td>
-                            <td>' . $illness . '</td>
-                            <td>' . $status . '</td>
-                            <td>
-                                <form method="post">
-                               <button type="submit" class="confirm" name="submit"><a href="sendmemberemail?email='.$memberemail.' & id='.$id.'">confirm</a></button>
-                                <button type="button" class="cancel" onclick="deactivateConfirmButton(this)">cancel</button>
-                             </form>
-                            </td>
-                        </tr>';
-            }
-            ?>
-            </tbody>
-        </table>
-    </div>
-</div>
+<div class="main-container">
+<div class="side-bar-container">
+            <div class="logo-tab">
+                FITFUSION
+            </div>
+            <ul class="side-bar-content">
+                
+                <!-- <li class="current-side-bar-tile">
+                    <div class="sb-tab-content">
+                        <span class="material-symbols-outlined">
+                            dashboard
+                        </span>
+                    </div>
+                    <div class="sb-tab-content">
+                        Dashboard
+                    </div>
+                </li> -->
 
-    
-<script>
+                <a class="side-bar-tile-link" href="managerdash">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Dashboard
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="createworkoutplan">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           Create Workout Plan
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="viewworkoutplans">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           View Workout Plan
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="machinefailure">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                fitness_center
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Machine Failure
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="instructormeetings">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                deployed_code
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                        Meetings
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="memberfeed">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                         Feedbacks
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="logout">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                logout
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">Logout</div>
+                    </li>
+                </a>
+
+            </ul>
+        </div>
+    <div class="container">
+    <div class="body-header">
+                <div class="pfp">
+                    <!-- LET THE INSTRUCTOR UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
+                    <img src="#" alt="">
+                </div>
+                <div class="welcome-user">
+                    <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
+                    Welcome, InstructorName
+                </div>
+            </div>
+    <main class="table" id="customers_table">
+        <section class="table__header">
+            <h1>Meeting Requests from Member</h1>
+            <div class="input-group">
+                <input type="search" placeholder="Search Data...">
+                <img src="<?=ROOT?>/assets/images/search-btn.png" alt="" alt="">
+            </div>
+ 
+        </section>
+        <section class="table__body">
+            <table>
+                <thead>
+                    <tr>
+                        <th> Id <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Instructor Email <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Date<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Timeslot<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Member Email <span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Member Name <span class="icon-arrow"></span></th>
+                        <th>Member Age<span class="icon-arrow"></span></th>
+                        <th>Goal <span class="icon-arrow"></span></th>
+                        <th>Illness <span class="icon-arrow"></span></th>
+                        <th>Status <span class="icon-arrow"></span></th>
+                        <th>Action <span class="icon-arrow"></span></th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                foreach($data as $x){
+                    
+                    echo '
+                    <tr>
+                        <td> '.$x->id.' </td>
+                    
+                        <td> '.$x->instructoremail.'  </td>
+                        <td>  '.$x->date.' </td>
+                        <td>'.$x->timeslot.'</td>
+                        <td>'.$x->memberemail.'</td>
+                        <td>'.$x->membername.'</td>
+                        <td>'.$x->memberage.'</td>
+                        <td>'.$x->goal.'</td>
+                        <td>'.$x->illness.'</td>
+                        <td>'.$x->status.'</td>
+                        <td>
+                        <form method="post">
+                            <button type="submit" class="confirm" name="submit"><a href="sendmemberemail?email='.$x->memberemail.' & id='.$x->id.'">confirm</a></button>
+                            <button type="button" class="cancel" onclick="deactivateConfirmButton(this)">cancel</button>
+                        </form>
+                        </td>
+                    </tr>
+                    ';
+                }
+                ?>
+                    
+                    
+                </tbody>
+            </table>
+        </section>
+    </main>
+    </div>
+    <script src="<?=ROOT?>/assets/js/replymembercomplaint.js"></script>
+    <script>
         function deactivateConfirmButton(button) {
 
             var form = button.parentNode; // Get the parent form element
@@ -121,7 +203,6 @@
 
         }
     </script>
-
-
+</div>
 </body>
 </html>
