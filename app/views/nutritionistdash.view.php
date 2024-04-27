@@ -152,7 +152,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="">
+                <a class="side-bar-tile-link" href="nutritionistmeetings">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -161,6 +161,18 @@
                         </div>
                         <div class="sb-tab-content">
                             Meetings
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="nutritionistunavailable">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           Unavailable Times
                         </div>
                     </li>
                 </a>
