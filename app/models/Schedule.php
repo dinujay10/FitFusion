@@ -12,7 +12,8 @@ class Schedule {
         'startingtime',
         'machine',
         'gymemail',
-        'memberemail'
+        'memberemail',
+        'status'
         
     ];
 
