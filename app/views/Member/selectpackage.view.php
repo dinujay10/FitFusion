@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="common-template" style="gap: 1rem;">
-        <div class="common-header" style="z-index: 10;">
+        <div class="common-header">
             <div class="common-logo-tab">
                 FITFUSION
             </div>
@@ -76,7 +76,7 @@
                                     Saturdays
                                 </div>
                                 <div class="openhour-part">
-                                    <?=$data['openhourssaf']?> - <?=$data['openhourssat']?>                                </div>
+                                    <?=$data['openhourssaf']?> - <?=$data['openhourssat']?>                                
                                 </div>
                             </div>
                             <div class="openhour-bar">

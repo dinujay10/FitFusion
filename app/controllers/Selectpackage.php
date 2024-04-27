@@ -79,6 +79,17 @@ class Selectpackage {
                     $data['image'][$y]=$img->image_url;
                     $y=$y+1;
                 }
+
+                $facilitiesdeets = $facilities->where($arr2);
+                // print_r($facilitiesdeets);
+
+                $allfacilities = [];
+                for ($i=0; $i < count($facilitiesdeets); $i++) { 
+                    array_push($allfacilities, $facilitiesdeets[$i]->facility);
+                }
+                // print_r($allfacilities);
+
+
             // $gym = new Gym;
             // // $address=new Address;
             // $gymimages=new Gymimages;

@@ -5,7 +5,7 @@
     align-items: flex-start;
     flex-wrap: wrap;
     height: fit-content;
-    /* background-color: #F5F5F5; */
+    /* background-color: #b94343; */
     height: 90%;
     min-height: 90%;
     width: 90%;
@@ -58,7 +58,7 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    /* background-color: red; */
+    background-color: red;
     /* changed height from fit-content to auto */
     height: auto;
     /* height: fit-content; */
@@ -82,7 +82,7 @@
     /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center;
-    /* background-color: aqua; */
+    background-color: aqua;
     width: 95%;
     height: max-content;
     gap: 1rem;
@@ -94,7 +94,7 @@
     /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center;
-    /* background-color: rgb(174, 255, 0); */
+    background-color: rgb(174, 255, 0);
     width: 50%;
     height: 90%;
 }
@@ -133,9 +133,11 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    /* background-color: rgb(255, 255, 255); */
+    background-color: rgb(255, 255, 255);
     width: 50%;
-    height: 100%;
+    height: 90%;
+    border: 1px solid #27374D;
+    border-radius: 20px;
 }
 
 .gym-details {
