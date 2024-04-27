@@ -5,7 +5,7 @@
     align-items: flex-start;
     flex-wrap: wrap;
     height: fit-content;
-    /* background-color: #F5F5F5; */
+    /* background-color: #b94343; */
     height: 90%;
     min-height: 90%;
     width: 90%;
@@ -58,15 +58,15 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    /* background-color: red; */
+    /* background-color: #27374D; */
     /* changed height from fit-content to auto */
-    height: auto;
+    /* height: auto; */
     /* height: fit-content; */
     /* height: 90%; */
     min-height: 50%;
     /* max-height: 90%; */
-    width: 90%;
-    border-radius: 20px;
+    width: 95%;
+    /* border-radius: 20px; */
     /* padding: 20px; */
     gap: 1rem;
     /* added this */
@@ -88,13 +88,37 @@
     gap: 1rem;
 }
 
+.gym-bar-2 {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    /* background-color: rgb(255, 0, 212); */
+    width: 95%;
+    height: max-content;
+    gap: 1rem;
+}
+
+.gym-bar-3 {
+    display: flex;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    align-items: center;
+    background-color: #27374D;
+    width: 95%;
+    height: max-content;
+    gap: 1rem;
+}
+
 .gym-imgs-main-tile {
     display: flex;
     flex-direction: column;
     /* flex-wrap: wrap; */
     justify-content: center;
     align-items: center;
-    /* background-color: rgb(174, 255, 0); */
+    /* background-color: #F5F5F5; */
     width: 50%;
     height: 90%;
 }
@@ -133,9 +157,12 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    /* background-color: rgb(255, 255, 255); */
+    /* background-color: #F5F5F5; */
     width: 50%;
-    height: 100%;
+    height: 90%;
+    /* border: 1px solid #27374D; */
+    /* border-radius: 20px; */
+    /* color: white; */
 }
 
 .gym-details {
@@ -143,9 +170,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: #8a2020; */
+    /* background-color: #27374D; */
     width: 50%;
     height: 100%;
+    gap: 0.5rem;
+    border: 1px solid #27374D;
+    border-radius: 20px;
+    /* color: white; */
 }
 
 .gym-location-tile {
@@ -165,9 +196,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: #7a5d5d; */
+    /* background-color: #30a338; */
     width: 100%;
-    height: 50%;
+    height: 80%;
+    gap: 0.3rem;
 }
 
 .openhour-bar {
@@ -195,9 +227,130 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #bd5d5d;
+    /* background-color: #bd5d5d; */
     width: 100%;
-    height: 50%;
+    height: 100%;
+    gap: 0.5rem;
+    padding: 10px 0 10px 0;
+}
+
+.facilities-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #20c539; */
+    width: 100%;
+    height: 20%;   
+    /* padding: 10px 0 0 0; */
+    font-weight: 600;
+}
+
+.facilities-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* background-color: #205ac5; */
+    width: 100%;
+    height: 70%;  
+}
+
+.facility-part {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    width: 20%;
+}
+
+.gym-machines-tile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #bdb35d; */
+    width: 100%;
+    height: 90%;
+    gap: 0.5rem;
+    padding: 10px 5px 10px 5px;
+}
+
+.machines-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #20c539; */
+    width: 100%;
+    height: 20%;   
+    /* padding: 10px 0 0 0; */
+    font-weight: 600;
+}
+
+.machine-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    /* background-color: #205ac5; */
+    width: 100%;
+    height: 70%;   
+}
+
+.machines-content-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #91c520; */
+    width: 20%;
+    height: 50%;   
+}
+
+.machine-part {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    width: 90%;
+}
+
+.gym-links-tile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #bdb35d; */
+    width: 100%;
+    height: 90%;
+    gap: 0.5rem;
+    /* padding: 4% 5px 4% 5px; */
+}
+
+.gym-link-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #20c539; */
+    width: 20%;
+    height: 10%;   
+    padding: 20px;
+    /* font-weight: 600; */
+    text-decoration: none;
+    color: black;
+    border-radius: 20px;
+}
+
+.gym-link-button:hover {
+    background-color: #27374D;
+    color: white;
+    cursor: pointer;
 }
 
 

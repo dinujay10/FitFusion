@@ -29,8 +29,7 @@ class Selectpackage {
                 $data['description']=$gymdata->description;
                 
     
-                //get location details
-                
+                // GET LOCATION OF THE GYM
                 $arr2['gymName'] = $data['gymName'];
                 $locationdata=$address->first($arr2);
         
@@ -38,20 +37,37 @@ class Selectpackage {
                 $data['location2']=$locationdata->location2;
                 $data['location3']=$locationdata->location3;
     
-                //get open hours
                 
                 
+                // GET OPEN HOURS OF THE GYM
                 $openhoursdata=$openhours->first($arr2);
         
-                $data['openhourswf']=$openhoursdata->openhourswf;
-                $data['openhourswt']=$openhoursdata->openhourswt;
-                $data['openhourssaf']=$openhoursdata->openhourssaf;
-                $data['openhourssat']=$openhoursdata->openhourssat;
-                $data['openhourssuf']=$openhoursdata->openhourssuf;
-                $data['openhourssut']=$openhoursdata->openhourssut;
+                $time24data1 = $openhoursdata->openhourswf;
+                $dateTime1 = DateTime::createFromFormat('H:i:s', $time24data1);
+                $data['openhourswf'] = $dateTime1->format('h:i A');
+
+                $time24data2 = $openhoursdata->openhourswt;
+                $dateTime2 = DateTime::createFromFormat('H:i:s', $time24data2);
+                $data['openhourswt'] = $dateTime2->format('h:i A');
+
+                $time24data3 = $openhoursdata->openhourssaf;
+                $dateTime3 = DateTime::createFromFormat('H:i:s', $time24data3);
+                $data['openhourssaf'] = $dateTime3->format('h:i A');
+
+                $time24data4 = $openhoursdata->openhourssat;
+                $dateTime4 = DateTime::createFromFormat('H:i:s', $time24data4);
+                $data['openhourssat'] = $dateTime4->format('h:i A');
+
+                $time24data5 = $openhoursdata->openhourssuf;
+                $dateTime5 = DateTime::createFromFormat('H:i:s', $time24data5);
+                $data['openhourssuf'] = $dateTime5->format('h:i A');
+
+                $time24data6 = $openhoursdata->openhourssut;
+                $dateTime6 = DateTime::createFromFormat('H:i:s', $time24data6);
+                $data['openhourssut'] = $dateTime6->format('h:i A');
                 
     
-                //get package details
+                // GET PACKAGE DETAILS OF THE GYM
                 $arr3['manageremail'] = $data['manageremail'];
                 $packagesdata=$packages->where($arr3);
                 //print_r($packagesdata);
@@ -79,6 +95,42 @@ class Selectpackage {
                     $data['image'][$y]=$img->image_url;
                     $y=$y+1;
                 }
+
+
+                // GET ALL FACILITIES OF THE GYM
+                $facilitiesdeets = $facilities->where($arr2);
+                // print_r($facilitiesdeets);
+
+                $allfacilities = [];
+                for ($i=0; $i < count($facilitiesdeets); $i++) { 
+                    array_push($allfacilities, $facilitiesdeets[$i]->facility);
+                }
+                // print_r($allfacilities);
+                $data['allfacilities'] = $allfacilities;
+
+
+                // GET ALL MACHINES OF THE GYM
+                $machines = new Machine;
+                $machinedeets = $machines->where($arr4);
+
+                $allmachines = [];
+                for ($i=0; $i < count($machinedeets); $i++) { 
+                    array_push($allmachines, $machinedeets[$i]->machineType);
+                }
+                // print_r($allmachines);
+                $data['allmachines'] = $allmachines;
+
+
+                // GET ALL INSTRUCTORS OF THE GYM
+                $instructordetails = new Instructordetails;
+                $instructordeets = $instructordetails->where($arr4);
+
+
+
+
+            }
+
+
             // $gym = new Gym;
             // // $address=new Address;
             // $gymimages=new Gymimages;
@@ -106,5 +158,5 @@ class Selectpackage {
             
                 $this->view('Member/selectpackage', $data);
             }
-        }
+        
 }
