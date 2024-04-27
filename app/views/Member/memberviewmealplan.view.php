@@ -11,7 +11,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <style>
-       
+
+        .meal-plan-tile-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+            width: 100%;
+            height: 15%;
+        }
 
         
 
@@ -134,15 +143,25 @@
             </div>
             <div class="body-content">                    
                 <div class="content-tile-column" style="height: 95%;">
-                    <div class="content-tile" style="height: 60%;"></div>
-                    <div class="content-tile" style="height: 60%;"></div>
+                    <div class="content-tile" style="height: 60%;">
+                        <div class="meal-plan-tile-bar"></div>
+                    </div>
+                    <div class="content-tile" style="height: 60%;">
+                        <div class="meal-plan-tile-bar"></div>
+                    </div>
                 </div>
                 <div class="content-tile-column" style="height: 95%;">
-                    <div class="content-tile" style="height: 60%;"></div>
-                    <div class="content-tile" style="height: 60%;"></div>
+                    <div class="content-tile" style="height: 60%;">
+                        <div class="meal-plan-tile-bar"></div>
+                    </div>
+                    <div class="content-tile" style="height: 60%;">
+                        <div class="meal-plan-tile-bar"></div>
+                    </div>
                 </div>
                 <div class="content-tile-column" style="height: 95%;">
-                    <div class="content-tile" style="height: 60%;"></div>
+                    <div class="content-tile" style="height: 60%;">
+                        <div class="meal-plan-tile-bar"></div>
+                    </div>
                 </div>
             </div>
         </div>
