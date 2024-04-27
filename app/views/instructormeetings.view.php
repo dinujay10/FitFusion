@@ -171,11 +171,17 @@
                         <td>'.$x->goal.'</td>
                         <td>'.$x->illness.'</td>
                         <td>'.$x->status.'</td>
-                        <td>
-                        <form method="post">
-                            <button type="submit" class="confirm" name="submit"><a href="sendmemberemail?email='.$x->memberemail.' & id='.$x->id.'">confirm</a></button>
-                            <button type="button" class="cancel" onclick="deactivateConfirmButton(this)">cancel</button>
+                        <td>';
+                        if($x->status=="Pending"){
+                            echo '
+                            <form method="post">
+                            <button type="submit" class="confirm" name="submit"><a href="sendmemberemail?email='.$x->memberemail.' & id='.$x->id.' & status=confirm">confirm</a></button>
+                            <button type="button" class="cancel" onclick="deactivateConfirmButton(this)"><a href="sendmemberemail?email='.$x->memberemail.' & id='.$x->id.' & status=cancel">cancel</a></button>
                         </form>
+                            ';
+                        }
+                        echo'
+
                         </td>
                     </tr>
                     ';
