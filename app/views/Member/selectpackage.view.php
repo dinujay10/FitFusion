@@ -12,10 +12,19 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     
 
+    
+
+
+
 </head>
 <body>
+    <?php 
+    echo '<pre>';
+    var_dump($data);
+    echo '</pre>';
+    ?>
     <div class="common-template" style="gap: 1rem;">
-        <div class="common-header">
+        <div class="common-header-gym">
             <div class="common-logo-tab">
                 FITFUSION
             </div>
@@ -24,7 +33,7 @@
                 <div class="next-tab">Next Up : Instructor Meeting</div>
             </div>
         </div>
-        <div class="common-body">
+        <div class="common-body-gym">
             <div class="detailed-gym-tile">
                 <div class="gym-bar-1">
                     <div class="gym-imgs-main-tile">
@@ -94,12 +103,54 @@
                     </div>
                     <div class="gym-details">
                         <div class="gym-facilities-tile">
-                            
+                            <div class="facilities-bar">Facilities</div>
+                            <div class="facilities-content">
+                            <?php
+                                for($x=count($data['allfacilities'])-1;$x>=0;$x--)
+                                    echo '<div class="facility-part">
+                                        <span class="material-symbols-outlined">
+                                            check_circle
+                                        </span>
+                                        '. $data['allfacilities'][$x] .'
+                                    
+                                    </div>';
+                            ?>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class="gym-bar"></div>
-                <div class="gym-bar"></div>
+                <div class="gym-bar-2">
+                    <div class="gym-details">
+                        <div class="gym-machines-tile">
+                            <div class="machines-bar">Equipment</div>
+                            <div class="machine-content">
+                                <?php
+                                    for($x=count($data['allmachines'])-1;$x>=0;$x--)
+                                        echo '<div class="machines-content-box">
+                                            <div class="machine-part">
+                                                <span class="material-symbols-outlined">
+                                                    fitness_center
+                                                </span>
+                                                '. $data['allmachines'][$x] .'
+                                            
+                                            </div>
+                                            </div>';
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="gym-details" style="border: none;">
+                        <div class="gym-links-tile">
+                            <a class="gym-link-button" href="#">Apply as an Instructor</a>
+                            <a class="gym-link-button" href="#">Apply as a Nutritionist</a>
+                            <a class="gym-link-button" href="#">View Gym Packages</a>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="gym-bar-3">
+                    
+                </div>
             </div>
         </div>
     </div>
