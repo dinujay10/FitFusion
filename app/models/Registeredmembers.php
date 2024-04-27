@@ -11,7 +11,7 @@ class Registeredmembers
         'id',
         'memberemail',
         'gymname',
-        'workoutid',,
+        'workoutid',
         'gymemail',
         'packageid',
         'workoutid',
