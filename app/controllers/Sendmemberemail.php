@@ -27,10 +27,16 @@ class Sendmemberemail{
             
     
             if ($_SERVER['REQUEST_METHOD']=='GET') {
+                if($_GET['status']=="cancel"){
+                    $id = $_GET['id'];
+                    $arr['status'] = 'Cancelled';
+                }
+                if($_GET['status']=="confirm"){
+                    $id = $_GET['id'];
+                    $arr['status'] = 'Done';
+                }
                 // Get the ID of the row to update
-            $id = $_GET['id'];
-            
-            $arr['status'] = 'confirmed';
+
             // Update the status of the row in the database
             $meetingtable->update($id, $arr);
             
