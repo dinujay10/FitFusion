@@ -1,11 +1,15 @@
-
 <?php
+
+use PHPMailer\PHPMailer\Exception;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 
 class Signup {
     use Controller;
 
     public function index() {
         if(isset($_SESSION['email'])){
+            // Redirect based on usertype
             if($_SESSION['usertype']=="member") {
                 redirect('memberdash');
                 die();
@@ -30,41 +34,86 @@ class Signup {
         $data = [];
 
         if ($_SERVER['REQUEST_METHOD']=='POST') {
-            // if($_POST['usertype']=='member') {
-            //     $user = new Member;
-            // } else if($_POST['usertype']=='gyminstructor') {
-            //     $user = new Gyminstructor; 
-            // } else if($_POST['usertype']=='nutritionist') {
-            //     $user = new Nutritionist;
-            // }
-            // } else if($_POST['usertype']=='gymmanager') {
-            //     $user = new Gymmanager;
-            // } else if($_POST['usertype']=='gymowner') {
-            //     $user = new Gymowner;
-            // }
-            
-            $user = new User;
+            // If OTP is not set, handle signup process
+            if(!isset($_POST['otp'])) {
+                print_r("hello");
+                print_r($_POST);
+                
+                $user = new User;
+                // Validate user input (currently set to always true)
+                if(true) {
+                    if($_POST['password']==$_POST['passwordConfirm']) {
+                        $enc_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+                        $_POST['usertype'] = "member";
+                        $_POST['password'] = $enc_password;
+                        $_POST['passwordConfirm'] = $enc_password;
+                        $randomCode = rand(10000, 99999);
+                        $_POST['otpcode'] = $randomCode;
+                        $otptbl = new Otp;
+                        $data['email'] = $_POST['email'];
+                        $otptbl->insert($_POST);
 
-            if($user->validate($_POST) && $user->unique($_POST)){
-                if($_POST['password']==$_POST['passwordConfirm']) {
-                    $enc_password=password_hash($_POST['password'],PASSWORD_DEFAULT);
-                    $_POST['usertype']="member";
-                    $_POST['password']=$enc_password;
-                    $_POST['passwordConfirm']=$enc_password;
-                    $user->insert($_POST);
-                   // $usertable->insert($_POST);
-                    redirect('login');
+                        // Send OTP email
+                        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/Exception.php';
+                        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/PHPMailer.php';
+                        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/SMTP.php';
+                        require 'C:/xa/htdocs/FitFusion/public/assets/mailconfig.php';
+                        
+                        $email = $_POST['email'];
+                        $subject = "OTP Verification Email";
+                        $message = $randomCode;
+            
+                        $mail = new PHPMailer(true);
+                        $mail->isSMTP();
+                        $mail->SMTPAuth = true;
+                        $mail->Host = MAILHOST;
+                        $mail->Username = USERNAME;
+                        $mail->Password = PASSWORD;
+                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+                        $mail->Port = 587;
+                        $mail->setFrom(SEND_FROM, SEND_FROM_NAME);
+                        $mail->addAddress($email);
+                        $mail->addReplyTo(REPLY_TO, REPLY_TO_NAME);
+                        $mail->IsHTML(true);
+                        $mail->Subject = $subject;
+                        $mail->Body = $message;
+                        $mail->AltBody = $message;
+            
+                        if(!$mail->send()) {
+                            print_r("email not sent");
+                        } else {
+                            print_r("email sent");
+                        }
+                    }
+                }
+                $data['errors'] = $user->errors;
+            }
+        }
+        
+        // Handle OTP verification and user insertion
+        if ($_SERVER['REQUEST_METHOD']=='POST') {
+            if(isset($_POST['otp'])) {
+                $otptbl = new Otp;
+                $arr['email'] = $_POST['email'];
+                $otpdata = $otptbl->first($arr);
+                
+                if(property_exists($otpdata, 'email')) {
+                    if($otpdata->otpcode == $_POST['otp']) {
+                        $arr2['name'] = $otpdata->name;
+                        $arr2['lastname'] = $otpdata->lastname;
+                        $arr2['email'] = $otpdata->email;
+                        $arr2['password'] = $otpdata->password;
+                        $arr2['usertype'] = $otpdata->usertype;
+                        $user->insert($arr2);
+                        redirect('login');
+                    } else {
+                        $data['errors'] = "Incorrect OTP Code";
+                    }
                 }
             }
-
-            $data['errors'] = $user->errors;
         }
 
         $this->view('Main/signup', $data);
     }
-
-    // public function edit($a = '', $b = '', $c = '') {
-    //     show("from the edit function");
-    //     $this->view('home');
-    // }
 }
+?>
