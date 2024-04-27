@@ -5,14 +5,19 @@ class MakeComplaint{
         public function index() {
             $data = [];
 
+            $user = new User;
+            $arr1['email'] = $_SESSION['email'];
+            $memberdeets = $user->first($arr1);
+            $data['firstname'] = $memberdeets->name;
+            $data['lastname'] = $memberdeets->lastname;
             
 
             $newcomplaint = new Membercomplaints;
 
             $arr['memberEmail'] = $_SESSION['email'];
             // print_r($_SESSION);
-            $arr1['reply'] = "not replied";
-            $allcomplaintdeets = $newcomplaint->where($arr,$arr1);
+            $arr2['reply'] = "not replied";
+            $allcomplaintdeets = $newcomplaint->where($arr,$arr2);
 
             // print_r($allcomplaintdeets);
 
@@ -21,7 +26,7 @@ class MakeComplaint{
             
             if($allcomplaintdeets) {
                 for ($i=0; $i < count($allcomplaintdeets); $i++) {
-                    $complaintcontent = $allcomplaintdeets[$i]->complaint;
+                    $complaintcontent = $allcomplaintdeets[$i]->description;
                     // print_r($complaintcontent);
                     array_push($complaintarr,$complaintcontent);
                     // print_r($complaintarr['complaintsSent']);

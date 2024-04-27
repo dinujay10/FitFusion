@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/main-template.css">
     <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/body-template.css">
+    <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/modal-styles.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
@@ -190,6 +191,9 @@
         </div>
     </div>
 
+
+    
+
     <div class="upload-container" id="upload-container">
         <h2>Upload New Profile Picture:</h2>
         <hr>
@@ -203,7 +207,46 @@
     </div>
 
 
+    <!-- CHANGE PASSWORD MODAL -->
+    <div class="modal-form" id="activate-modal">
+        <form class="pwd-modal-content">
+            <h2 class="modal-heading">Change Password</h1>
+            <div class="pwd-modal-content-bar">
+                <div class="pwd-modal-key">Old Password</div>
+                <input type="password" class="pwd-modal-value">
+            </div>
+            <div class="pwd-modal-content-bar">
+                <div class="pwd-modal-key">New Password</div>
+                <input type="password" class="pwd-modal-value">
+            </div>
+            <div class="pwd-modal-content-bar">
+                <div class="pwd-modal-key">Confirm New Password</div>
+                <input type="password" class="pwd-modal-value">
+            </div>
+            <input type="submit" value="Change Password" id="activate-pwd" class="modal-pwd-button">
+        </form>
+    </div>
+
+
     <script>
+        function openActivateModal() {
+            // console.log();
+            activateModal.style.display = "block";
+            document.getElementById("activate-staff").href = <?=ROOT?>/Editmemberprofile/changePwd;
+            span.onclick = function() {
+            modal.style.display = "none";
+            }
+            
+        }
+
+        document.querySelectorAll('.activate-button').forEach(function (button) {
+            button.addEventListener('click', function () {
+                // var id = this.parentElement.parentElement.getAttribute('key');
+                // console.log(id)
+                openActivateModal();
+            });
+        });
+
         document.addEventListener("DOMContentLoaded", function () {
             var updateButton = document.getElementById("update-dp");
             if (updateButton) {

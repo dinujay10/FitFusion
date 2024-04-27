@@ -154,4 +154,11 @@ class Editmemberprofile{
 
             return $errors[$error_code] ?? 'Unknown upload error.';
         }
+
+        public function changePwd() {
+            $userModel = new User;
+
+            $success = $userModel->changePassword();
+
+        }
 }
