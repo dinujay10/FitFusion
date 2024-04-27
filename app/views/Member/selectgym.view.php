@@ -18,7 +18,7 @@
             </div>
             <div class="common-heading-bar">
                 <div class="current-tab">Select Your Gym</div>
-                <div class="next-tab">Next Up : Instructor Meeting</div>
+                <div class="next-tab">Next Up : Select Package</div>
             </div>
         </div>
         <div class="common-body">
@@ -26,7 +26,7 @@
                 <?php
                     
                     for($x=0;$x<count($data);$x++){
-                        echo '<a class="gym-tile" href="selectpackage?id='.$data[$x]['id'].'">
+                        echo '<a class="gym-tile" href="viewgym?id='.$data[$x]['id'].'">
                             <img class="gym-img" src="'.ROOT.'/assets/uploadgymimages/'.$data[$x]['gymimages'].'" alt="">
                         
                             <div class="gym-text">
