@@ -9,7 +9,8 @@ class Payment
 
     protected $allowedColumns = [
         'email',
-        'amount'
+        'amount',
+        'paymentdate'
     ];
 
     public function validate($data)

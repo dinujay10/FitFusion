@@ -110,7 +110,7 @@ class Selectpackage
         $array['address'] = 'No.1, Galle Road';
         $array['city'] = 'Colombo';
         $array['country'] = 'Sri Lanka';
-        $array['items'] = 'Dinner';
+        $array['items'] = 'package';
 
         $jsonObj = json_encode($array);
         echo $jsonObj;
@@ -120,17 +120,56 @@ class Selectpackage
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $email = trim($_POST['selectedUserEmail']);
             $amount = trim($_POST['selectedPackage']);
+            $packagetype = trim($_POST['selectedPackageType']);
+            $manageremail = trim($_POST['gymmanageremail']);
         }
         $data = [
             'email'=>$email,
             'amount'=>$amount,
+            'packagetype'=>$packagetype,
+            'manageremail'=>$manageremail
         ];
 
         $arr4['email'] = $data['email'];
         $arr4['amount'] = $data['amount'];
+        $arr4['paymentdate'] = date('Y-m-d');
+
 
         $payment = new Payment;
         $payment->insert($arr4);
+
+        $arr5['manageremail'] = $data['manageremail'];
+        $arr5['packagetype'] = $data['packagetype'];
+
+        $package = new Package;
+        $packagedeets = $package->where($arr5);
+
+        $packageid = $packagedeets[0]->id;
+        $packagegroup = $packagedeets[0]->packagegroup;
+
+        $arr6['manageremail'] = $data['manageremail'];
+        $gym = new Gym;
+        $gymdeets = $gym->where($arr6);
+
+        $gymname = $gymdeets[0]->gymName;
+        $gymemail = $gymdeets[0]->email;
+
+        $arr7 = [
+            'memberemail' => $data['email'],
+            'gymname' => $gymname,
+            'packageid' => $packageid,
+            'packagegroup' => $packagegroup,
+            'gymemail' => $gymemail,
+            'workoutid' => 0,
+            'mealplanname' => 0,
+            'generatedcode' => 0,
+            'height' => 0,
+            'weight' => 0,
+            'age' => 0
+        ];
+        print_r($arr7);
+        $regmember = new Registeredmembers;
+        $regmember->insert($arr7);
 
     }
 }

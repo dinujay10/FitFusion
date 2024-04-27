@@ -10,6 +10,16 @@
     <link rel="stylesheet" type="text/css" href="<?= ROOT ?>/assets/css/Member/before-db-styles.css">
 
     <style>
+        .gym-tile {
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .gym-tile.selected {
+            background-color: #27374D;
+            color: white;
+        }
+
         .payment-button-bar {
             display: flex;
             flex-direction: row;
@@ -46,9 +56,9 @@
 
 <body>
     <?php
-    echo '<pre>';
-    var_dump($_SESSION);
-    echo '</pre>';
+    // echo '<pre>';
+    // var_dump($_SESSION);
+    // echo '</pre>';
     ?>
     <div class="common-template">
         <div class="common-header-gym">
@@ -61,11 +71,13 @@
             </div>
         </div>
         <div class="common-body-gym" style="flex-direction: column;">
-            <div class="body-tile">
-                <?php
 
-                for ($x = 0; $x < count($data['allpackagetypes']); $x++) {
-                    echo '<div class="gym-tile">
+                <div class="body-tile">
+
+                    <?php
+
+                    for ($x = 0; $x < count($data['allpackagetypes']); $x++) {
+                        echo '<div class="gym-tile" id="packagetype" onclick="selectPackage(this)" data-price="' . htmlspecialchars($data['allamounts'][$x]) . '" data-packagetype="'.htmlspecialchars($data['allpackagetypes'][$x]).'" data-manageremail="'.htmlspecialchars($data['manageremail']).'">
                         
                             <div class="gym-text">
                                 ' . $data['allpackagetypes'][$x] . '
@@ -76,48 +88,87 @@
                             <div class="gym-text">
                                 ' . $data['allpaymentperiods'][$x] . '
                             </div>
-                            <div class="gym-text">
+                            <div class="gym-text" id="selectedPackage">
                                 ' . $data['allamounts'][$x] . '
                             </div>
                         
                         </div> ';
-                }
+                        
+                    }
 
-                ?>
+                    ?>
 
-                <input type="text" id="selectedPackage" value="1000" hidden>
+                    <?php
+                    echo '<input type="text" id="manageremail" value="'.$data['manageremail'].'" hidden>';
+                    ?>
 
-                <?php
-                echo '<input type="text" id="selectedUserEmail" value="' . $_SESSION['email'] . '" hidden>';
-                ?>
+                    <?php
+                    echo '<input type="text" id="selectedUserEmail" value="' . $_SESSION['email'] . '" hidden>';
+                    ?>
 
-            </div>
+                </div>
 
-            <div class="payment-button-bar">
-                <button class="payment-button">Make Payment</button>
-            </div>
+                <div class="payment-button-bar">
+                    <button class="payment-button">Make Payment</button>
+                </div>
+
+
 
         </div>
     </div>
+    
     <script>
+        
+    
+        var price;
+        var packagetype;
+        var manageremail;
+        function selectPackage(element) {
+             price = element.getAttribute('data-price');
+             packagetype = element.getAttribute('data-packagetype');
+             manageremail = element.getAttribute('data-manageremail');
+            console.log(price);
+            // Remove 'selected' class from all package elements
+            document.querySelectorAll('.gym-tile').forEach(function(pkg) {
+                pkg.classList.remove('selected');
+            });
+
+            // Add 'selected' class to the clicked element
+            element.classList.add('selected');
+
+            // Optionally set the selected package id to a hidden input if form submission is needed
+            document.getElementById('selectedPackageId').value = element.getAttribute('data-package-id');
+            price = element.getAttribute('data-price');
+            console.log(price);
+        }
+        console.log(price);
+    
         document.querySelector('.payment-button').onclick = function() {
             var selectedPackage = document.querySelector('#selectedPackage').value;
             alert(selectedPackage);
-            paymentGateway();
+            paymentGateway(price, packagetype, manageremail);
         }
-    </script>
 
-    <script>
-        function paymentGateway() {
+        function paymentGateway(price, packagetype, manageremail) {
 
-            var selectedPackage = document.querySelector('#selectedPackage').value;
+            var selectedPackage = price
             var formData = new FormData();
             formData.append("selectedPackage", selectedPackage);
+
+            var selectedPackageType = packagetype;
+            var formData3 = new FormData();
+            formData3.append("selectedPackageType", selectedPackageType);
+
+            var gymmanageremail = manageremail;
+            var formData4 = new FormData();
+            formData4.append("gymmanageremail", gymmanageremail);
 
             var selectedUserEmail = document.querySelector('#selectedUserEmail').value;
             var formData2 = new FormData();
             formData2.append("selectedUserEmail", selectedUserEmail);
             formData2.append("selectedPackage", selectedPackage);
+            formData2.append("selectedPackageType", selectedPackageType);
+            formData2.append("gymmanageremail", gymmanageremail);
 
 
             var xhttp = new XMLHttpRequest();
@@ -138,7 +189,7 @@
                         }
                         xhttp.send(formData2);
                         // direct to home
-                        window.location.href = "http://localhost/FitFusion/scheduleintrmeeting";
+                        window.location.href = "http://localhost/FitFusion/public/scheduleinstrmeeting";
                     };
 
                     // Payment window closed
