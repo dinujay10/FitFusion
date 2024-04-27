@@ -36,8 +36,15 @@ class Memberdash{
             // print_r($arr1['email']);
 
             $nutrideets = $nutrischedule->first($arr1);
-            $data['height'] = $nutrideets->height;
-            $data['weight'] = $nutrideets->weight;
+            if ($nutrideets) {
+                $data['height'] = $nutrideets->height;
+                $data['weight'] = $nutrideets->weight;
+            }
+            else {
+                $data['height'] = "";
+                $data['weight'] = "";
+            }
+          
 
             // print_r($arr1['email']);
 

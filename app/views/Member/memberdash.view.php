@@ -167,7 +167,12 @@
                             <div class="profile-info-key">Height:</div>
                             <div class="profile-info-value">
                                 <?php
-                                echo $data['height'] . 'cm';
+                                if ($data['height']) {
+                                    echo $data['height'] . 'cm';
+                                }
+                                else {
+                                    echo 'Add Height';
+                                }
                                 ?>
                             </div>
                         </div>
@@ -175,7 +180,12 @@
                             <div class="profile-info-key">Weight:</div>
                             <div class="profile-info-value">
                                 <?php
-                                echo $data['weight'] . 'kg';
+                                if ($data['weight']) {
+                                    echo $data['weight'] . 'kg';
+                                }
+                                else {
+                                     echo 'Add Weight';
+                                }
                                 ?>
                             </div>
                         </div>
@@ -201,12 +211,7 @@
                         </div>
                         <button class="db-link-button">Change Gym</button>
                     </div>
-                    <div class="content-tile">
-                        <div class="content-info">
-                            <div class="content-info-key-v2">Next Task List</div>
-                        </div>
-                        <div class="content-info-details"></div>
-                    </div>
+                    
                 </div>
                 <div class="content-tile-column">
                     <div class="content-tile">
@@ -227,12 +232,7 @@
                         </div>
                         <button class="db-link-button">Change Package</button>
                     </div>
-                    <div class="content-tile">
-                        <div class="content-info-details"></div>
-                        <div class="content-info">
-                            <div class="content-info-key-v2">Progress in the Current Task List</div>
-                        </div>
-                    </div>
+                    
                 </div>
             </div>
         </div>

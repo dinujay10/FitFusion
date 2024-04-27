@@ -25,6 +25,7 @@ class MakeComplaint{
             $replyarr = [];
             
             if($allcomplaintdeets) {
+                $data['flag'] = 1;
                 for ($i=0; $i < count($allcomplaintdeets); $i++) {
                     $complaintcontent = $allcomplaintdeets[$i]->description;
                     // print_r($complaintcontent);
@@ -39,6 +40,9 @@ class MakeComplaint{
 
                 $data['allcomplaints'] = $complaintarr;
                 $data['allreplies'] = $replyarr;
+            }
+            else {
+                $data['flag'] = 0;
             }
 
             // print_r($data);

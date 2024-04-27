@@ -168,7 +168,7 @@
                                 <div class="reply-tile" style="display:flex; flex-direction:column; overflow:hidden; height:99%; overflow-y:scroll; width:100%; gap: 1rem">
 
                                                 <?php 
-                                                if ($data) {
+                                                if ($data['flag']==1) {
                                                     for ($x=count($data['allcomplaints'])-1;$x>=0;$x--){ 
                                                         echo '<div class="notification" style="display:flex; flex-direction:column; border: 1px solid #27374D; border-radius: 20px; padding: 10px;">
             
