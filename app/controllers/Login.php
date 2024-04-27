@@ -11,7 +11,7 @@ class Login {
                         redirect('memberdash');
                         die();
                     } else if($_SESSION['usertype']=="gyminstructor") {
-                        redirect('gyminstructordash');
+                        redirect('instructordash');
                         die();
                     } else if($_SESSION['usertype']=="nutritionist") {
                         redirect('nutritionistdash');
@@ -138,7 +138,7 @@ class Login {
                         }
 
                     } else if($row->usertype=="gyminstructor") {
-                        redirect('gyminstructordash');
+                        redirect('instructordash');
                     } else if($row->usertype=="nutritionist") {
                         redirect('nutritionistdash');
                     } else if($row->usertype=="gymmanager") {
