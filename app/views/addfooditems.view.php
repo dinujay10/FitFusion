@@ -7,12 +7,18 @@
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
             margin: 0;
-            padding: 20px;
+            /* padding: 20px; */
+        }
+        .food{
+            background-color:#27496A;
+            height:100vh;
+            width:80vw;
         }
 
-        h2 {
+        .food h2 {
             text-align: center;
-            color: #333;
+            color: white;
+            margin-bottom:20px;
         }
 
         form {
@@ -48,7 +54,7 @@
         }
 
         button[type="button"], input[type="submit"] {
-            background-color: #4CAF50;
+            background-color: #0C243D;
             color: white;
             padding: 10px 20px;
             border: none;
@@ -58,7 +64,11 @@
         }
 
         button[type="button"]:hover, input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #5C8EB4
+        }
+        .food{
+            /* padding-left:300px; */
+            /* padding-top:50px; */
         }
     </style>
     <script>
@@ -84,24 +94,144 @@
             container.appendChild(foodItemWrapper);
         }
     </script>
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 <body>
+<div class="main-container">
+<div class="side-bar-container">
+            <div class="logo-tab">
+                FITFUSION
+            </div>
+            <ul class="side-bar-content">
+                
+                <!-- <li class="current-side-bar-tile">
+                    <div class="sb-tab-content">
+                        <span class="material-symbols-outlined">
+                            dashboard
+                        </span>
+                    </div>
+                    <div class="sb-tab-content">
+                        Dashboard
+                    </div>
+                </li> -->
 
-<h2>Add Food Items</h2>
+                <a class="side-bar-tile-link" href="nutritionistdash">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Dashboard
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="createmealplan">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           Create Meal Plan
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="nutritionistviewmealplan">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           View Meal Plan
+                        </div>
+                    </li>
+                </a>
 
-<form action="" method="post">
+                <a class="side-bar-tile-link" href="">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                fitness_center
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Meetings
+                        </div>
+                    </li>
+                </a>
 
-    <div id="breakfast-container">
-        <div class="food-item">
-            <input type="text" name="item_name[]" placeholder="Food item">
-            <input type="number" name="calories[]" placeholder="Calories">
+                <a class="side-bar-tile-link" href="">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                deployed_code
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                        Complaints
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="addfooditems">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                         Add Food Items
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="logout">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                logout
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">Logout</div>
+                    </li>
+                </a>
+
+            </ul>
+        </div>
+        <div class="food">
+        <div class="body-header">
+                <div class="pfp">
+                    <!-- LET THE INSTRUCTOR UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
+                    <img src="#" alt="">
+                </div>
+                <div class="welcome-user">
+                    <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
+                    Welcome, InstructorName
+                </div>
+            </div>
+            <h2>Add Food Items</h2>
+
+            <form action="" method="post">
+
+                <div id="breakfast-container">
+                    <div class="food-item">
+                        <input type="text" name="item_name[]" placeholder="Food item">
+                        <input type="number" name="calories[]" placeholder="Calories">
+                    </div>
+                </div>
+                <button type="button" onclick="addFoodItem('breakfast')">Add Food Item</button><br><br>
+
+                
+                <input type="submit" value="Submit">
+            </form>
         </div>
     </div>
-    <button type="button" onclick="addFoodItem('breakfast')">Add Food Item</button><br><br>
-
-    
-    <input type="submit" value="Submit">
-</form>
-
 </body>
 </html>

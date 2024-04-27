@@ -123,7 +123,7 @@
                                 </div>
 
 
-                                <button type="submit" name="submit" value="submit">Assign to a member</button>
+                                <a href="members?planid=<?= $cardioPlan['id'] ?>"><u>Assign to a member</u></a>
 
                             </div>
 

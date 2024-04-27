@@ -185,7 +185,7 @@
                     
                 </div>
                 <div class="allpackages">
-                    <a href="viewallpackages"><h5>View All packages</h5></a>
+                    <a href="viewallpackages?memail=<?php echo $data['manageremail'];?>"><h5>View All packages</h5></a>
                 </div>
                 <div class="singleentry">
                     <a href="#"><h5>Purchase Single Entry</h5></a>

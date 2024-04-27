@@ -37,9 +37,9 @@ class Instructoragreement {
         if(empty($data['agreementduration'])) {
             $this->errors['agreementduration'] = "agreementduration is required";
         } 
-        if(empty($data['remainingduration'])) {
-            $this->errors['remainingduration'] = "remainingduration is required";
-        } 
+        // if(empty($data['remainingduration'])) {
+        //     $this->errors['remainingduration'] = "remainingduration is required";
+        // } 
         if(empty($this->errors)) {
             return true;
         }

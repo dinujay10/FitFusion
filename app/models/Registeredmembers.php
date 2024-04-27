@@ -17,6 +17,7 @@ class Registeredmembers
         'workoutid',
         'mealplanname',
         'generatedcode',
+        'packagegroup',
         'height',
         'weight',
         'age'

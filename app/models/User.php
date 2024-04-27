@@ -30,6 +30,12 @@ class User {
         if(empty($data['password'])) {
             $this->errors['password'] = "Password is required";
         } 
+        if(empty($data['name'])) {
+            $this->errors['name'] = "First Name is required";
+        }
+        if(empty($data['lastname'])) {
+            $this->errors['lastname'] = "Last Name is required";
+        }
 
         if(empty($this->errors)) {
             return true;
@@ -48,9 +54,9 @@ class User {
 
         //check unique username
         $unique = $this->first($arr);
-        if(!empty($unique)) {
-            $this->errors['username'] = "Username is already in use";
-        }    
+        // if(!empty($unique)) {
+        //     $this->errors['username'] = "Username is already in use";
+        // }    
 
         if(empty($this->errors)) {
             return true;

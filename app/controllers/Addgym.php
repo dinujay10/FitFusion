@@ -9,13 +9,15 @@ class Addgym {
          }
         $data = [];
 
-        if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_FILES['images'])) {
-            $gyms = new Gym;
-            $facilities=new Facilities;
-            $addres=new Address;
-            $openhours=new Openhours;
-            $gymimages=new Gymimages;
-            $notifications=new Managernotifications;
+        $gyms = new Gym;
+        $facilities=new Facilities;
+        $addres=new Address;
+        $openhours=new Openhours;
+        $gymimages=new Gymimages;
+        $notifications=new Managernotifications;
+
+        if ($_SERVER['REQUEST_METHOD']=='POST' && isset($_FILES['images'])){
+
 
             $data1=[];
             $facility=[];
@@ -64,13 +66,14 @@ class Addgym {
             $temp3=["openhourswf","openhourswt","openhourssaf","openhourssat","openhourssuf","openhourssut"];
             $data3['gymName']=$_POST['gymName'];
             if($openhours->unique($data3)){
-                $openhoursArr['gymName']=$_POST['gymName'];
-                foreach($temp3 as $x){
-                    if(isset($_POST[$x])){
-                        $openhoursArr[$x]=$_POST[$x];                      
+                    $openhoursArr['gymName']=$_POST['gymName'];
+                    foreach($temp3 as $x){
+                        if(isset($_POST[$x])){
+                            $openhoursArr[$x]=$_POST[$x];                      
+                        }
                     }
-                }
-                $openhours->insert($openhoursArr);  
+                    $openhours->insert($openhoursArr);
+                
                 //redirect('gymmanagerdash');
             }
             //insert notifications
@@ -141,7 +144,7 @@ class Addgym {
           
     
             $data['errors'] = $gyms->errors;
-            redirect('gymmanagerdash');
+            redirect('managerdash');
         }
 
         $this->view('addgym');

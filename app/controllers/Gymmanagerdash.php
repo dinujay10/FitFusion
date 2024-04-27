@@ -5,9 +5,31 @@ class Gymmanagerdash {
 
     public function index() {
         //echo "user session id =".$_SESSION['email'];
-        if(!isset($_SESSION['email'])){
-           redirect('login');
+        if(isset($_SESSION['email'])){
+            if($_SESSION['usertype']=="member") {
+                redirect('memberdash');
+                die();
+            } else if($_SESSION['usertype']=="gyminstructor") {
+                redirect('gyminstructordash');
+                die();
+            } else if($_SESSION['usertype']=="nutritionist") {
+                redirect('nutritionistdash');
+                die();
+            } else if($_SESSION['usertype']=="gymmanager") {
+              //  redirect('Manager/gymmanagerdash');
+               // die();
+            } else if($_SESSION['usertype']=="gymowner") {
+                redirect('gymownerdash');
+                die();
+            } else if($_SESSION['usertype']=="admin") {
+                redirect('admindash');
+                die();
+            }
+            }
+        else{
+            redirect("login");
         }
+
         $data=[];
 
          

@@ -12,7 +12,8 @@ class Package
         'packagetype',
         'description',
         'paymentperiod',
-        'amount'
+        'amount',
+        'packagegroup'
     ];
 
     public function validate($data)
@@ -23,16 +24,44 @@ class Package
 
         // validate password
         if (empty($data['packagetype'])) {
-            $this->errors['id'] = "Package type is required";
+            $this->errors['packagetype'] = "Package type is required";
         }
         if (empty($data['description'])) {
-            $this->errors['id'] = "Description is required";
+            $this->errors['description'] = "Description is required";
         }
+
         if (empty($data['paymentperiod'])) {
-            $this->errors['id'] = "Payment period is required";
+            $this->errors['paymentperiod'] = "Payment period is required";
+        
+        }
+        else{
+            if(!is_int((int)$data['paymentperiod'])){
+                $this->errors['paymentperiod'] = "Payment period Should be a number";
+            }
+            elseif((int)$data['paymentperiod']>12 or (int)$data['paymentperiod']<1){
+                $this->errors['paymentperiod'] = "Payment period Should be a number between 1 and 12";
+            }
+            else{
+                /////////////valid
+            }
         }
         if (empty($data['amount'])) {
-            $this->errors['id'] = "Amount is required";
+            $this->errors['amount'] = "Amount is required";
+        }
+        else{
+            if(!is_int((int)$data['amount'])){
+                $this->errors['amount'] = "Amount Should be a number";
+            }
+            elseif((int)$data['amount']<0){
+                $this->errors['amount'] = "Amount Should be a positive number";
+            }
+            else{
+                /////////////valid
+            }
+
+        }
+        if (empty($data['packagegroup'])) {
+            $this->errors['packagegroup'] = "Package Group is required";
         }
 
         if (empty($this->errors)) {
@@ -45,11 +74,11 @@ class Package
     {
 
         $this->errors = [];
-        $arr['id'] = $data['id'];
+        $arr['packagetype'] = $data['packagetype'];
         //check unique email
         $unique = $this->first($arr);
         if (!empty($unique)) {
-            $this->errors['id'] = "ID is already in use";
+            $this->errors['id'] = "Package Type is already in use";
         }
 
 
