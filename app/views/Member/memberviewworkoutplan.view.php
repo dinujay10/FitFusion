@@ -9,53 +9,6 @@
     <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/body-template.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-
-    <style>
-        .workout-plan-bar {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            background-color: aqua;
-            width: 100%;
-            height: 10%;
-        }
-
-        .workout-plan-heading {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            background-color: rgb(255, 217, 0);
-            width: 100%;
-            height: 100%;
-            font-weight: 700;
-            font-size: 150%;
-        }
-
-        .workout-plan-mini-heading {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            /* background-color: blueviolet; */
-            width: 30%;
-            height: 100%;
-            font-weight: 600;
-            border-bottom: 1px solid #27374D;
-        }
-
-        .workout-plan-mini-content {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            background-color: blueviolet;
-            width: 30%;
-            height: 100%;
-        }
-
-    </style>
     
 </head>
 <body>
@@ -183,18 +136,41 @@
                         </div>
                         <div class="workout-plan-bar">
                             <div class="workout-plan-mini-heading">Machine</div>
+                            <div class="workout-plan-mini-heading">Exercise</div>
                             <div class="workout-plan-mini-heading">Reps</div>
                             <div class="workout-plan-mini-heading">Sets</div>
                             <div class="workout-plan-mini-heading">Max. Time</div>
                         </div>
 
                         <!-- have to run this on loop -->
-                        <div class="workout-plan-bar">
+                        <?php
+                        for($x=count($data['allmachines'])-1;$x>=0;$x--) {
+                            echo '<div class="workout-plan-bar">
+                            <div class="workout-plan-mini-content">
+                                '. $data['allmachines'][$x] .'
+                            </div>
+                            <div class="workout-plan-mini-content">
+                                '. $data['allexercises'][$x] .'
+                            </div>
+                            <div class="workout-plan-mini-content">
+                                '. $data['allreps'][$x] .'
+                            </div>
+                            <div class="workout-plan-mini-content">
+                                '. $data['allsets'][$x] .'
+                            </div>
+                            <div class="workout-plan-mini-content">
+                                '. $data['allmaxtimes'][$x] .'
+                            </div>
+                            </div>';
+                        }
+                        ?>
+                    
+                        <!-- <div class="workout-plan-bar">
                             <div class="workout-plan-mini-content"></div>
                             <div class="workout-plan-mini-content"></div>
                             <div class="workout-plan-mini-content"></div>
                             <div class="workout-plan-mini-content"></div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
