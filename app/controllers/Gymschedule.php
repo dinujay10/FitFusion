@@ -17,6 +17,14 @@ class Gymschedule {
             
             // SHOW THE EQUIPMENT OF THE MEMBER
 
+            $arr10['memberemail'] = $_SESSION['email'];
+            $arr10['status'] = 1;
+            $testscheduletable = new Schedule;
+            $testschedule = $testscheduletable->where($arr10);
+            if($testschedule) {
+                redirect('gymscheduleview');
+            }
+
             // step 1 -> get the workout ID
             $regmember = new Registeredmembers;
             $arr2['memberemail'] = $_SESSION['email'];
@@ -94,15 +102,19 @@ class Gymschedule {
                 // $opentime = substr($opentime, 0, 2);
                 // $closetime = substr($closetime, 0, 2);
                 $opentime = DateTime::createFromFormat('H:i:s', $opentime);
+                $data['opentime'] = $opentime;
                 $closetime = DateTime::createFromFormat('H:i:s', $closetime);
-                // print_r($opentime);
-                // print_r($closetime);
+                $data['closetime'] = $closetime;
+
+                print_r($opentime);
+                print_r($closetime);
 
 
-                //get all relavent records from schedule table
+                //get all relavent records from schedule table --- no need
                 $scheduletable = new Schedule;
                 $arr6['gymemail'] = $regmemberdeets->gymemail;
                 $arr6['date'] = $dateInput;
+                $arr6['status'] = 1;
                 $scheduledeets = $scheduletable->where($arr6);
                 // print_r($scheduledeets);
 
@@ -111,21 +123,22 @@ class Gymschedule {
                 $startingtime = DateTime::createFromFormat('H:i', $startingtime);
                 // print_r($startingtime);
                 $machinelist = $data['allmachines'];
+                // show($machinelist);
+                // die();
 
                 //while $machinelist is not empty
                 while (!empty($machinelist)) {
                     if ($startingtime < $opentime) {
                         // TODO error
-                        print_r('error');
+                        
                         break;
                     }
                     elseif ($startingtime > $closetime) {
                         // TODO error
-                        print_r('error');
+                        
                         break;
                     }
                     else {
-                        $i = 0; // TODO increase this later. tf is this?
                         //get all records from the machines table by giving the machineType and the gymemail
                         $arr7['machineType'] = $machinelist[$i];
                         $arr7['gymemail'] = $regmemberdeets->gymemail;
@@ -147,6 +160,7 @@ class Gymschedule {
                         $scheduletable = new Schedule;
                         $arr8['gymemail'] = $regmemberdeets->gymemail;
                         $arr8['date'] = $dateInput;
+                        $arr8['status'] = 1;
                         // print_r($startingtime);
                         $arr8['startingtime'] = $startingtime->format('H:i:s');
                         $relaventschedules = $scheduletable->where($arr8);
@@ -173,6 +187,7 @@ class Gymschedule {
                             $arr9['machine'] = $machinelist[$i];
                             $arr9['gymemail'] = $regmemberdeets->gymemail;
                             $arr9['memberemail'] = $_SESSION['email'];
+                            $arr9['status'] = 1;
                             $newschedule->insert($arr9);
                             // print_r($newschedule);
 

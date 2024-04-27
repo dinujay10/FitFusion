@@ -7,8 +7,8 @@ class Memberviewmealplan{
             $data = [];     
 
             $user = new User;
-            $arr2['email'] = $_SESSION['email'];
-            $memberdeets = $user->first($arr2);
+            $arr1['email'] = $_SESSION['email'];
+            $memberdeets = $user->first($arr1);
             $data['firstname'] = $memberdeets->name;
             $data['lastname'] = $memberdeets->lastname;
             

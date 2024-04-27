@@ -73,6 +73,10 @@ class User {
 
         return false;
     }
+
+    public function changePassword() {
+        
+    }
 }
 
 // make models for each table in DB, and add the editable columns of each

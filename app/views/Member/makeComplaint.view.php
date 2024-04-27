@@ -118,7 +118,10 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
-                    Welcome, MemberName
+                    Welcome, 
+                    <?php
+                    echo $data['firstname'] . " " . $data['lastname'];
+                    ?>
                 </div>
             </div>
             <div class="body-content">
@@ -153,41 +156,44 @@
                     </form>
                     <div class="content-tile-column">
                         <div class="tall-tile">
+                        <?php 
+                        // echo '<pre>';
+                        // var_dump($data);
+                        // echo '</pre>';
+                         ?>
                             <div class="reply-heading">Replies</div>
-                            <div class="reply-tile">
-                                <div class="reply-select">
-                                    <select class="select-box" name="complaint" id="complaint" onchange="showComplaintDetailsAndEnableReply()">
-                                        
-                                    <!-- remove the value? -->
-                                        <option value="Select a Complaint" disabled selected>Complaints</option>
-                                        
-                                        <!-- iterate the submitted complaints -->
-                                        <?php 
-                                            // for($x = 0; $x < count($data['allcomplaints']); $x++) {
-                                            //     // Truncate the complaint text to 20 characters
-                                            //     $displayText = substr($data['allcomplaints'][$x], 0, 20);
-                                            //     // If the original text is longer than 20 characters, add an ellipsis
-                                            //     if (strlen($data['allcomplaints'][$x]) > 20) {
-                                            //         $displayText .= '...';
-                                            //     }
-                                            //     echo '<option value="' . $data['allcomplaints'][$x] . '">' . $displayText . '</option>';
-                                            // }
+                            <div class="all-replies" style="display:flex; flex-direction:column;  align-content:flex-end; width:80%; height:80%">
 
-                                            foreach ($data['allcomplaints'] as $index => $complaint): ?>
-                                                <option value="<?= $index; ?>"><?= substr($complaint, 0, 20) . (strlen($complaint) > 20 ? '...' : ''); ?></option>
-                                            <?php endforeach; ?>
-                                        
-                                    </select>
+                                
+                                <div class="reply-tile" style="display:flex; flex-direction:column; overflow:hidden; height:99%; overflow-y:scroll; width:100%; gap: 1rem">
+
+                                                <?php 
+                                                if ($data) {
+                                                    for ($x=count($data['allcomplaints'])-1;$x>=0;$x--){ 
+                                                        echo '<div class="notification" style="display:flex; flex-direction:column; border: 1px solid #27374D; border-radius: 20px; padding: 10px;">
+            
+                                                            <div class="notification-item">
+                                                                <div class="info">
+                                                                                                                    
+                                                                    <p style="font-weight: 600;">Complaint: </p>
+                                                                    ' . $data['allcomplaints'][$x] . ' 
+                                                                    
+                                                                    <p style="font-weight: 600;">Reply: </p>
+                                                                    ' . $data['allreplies'][$x] . ' 
+
+                                                                </div>
+                                                            </div>
+                                                        </div>';
+                                                    }
+                                                }
+                                                else {
+                                                    echo '<div>No replies yet</div>';
+                                                }
+                                                ?>
+                                            
+                                    
                                 </div>
-                                <div class="reply-content" id="reply-content">
-                                    <div id="selected-complaint-text" class="reply-selected">
-                                        <!-- Selected complaint will be displayed here -->
-                                        Complaint
-                                    </div>
-                                    <div id="selected-reply-text" class="reply-selected">
-                                        <!-- Corresponding reply will be displayed here -->
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>

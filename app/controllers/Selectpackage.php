@@ -9,11 +9,12 @@ class Selectpackage {
                 redirect('login');
              }
 
-             $gym = new Gym;
-             $address=new Address;
-             $openhours=new Openhours;
-             $packages=new Package;
-             $gymimages=new Gymimages;
+            $gym = new Gym;
+            $address=new Address;
+            $openhours=new Openhours;
+            $packages=new Package;
+            $gymimages=new Gymimages;
+            $facilities= new Facilities;
      
             if(isset($_GET['id'])){
                 $idd=$_GET['id'];
@@ -101,12 +102,9 @@ class Selectpackage {
             //     //print_r($gymimagesdata);
             // }
              
-            if ($_SERVER['REQUEST_METHOD']=='POST') {
-
-                // $data['errors'] = $user->errors;
-            }
+      
             
-            $this->view('Member/selectpackage', $data);
+                $this->view('Member/selectpackage', $data);
             }
-}
+        }
 }
