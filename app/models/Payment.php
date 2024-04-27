@@ -1,18 +1,14 @@
 <?php
 
 // user class
-class Package
+class Payment
 {
     use Model;
 
-    protected $table = 'packages';
+    protected $table = 'payment';
 
     protected $allowedColumns = [
-        'manageremail',
-        'packagetype',
-        'packagegroup',
-        'description',
-        'paymentperiod',
+        'email',
         'amount'
     ];
 
