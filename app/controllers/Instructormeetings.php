@@ -16,7 +16,10 @@ class Instructormeetings{
             $meetingrequests = $meetingtable->where(['instructoremail' => $_SESSION['email']]);
   
             foreach($meetingrequests as $request){
-                $data[] = $request;
+                if($request->memberemail!=''){
+                    $data[] = $request;
+                }
+               
             }
 
            
