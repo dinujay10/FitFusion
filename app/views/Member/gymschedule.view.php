@@ -29,9 +29,9 @@
 
 <body>
     <?php
-    echo '<pre>';
-    var_dump($_SESSION);
-    echo '</pre>';
+    // echo '<pre>';
+    // var_dump($_SESSION);
+    // echo '</pre>';
     ?>
     <div class="main-container">
         <div class="side-bar-container" style="position: relative;">
