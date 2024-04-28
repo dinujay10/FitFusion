@@ -126,7 +126,7 @@ class Login {
                         }
 
                     } else if($row->usertype=="gyminstructor") {
-                        redirect('gyminstructordash');
+                        redirect('instructordash');
                     } else if($row->usertype=="nutritionist") {
                         redirect('nutritionistdash');
                     } else if($row->usertype=="gymmanager") {

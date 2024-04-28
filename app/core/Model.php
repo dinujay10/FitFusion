@@ -393,7 +393,65 @@ trait Model
         // echo $query;
        // $this->query($query, $data);
 
-        return false;
+    //     return false;
+    }
+    public function selectworkouttypes($iemail){
+        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        if ($con->connect_error) {
+            die("Connection failed: " . $con->connect_error);
+        }
+        
+        // Prepare the statement
+        $sql = "SELECT DISTINCT workouttype FROM workoutplans WHERE iemail = ? ";
+        $stmt = $con->prepare($sql);
+        if (!$stmt) {
+            die("Error in preparing statement: " . $con->error);
+        }
+
+        $stmt->bind_param("s", $iemail);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $workouttypes = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $workouttypes[] = $row['workouttype'];
+        }
+
+        $stmt->close();
+        $con->close();
+        return $workouttypes;        
+    }
+    public function selectworkoutnames($iemail,$workouttype){
+        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        if ($con->connect_error) {
+            die("Connection failed: " . $con->connect_error);
+        }
+        
+        // Prepare the statement
+        $sql = "SELECT DISTINCT workoutname FROM workoutplans WHERE iemail = ? AND workouttype = ?";
+        $stmt = $con->prepare($sql);
+        if (!$stmt) {
+            die("Error in preparing statement: " . $con->error);
+        }
+
+        $stmt->bind_param("ss", $iemail,$workouttype);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        $workoutnames = array();
+
+        while ($row = $result->fetch_assoc()) {
+            $workoutnames[] = $row['workoutname'];
+        }
+
+        $stmt->close();
+        $con->close();
+        return $workoutnames;        
     }
     public function findMachineIds($managerEmail, $machineType) {
         $con = new mysqli('localhost', 'root', '', 'fitfusion');
@@ -424,6 +482,108 @@ trait Model
         $con->close();
         return $ids;
     }
+    public function popularDays($managerEmail, $sdate, $edate) {
+        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        if ($con->connect_error) {
+            die("Connection failed: " . $con->connect_error);
+        }
     
-}
+        // Prepare the statement
+        $sql = "SELECT COUNT(*) AS cnt, weekdy FROM memberattendance WHERE manageremail = ? AND datee BETWEEN ? AND ? GROUP BY weekdy";
+        
+        $stmt = $con->prepare($sql);
+        if (!$stmt) {
+            die("Error in preparing statement: " . $con->error);
+        }
+    
+        // Bind parameters
+        $stmt->bind_param("sss", $managerEmail, $sdate, $edate);
+    
+        $stmt->execute();
+    
+        $result = $stmt->get_result();
+    
+        $cnt = array();
+    
+        while ($row = $result->fetch_assoc()) {
+            // Assuming 'datee' contains the weekday, you can directly use it as the key
+            $cnt[$row['weekdy']] = $row['cnt'];
+        }
+    
+        $stmt->close();
+        $con->close();
+        return $cnt;
+    }
+
+    public function packageIds($gymname) {
+        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        if ($con->connect_error) {
+            die("Connection failed: " . $con->connect_error);
+        }
+    
+        // Prepare the statement
+        $sql = "SELECT COUNT(*) AS cnt, MONTH(registereddate) As mnt, packageid FROM registeredmembers WHERE gymname = ? AND YEAR(registereddate) = YEAR(CURRENT_DATE) GROUP BY mnt, packageid";
+        
+        $stmt = $con->prepare($sql);
+        if (!$stmt) {
+            die("Error in preparing statement: " . $con->error);
+        }
+    
+        // Bind parameters
+        $stmt->bind_param("s", $gymname);
+    
+        $stmt->execute();
+    
+        $result = $stmt->get_result();
+    
+        $cnt = array();
+    
+        while ($row = $result->fetch_assoc()) {
+            // Assuming 'packageid' contains the package ID, you can directly use it as the key
+            $cnt[$row['mnt']][$row['packageid']] = $row['cnt'];
+        }
+    
+        $stmt->close();
+        $con->close();
+        return $cnt;
+    }
+
+    public function packagePrice($ids) {
+        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        if ($con->connect_error) {
+            die("Connection failed: " . $con->connect_error);
+        }
+    
+        // Prepare the statement
+        $placeholders = implode(',', array_fill(0, count($ids), '?'));
+        $sql = "SELECT id, amount FROM packages WHERE id IN ($placeholders)";
+        
+        $stmt = $con->prepare($sql);
+        if (!$stmt) {
+            die("Error in preparing statement: " . $con->error);
+        }
+    
+        // Bind parameters
+        $types = str_repeat('s', count($ids));
+        $stmt->bind_param($types, ...$ids);
+    
+        $stmt->execute();
+    
+        $result = $stmt->get_result();
+    
+        $amount = array();
+    
+        while ($row = $result->fetch_assoc()) {
+            // Assuming 'id' contains the package ID, you can directly use it as the key
+            $amount[$row['id']] = $row['amount'];
+        }
+    
+        $stmt->close();
+        $con->close();
+        return $amount;
+    }
+    
+    
+    
+    }
 

@@ -150,7 +150,7 @@ class Selectpackage
         $arr6['manageremail'] = $data['manageremail'];
         $gym = new Gym;
         $gymdeets = $gym->where($arr6);
-
+        print_r($gymdeets);
         $gymname = $gymdeets[0]->gymName;
         $gymemail = $gymdeets[0]->email;
 

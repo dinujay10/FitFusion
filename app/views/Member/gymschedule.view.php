@@ -1,32 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/main-template.css">
-    <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/body-template.css">
+    <link rel="stylesheet" type="text/css" href="<?= ROOT ?>/assets/css/Member/main-template.css">
+    <link rel="stylesheet" type="text/css" href="<?= ROOT ?>/assets/css/Member/body-template.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <style>
-       
-
-        
-
+        .error-schedule {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            /* background-color: aqua; */
+            width: 80%;
+            height: 60%;
+            font-size: 120%;
+            border: 1px solid #27374D;
+        }
     </style>
-    
+
 </head>
+
 <body>
-    
+
     <div class="main-container">
         <div class="side-bar-container" style="position: relative;">
             <div class="logo-tab">
                 FITFUSION
             </div>
             <ul class="side-bar-content">
-                
+
                 <a class="side-bar-tile-link" href="memberdash">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
@@ -78,7 +87,7 @@
                         </div>
                     </li>
                 </a>
-                
+
 
                 <a class="side-bar-tile-link" href="makeComplaint">
                     <li class="side-bar-tile">
@@ -126,53 +135,57 @@
                     <img src="#" alt="">
                 </div>
                 <div class="welcome-user">
-                    Welcome, 
+                    Welcome,
                     <?php
                     echo $data['firstname'] . " " . $data['lastname'];
                     ?>
                 </div>
             </div>
-            <div class="body-content" style="flex-direction: column;">  
-            
-                <?php 
+            <div class="body-content" style="flex-direction: column;">
+
+                <?php
                 // echo '<pre>';
                 // var_dump($data);
                 // echo '</pre>';
                 ?>
 
-
-                <div class="content-tile" style="height: 20%; flex-direction: row;">
-                
-                    <?php
-                        // loop through all the machines in $data
-                        foreach($data['allmachines'] as $machine) {
-                            echo '<div class="machine-container">';
-                            echo '<div class="machine-name">';
-                            echo $machine;
-                            echo '</div>';
-                            echo '</div>';
-                        }
-                    ?>
-
-                </div>
-
-                <div class="content-tile" style="height: 20%; flex-direction: row;">
-                    <form class="schedule-form" method="POST" style="height: 40%;">
-                            <input class="date-box" type="date" id="date" name="date" min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" max="<?php echo date('Y-m-d', strtotime('+1 month')); ?>"/>
-                            <!-- //TODO have to limit the time within gym hours -->
-                            <label for="timePicker">Choose a time:</label>
-                            <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300" onchange=validateTime()>
-                            <a class="schedule-form-button" href="gymscheduleview"><input class="schedule-submit-button" type="submit" value="submit"></a>
-                    </form>
-                </div>
+                <?php
+                if ($data['flag'] == 1) {
+                    echo '<div class="content-tile" style="height: 20%; flex-direction: row;">';
 
 
-                
-                
+                    foreach ($data['allmachines'] as $machine) {
+                        echo '<div class="machine-container">';
+                        echo '<div class="machine-name">';
+                        echo $machine;
+                        echo '</div>';
+                        echo '</div>';
+                    };
 
 
 
-                
+                    echo '</div>';
+
+                    echo '<div class="content-tile" style="height: 20%; flex-direction: row;">
+                <form class="schedule-form" method="POST" style="height: 40%;">
+                        <input class="date-box" type="date" id="date" name="date" min="' . date('Y-m-d', strtotime('+1 day')) . '" max="' . date('Y-m-d', strtotime('+1 month')) . '"/>
+                        <label for="timePicker">Choose a time:</label>
+                        <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300" onchange=validateTime()>
+                        <a class="schedule-form-button" href="gymscheduleview"><input class="schedule-submit-button" type="submit" value="submit"></a>
+                </form>
+            </div>';
+                } else {
+                    echo '<div class="error-schedule">You do not have a workout plan yet to schedule your time!</div>';
+                }
+
+
+                ?>
+
+
+
+
+
+
             </div>
         </div>
     </div>
@@ -193,9 +206,8 @@
             }
             return true;
         }
-
-
     </script>
 
 </body>
+
 </html>

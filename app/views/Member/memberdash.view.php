@@ -7,7 +7,6 @@
 
     <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/main-template.css">
 
-    <!-- Why doesnt this work??? -->
     <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/body-template.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />

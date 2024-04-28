@@ -3,7 +3,7 @@
 class Home {
     use Controller;
 
-    public function index($a = '', $b = '', $c = '') {
+    public function index() {
         // $user = new User;
         // $arr['name'] = "Mary";
         // $arr['age'] = 30;
@@ -12,7 +12,7 @@ class Home {
 
         // show($result);
         // show("from the index function");
-        $this->view('home');
+        $this->view('Main/home');
     }
 
     // public function edit($a = '', $b = '', $c = '') {
