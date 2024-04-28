@@ -100,7 +100,7 @@
                     </div>
                 </li>
 
-                <a class="side-bar-tile-link" href="#">
+                <a class="side-bar-tile-link" href="logout">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -115,13 +115,13 @@
         </div>
         <div class="body-container">
             <div class="body-header">
-                <div class="pfp">
-                    <!-- LET THE MEMBER UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
-                    <img src="#" alt="">
-                </div>
+                
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
-                    Welcome, MemberName
+                    Welcome,
+                    <?php
+                    echo $data['firstname'] . " " . $data['lastname'];
+                    ?>
                 </div>
             </div>
             <div class="body-content">
@@ -144,13 +144,11 @@
                                     <div class="form-content-bar-text">
                                         You can give your review on your Nutritionist: 
                                         <!-- display the nutrionist name -->
-                                        <!-- <?php 
-                                            echo $data["gymname"];
-                                        ?> -->
+                                        <?php 
+                                            echo $data["nutritionistfirstname"] . ' ' . $data["nutritionistlastname"];
+                                        ?>
                                     </div>
-                                    <div class="form-content-bar">
-                                        
-                                    </div>
+                                    
                                     <div class="form-content-textarea-bar">
                                         <!-- limit the number of characters!!!!! -->
                                         <textarea class="textarea-tile" name="review" id="review" cols="87" rows="10" placeholder="Type your review here"></textarea>
