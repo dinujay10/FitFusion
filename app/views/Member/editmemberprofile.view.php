@@ -113,10 +113,7 @@
         </div>
         <div class="body-container">
             <div class="body-header">
-                <div class="pfp">
-                    <!-- LET THE MEMBER UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
-                    <img src="#" alt="">
-                </div>
+                
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
                     Welcome, 
@@ -176,15 +173,26 @@
                 </div>
                 <div class="content-tile-column">
                     <div class="tall-tile">
-                        <div class="update-pfp"></div>
-                        <div class="update-button">
-                            <span class="material-symbols-outlined">
-                                upload
-                            </span>
-                            Upload Photo
+                        <div class="edit-bar">
+                            <div class="edit-label" style="width: 40%;">Old Password</div>
+                            <div class="edit-value">
+                                <input class="edit-value-input" type="password" name="name">
+                            </div>
+                        </div>
+                        <div class="edit-bar">
+                            <div class="edit-label" style="width: 40%;">New Password</div>
+                            <div class="edit-value">
+                                <input class="edit-value-input" type="password" name="name">
+                            </div>
+                        </div>
+                        <div class="edit-bar">
+                            <div class="edit-label" style="width: 40%; text-align:center;">Confirm New Password</div>
+                            <div class="edit-value">
+                                <input class="edit-value-input" type="password" name="name">
+                            </div>
                         </div>
                         <div class="change-pwd-button">Change Password</div>
-                        <a class="change-pwd-button" href="memberdash">Submit All Changes</a>
+                        <a class="change-pwd-button" href="memberdash">Go Back to Dashboard</a>
                     </div>
                 </div>
             </div>

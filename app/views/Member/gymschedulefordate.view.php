@@ -23,15 +23,111 @@
             font-size: 120%;
             border: 1px solid #27374D;
         }
+
+        .scheduled-slot-button {
+            background-color: red;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .normal-slot-button {
+            background-color: #27374D;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .table-fixed {
+            width: 70%;
+            height: 40%;
+            border-collapse: collapse;
+            /* border: var(--brandgreen) solid 4px; */
+            border-radius: 10px;
+        }
+
+        tr {
+            height: 5%;
+        }
+
+        td {
+            /* border: var(--brandgreen) solid 1px; */
+            text-align: center;
+            padding: 5px;
+        }
+
+        .th-style {
+            /* border: var(--brandgreen) solid 1px; */
+            text-align: center;
+            padding: 10px;
+            /* background-color: #27374D; */
+            /* color: white; */
+            border: 1px solid #27374D;
+            /* border-radius: 20px; */
+        }
+
+        .schedule-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .schedule-submit-button {
+            background-color: #27374D;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            height: 100%;
+        }
+
+        .schedule-submit-button-1 {
+            background-color: #27374D;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            height: 25%;
+            font-size: 105%;
+        }
+
+        .schedule-form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .time {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            /* background-color: aqua; */
+            width: 50%;
+            height: 15%;
+            border: 1px solid #27374D;
+            border-radius: 20px;
+        }
+
     </style>
 
 </head>
 
 <body>
     <?php
-    echo '<pre>';
-    var_dump($data);
-    echo '</pre>';
+    // echo '<pre>';
+    // var_dump($data);
+    // echo '</pre>';
     ?>
     <div class="main-container">
         <div class="side-bar-container" style="position: relative;">
@@ -132,7 +228,7 @@
 
             </ul>
         </div>
-        <div class="body-container">
+        <div class="body-container" style="overflow-y:auto">
             <div class="body-header">
 
                 <div class="welcome-user">
@@ -142,7 +238,7 @@
                     ?>
                 </div>
             </div>
-            <div class="body-content" style="flex-direction: column;">
+            <div class="body-content" style="flex-direction: row;">
                 <?php if ($data['flag'] == 1) : ?>
                     <!-- <div class="content-tile" style="height: 20%; flex-direction: row;">
                         <?php foreach ($data['allmachines'] as $machine) : ?>
@@ -151,13 +247,64 @@
                             </div>
                         <?php endforeach; ?>
                     </div> -->
-                    <div class="content-tile" style="height: 20%; flex-direction: row;">
-                        <form class="schedule-form" method="POST" style="height: 40%;">
-                            <input class="date-box" type="date" id="datePicker" name="date" min="<?= date('Y-m-d', strtotime('+1 day')) ?>" max="<?= date('Y-m-d', strtotime('+1 month')) ?>" onchange="sendDateToServer()">
-                            <!-- <label for="timePicker">Choose a time:</label>
-                            <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300"> -->
-                            <button type="submit" class="schedule-submit-button">Submit</button>
-                        </form>
+                    <div class="content-tile-column" style="height: 60%; width: 40%; flex-direction: column; margin:10px">
+                        <div class="content-tile-1" style="height: 20%; width: 50%; flex-direction: column; gap: 1rem">
+                            <div class="schedule-form" style="height: 40%; gap: 1rem">
+                                
+                                <button class="schedule-submit-button" style="background-color: #27374D">Available</button>
+                                <button class="schedule-submit-button" style="background-color: red;">Scheduled</button>
+                            </div>
+                        </div>
+                        <!-- <div class="content-tile-1" style="height: 50%; width: 50%; flex-direction: row; margin:10px; gap: 1rem"> -->
+                            <form class="schedule-form" method="POST" style="height: 50%; width: 80%; gap: 1rem;">
+                                <label for="timePicker">Choose a time:</label>
+                                <input class="time" type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300">
+                                <button type="submit" class="schedule-submit-button-1">Get Schedule</button>
+                                <a href="getschedule" class="schedule-submit-button-1">Change Date</a>
+                            </form>
+                        <!-- </div> -->
+                    </div>
+                    <div class="reply-tile" style="display:flex; flex-direction:column; overflow:hidden; height:100%; overflow-y:auto; overflow-x:auto; width:100%;">
+                        <table class="table-fixed">
+                            <tr>
+                                <th></th>
+                                <?php
+
+                                foreach ($data['allmachines'] as $machine) {
+                                    echo '<th class="th-style">
+                                        ' . $machine . '
+                                        </th>';
+                                }
+                                ?>
+                            </tr>
+
+                            <?php
+                            for ($time = 6; $time < 20; $time++) {
+                            ?>
+                                <tr>
+                                    <td><?= $time ?></td>
+                                    <?php
+                                    // if ($data['scheduledeets']) {
+                                        foreach ($data['allmachines'] as $machine) {
+                                            $check = [$machine, $time];
+                                            if (in_array($check, $data['scheduledeets'])) {
+                                                echo '<td><button class="scheduled-slot-button">
+                                                        
+                                                    </button></td>';
+                                            } else {
+                                                echo '<td><button class="normal-slot-button">
+                                                        
+                                                    </button></td>';
+                                            }
+                                        }
+                                    // }
+                                    ?>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+
+                        </table>
                     </div>
                 <?php else : ?>
                     <div class="error-schedule">You do not have a workout plan yet to schedule your time!</div>
@@ -217,6 +364,10 @@
         //     };
         //     xhr.send(array);
         // }
+
+        $(document).ready(function() {
+            $('.reply-tile').scrollTop(10); // Adjusts initial scroll position slightly to test visibility
+        });
     </script>
 
 </body>
