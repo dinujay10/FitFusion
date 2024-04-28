@@ -16,6 +16,7 @@
 
 <body>
     <?php $data ?>
+
     <div class="main-container">
         <?php $data ?>
         <div class="side-bar-container">
@@ -59,7 +60,8 @@
                             </span>
                         </div>
                         <div class="sb-tab-content">
-                            Create a plan
+                            Create Plan
+
                         </div>
                     </li>
                 </a>
@@ -77,7 +79,8 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="login">
+                <a class="side-bar-tile-link" href="logout">
+
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -93,10 +96,7 @@
         <div class="body-container">
 
             <div class="body-header">
-                <div class="pfp">
-                    <!-- LET THE INSTRUCTOR UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
-                    <img src="" alt="">
-                </div>
+
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
                     Welcome, <?php echo $data['instr']['name'] ?>
@@ -115,15 +115,17 @@
                                     <span class="material-symbols-outlined">
                                         edit
                                     </span>
-                                    Profile
+                                    Edit
+
                                 </a>
                             </div>
                         </div>
                         <div class="profile-info">
                             <div class="profile-info-key">My email:</div>
                             <div class="profile-info-value"><?php
-                            echo $data['instr']['email'];
-                            ?></div>
+                                                            echo $data['instr']['email'];
+                                                            ?></div>
+
                         </div>
                         <div class="profile-info">
                             <div class="profile-info-key">Manager email:</div>
@@ -136,41 +138,50 @@
 
                     </div>
                 </div>
-                <div class="content-tile-column">
-                    <div class="tall-tile">
+                <div class="content-tile-column" style="height:60%;">
+                    <div class="tall-tile" style="justify-content: flex-start;">
                         <?php $data['gym'] ?>
                         <h1>My Gym</h1>
-                        <div class="profile-info">
+                        <div class="profile-info" style="height:20%;">
                             <div class="profile-info-key">Gym Name:</div>
                             <div class="profile-info-value"><?= $data['gym']['name'] ?></div>
                         </div>
-                        <div class="profile-info">
+                        <div class="profile-info" style="height:20%;">
                             <div class="profile-info-key">Gym email:</div>
                             <div class="profile-info-value"><?= $data['gym']['email'] ?></div>
                         </div>
-                        <div class="profile-info">
+                        <div class="profile-info" style="height:20%;">
                             <div class="profile-info-key">Manageremail:</div>
                             <div class="profile-info-value"><?= $data['gym']['manageremail'] ?></div>
                         </div>
-                        <div class="profile-info">
-                            <div class="profile-info-key">Description:</div>
-                            <div class="profile-info-value"><?= $data['gym']['description'] ?></div>
-                        </div>
+
 
                     </div>
                 </div>
                 <div class="content-tile-column">
-                    <div class="tall-tile">
-                    <h1>My Members</h1>
-                        <?php foreach ($data['membernames'] as $value): ?>
-                            <div class="profile-info">
-                                <div class="profile-info-value"><?= $value ?></div>
+                    <div class="tall-tile" style="justify-content: flex-start;">
+                        <h1>My Members</h1>
+                        <div class="all-replies" style="display:flex; flex-direction:column;  align-content:flex-end; width:80%; height:80%">
+                            <div class="reply-tile" style="display:flex; flex-direction:column; overflow:hidden; height:99%; overflow-y:scroll; width:100%; gap: 1rem">
+                                <?php
+                                if ($data['membernames']) {
+                                    foreach ($data['membernames'] as $member) {
+                                        echo '<div class="profile-info">
+                                <div class="profile-info-key">Member Name:</div>
+                                <div class="profile-info-value">' . $member . '</div>
+                            </div>';
+                                    }
+                                } else {
+                                    echo '<div style="padding: 40% 0 40% 0;">You do not have any members yet!</div>';
+                                }
+                                ?>
                             </div>
-                        <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
 
-             
+
+
             </div>
         </div>
     </div>

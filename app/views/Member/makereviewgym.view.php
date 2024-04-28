@@ -149,9 +149,7 @@
                                             echo $data["gymname"];
                                         ?>
                                     </div>
-                                    <div class="form-content-bar">
-                                        
-                                    </div>
+                                    
                                     <div class="form-content-textarea-bar">
                                         <!-- limit the number of characters!!!!! -->
                                         <textarea class="textarea-tile" name="review" id="review" cols="87" rows="10" placeholder="Type your review here"></textarea>

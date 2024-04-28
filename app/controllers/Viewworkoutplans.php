@@ -15,7 +15,8 @@ class Viewworkoutplans{
 
 
 
-            $this->view('viewworkoutplans', $data);
+            $this->view('Instructor/viewworkoutplans', $data);
+
         }
         public function selectworkout(){
            // print_r($_GET);

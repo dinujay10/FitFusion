@@ -97,6 +97,29 @@
     cursor: pointer;
 }
 
+.db-edit-button-link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
+    /* background-color: aqua; */
+    height: 60%;
+    width: 60%;
+    border-radius: 20px;
+    border: 1px solid #27374D;
+    font-size: 1rem;
+    gap: 1rem;
+    text-decoration: none;
+    color: black;
+}
+
+.db-edit-button-link:hover {
+    background-color: #27374D;
+    color: white;
+    cursor: pointer;
+}
+
 .profile-info {
     display: flex;
     flex-direction: row;
