@@ -55,6 +55,14 @@ class Openhours {
         return false;
     }
 
+    public function fetchGymOpenTime($gymname, $dayType) {
+        $query = "select * from $this->table where gymName = :gymName";
+        $data['gymName'] = $gymname;
+        $result = $this->query($query, $data);
+        $result = $result[0];
+        return $result[$dayType];
+    }
+
   
 }
 

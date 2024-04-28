@@ -30,6 +30,20 @@ class Schedule {
         return false;
     }
 
+    public function fetchMachineSchedule($machine,$gymemail,$date) {
+        $arr['machine'] = $machine;
+        $arr['gymemail'] = $gymemail;
+        $arr['date'] = $date;
+        $result = $this->where($arr);
+
+        //get the starting times of the rows taken by $result to an array and return that array
+        $startingtimes = [];
+        foreach($result as $row) {
+            $startingtimes[] = $row->startingtime;
+        }
+        return $startingtimes;
+
+    }
   
 }
 
