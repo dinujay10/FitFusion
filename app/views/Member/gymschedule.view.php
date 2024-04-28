@@ -30,7 +30,7 @@
 <body>
     <?php
     echo '<pre>';
-    var_dump($data);
+    var_dump($_SESSION);
     echo '</pre>';
     ?>
     <div class="main-container">
@@ -143,51 +143,25 @@
                 </div>
             </div>
             <div class="body-content" style="flex-direction: column;">
-
-                <?php
-                // echo '<pre>';
-                // var_dump($data);
-                // echo '</pre>';
-                ?>
-
-                <?php
-                if ($data['flag'] == 1) {
-                    echo '<div class="content-tile" style="height: 20%; flex-direction: row;">';
-
-
-                    foreach ($data['allmachines'] as $machine) {
-                        echo '<div class="machine-container">';
-                        echo '<div class="machine-name">';
-                        echo $machine;
-                        echo '</div>';
-                        echo '</div>';
-                    };
-
-
-
-                    echo '</div>';
-
-                    echo '<div class="content-tile" style="height: 20%; flex-direction: row;">
-                <form class="schedule-form" method="POST" style="height: 40%;">
-                <input class="date-box" type="date" id="datePicker" name="date" min="' . date('Y-m-d', strtotime('+1 day')) . '" max="' . date('Y-m-d', strtotime('+1 month')) . '" onchange="sendDateToServer()">
-
-                        <label for="timePicker">Choose a time:</label>
-                        <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300" onchange=validateTime()>
-                        <a class="schedule-form-button" href="gymscheduleview"><input class="schedule-submit-button" type="submit" value="submit"></a>
-                </form>
-            </div>';
-                } else {
-                    echo '<div class="error-schedule">You do not have a workout plan yet to schedule your time!</div>';
-                }
-
-
-                ?>
-
-
-
-
-
-
+                <?php if ($data['flag'] == 1) : ?>
+                    <div class="content-tile" style="height: 20%; flex-direction: row;">
+                        <?php foreach ($data['allmachines'] as $machine) : ?>
+                            <div class="machine-container">
+                                <div class="machine-name"><?= $machine; ?></div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                    <div class="content-tile" style="height: 20%; flex-direction: row;">
+                        <form class="schedule-form" method="POST" style="height: 40%;">
+                            <input class="date-box" type="date" id="datePicker" name="date" min="<?= date('Y-m-d', strtotime('+1 day')) ?>" max="<?= date('Y-m-d', strtotime('+1 month')) ?>" onchange="sendDateToServer()">
+                            <label for="timePicker">Choose a time:</label>
+                            <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300">
+                            <button type="submit" class="schedule-submit-button">Submit</button>
+                        </form>
+                    </div>
+                <?php else : ?>
+                    <div class="error-schedule">You do not have a workout plan yet to schedule your time!</div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
@@ -211,22 +185,33 @@
 
         function sendDateToServer() {
             var datePicker = document.getElementById('datePicker');
-            var selectedDate = datePicker.value;
+            var date = datePicker.value;
 
-            // Create a new XMLHttpRequest
+            var array = [
+                {
+                    "date": date
+                }
+            ]
+
+            var array = JSON.stringify(array);
+
             var xhr = new XMLHttpRequest();
-
-            // Configure it: GET-request for the URL /getDate with the selected date as a query parameter
-            xhr.open('GET', 'your-controller-path/getDate?date=' + encodeURIComponent(selectedDate), true);
-
+            xhr.open('POST', 'Gymschedule/getDate', true);
+            xhr.setRequestHeader('Content-type', 'application/json; charset=UTF-8')
             xhr.onreadystatechange = function() {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    // Handle response here: example
-                    console.log(xhr.responseText);
+                    var response = JSON.parse(xhr.responseText);
+                    if (response.error) {
+                        console.error(response.error);
+                    } else {
+                        console.log('Open Time: ' + response.openTime + ', Close Time: ' + response.closeTime);
+                        // Optionally, update the UI with these times
+                        // Example: document.getElementById('displayOpenTime').textContent = 'Open Time: ' + response.openTime;
+                    }
+                } else {
+                    console.error('Failed to fetch data: ' + xhr.status);
                 }
             };
-
-            // Send the request
             xhr.send();
         }
     </script>

@@ -32,6 +32,9 @@ class Gymschedule
         $arr2['memberemail'] = $_SESSION['email'];
         // print_r($arr2['memberemail']);
         $regmemberdeets = $regmember->first($arr2);
+        $_SESSION['gymemail'] = $regmemberdeets->gymemail;
+        $_SESSION['gymname'] = $regmemberdeets->gymname;
+
 
         // print_r($regmemberdeets);
         $data['workoutid'] = $regmemberdeets->workoutid;
@@ -54,12 +57,13 @@ class Gymschedule
 
             // step 4 -> add the machines array to the $data
             $data['allmachines'] = $allmachines;
+            $_SESSION['allmachines'] = $allmachines;
             // print_r($data);
-        }
-        else {
+        } else {
             $data['flag'] = 0;
         }
 
+        
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -213,5 +217,73 @@ class Gymschedule
 
 
         $this->view('Member/gymschedule', $data);
+    }
+
+    // Example Controller Method in PHP
+    public function getDate()
+    {
+        $data = json_decode(file_get_contents('php://input'), true);
+        $dateInput = $data[0]['date'];
+
+        if ($dateInput) {
+            $date = new DateTime($dateInput);
+            $dayOfWeek = $date->format('N');
+            $dayType = $this->determineDayType($dayOfWeek);
+            $gymDetails = $this->fetchGymDetails($_SESSION['gymname'], $dayType);
+            $machineDetails = $this->fetchMachineDetails($_SESSION['allmachines'],$date);
+
+
+            echo json_encode([
+                'openTime' => $gymDetails['openTime'],
+                'closeTime' => $gymDetails['closeTime'],
+                'dayType' => $dayType,
+                'machineDetails' => $machineDetails
+            ]);
+        } else {
+            echo json_encode(['error' => 'No date provided']);
+        }
+    }
+
+    private function determineDayType($dayOfWeek)
+    {
+        if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+            return "Weekday";
+        } elseif ($dayOfWeek == 6) {
+            return "Saturday";
+        } else {
+            return "Sunday";
+        }
+    }
+
+    private function fetchGymDetails($gymname, $dayType)
+    {
+        // Fetch gym open/close times based on dayType
+        //if the dayType is a weekday
+        $openhours = new Openhours;
+        if ($dayType == 'Weekday') {
+            $openTime = $openhours->fetchGymOpenTime($gymname, 'openhourswf');
+            $closeTime = $openhours->fetchGymOpenTime($gymname, 'openhourswt');
+        } elseif ($dayType == 'Saturday') {
+            $openTime = $openhours->fetchGymOpenTime($gymname, 'openhourssaf');
+            $closeTime = $openhours->fetchGymOpenTime($gymname, 'openhourssat');
+        } else {
+            $openTime = $openhours->fetchGymOpenTime($gymname, 'openhourssuf');
+            $closeTime = $openhours->fetchGymOpenTime($gymname, 'openhourssut');
+        }
+        return [
+            'openTime' => $openTime,
+            'closeTime' => $closeTime
+        ];
+           
+    }
+
+    private function fetchMachineDetails($machineTypes, $date)
+    {
+        $machineDetails = [];
+        foreach ($machineTypes as $machineType) {
+            $machine = new Schedule;
+            $machineDetails[$machineType] = $machine->fetchMachineSchedule($machineType, $_SESSION['gymemail'], $date);
+        }
+        return $machineDetails;
     }
 }
