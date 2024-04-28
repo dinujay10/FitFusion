@@ -117,13 +117,13 @@
         </div>
         <div class="body-container">
             <div class="body-header">
-                <div class="pfp">
-                    <!-- LET THE MEMBER UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
-                    <img src="#" alt="">
-                </div>
+                
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
-                    Welcome, MemberName
+                    Welcome, 
+                    <?php
+                    echo $data['firstname'] . " " . $data['lastname'];
+                    ?>
                 </div>
             </div>
             <div class="body-content">

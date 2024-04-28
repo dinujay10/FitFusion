@@ -5,6 +5,12 @@ class MakeReviewGym{
         public function index() {
             $data = [];
             
+            $user = new User;
+            $arr1['email'] = $_SESSION['email'];
+            $memberdeets = $user->first($arr1);
+            $data['firstname'] = $memberdeets->name;
+            $data['lastname'] = $memberdeets->lastname;
+
             $regmembers = new Registeredmembers;
             $arr['memberemail'] = $_SESSION['email'];
             $memberdetails = $regmembers->where($arr);

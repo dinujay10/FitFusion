@@ -1,18 +1,16 @@
 <?php
 
 // user class
-class Memberfeedback {
+class Membernutrifeedback {
     use Model;
 
-    protected $table = 'memberfeedback';
+    protected $table = 'membernutrifeedback';
     
     protected $allowedColumns = [
         'id',
         'name',
         'email',
         'feedback',
-
-       
     ];
 
     public function validate($data) {
