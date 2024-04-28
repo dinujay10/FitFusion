@@ -68,5 +68,11 @@ class Registeredmembers
         }
         return false;
     }
+
+    public function getMealPlanName($memberemail) {
+        $arr['memberemail'] = $memberemail;
+        $result = $this->where($arr);
+        return $result[0]->mealplanname;
+    }
 }
 
