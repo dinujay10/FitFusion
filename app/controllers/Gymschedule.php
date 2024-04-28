@@ -113,8 +113,8 @@ class Gymschedule
             $closetime = DateTime::createFromFormat('H:i:s', $closetime);
             $data['closetime'] = $closetime;
 
-            print_r($opentime);
-            print_r($closetime);
+            // print_r($opentime);
+            // print_r($closetime);
 
 
             //get all relavent records from schedule table --- no need
@@ -145,7 +145,7 @@ class Gymschedule
                     break;
                 } else {
                     //get all records from the machines table by giving the machineType and the gymemail
-                    $arr7['machineType'] = $machinelist[$i];
+                    $arr7['machineType'] = $machinelist[0];
                     $arr7['gymemail'] = $regmemberdeets->gymemail;
                     $machinetable = new Machine;
                     $machinedeets = $machinetable->where($arr7);
@@ -188,7 +188,7 @@ class Gymschedule
                         $newschedule = new Schedule;
                         $arr9['date'] = $_POST['date'];
                         $arr9['startingtime'] = $startingtime->format('H:i:s');
-                        $arr9['machine'] = $machinelist[$i];
+                        $arr9['machine'] = $machinelist[0];
                         $arr9['gymemail'] = $regmemberdeets->gymemail;
                         $arr9['memberemail'] = $_SESSION['email'];
                         $arr9['status'] = 1;

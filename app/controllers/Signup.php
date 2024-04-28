@@ -33,13 +33,47 @@ class Signup {
         
         $data = [];
 
+
+        
+        // Handle OTP verification and user insertion
         if ($_SERVER['REQUEST_METHOD']=='POST') {
+            if(isset($_POST['otp'])) {
+                $otptbl = new Otp;
+                $arr['email'] = $_POST['semail'];
+                $otpdata = $otptbl->first($arr);
+                // print_r($_POST);
+                // print_r($otpdata);
+                
+                if(property_exists($otpdata, 'email')) {
+                    if($otpdata->otpcode == $_POST['otp']) {
+                        $arr2['name'] = $otpdata->name;
+                        $arr2['lastname'] = $otpdata->lastname;
+                        $arr2['email'] = $otpdata->email;
+                        $arr2['password'] = $otpdata->password;
+                        $arr2['usertype'] = $otpdata->usertype;
+                        $user=new User;
+                        $user->insert($arr2);
+                       // print_r("hello isde confirmtion");
+                       redirect('login');
+                    } else {
+                        $data['errors'] = "Incorrect OTP Code";
+                    }
+                }
+            }
+        }
+
+        $this->view('Main/signup', $data);
+    }
+
+    public function submitform(){
+            
+            $_POST[] = json_decode(file_get_contents("php://input"), true);
             // If OTP is not set, handle signup process
             if(!isset($_POST['otp'])) {
-                print_r("hello");
-                print_r($_POST);
+                // print_r("hello");
+                // print_r($_POST);
                 
-                $user = new User;
+                //$user = new User;
                 // Validate user input (currently set to always true)
                 if(true) {
                     if($_POST['password']==$_POST['passwordConfirm']) {
@@ -53,11 +87,17 @@ class Signup {
                         $data['email'] = $_POST['email'];
                         $otptbl->insert($_POST);
 
+                        // // Send OTP email
+                        // require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/Exception.php';
+                        // require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/PHPMailer.php';
+                        // require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/SMTP.php';
+                        // require 'C:/xa/htdocs/FitFusion/public/assets/mailconfig.php';
+
                         // Send OTP email
-                        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/Exception.php';
-                        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/PHPMailer.php';
-                        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/SMTP.php';
-                        require 'C:/xa/htdocs/FitFusion/public/assets/mailconfig.php';
+                        require 'C:/wamp64/www/FitFusion/public/assets/PHPMailer/src/Exception.php';
+                        require 'C:/wamp64/www/FitFusion/public/assets/PHPMailer/src/PHPMailer.php';
+                        require 'C:/wamp64/www/FitFusion/public/assets/PHPMailer/src/SMTP.php';
+                        require 'C:/wamp64/www/FitFusion/public/assets/mailconfig.php';
                         
                         $email = $_POST['email'];
                         $subject = "OTP Verification Email";
@@ -80,40 +120,18 @@ class Signup {
                         $mail->AltBody = $message;
             
                         if(!$mail->send()) {
-                            print_r("email not sent");
+                           // print_r("email not sent");
                         } else {
-                            print_r("email sent");
+                           // print_r("email sent");
                         }
                     }
                 }
-                $data['errors'] = $user->errors;
+                //$data['errors'] = $user->errors;
             }
-        }
-        
-        // Handle OTP verification and user insertion
-        if ($_SERVER['REQUEST_METHOD']=='POST') {
-            if(isset($_POST['otp'])) {
-                $otptbl = new Otp;
-                $arr['email'] = $_POST['email'];
-                $otpdata = $otptbl->first($arr);
-                
-                if(property_exists($otpdata, 'email')) {
-                    if($otpdata->otpcode == $_POST['otp']) {
-                        $arr2['name'] = $otpdata->name;
-                        $arr2['lastname'] = $otpdata->lastname;
-                        $arr2['email'] = $otpdata->email;
-                        $arr2['password'] = $otpdata->password;
-                        $arr2['usertype'] = $otpdata->usertype;
-                        $user->insert($arr2);
-                        redirect('login');
-                    } else {
-                        $data['errors'] = "Incorrect OTP Code";
-                    }
-                }
-            }
-        }
-
-        $this->view('Main/signup', $data);
+            $arr3['email']=$_POST['email'];
+            $json=json_encode($arr3);
+            echo $json;
+            exit();
     }
 }
 ?>
