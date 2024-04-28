@@ -32,14 +32,21 @@ class Machine {
         if(empty($data['price'])) {
             $this->errors['price'] = "Price is required";
         } 
+        else{
+            if((int)$data['price']<0){
+                $this->errors['price'] = "Price should be  positive number";
+            }
+        }
         if(empty($data['warranty'])) {
             $this->errors['warranty'] = "Warranty is required";
         } 
+        else{
+            if((int)$data['warranty']<0){
+                $this->errors['warranty'] = "warranty should be  positive number";
+            }
+        }
 
-        if(empty($data['adjustability'])) {
-            $this->errors['adjustability'] = "Adjustability is required";
-
-        } 
+ 
 
         if(empty($this->errors)) {
             return true;

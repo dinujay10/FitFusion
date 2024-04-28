@@ -287,3 +287,6 @@ body {
 .common-link:hover {
     cursor: pointer;
 }
+/* .common-form-container .otp{
+    display: none;
+} */

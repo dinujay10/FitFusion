@@ -9,17 +9,14 @@
     <link rel="stylesheet" type="" href="<?= ROOT ?>/assets/css/Instructor/instr-main-template.css">
     <link rel="stylesheet" type="" href="<?= ROOT ?>/assets/css/Instructor/instr-body-template.css">
 
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
 </head>
 
 <body>
     <?php $data ?>
-    <?php
-    echo '<pre>';
-    var_dump($data);
-    echo '</pre>';
-    ?>
+
     <div class="main-container">
         <?php $data ?>
         <div class="side-bar-container">
@@ -64,6 +61,7 @@
                         </div>
                         <div class="sb-tab-content">
                             Create Plan
+
                         </div>
                     </li>
                 </a>
@@ -82,6 +80,7 @@
                 </a>
 
                 <a class="side-bar-tile-link" href="logout">
+
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -110,13 +109,14 @@
                     <div class="tall-tile">
                         <?php $data['instr'] ?>
                         <div class="pfp-tile">
-                            <div class="pfp-big"></div>
+                            <div class="pfp-big"><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg"></div>
                             <div class="db-button-tile">
                                 <a class="db-edit-button-link" href="instrprofile">
                                     <span class="material-symbols-outlined">
                                         edit
                                     </span>
                                     Edit
+
                                 </a>
                             </div>
                         </div>
@@ -125,6 +125,7 @@
                             <div class="profile-info-value"><?php
                                                             echo $data['instr']['email'];
                                                             ?></div>
+
                         </div>
                         <div class="profile-info">
                             <div class="profile-info-key">Manager email:</div>
@@ -178,6 +179,7 @@
                         </div>
                     </div>
                 </div>
+
 
 
             </div>

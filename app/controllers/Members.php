@@ -52,9 +52,12 @@ class Members{
            
  
         }
+
+
         public function assign(){
             if(isset($_GET['workoutid'])){
-                print_r("hello");
+                echo '<script>alert("assigned!!");</script>';
+              
                 $idd['workoutid']=$_GET['workoutid'];
             $arr['workoutid']=$_GET['workoutid'];
                $mem= new Registeredmembers;
@@ -63,6 +66,6 @@ class Members{
 
         }
    
+}
 
-    
-}}
+}

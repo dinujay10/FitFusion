@@ -2,7 +2,7 @@
 
 if ($_SERVER['SERVER_NAME'] == 'localhost') {
     // DB config
-    define('DBNAME', 'fitfusionnew');
+    define('DBNAME', 'fitfusion');
     define('DBHOST', 'localhost');
     define('DBUSER', 'root');
     define('DBPASS', '');

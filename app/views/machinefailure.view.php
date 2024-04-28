@@ -4,88 +4,178 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManageResourcesStyle.css">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/HandleMemberComplaintStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
 </head>
 <body>
-    <nav>
-        <div class = "logo">
-            <p>FitFusion</p>
-        </div>
+<div class="main-container">
+<div class="side-bar-container">
+            <div class="logo-tab">
+                FITFUSION
+            </div>
+            <ul class="side-bar-content">
+                
+                <!-- <li class="current-side-bar-tile">
+                    <div class="sb-tab-content">
+                        <span class="material-symbols-outlined">
+                            dashboard
+                        </span>
+                    </div>
+                    <div class="sb-tab-content">
+                        Dashboard
+                    </div>
+                </li> -->
 
-        <ul>
-            <li><a href ="#">Home</a></li>
-            <li><a href ="#">AboutUs</a></li>
-            <li><a href ="#">Services</a></li>
-            <li><a href ="login">Logout</a></li>
-        </ul>
-    </nav>
-            <div class="maincontainer">
-                <div class="tbl">
-                <table>
+                <a class="side-bar-tile-link" href="managerdash">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Dashboard
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="createworkoutplan">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           Create Workout Plan
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="viewworkoutplans">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           View Workout Plan
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="machinefailure">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                fitness_center
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Machine Failure
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="instructormeetings">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                deployed_code
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                        Meetings
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="memberfeed">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                         Feedbacks
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="logout">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                logout
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">Logout</div>
+                    </li>
+                </a>
+
+            </ul>
+        </div>
+    <div class="container">
+    <div class="body-header">
+                <div class="pfp">
+                    <!-- LET THE INSTRUCTOR UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
+                    <img src="#" alt="">
+                </div>
+                <div class="welcome-user">
+                    <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
+                    Welcome, InstructorName
+                </div>
+            </div>
+    <main class="table" id="customers_table">
+        <section class="table__header">
+            <h1>Report Machine Failure</h1>
+            <div class="input-group">
+                <input type="search" placeholder="Search Data...">
+                <img src="<?=ROOT?>/assets/images/search-btn.png" alt="" alt="">
+            </div>
+ 
+        </section>
+        <section class="table__body">
+            <table>
                 <thead>
                     <tr>
-                        <td scope=cole></td>
-                        <td scope=cole>MachineID</td>
-                        <td scope=cole>Machinetype</td>
-                        <td scope=cole>Price</td>
-                        <td scope=cole>Warranty</td>
-                        <td scope=cole>Adjustability</td>
+                        <th>Machine Id <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Machine Type <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Price<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Warranty<span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Status <span class="icon-arrow">&UpArrow;</span></th>
+                        <th>Report <span class="icon-arrow">&UpArrow;</span></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    for($x=0;$x<count($data);$x++){
-                        $row=$data[$x];
-                        $id=$row->id;
-                        $machineType=$row->machineType;
-                        $price=$row->price;
-                        $warranty=$row->warranty;
-                        $adjustability=$row->adjustability;
-
-                        echo ' <tr>
-                        <th scope="row"></th>
-                        <td>'.$id.'</td>
-                        <td>'.$machineType.'</td>
-                        <td>'.$price.'</td>
-                        <td>'.$warranty.'</td>
-                        <td>'.$adjustability.'</td>
+                <?php
+                foreach($data as $x){
+                    
+                    echo '
+                    <tr>
+                        <td> '.$x->id.' </td>
+                    
+                        <td> '.$x->machineType.'  </td>
+                        <td>  '.$x->price.' </td>
+                        <td>'.$x->warranty.'</td>
+                        <td>'.$x->adjustability.'</td>
+                     
                         <td>
-                            <button><a href="reportfailure?machineid='.$id.'">Report</a></button>
-                             
+                         <button><a href="reportfailure?machineid='.$x->id.'">Report</a></button>
                         </td>
-                        <br>
-                    </tr> ';
-                    }
-                    //$raw= mysqli_fetch_assoc($data);
-                    //echo '<pre>'; print_r($data); echo '</pre>';
-                    //var_dump($data[0]);
-
-                    ?>
+                    </tr>
+                    ';
+                }
+                ?>
+                    
+                    
                 </tbody>
             </table>
-               
-                        
-                </div>
-            
-       
-            
-           
-            <!-- <div class="machine">
-                <div class="c1">
-                    <img src="../CSS/ma1.jpeg" alt=""><br><br>  
-                </div>
-                <div class="c2">
-                    <h4>Machine Id : s100</h4><br>
-                    <h4>Description : Soozier 100 lb stack Multi </h4><br>
-                    <h4>Status : working</h4>
-                    <input type="submit" value="Update">
-                    <input type="submit" value="Remove">
-                </div>   
-            </div> -->
-
-            
-            
-         
-
+        </section>
+    </main>
+    </div>
+    <script src="<?=ROOT?>/assets/js/replymembercomplaint.js"></script>
+    </div>
 </body>
 </html>

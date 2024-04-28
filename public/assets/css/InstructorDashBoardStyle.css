@@ -50,7 +50,8 @@ td {
 }
 .side-menu {
     position: fixed;
-    background:rgb(239, 179, 69);
+    background:black;
+   /* rgb(239, 179, 69);*/
     width: 20vw;
     min-height: 100vh;
     display: flex;
@@ -62,21 +63,23 @@ td {
     height: 40px;
     border-radius: 50%;
 }
-.side-menu .brand-name {
+.side-menu .brand-name h1{
+    color:rgb(239, 179, 69);
     height: 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 .side-menu li {
-    font-size: 24px;
+    margin-top: 5px;
+    font-size: 25px;
     padding: 10px 40px;
     color: white;
     display: flex;
     align-items: center;
 }
 .side-menu li:hover {
-    background: rgb(245, 249, 233);
+    background: rgb(239, 179, 69);
     color: black;
     border-radius: 10px;
 }
@@ -349,7 +352,7 @@ input[type="submit"] {
 }
 
 footer {
-    position:relative;
+    position: fixed;
     background-color: #fff;
     color:  #333;
     text-align: center;

@@ -1,296 +1,136 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Manager Dashboard</title>
 
-
-<html>
-    <head>
-        <title>FitFusion</title>
-        <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/sidebarnew.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" /> 
-        <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    </head>
-    <body>
-        <!-- <header> -->
-            <!-- <a href="#" class = "logo">
-                <img src="<?=ROOT?>/assets/images/LogoFinal.png" alt="logo">
-            </a> -->
-            <!-- <ul class="navmenu"> -->
-                <!-- <li><a href ="home">Home</a></li>
-                <li><a href ="signup">Sign Up</a></li> -->
-                <!-- <li><a href ="home">Log Out</a></li>
-            </ul> -->
-
-            <!-- <div class="nav-icon"> -->
-                <!-- <a href="#"><i class='bx bx-search-alt'></i></a>
-                <a href="searchgyms"><i class='bx bx-dumbbell' ></i></a>
-                <a href="searchnutritionists"><i class='bx bxs-bowl-rice'></i></a> -->
-
-                <!-- <div class="bx bx-menu" id="menu-icon"></div> -->
-                <!-- <label for="check" class="checkbtn">
-                    <i class="fa fa-bars"></i>
-                </label>
+</head>
+<body>
+<div class="main-container">
+<div class="side-bar-container">
+            <div class="logo-tab">
+                FITFUSION
             </div>
-        </header> -->
-
-        <nav>
-            <ul>
-                <li>
-                    <a href="#" class="sidebar-logo">
-                    <img src="<?=ROOT?>/assets/images/Logo.png" alt="">
-                    <span class="nav-item">Member Dashboard</span>
-                </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">account_circle</span>
-                        <span class="nav-item">Profile</span>                    
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">schedule</span> 
-                        <span class="nav-item">Gym Schedule</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="scheduleinterface">
-                        <span class="material-symbols-outlined">schedule</span> 
-                        <span class="nav-item">My Schedule</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">monitoring</span> 
-                        <span class="nav-item">My Progress</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">task</span> 
-                        <span class="nav-item">Task List</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        <span class="material-symbols-outlined">groups</span> 
-                        <span class="nav-item">Meetings</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="complaintc">
-                        <span class="material-symbols-outlined">star</span> 
-                        <span class="nav-item">Make Complaints</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="logout" class="logout">
-                        <span class="material-symbols-outlined">logout</span> 
-                        <span class="nav-item">Logout</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-        <section class="search-container">
-            <form action="" class="search-bar">
-                <input type="text" placeholder="Seach for a Gym or a Nutritionist" name="search">
-                <button type="submit"><img src="<?=ROOT?>/assets/images/search-btn.png" alt="search"></button>
-            </form>
-        </section>
-
-        <!-- Gyms section -->
-        <section class="gym" id="gym">
-            <div class="gym-list">
-                <!-- GYM 1 -->
-           
-                <?php
-
-
-
-                    for($x=0;$x<count($data);$x++){
-                    echo '<a href="gympagetest?id='.$data[$x]['id'].'">
-                    <div class="gym-row">
-                    <img src="'.ROOT.'/assets/uploadgymimages/'.$data[$x]['gymimages'].'" alt="">
-                    
-                    <div class="gym-text">
-                        <h5>'.$data[$x]['location2'].' ,'.$data[$x]['location3'].'</h5>
-                    </div>
-                    
-                    <div class="rating">
-                        <i class="bx bx-star" ></i>
-                        <i class="bx bx-star" ></i>
-                        <i class="bx bx-star" ></i>
-                        <i class="bx bx-star" ></i>
-                        <i class="bx bx-star" ></i>
-
-                    </div>
-                    <div class="price">
-                        <h4>'.$data[$x]['gymName'].'</h4>
-                        <p>Rs. 3000 onwards</p>
-                    </div>
-                </div>   </a> '  ;
-                    }
-                ?>
+            <ul class="side-bar-content">
                 
+                <!-- <li class="current-side-bar-tile">
+                    <div class="sb-tab-content">
+                        <span class="material-symbols-outlined">
+                            dashboard
+                        </span>
+                    </div>
+                    <div class="sb-tab-content">
+                        Dashboard
+                    </div>
+                </li> -->
 
-               
-            </div>
-        </section>
+                <a class="side-bar-tile-link" href="managerdash">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Dashboard
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="createworkoutplan">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           Create Workout Plan
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="viewworkoutplans">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           View Workout Plan
+                        </div>
+                    </li>
+                </a>
 
-        <!-- Nutritionist List -->
-        <section class="nutritionist" id="nutritionist">
-            <div class="nutri-list">
-                <!-- NUTRI 1 -->
-                <div class="nutri-row">
-                    <img src="<?=ROOT?>/assets/images/nutri1.jpg" alt="">
-                    
-                    <!-- <div class="nutri-text">
-                        <h5>Nugegoda, Colombo</h5>
-                    </div> -->
-                    <div class="heart-icon">
-                        <i class='bx bx-heart'></i>
-                    </div>
-                    <div class="rating">
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                    </div>
-                    <div class="price">
-                        <h4>Nutritionist1</h4>
-                        <p>Rs. 3000 onwards</p>
-                    </div>
-                </div>
+                <a class="side-bar-tile-link" href="selectunavailableslot">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                fitness_center
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Unavailable Times
+                        </div>
+                    </li>
+                </a>
 
-                <!-- GYM 2 -->
-                <div class="nutri-row">
-                    <img src="<?=ROOT?>/assets/images/nutri2.jpg" alt="">
-                    <!-- <div class="nutri-text">
-                        <h5>Nugegoda, Colombo</h5>
-                    </div> -->
-                    <div class="heart-icon">
-                        <i class='bx bx-heart'></i>
-                    </div>
-                    <div class="rating">
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                    </div>
+                <a class="side-bar-tile-link" href="instructormeetings">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                deployed_code
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                        Meetings
+                        </div>
+                    </li>
+                </a>
 
-                    <div class="price">
-                        <h4>Nutritionist2</h4>
-                        <p>Rs. 3000 onwards</p>
-                    </div>
-                </div>
+                <a class="side-bar-tile-link" href="memberfeed">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                groups
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                         Feedbacks
+                        </div>
+                    </li>
+                </a>
 
-                <!-- GYM 3 -->
-                <div class="nutri-row">
-                    <img src="<?=ROOT?>/assets/images/nutri3.jpg" alt="">
-                    
-                    <!-- <div class="nutri-text">
-                        <h5>Nugegoda, Colombo</h5>
-                    </div> -->
-                    <div class="heart-icon">
-                        <i class='bx bx-heart'></i>
-                    </div>
-                    <div class="rating">
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                    </div>
+                <a class="side-bar-tile-link" href="logout">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                logout
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">Logout</div>
+                    </li>
+                </a>
 
-                    <div class="price">
-                        <h4>Nutritionist3</h4>
-                        <p>Rs. 3000 onwards</p>
-                    </div>
-                </div>
-
-                <!-- GYM 4 -->
-                <div class="nutri-row">
-                    <img src="<?=ROOT?>/assets/images/nutri4.jpg" alt="">
-                    
-                    <!-- <div class="nutri-text">
-                        <h5>Nugegoda, Colombo</h5>
-                    </div> -->
-                    <div class="heart-icon">
-                        <i class='bx bx-heart'></i>
-                    </div>
-                    <div class="rating">
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                    </div>
-
-                    <div class="price">
-                        <h4>Nutritionist4</h4>
-                        <p>Rs. 3000 onwards</p>
-                    </div>
-                </div>
-
-                <!-- GYM 5 -->
-                <div class="nutri-row">
-                    <img src="<?=ROOT?>/assets/images/nutri5.jpg" alt="">
-                    
-                    <!-- <div class="nutri-text">
-                        <h5>Nugegoda, Colombo</h5>
-                    </div> -->
-                    <div class="heart-icon">
-                        <i class='bx bx-heart'></i>
-                    </div>
-                    <div class="rating">
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                    </div>
-
-                    <div class="price">
-                        <h4>Nutritionist5</h4>
-                        <p>Rs. 3000 onwards</p>
-                    </div>
-                </div>
-
-                <!-- GYM 6 -->
-                <div class="nutri-row">
-                    <img src="<?=ROOT?>/assets/images/nutri6.jpg" alt="">
-                    <!-- <div class="nutri-text">
-                        <h5>Nugegoda, Colombo</h5>
-                    </div> -->
-                    <div class="heart-icon">
-                        <i class='bx bx-heart'></i>
-                    </div>
-                    <div class="rating">
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                        <i class='bx bx-star' ></i>
-                    </div>
-
-                    <div class="price">
-                        <h4>Nutritionist6</h4>
-                        <p>Rs. 3000 onwards</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- footer -->
-        <section class="footer">
-        <div class="footer-info">
-            <img src="<?=ROOT?>/assets/images/LogoFinal.png" alt="logo">
+            </ul>
         </div>
-        </section>
 
-        <script src="<?=ROOT?>/assets/js/java.js"></script>
-
-    </body>
+    <div class="container">
+            <div class="body-header">
+                <div class="pfp">
+                    <!-- LET THE INSTRUCTOR UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
+                    <img src="#" alt="">
+                </div>
+                <div class="welcome-user">
+                    <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
+                    Welcome, InstructorName
+                </div>
+            </div>
+       
+    </div>
+    </div>  
+</body>
 </html>
