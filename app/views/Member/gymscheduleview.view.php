@@ -227,10 +227,7 @@
         </div>
         <div class="body-container">
             <div class="body-header">
-                <div class="pfp">
-                    <!-- LET THE MEMBER UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
-                    <img src="#" alt="">
-                </div>
+                
                 <div class="welcome-user">
                     Welcome, 
                     <!-- <?php
@@ -282,9 +279,12 @@
                     </form>
 
                     <?php
-                        if ($data['errors'] == 1) {
-                            echo "<script>alert('The time entered by the user is wrong.');</script>";
-                        }
+                        // if ($data['errors'] == 1) {
+                        //     echo "<script>alert('The time entered by the user is wrong.');</script>";
+                        // }
+                        // else {
+
+                        // }
                     ?>
                 </div>
                 

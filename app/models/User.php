@@ -7,6 +7,7 @@ class User {
     protected $table = 'user';
     
     protected $allowedColumns = [
+        'id',
         'name',
         'lastname',
         'email',

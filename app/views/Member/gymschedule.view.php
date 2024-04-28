@@ -28,7 +28,11 @@
 </head>
 
 <body>
-
+    <?php
+    echo '<pre>';
+    var_dump($data);
+    echo '</pre>';
+    ?>
     <div class="main-container">
         <div class="side-bar-container" style="position: relative;">
             <div class="logo-tab">
@@ -75,7 +79,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="scheduleinterface">
+                <a class="side-bar-tile-link" href="memberviewmealplan">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -130,10 +134,7 @@
         </div>
         <div class="body-container">
             <div class="body-header">
-                <div class="pfp">
-                    <!-- LET THE MEMBER UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
-                    <img src="#" alt="">
-                </div>
+
                 <div class="welcome-user">
                     Welcome,
                     <?php
@@ -168,7 +169,8 @@
 
                     echo '<div class="content-tile" style="height: 20%; flex-direction: row;">
                 <form class="schedule-form" method="POST" style="height: 40%;">
-                        <input class="date-box" type="date" id="date" name="date" min="' . date('Y-m-d', strtotime('+1 day')) . '" max="' . date('Y-m-d', strtotime('+1 month')) . '"/>
+                <input class="date-box" type="date" id="datePicker" name="date" min="' . date('Y-m-d', strtotime('+1 day')) . '" max="' . date('Y-m-d', strtotime('+1 month')) . '" onchange="sendDateToServer()">
+
                         <label for="timePicker">Choose a time:</label>
                         <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300" onchange=validateTime()>
                         <a class="schedule-form-button" href="gymscheduleview"><input class="schedule-submit-button" type="submit" value="submit"></a>
@@ -205,6 +207,27 @@
                 return false;
             }
             return true;
+        }
+
+        function sendDateToServer() {
+            var datePicker = document.getElementById('datePicker');
+            var selectedDate = datePicker.value;
+
+            // Create a new XMLHttpRequest
+            var xhr = new XMLHttpRequest();
+
+            // Configure it: GET-request for the URL /getDate with the selected date as a query parameter
+            xhr.open('GET', 'your-controller-path/getDate?date=' + encodeURIComponent(selectedDate), true);
+
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    // Handle response here: example
+                    console.log(xhr.responseText);
+                }
+            };
+
+            // Send the request
+            xhr.send();
         }
     </script>
 
