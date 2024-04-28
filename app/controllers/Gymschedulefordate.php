@@ -1,6 +1,6 @@
 <?php
 
-class Gymschedule
+class Gymschedulefordate
 {
     use Controller;
 
@@ -56,14 +56,52 @@ class Gymschedule
             // print_r($allmachines);
 
             // step 4 -> add the machines array to the $data
-            $data['allmachines'] = $allmachines;
+            $data['allmachines'] = array_unique($allmachines);
             $_SESSION['allmachines'] = $allmachines;
             // print_r($data);
+
+
+            $scheduletable = new Schedule;
+            $arr6['gymemail'] = $regmemberdeets->gymemail;
+            $dateTime = $_SESSION['date']->date;
+
+            // $dateTime = "2024-04-30 00:00:00.000000";
+            $parts = explode(" ", $dateTime);
+            $date = $parts[0];
+            // $date = new DateTime($dateInput);
+
+            $arr6['date'] = $date;
+            // print_r($date);
+            $arr6['status'] = 1;
+            $scheduledeets = $scheduletable->where($arr6);
+            // print_r($scheduledeets);
+
+            //iterate the $scheduledeets array
+            $allstartingtimes = [];
+            if($scheduledeets){
+                for ($i = 0; $i < count($scheduledeets); $i++) {
+                    $machine = $scheduledeets[$i]->machine;
+                    $time24 = $scheduledeets[$i]->startingtime;
+    
+                    $dateTime = DateTime::createFromFormat('H:i:s', $time24);
+                    $hour = $dateTime->format('H');
+                    // $dateTime = DateTime::createFromFormat('H:i:s', $time24);
+                    // $time12 = $dateTime->format('h:i A');
+                    array_push($allstartingtimes, [$machine,$hour]);
+                }
+            }
+            
+            // print_r($allstartingtimes);
+            $data['scheduledeets'] = $allstartingtimes;
+
+            
+
+
         } else {
             $data['flag'] = 0;
         }
 
-        
+
 
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -72,7 +110,7 @@ class Gymschedule
             $dateInput = $_POST['date'];
             $date = new DateTime($dateInput);
             $_SESSION['date'] = $date;
-            redirect('gymschedulefordate',$_SESSION);
+            redirect('gymschedulefordate', $_SESSION);
             // print_r('hiiiiiiii');
             // check what day the selected date is
             $dateInput = $_POST['date'];
@@ -221,7 +259,7 @@ class Gymschedule
 
 
 
-        $this->view('Member/gymschedule', $data);
+        $this->view('Member/gymschedulefordate', $data);
     }
 
     // Example Controller Method in PHP
@@ -229,7 +267,7 @@ class Gymschedule
     {
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-           $data=$_POST['date'];
+            $data = $_POST['date'];
         }
         header('Content-Type: application/json');
 
@@ -286,7 +324,6 @@ class Gymschedule
             'openTime' => $openTime,
             'closeTime' => $closeTime
         ];
-           
     }
 
     private function fetchMachineDetails($machineTypes, $date)

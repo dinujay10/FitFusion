@@ -84,6 +84,8 @@ class Editmemberprofile{
                 $data['height'] = $_POST['height'];
                 $data['weight'] = $_POST['weight'];
 
+                
+
                 redirect('editmemberprofile');
                     
 
