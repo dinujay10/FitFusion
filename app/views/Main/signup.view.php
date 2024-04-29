@@ -14,9 +14,9 @@
             display: none;
         }
         /* Show the signup form by default */
-        #signupForm {
+        /* #signupForm {
             display: block;
-        }
+        } */
     </style>
 </head>
 <body>

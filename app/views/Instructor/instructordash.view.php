@@ -79,6 +79,19 @@
                     </li>
                 </a>
 
+                <a class="side-bar-tile-link" href="memberfeed">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                editor_choice
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Member Reviews
+                        </div>
+                    </li>
+                </a>
+
                 <a class="side-bar-tile-link" href="logout">
 
                     <li class="side-bar-tile">
@@ -108,18 +121,7 @@
                 <div class="content-tile-column">
                     <div class="tall-tile">
                         <?php $data['instr'] ?>
-                        <div class="pfp-tile">
-                            <div class="pfp-big"><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg"></div>
-                            <div class="db-button-tile">
-                                <a class="db-edit-button-link" href="instrprofile">
-                                    <span class="material-symbols-outlined">
-                                        edit
-                                    </span>
-                                    Edit
-
-                                </a>
-                            </div>
-                        </div>
+                        
                         <div class="profile-info">
                             <div class="profile-info-key">My email:</div>
                             <div class="profile-info-value"><?php
@@ -134,6 +136,18 @@
                         <div class="profile-info">
                             <div class="profile-info-key">Gym email:</div>
                             <div class="profile-info-value"><?= $data['instr']['gymemail'] ?></div>
+                        </div>
+
+                        <div class="pfp-tile">
+                            <div class="db-button-tile">
+                                <a class="db-edit-button-link" href="instrprofile">
+                                    <span class="material-symbols-outlined">
+                                        edit
+                                    </span>
+                                    Edit
+
+                                </a>
+                            </div>
                         </div>
 
                     </div>
