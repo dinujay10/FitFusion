@@ -78,25 +78,28 @@ class Gymschedulefordate
 
             //iterate the $scheduledeets array
             $allstartingtimes = [];
-            if($scheduledeets){
+            if ($scheduledeets) {
                 for ($i = 0; $i < count($scheduledeets); $i++) {
                     $machine = $scheduledeets[$i]->machine;
                     $time24 = $scheduledeets[$i]->startingtime;
-    
+
                     $dateTime = DateTime::createFromFormat('H:i:s', $time24);
                     $hour = $dateTime->format('H');
                     // $dateTime = DateTime::createFromFormat('H:i:s', $time24);
                     // $time12 = $dateTime->format('h:i A');
-                    array_push($allstartingtimes, [$machine,$hour]);
+                    array_push($allstartingtimes, [$machine, $hour]);
                 }
             }
-            
+
+            // print_r($_SESSION['date']);
+            $date = $_SESSION['date'];
+            // print_r($_SESSION);
+            // $dayOfWeek = $date->format('N');
+            // print_r($dayOfWeek);
+
+
             // print_r($allstartingtimes);
             $data['scheduledeets'] = $allstartingtimes;
-
-            
-
-
         } else {
             $data['flag'] = 0;
         }
@@ -107,14 +110,12 @@ class Gymschedulefordate
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             // redirect to gymschedulefordate page with the selected date
-            $dateInput = $_POST['date'];
-            $date = new DateTime($dateInput);
-            $_SESSION['date'] = $date;
-            redirect('gymschedulefordate', $_SESSION);
-            // print_r('hiiiiiiii');
+
+            print_r('hiiiiiiii');
             // check what day the selected date is
-            $dateInput = $_POST['date'];
-            $date = new DateTime($dateInput);
+            $dateInput = $_SESSION['date'];
+            // print_r($dateInput);
+            // $date = new DateTime($dateInput);
             $dayOfWeek = $date->format('N');
 
             if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
@@ -124,135 +125,244 @@ class Gymschedulefordate
             } elseif ($dayOfWeek == 7) {
                 $dayType = "Sunday";
             }
-            // print_r("The day is a " . $dayType);
 
-            // check the daytype and get the openhours of the gym
-            $gymtable = new Gym;
+            $formatteddate = $date->format('Y-m-d'); // 2024-12-30
 
-            $arr4['email'] = $regmemberdeets->gymemail;
-            $gymdeets = $gymtable->where($arr4);
-            // print_r($arr4['email']);
-            // print_r($gymdeets);
+            $mainstartingtime = $_POST['time'];
+            // print_r($data);
 
-            $openhrstable = new Openhours;
-            $arr5['gymName'] = $gymdeets[0]->gymName;
-            // print_r($gymdeets[0]->gymName);
-            $openhoursdeets = $openhrstable->first($arr5);
-            // print_r($openhoursdeets);
+            $startingtime = $mainstartingtime;
+
+            $gymemail = $_SESSION['gymemail'];
 
 
-
-            if ($dayType == 'Weekday') {
-                $opentime = $openhoursdeets->openhourswf;
-                $closetime = $openhoursdeets->openhourswt;
-            } elseif ($dayType == 'Saturday') {
-                $opentime = $openhoursdeets->openhourssaf;
-                $closetime = $openhoursdeets->openhourssat;
-            } elseif ($dayType == 'Sunday') {
-                $opentime = $openhoursdeets->openhourssuf;
-                $closetime = $openhoursdeets->openhourssut;
+            // step 3 -> get all the machines into an array
+            $allmachinestodo = [];
+            for ($i = 0; $i < count($allworkoutplandeets); $i++) {
+                array_push($allmachinestodo, $allworkoutplandeets[$i]->machine);
             }
 
-            // $opentime = substr($opentime, 0, 2);
-            // $closetime = substr($closetime, 0, 2);
-            $opentime = DateTime::createFromFormat('H:i:s', $opentime);
-            $data['opentime'] = $opentime;
-            $closetime = DateTime::createFromFormat('H:i:s', $closetime);
-            $data['closetime'] = $closetime;
+            
 
-            // print_r($opentime);
-            // print_r($closetime);
+            while (!empty($allmachinestodo)) {
+                print_r('while');
+                $currentmachine = $allmachinestodo[0];
+
+                //get all schedules
+                $arrschedules['gymemail'] = $gymemail;
+                $arrschedules['machine'] = $currentmachine;
+                $arrschedules['startingtime'] = $startingtime . ':00';
+                $arrschedules['status'] = 1;
+                $scheduledetails = ($scheduletable->where($arrschedules));
+
+                //get the number of current machines available in the gym
+                $arrmachines['machineType'] = $currentmachine;
+                $arrmachines['gymemail'] = $gymemail;
+                $machinetable = new Machine;
+                $machinedetails = $machinetable->where($arrmachines);
+
+                // get the maxtime of the machine
+                $maxtime = $machinedetails[0]->maxtime;
+                // print_r($maxtime);
+
+                $count2 = count($machinedetails);
+
+                //count the number of records in the $scheduledetails
+                $count1 = 0;
+                if ($scheduledetails) {
+                    print_r('firstif');
+                    $count1 = count($scheduledetails);
+                    // print_r($count1);
+                    if ($count1<$count2) {
+                        print_r('secondif');
+                        // can schedule
+
+                        // insert record
+                        $arrnewschedule['date'] = $formatteddate;
+                        $arrnewschedule['startingtime'] = $startingtime . ':00';
+                        $arrnewschedule['machine'] = $currentmachine;
+                        $arrnewschedule['gymemail'] = $gymemail;
+                        $arrnewschedule['memberemail'] = $_SESSION['email'];
+                        $arrnewschedule['status'] = 1;
+                        if($scheduletable->insert($arrnewschedule)) {
+                            print_r("Pass");
+                        }
+
+                        // increase starting time
+                        $dateTime = DateTime::createFromFormat('H:i', $startingtime);
+                        $dateTime->add(new DateInterval('PT' . $maxtime . 'M'));
+                        $startingtime = $dateTime->format('H:i');
+
+                        // pop machine from the $allmachinestodo list
+                        array_shift($allmachinestodo);
 
 
-            //get all relavent records from schedule table --- no need
-            $scheduletable = new Schedule;
-            $arr6['gymemail'] = $regmemberdeets->gymemail;
-            $arr6['date'] = $dateInput;
-            $arr6['status'] = 1;
-            $scheduledeets = $scheduletable->where($arr6);
-            // print_r($scheduledeets);
+                    }
+                    elseif ($count1==$count2) {
+                        print_r('elseif');
+                        // cannot schedule
+                        array_push($machinelist, array_shift($machinelist));
 
-            $startingtime = $_POST['time'];
-            // $startingtime = substr($startingtime, 0, 2);
-            $startingtime = DateTime::createFromFormat('H:i', $startingtime);
-            // print_r($startingtime);
-            $machinelist = $data['allmachines'];
-            // show($machinelist);
+                    }
+                } else {
+                    print_r('else');
+                    // can schedule
+
+                    // insert record
+                    $arrnewschedule['date'] = $formatteddate;
+                    $arrnewschedule['startingtime'] = $startingtime . ':00';
+                    $arrnewschedule['machine'] = $currentmachine;
+                    $arrnewschedule['gymemail'] = $gymemail;
+                    $arrnewschedule['memberemail'] = $_SESSION['email'];
+                    $arrnewschedule['status'] = 1;
+                    if($scheduletable->insert($arrnewschedule)) {
+                        print_r("Pass");
+                    }
+
+                    // increase starting time
+                    $dateTime = DateTime::createFromFormat('H:i', $startingtime);
+                    $dateTime->add(new DateInterval('PT' . $maxtime . 'M'));
+                    $startingtime = $dateTime->format('H:i');
+
+                    // pop machine from the $allmachinestodo list
+                    array_shift($allmachinestodo);
+                }
+
+
+                // show($startingtime);
+                // break;
+            }
+
+
             // die();
 
-            //while $machinelist is not empty
-            while (!empty($machinelist)) {
-                if ($startingtime < $opentime) {
-                    // TODO error
+            // // check the daytype and get the openhours of the gym
+            // $gymtable = new Gym;
 
-                    break;
-                } elseif ($startingtime > $closetime) {
-                    // TODO error
+            // $arr4['email'] = $regmemberdeets->gymemail;
+            // $gymdeets = $gymtable->where($arr4);
+            // // print_r($arr4['email']);
+            // // print_r($gymdeets);
 
-                    break;
-                } else {
-                    //get all records from the machines table by giving the machineType and the gymemail
-                    $arr7['machineType'] = $machinelist[0];
-                    $arr7['gymemail'] = $regmemberdeets->gymemail;
-                    $machinetable = new Machine;
-                    $machinedeets = $machinetable->where($arr7);
-                    // print_r($machinedeets);
+            // $openhrstable = new Openhours;
+            // $arr5['gymName'] = $gymdeets[0]->gymName;
+            // // print_r($gymdeets[0]->gymName);
+            // $openhoursdeets = $openhrstable->first($arr5);
+            // // print_r($openhoursdeets);
 
-                    // get the max time from the first record taken
-                    $maxtime = $machinedeets[0]->maxtime;
-                    // print_r($maxtime);
 
-                    // store the number of records taken in count1
-                    if ($machinedeets) {
-                        $count1 = count($machinedeets);
-                        // print_r($count1);
-                    }
 
-                    // get the records from the schedule table by giving the starting time, machineType and the gymemail
-                    $scheduletable = new Schedule;
-                    $arr8['gymemail'] = $regmemberdeets->gymemail;
-                    $arr8['date'] = $dateInput;
-                    $arr8['status'] = 1;
-                    // print_r($startingtime);
-                    $arr8['startingtime'] = $startingtime->format('H:i:s');
-                    $relaventschedules = $scheduletable->where($arr8);
-                    // print_r($relaventschedules);
+            // if ($dayType == 'Weekday') {
+            //     $opentime = $openhoursdeets->openhourswf;
+            //     $closetime = $openhoursdeets->openhourswt;
+            // } elseif ($dayType == 'Saturday') {
+            //     $opentime = $openhoursdeets->openhourssaf;
+            //     $closetime = $openhoursdeets->openhourssat;
+            // } elseif ($dayType == 'Sunday') {
+            //     $opentime = $openhoursdeets->openhourssuf;
+            //     $closetime = $openhoursdeets->openhourssut;
+            // }
 
-                    // store that number of records as count2
-                    $count2 = 0;
-                    if ($relaventschedules) {
-                        $count2 = count($relaventschedules);
-                        // print_r($count2);
-                    }
+            // // $opentime = substr($opentime, 0, 2);
+            // // $closetime = substr($closetime, 0, 2);
+            // $opentime = DateTime::createFromFormat('H:i:s', $opentime);
+            // $data['opentime'] = $opentime;
+            // $closetime = DateTime::createFromFormat('H:i:s', $closetime);
+            // $data['closetime'] = $closetime;
 
-                    if ($count2 == $count1) {
-                        // cannot schedule
-                        // pop the first element in the $machinelist and append it to the end of the array
-                        array_push($machinelist, array_shift($machinelist));
-                    } elseif ($count2 == 0 or $count2 < $count1) {
-                        // can schedule
-                        // insert the row
-                        $newschedule = new Schedule;
-                        $arr9['date'] = $_POST['date'];
-                        $arr9['startingtime'] = $startingtime->format('H:i:s');
-                        $arr9['machine'] = $machinelist[0];
-                        $arr9['gymemail'] = $regmemberdeets->gymemail;
-                        $arr9['memberemail'] = $_SESSION['email'];
-                        $arr9['status'] = 1;
-                        $newschedule->insert($arr9);
-                        // print_r($newschedule);
+            // // print_r($opentime);
+            // // print_r($closetime);
 
-                        // startingtime = startingtime + maxtime;
-                        $interval = new DateInterval('PT' . $maxtime . 'M');
-                        $startingtime->add($interval);
-                        // echo $startingtime->format('Y-m-d H:i:s');
-                        // print_r($startingtime);
 
-                        // pop the first element in machinelist
-                        array_shift($machinelist);
-                    }
-                }
-            }
+            // //get all relavent records from schedule table --- no need
+            // $scheduletable = new Schedule;
+            // $arr6['gymemail'] = $regmemberdeets->gymemail;
+            // $arr6['date'] = $date->format('Y-m-d');
+            // $arr6['status'] = 1;
+            // $scheduledeets = $scheduletable->where($arr6);
+            // print_r($scheduledeets);
+
+            // $startingtime = $_POST['time'];
+            // // $startingtime = substr($startingtime, 0, 2);
+            // $startingtime = DateTime::createFromFormat('H:i', $startingtime);
+            // // print_r($startingtime);
+            // $machinelist = $data['allmachines'];
+            // // show($machinelist);
+            // // die();
+
+            // //while $machinelist is not empty
+            // while (!empty($machinelist)) {
+            //     if ($startingtime < $opentime) {
+            //         // TODO error
+
+            //         break;
+            //     } elseif ($startingtime > $closetime) {
+            //         // TODO error
+
+            //         break;
+            //     } else {
+            //         //get all records from the machines table by giving the machineType and the gymemail
+            //         $arr7['machineType'] = $machinelist[0];
+            //         $arr7['gymemail'] = $regmemberdeets->gymemail;
+            //         $machinetable = new Machine;
+            //         $machinedeets = $machinetable->where($arr7);
+            //         // print_r($machinedeets);
+
+            //         // get the max time from the first record taken
+            //         $maxtime = $machinedeets[0]->maxtime;
+            //         // print_r($maxtime);
+
+            //         // store the number of records taken in count1
+            //         if ($machinedeets) {
+            //             $count1 = count($machinedeets);
+            //             // print_r($count1);
+            //         }
+
+            //         // get the records from the schedule table by giving the starting time, machineType and the gymemail
+            //         $scheduletable = new Schedule;
+            //         $arr8['gymemail'] = $regmemberdeets->gymemail;
+            //         $arr8['date'] = $date->format('Y-m-d');
+            //         $arr8['status'] = 1;
+            //         // print_r($startingtime);
+            //         $arr8['startingtime'] = $startingtime->format('H:i:s');
+            //         $relaventschedules = $scheduletable->where($arr8);
+            //         // print_r($relaventschedules);
+
+            //         // store that number of records as count2
+            //         $count2 = 0;
+            //         if ($relaventschedules) {
+            //             $count2 = count($relaventschedules);
+            //             // print_r($count2);
+            //         }
+
+            //         if ($count2 == $count1) {
+            //             // cannot schedule
+            //             // pop the first element in the $machinelist and append it to the end of the array
+            //             array_push($machinelist, array_shift($machinelist));
+            //         } elseif ($count2 == 0 or $count2 < $count1) {
+            //             // can schedule
+            //             // insert the row
+            //             $newschedule = new Schedule;
+            //             $arr9['date'] = $date->format('Y-m-d');
+            //             $arr9['startingtime'] = $startingtime->format('H:i:s');
+            //             $arr9['machine'] = $machinelist[0];
+            //             $arr9['gymemail'] = $regmemberdeets->gymemail;
+            //             $arr9['memberemail'] = $_SESSION['email'];
+            //             $arr9['status'] = 1;
+            //             $newschedule->insert($arr9);
+            //             // print_r($newschedule);
+
+            //             // startingtime = startingtime + maxtime;
+            //             $interval = new DateInterval('PT' . $maxtime . 'M');
+            //             $startingtime->add($interval);
+            //             // echo $startingtime->format('Y-m-d H:i:s');
+            //             // print_r($startingtime);
+
+            //             // pop the first element in machinelist
+            //             array_shift($machinelist);
+            //         }
+            //     }
+            // }
 
             redirect('gymscheduleview');
         }
@@ -335,4 +445,130 @@ class Gymschedulefordate
         }
         return $machineDetails;
     }
+
+    // public function mainscheduling() {
+    //     // redirect to gymschedulefordate page with the selected date
+
+    //     print_r('hiiiiiiii');
+    //     // check what day the selected date is
+    //     $dateInput = $_SESSION['date'];
+    //     // print_r($dateInput);
+    //     // $date = new DateTime($dateInput);
+    //     $dayOfWeek = $date->format('N');
+
+    //     if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+    //         $dayType = "Weekday";
+    //     } elseif ($dayOfWeek == 6) {
+    //         $dayType = "Saturday";
+    //     } elseif ($dayOfWeek == 7) {
+    //         $dayType = "Sunday";
+    //     }
+
+    //     $formatteddate = $date->format('Y-m-d'); // 2024-12-30
+
+    //     $mainstartingtime = $_POST['time'];
+    //     // print_r($data);
+
+    //     $startingtime = $mainstartingtime;
+
+    //     $gymemail = $_SESSION['gymemail'];
+
+
+    //     // step 3 -> get all the machines into an array
+    //     $allmachinestodo = [];
+    //     for ($i = 0; $i < count($allworkoutplandeets); $i++) {
+    //         array_push($allmachinestodo, $allworkoutplandeets[$i]->machine);
+    //     }
+
+        
+
+    //     while (!empty($allmachinestodo)) {
+    //         print_r('while');
+    //         $currentmachine = $allmachinestodo[0];
+
+    //         //get all schedules
+    //         $arrschedules['gymemail'] = $gymemail;
+    //         $arrschedules['machine'] = $currentmachine;
+    //         $arrschedules['startingtime'] = $startingtime . ':00';
+    //         $arrschedules['status'] = 1;
+    //         $scheduledetails = ($scheduletable->where($arrschedules));
+
+    //         //get the number of current machines available in the gym
+    //         $arrmachines['machineType'] = $currentmachine;
+    //         $arrmachines['gymemail'] = $gymemail;
+    //         $machinetable = new Machine;
+    //         $machinedetails = $machinetable->where($arrmachines);
+
+    //         // get the maxtime of the machine
+    //         $maxtime = $machinedetails[0]->maxtime;
+    //         // print_r($maxtime);
+
+    //         $count2 = count($machinedetails);
+
+    //         //count the number of records in the $scheduledetails
+    //         $count1 = 0;
+    //         if ($scheduledetails) {
+    //             print_r('firstif');
+    //             $count1 = count($scheduledetails);
+    //             // print_r($count1);
+    //             if ($count1<$count2) {
+    //                 print_r('secondif');
+    //                 // can schedule
+
+    //                 // insert record
+    //                 $arrnewschedule['date'] = $formatteddate;
+    //                 $arrnewschedule['startingtime'] = $startingtime . ':00';
+    //                 $arrnewschedule['machine'] = $currentmachine;
+    //                 $arrnewschedule['gymemail'] = $gymemail;
+    //                 $arrnewschedule['memberemail'] = $_SESSION['email'];
+    //                 $arrnewschedule['status'] = 1;
+    //                 if($scheduletable->insert($arrnewschedule)) {
+    //                     print_r("Pass");
+    //                 }
+
+    //                 // increase starting time
+    //                 $dateTime = DateTime::createFromFormat('H:i', $startingtime);
+    //                 $dateTime->add(new DateInterval('PT' . $maxtime . 'M'));
+    //                 $startingtime = $dateTime->format('H:i');
+
+    //                 // pop machine from the $allmachinestodo list
+    //                 array_shift($allmachinestodo);
+
+
+    //             }
+    //             elseif ($count1==$count2) {
+    //                 print_r('elseif');
+    //                 // cannot schedule
+    //                 array_push($machinelist, array_shift($machinelist));
+
+    //             }
+    //         } else {
+    //             print_r('else');
+    //             // can schedule
+
+    //             // insert record
+    //             $arrnewschedule['date'] = $formatteddate;
+    //             $arrnewschedule['startingtime'] = $startingtime . ':00';
+    //             $arrnewschedule['machine'] = $currentmachine;
+    //             $arrnewschedule['gymemail'] = $gymemail;
+    //             $arrnewschedule['memberemail'] = $_SESSION['email'];
+    //             $arrnewschedule['status'] = 1;
+    //             if($scheduletable->insert($arrnewschedule)) {
+    //                 print_r("Pass");
+    //             }
+
+    //             // increase starting time
+    //             $dateTime = DateTime::createFromFormat('H:i', $startingtime);
+    //             $dateTime->add(new DateInterval('PT' . $maxtime . 'M'));
+    //             $startingtime = $dateTime->format('H:i');
+
+    //             // pop machine from the $allmachinestodo list
+    //             array_shift($allmachinestodo);
+    //         }
+
+
+    //         // show($startingtime);
+    //         // break;
+    //     }
+    // }
 }

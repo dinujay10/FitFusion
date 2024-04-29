@@ -2,6 +2,10 @@
 <html>
 <head>
     <title>Workout Plan</title>
+
+    <link rel="stylesheet" type="" href="<?= ROOT ?>/assets/css/Instructor/instr-main-template.css">
+    <link rel="stylesheet" type="" href="<?= ROOT ?>/assets/css/Instructor/instr-body-template.css">
+
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <style>
@@ -121,7 +125,7 @@
                     </div>
                 </li> -->
 
-                <a class="side-bar-tile-link" href="managerdash">
+                <a class="side-bar-tile-link" href="instructordash">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">

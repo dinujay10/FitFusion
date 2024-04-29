@@ -274,7 +274,7 @@
                     ?>
                         
                     </div>
-                    <form class="schedule-buttons-bar" method="POST">
+                    <form class="schedule-buttons-bar" method="POST" action="Gymscheduleview/redirectToSchedule">
                         <input type="submit" value="Make New Schedule" class="schedule-button">
                     </form>
 

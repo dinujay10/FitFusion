@@ -126,7 +126,7 @@
 <body>
     <?php
     // echo '<pre>';
-    // var_dump($data);
+    // var_dump($_SESSION);
     // echo '</pre>';
     ?>
     <div class="main-container">
@@ -259,7 +259,7 @@
                             <form class="schedule-form" method="POST" style="height: 50%; width: 80%; gap: 1rem;">
                                 <label for="timePicker">Choose a time:</label>
                                 <input class="time" type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300">
-                                <button type="submit" class="schedule-submit-button-1">Get Schedule</button>
+                                <input type="submit" class="schedule-submit-button-1">
                                 <a href="getschedule" class="schedule-submit-button-1">Change Date</a>
                             </form>
                         <!-- </div> -->

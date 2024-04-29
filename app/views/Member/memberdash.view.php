@@ -214,7 +214,7 @@
                             <div class="content-info-key">Gym Location:</div>
                             <div class="content-info-value"><?php echo $data['location1'] . ', ' . $data['location2'] . ', ' . $data['location3']; ?></div>
                         </div>
-                        <button class="db-link-button">Change Gym</button>
+                        <!-- <button class="db-link-button">Change Gym</button> -->
                     </div>
 
                 </div>
@@ -248,7 +248,7 @@
                             <div class="content-info-key">Package Expiry Date:</div>
                             <div class="content-info-value">Backend data</div>
                         </div>
-                        <button class="db-link-button">Change Package</button>
+                        <!-- <button class="db-link-button">Change Package</button> -->
                     </div>
 
                 </div>

@@ -23,15 +23,53 @@
             font-size: 120%;
             border: 1px solid #27374D;
         }
+
+        .schedule-submit-button {
+            justify-content: center;
+            align-items: center;
+            /* background-color: aqua; */
+            width: 30%;
+            height: 60%;
+            border-radius: 20px;
+            font-size: 1rem;
+            border: 1px solid #27374D;
+        }
+
+        .schedule-form {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            /* background-color: aqua; */
+            width: 90%;
+            height: 90%;
+            font-size: 120%;
+            border: 1px solid #27374D;
+            gap: 3rem;
+        }
+
+        .date-box {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            /* background-color: aqua; */
+            width: 30%;
+            height: 60%;
+            border-radius: 20px;
+            font-size: 1rem;
+            border: 1px solid #27374D;
+        }
+
     </style>
 
 </head>
 
 <body>
     <?php
-    echo '<pre>';
-    var_dump($data);
-    echo '</pre>';
+    // echo '<pre>';
+    // var_dump($data);
+    // echo '</pre>';
     ?>
     <div class="main-container">
         <div class="side-bar-container" style="position: relative;">
@@ -151,12 +189,12 @@
                             </div>
                         <?php endforeach; ?>
                     </div> -->
-                    <div class="content-tile" style="height: 20%; flex-direction: row;">
+                    <div class="content-tile" style="height: 30%; flex-direction: row; width: 40%">
                         <form class="schedule-form" method="POST" style="height: 40%;">
                             <input class="date-box" type="date" id="datePicker" name="date" min="<?= date('Y-m-d', strtotime('+1 day')) ?>" max="<?= date('Y-m-d', strtotime('+1 month')) ?>" onchange="sendDateToServer()">
                             <!-- <label for="timePicker">Choose a time:</label>
                             <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300"> -->
-                            <button type="submit" class="schedule-submit-button">Submit</button>
+                            <button type="submit" class="schedule-submit-button">See Available Slots</button>
                         </form>
                     </div>
                 <?php else : ?>
