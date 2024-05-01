@@ -5,7 +5,9 @@
     <head>
         <title>FitFusion</title>
       
-        <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
+        <!-- <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css"> -->
+        <link rel="stylesheet" type="" href="<?= ROOT ?>/assets/css/Instructor/instr-main-template.css">
+    <link rel="stylesheet" type="" href="<?= ROOT ?>/assets/css/Instructor/instr-body-template.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     </head>
@@ -177,7 +179,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="">
+                <a class="side-bar-tile-link" href="nutrifeed">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -216,66 +218,90 @@
 
             </ul>
         </div>
-    <div class="container">
-    <div class="body-header">
+        <div class="body-container">
+
+            <div class="body-header">
                 <div class="pfp">
                     <!-- LET THE INSTRUCTOR UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
-                    <img src="#" alt="">
+                    <img src="" alt="">
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, <?php echo $data['nutri']['name'] ?>
+
                 </div>
-            </div
-
-        <!-- Gyms section -->
-        <!-- <section class="gym" id="gym">
-            <div class="gym-list">
-               
-           
-                <?php
-
-
-
-                    for($x=0;$x<count($data);$x++){
-                    echo '<a href="gympagetest?id='.$data[$x]['id'].'">
-                    <div class="gym-row">
-                    <img src="'.ROOT.'/assets/uploadgymimages/'.$data[$x]['gymimages'].'" alt="">
-                    
-                    <div class="gym-text">
-                        <h5>'.$data[$x]['location2'].', '.$data[$x]['location3'].'</h5>
-                    </div>
-                    
-                    <div class="rating">
-                        <i class="bx bx-star" ></i>
-                        <i class="bx bx-star" ></i>
-                        <i class="bx bx-star" ></i>
-                        <i class="bx bx-star" ></i>
-                        <i class="bx bx-star" ></i>
-
-                    </div>
-                    <div class="price">
-                        <h4>'.$data[$x]['gymName'].'</h4>
-                        <p>Rs. 3000 onwards</p>
-                    </div>
-                </div>   </a> '  ;
-                    }
-                ?>
-                
-
-               
             </div>
-        </section> -->
+            <div class="body-content">
 
+                <div class="content-tile-column">
+                    <div class="tall-tile">
+                        <?php $data['nutri'] ?>
+                        <div class="pfp-tile">
+                            <div class="pfp-big"><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg"></div>
+                            <div class="db-button-tile">
+                                <a class="db-edit-button-link" href="nutriprofile">
+                                    <span class="material-symbols-outlined">
+                                        edit
+                                    </span>
+                                    Profile
+                                </a>
+                            </div>
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-info-key">My email:</div>
+                            <div class="profile-info-value"><?php
+                            echo $data['nutri']['email'];
+                            ?></div>
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-info-key">Manager email:</div>
+                            <div class="profile-info-value"><?= $data['nutri']['manageremail'] ?></div>
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-info-key">Gym email:</div>
+                            <div class="profile-info-value"><?= $data['nutri']['gymemail'] ?></div>
+                        </div>
 
+                    </div>
+                </div>
+                <div class="content-tile-column">
+                    <div class="tall-tile">
+                        <?php $data['gym'] ?>
+                        <h1>My Gym</h1>
+                        <div class="profile-info">
+                            <div class="profile-info-key">Gym Name:</div>
+                            <div class="profile-info-value"><?= $data['gym']['name'] ?></div>
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-info-key">Gym email:</div>
+                            <div class="profile-info-value"><?= $data['gym']['email'] ?></div>
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-info-key">Manageremail:</div>
+                            <div class="profile-info-value"><?= $data['gym']['manageremail'] ?></div>
+                        </div>
+                        <div class="profile-info">
+                            <div class="profile-info-key">Description:</div>
+                            <div class="profile-info-value"><?= $data['gym']['description'] ?></div>
+                        </div>
 
-    </div>
-    <!-- CLOSED THE CONTAINER CLASS DIV -->
+                    </div>
+                </div>
+                <div class="content-tile-column">
+                    <div class="tall-tile">
+                    <h1>My Members</h1>
+                        <?php foreach ($data['membernames'] as $value): ?>
+                            <div class="profile-info">
+                                <div class="profile-info-value"><?= $value ?></div>
+                            </div>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
 
-        <!-- footer -->
-     
-<!-- 
-        <script src="<?=ROOT?>/assets/js/java.js"></script> -->
+             
+            </div>
+        </div>
+ 
 </div>
     </body>
 </html>

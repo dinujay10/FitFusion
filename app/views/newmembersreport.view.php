@@ -165,11 +165,11 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Manager
                 </div>
             </div>
     <div class="containera">
-      <h1 class="form-title">Generate new members report</h1>
+      <h1 class="form-title">Generate  Reports</h1>
       <form action="#" method="POST">
         <div class="main-user-info">
           
@@ -195,12 +195,21 @@
         
         <div class="form-submit-btn">
           <input type="submit" value="Generate Report">
-          <a href="newmemberspdf?startdate=<?=$data['startdate']?>&enddate=<?=$data['enddate']?>">New Member</a><br>
-          <a href="highmemberday?startdate=<?=$data['startdate']?>&enddate=<?=$data['enddate']?>">Busy Days</a><br>
-          <a href="revenuereport">Revenue Report</a>
+
         </div>
+        <?php
+if(isset($data['startdate'])){
+    echo '
+    <a href="newmemberspdf?startdate='.$data['startdate'].'&enddate='.$data['enddate'].'" style="margin-right:10px;margin-bottom:50px;margin-top:50px;display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);">New Member Report</a>
+    <a href="highmemberday?startdate='.$data['startdate'].'&enddate='.$data['enddate'].'" style="margin-right:10px;margin-bottom:50px;display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);">Busy Days Report</a>
+    <a href="revenuereport" style="margin-right:10px;margin-bottom:50px;display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);">Revenue Report</a>
+    ';
+}
+?>
       </form>
+      
     </div>
+
     </div>
 </div>
   </body>

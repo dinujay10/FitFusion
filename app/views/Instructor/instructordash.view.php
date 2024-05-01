@@ -26,7 +26,7 @@
             <ul class="side-bar-content">
 
 
-                <a class="side-bar-tile-link" href="instructrdash">
+                <a class="side-bar-tile-link" href="instructordash">
                     <li class="current-side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -75,6 +75,19 @@
                         </div>
                         <div class="sb-tab-content">
                             Meetings
+                        </div>
+                    </li>
+                </a>
+
+                <a class="side-bar-tile-link" href="selectunavailableslot">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                fitness_center
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                            Select Unavailable Time Slots
                         </div>
                     </li>
                 </a>

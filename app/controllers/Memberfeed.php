@@ -13,7 +13,7 @@ class Memberfeed{
             $data = [];
             $feedbacktable = new Memberfeedback ;
         
-            $feedbacks = $feedbacktable->findAll();
+            $feedbacks = $feedbacktable->where(['instructoremail'=> $_SESSION['email']]);
             
             foreach($feedbacks as $feedback){
                 $data[] = $feedback;

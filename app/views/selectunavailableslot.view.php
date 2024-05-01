@@ -27,7 +27,7 @@
                     </div>
                 </li> -->
 
-                <a class="side-bar-tile-link" href="managerdash">
+                <a class="side-bar-tile-link" href="instructordash">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -64,7 +64,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="machinefailure">
+                <a class="side-bar-tile-link" href="selectunavailableslot"">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -72,7 +72,7 @@
                             </span>
                         </div>
                         <div class="sb-tab-content">
-                            Machine Failure
+                           Select Unavailable Time Slots
                         </div>
                     </li>
                 </a>
@@ -124,13 +124,18 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Instructor
                 </div>
             </div>
+            <script>
+            <?php if ($_SERVER["REQUEST_METHOD"] == "POST"): ?>
+                alert("Updated successfully");
+            <?php endif; ?>
+        </script>
             <div class="main-slot">
                 <h1>Select Your Unavailable Time Slots</h1>
                 <div class="dateslot">
-                    <input type="date">
+                    <input type="date" min="<?= date('Y-m-d', strtotime('+1 day')) ?>">
                 </div>
                 <div class="timeslots">
                     <div class="timeslot" id="t9">
@@ -143,26 +148,27 @@
                         <b>11:00am</b>
                     </div>
                     <div class="timeslot" id="t12">
-                        <b>12:00am</b>
+                        <b>12:00pm</b>
                     </div>
                     <div class="timeslot" id="t13">
-                        <b>13:00am</b>
+                        <b>13:00pm</b>
                     </div>
                     <div class="timeslot" id="t14">
-                        <b>14:00am</b>
+                        <b>14:00pm</b>
                     </div>
                     <div class="timeslot" id="t15">
-                        <b>15:00am</b>
+                        <b>15:00pm</b>
                     </div>
                     <div class="timeslot" id="t16">
-                        <b>16:00am</b>
+                        <b>16:00pm</b>
                     </div>
                     <div class="timeslot" id="t17">
-                        <b>17:00am</b>
+                        <b>17:00pm</b>
                     </div>
                 </div>
                 <button>Submit</button>
             </div>
+            <div id="popupMessage" class="popup-message"></div>
 
     </div>
     <script src="<?=ROOT?>/assets/js/replymembercomplaint.js"></script>
@@ -198,9 +204,11 @@
 
             xhr.onload = function () {
                 if (xhr.status >= 200 && xhr.status < 300) {
+                    showPopupMessage('Data submitted successfully!', 'success');
                     // var responseData = JSON.parse(xhr.responseText);
                     // console.log('Response from backend:', responseData);
                 } else {
+                    showPopupMessage('Failed to submit data. Please try again later.', 'error');
                     console.error('Failed to send data:', xhr.statusText);
                 }
             };
@@ -222,6 +230,19 @@
 
         // Add event listener to the submit button
         document.querySelector('button').addEventListener('click', handleSubmit);
+
+        function showPopupMessage(message, type) {
+            const popupMessage = document.getElementById('popupMessage');
+            popupMessage.textContent = message;
+            popupMessage.classList.add(type); // Add CSS class based on message type
+            popupMessage.style.display = 'block'; // Show the popup message
+
+            // Hide the popup message after 6 seconds (adjust as needed)
+            setTimeout(() => {
+                popupMessage.style.display = 'none';
+                popupMessage.classList.remove(type); // Remove CSS class
+            }, 6000);
+        }
 
     </script>
 

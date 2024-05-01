@@ -97,6 +97,46 @@ class Gymschedulefordate
             // $dayOfWeek = $date->format('N');
             // print_r($dayOfWeek);
 
+            // // check the daytype and get the openhours of the gym
+            // $gymtable = new Gym;
+
+            // $arr4['email'] = $regmemberdeets->gymemail;
+            // $gymdeets = $gymtable->where($arr4);
+            // // print_r($arr4['email']);
+            // // print_r($gymdeets);
+
+            $openhrstable = new Openhours;
+            $arr5['gymName'] = $_SESSION['gymname'];
+            // print_r($gymdeets[0]->gymName);
+            $openhoursdeets = $openhrstable->first($arr5);
+            // print_r($openhoursdeets);
+            
+            $dayOfWeek = $date->format('N');
+
+            if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
+                $dayType = "Weekday";
+            } elseif ($dayOfWeek == 6) {
+                $dayType = "Saturday";
+            } elseif ($dayOfWeek == 7) {
+                $dayType = "Sunday";
+            }
+
+            if ($dayType == 'Weekday') {
+                $opentime = substr($openhoursdeets->openhourswf, 0, 2);
+                $closetime = substr($openhoursdeets->openhourswt, 0, 2);
+            } elseif ($dayType == 'Saturday') {
+                $opentime = substr($openhoursdeets->openhourssaf, 0, 2);
+                $closetime = substr($openhoursdeets->openhourssat, 0, 2);
+            } elseif ($dayType == 'Sunday') {
+                $opentime = substr($openhoursdeets->openhourssuf, 0, 2);
+                $closetime = substr($openhoursdeets->openhourssut, 0, 2);
+            }
+
+            $data['opentime'] = $opentime;
+            $data['closetime'] = $closetime;
+            // print_r($opentime);
+            // print_r($closetime);
+
 
             // print_r($allstartingtimes);
             $data['scheduledeets'] = $allstartingtimes;
@@ -117,6 +157,8 @@ class Gymschedulefordate
             // print_r($dateInput);
             // $date = new DateTime($dateInput);
             $dayOfWeek = $date->format('N');
+
+            
 
             if ($dayOfWeek >= 1 && $dayOfWeek <= 5) {
                 $dayType = "Weekday";
@@ -236,32 +278,11 @@ class Gymschedulefordate
 
             // die();
 
-            // // check the daytype and get the openhours of the gym
-            // $gymtable = new Gym;
-
-            // $arr4['email'] = $regmemberdeets->gymemail;
-            // $gymdeets = $gymtable->where($arr4);
-            // // print_r($arr4['email']);
-            // // print_r($gymdeets);
-
-            // $openhrstable = new Openhours;
-            // $arr5['gymName'] = $gymdeets[0]->gymName;
-            // // print_r($gymdeets[0]->gymName);
-            // $openhoursdeets = $openhrstable->first($arr5);
-            // // print_r($openhoursdeets);
+            
 
 
 
-            // if ($dayType == 'Weekday') {
-            //     $opentime = $openhoursdeets->openhourswf;
-            //     $closetime = $openhoursdeets->openhourswt;
-            // } elseif ($dayType == 'Saturday') {
-            //     $opentime = $openhoursdeets->openhourssaf;
-            //     $closetime = $openhoursdeets->openhourssat;
-            // } elseif ($dayType == 'Sunday') {
-            //     $opentime = $openhoursdeets->openhourssuf;
-            //     $closetime = $openhoursdeets->openhourssut;
-            // }
+            
 
             // // $opentime = substr($opentime, 0, 2);
             // // $closetime = substr($closetime, 0, 2);

@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/main-template.css">
-    <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/body-template.css">
+    <link rel="stylesheet" type="text/css" href="<?= ROOT ?>/assets/css/Member/main-template.css">
+    <link rel="stylesheet" type="text/css" href="<?= ROOT ?>/assets/css/Member/body-template.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> -->
     <style>
 
-        
-        
+
+
     </style>
 </head>
+
 <body>
     <div class="main-container">
         <div class="side-bar-container">
@@ -23,7 +25,7 @@
                 FITFUSION
             </div>
             <ul class="side-bar-content">
-                
+
                 <a class="side-bar-tile-link" href="memberdash">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
@@ -76,7 +78,7 @@
                     </li>
                 </a>
 
-                
+
 
                 <a class="side-bar-tile-link" href="makeComplaint">
                     <li class="side-bar-tile">
@@ -102,7 +104,7 @@
                     </div>
                 </li>
 
-                <a class="side-bar-tile-link" href="#">
+                <a class="side-bar-tile-link" href="logout">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -117,51 +119,57 @@
         </div>
         <div class="body-container">
             <div class="body-header">
-                
+
+                <a href="viewqrcode">
+                    <div class="qr-scan"><span class="material-symbols-outlined">
+                            qr_code_scanner
+                        </span></div>
+                </a>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
-                    Welcome, 
+                    Welcome,
                     <?php
                     echo $data['firstname'] . " " . $data['lastname'];
                     ?>
                 </div>
             </div>
             <div class="body-content">
-                    <form class="form-tile" method="POST">
-                            <div class="form-tile-content">
-                                <div class="form-tab-bar">
-                                    <div class="form-heading">Give Reviews</div>
-                                    <a class="tab-link" href="makereviewgym">
-                                        <div class="current-form-tab">Gym</div>
-                                    </a>
-                                    <a class="tab-link" href="makereviewinstructor">
-                                        <div class="form-tab">Instructor</div>
-                                    </a>
-                                    <a class="tab-link" href="makereviewnutritionist">
-                                        <div class="form-tab">Nutritionist</div>
-                                    </a>
-                                </div>
-                                <hr class="form-divider">
-                                <div class="form-content">
-                                    <div class="form-content-bar-text">
-                                        You can give your review on the Gym that you are registered to: 
-                                        <?php 
-                                            echo $data["gymname"];
-                                        ?>
-                                    </div>
-                                    
-                                    <div class="form-content-textarea-bar">
-                                        <!-- limit the number of characters!!!!! -->
-                                        <textarea class="textarea-tile" name="review" id="review" cols="87" rows="10" placeholder="Type your review here"></textarea>
-                                    </div>
-                                    <div class="form-content-bar">
-                                        <input class="submit-button" type="submit" value="Submit Review">
-                                    </div>
-                                </div>
+                <form class="form-tile" method="POST">
+                    <div class="form-tile-content">
+                        <div class="form-tab-bar">
+                            <div class="form-heading">Give Reviews</div>
+                            <a class="tab-link" href="makereviewgym">
+                                <div class="current-form-tab">Gym</div>
+                            </a>
+                            <a class="tab-link" href="makereviewinstructor">
+                                <div class="form-tab">Instructor</div>
+                            </a>
+                            <a class="tab-link" href="makereviewnutritionist">
+                                <div class="form-tab">Nutritionist</div>
+                            </a>
+                        </div>
+                        <hr class="form-divider">
+                        <div class="form-content">
+                            <div class="form-content-bar-text">
+                                You can give your review on the Gym that you are registered to:
+                                <?php
+                                echo $data["gymname"];
+                                ?>
                             </div>
-                    </form>
+
+                            <div class="form-content-textarea-bar">
+                                <!-- limit the number of characters!!!!! -->
+                                <textarea class="textarea-tile" name="review" id="review" cols="87" rows="10" placeholder="Type your review here"></textarea>
+                            </div>
+                            <div class="form-content-bar">
+                                <input class="submit-button" type="submit" value="Submit Review">
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </body>
+
 </html>

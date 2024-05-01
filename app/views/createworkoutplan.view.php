@@ -237,7 +237,7 @@
                     </div>
                 </li> -->
 
-                <a class="side-bar-tile-link" href="managerdash">
+                <a class="side-bar-tile-link" href="instructordash">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -274,7 +274,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="machinefailure">
+                <a class="side-bar-tile-link" href="selectunavailableslot">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -282,7 +282,7 @@
                             </span>
                         </div>
                         <div class="sb-tab-content">
-                            Machine Failure
+                            Select Unavailble Time Slots
                         </div>
                     </li>
                 </a>
@@ -335,16 +335,20 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Instructor
                 </div>
     </div>
 
     <form id="workoutForm" method="POST">
+        <script>
+            <?php if ($_SERVER["REQUEST_METHOD"] == "POST" ): ?>
+            alert("Workout Plan created successfully");
+            <?php endif; ?>
+        </script>
         <h1>Create Workout Plan</h1>
 
 
-        <label for="workout_id"><b>workout id:</b></label>
-        <input type="text" id="workout_id" name="workout_id" required>
+
 
         <label for="workoutname"><b>workout name:</b></label>
         <input type="text" id="workoutname" name="workoutname" required>
@@ -372,6 +376,9 @@
         <br>
         <label for="days_per_week"><b>Days per week:</b></label>
         <input class="nums1" type="number" id="days_per_week" name="days_per_week" min="0" required>
+
+        <label for="workout_id"><b>workout id:</b></label>
+        <input type="text" id="workout_id" name="workout_id" required>
 
         <!-- <label for="target_gender"><b></b></label>
         <input type="text" id="target_gender" name="target_gender" required> -->

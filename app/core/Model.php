@@ -131,7 +131,7 @@
 //     }
 
 //     public function deletemachine($id, $id_column = 'id') {
-//         $con=new mysqli('localhost','root','','fitfusion');
+//         $con=new mysqli('localhost','root','',DBNAME);
 //         //$con = $this->connect();
 //         $sql="delete from `machines` where id=$id";
 //         $result=mysqli_query($con,$sql);
@@ -143,7 +143,7 @@
 
 //     public function deletepackage($id, $id_column = 'id')
 //     {
-//         $con = new mysqli('localhost', 'root', '', 'fitfusion');
+//         $con = new mysqli('localhost', 'root', '', DBNAME);
 //         //$con = $this->connect();
 //         $sql = "delete from `packages` where id=$id";
 //         $result = mysqli_query($con, $sql);
@@ -156,7 +156,7 @@
 //         return false;
 //     }
 //     public function deletecomplaint($id, $id_column = 'id') {
-//         $con=new mysqli('localhost','root','','fitfusion');
+//         $con=new mysqli('localhost','root','',DBNAME);
 //         //$con = $this->connect();
 //         $sql="delete from `complaint` where id=$id";
 //         $result=mysqli_query($con,$sql);
@@ -169,7 +169,7 @@
 //         return false;
 //     }
 //     public function findMachineIds($managerEmail, $machineType) {
-//         $con = new mysqli('localhost', 'root', '', 'fitfusion');
+//         $con = new mysqli('localhost', 'root', '', DBNAME);
 //         if ($con->connect_error) {
 //             die("Connection failed: " . $con->connect_error);
 //         }
@@ -192,7 +192,7 @@
 
 
 //     public function findMachineIds($managerEmail, $machineType) {
-//         $con = new mysqli('localhost', 'root', '', 'fitfusion');
+//         $con = new mysqli('localhost', 'root', '', DBNAME);
 //         if ($con->connect_error) {
 //             die("Connection failed: " . $con->connect_error);
 //         }
@@ -358,7 +358,7 @@ trait Model
     }
 
     public function deletemachine($id, $id_column = 'id') {
-        $con=new mysqli('localhost','root','','fitfusion');
+        $con=new mysqli('localhost','root','',DBNAME);
         //$con = $this->connect();
         $sql="delete from `machines` where id=$id";
         $result=mysqli_query($con,$sql);
@@ -370,7 +370,7 @@ trait Model
 
     public function deletepackage($id, $id_column = 'id')
     {
-        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        $con = new mysqli('localhost', 'root', '', DBNAME);
         //$con = $this->connect();
         $sql = "delete from `packages` where id=$id";
         $result = mysqli_query($con, $sql);
@@ -383,7 +383,7 @@ trait Model
         return false;
     }
     public function deletecomplaint($id, $id_column = 'id') {
-        $con=new mysqli('localhost','root','','fitfusion');
+        $con=new mysqli('localhost','root','',DBNAME);
         //$con = $this->connect();
         $sql="delete from `complaint` where id=$id";
         $result=mysqli_query($con,$sql);
@@ -396,7 +396,7 @@ trait Model
     //     return false;
     }
     public function selectworkouttypes($iemail){
-        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        $con = new mysqli('localhost', 'root', '', DBNAME);
         if ($con->connect_error) {
             die("Connection failed: " . $con->connect_error);
         }
@@ -425,7 +425,7 @@ trait Model
         return $workouttypes;        
     }
     public function selectworkoutnames($iemail,$workouttype){
-        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        $con = new mysqli('localhost', 'root', '', DBNAME);
         if ($con->connect_error) {
             die("Connection failed: " . $con->connect_error);
         }
@@ -454,7 +454,7 @@ trait Model
         return $workoutnames;        
     }
     public function findMachineIds($managerEmail, $machineType) {
-        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        $con = new mysqli('localhost', 'root', '', DBNAME);
         if ($con->connect_error) {
             die("Connection failed: " . $con->connect_error);
         }
@@ -483,7 +483,7 @@ trait Model
         return $ids;
     }
     public function popularDays($managerEmail, $sdate, $edate) {
-        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        $con = new mysqli('localhost', 'root', '', DBNAME);
         if ($con->connect_error) {
             die("Connection failed: " . $con->connect_error);
         }
@@ -516,7 +516,7 @@ trait Model
     }
 
     public function packageIds($gymname) {
-        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        $con = new mysqli('localhost', 'root', '', DBNAME);
         if ($con->connect_error) {
             die("Connection failed: " . $con->connect_error);
         }
@@ -549,7 +549,7 @@ trait Model
     }
 
     public function packagePrice($ids) {
-        $con = new mysqli('localhost', 'root', '', 'fitfusion');
+        $con = new mysqli('localhost', 'root', '', DBNAME);
         if ($con->connect_error) {
             die("Connection failed: " . $con->connect_error);
         }

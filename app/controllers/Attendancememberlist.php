@@ -13,13 +13,16 @@ class Attendancememberlist{
             $members=$regmem->where($arr2);
 
             $count1=0;
-            foreach($members as $member){
-                if($member->generatedcode!=''){
-                    $data['qrmembers'][$count1]=$member;
-                    $count1++;
+            if(!empty($members)){
+                foreach($members as $member){
+                    if($member->generatedcode!=''){
+                        $data['qrmembers'][$count1]=$member;
+                        $count1++;
+                    }
+                    
                 }
-                
             }
+
            // print_r($data['qrmembers']);
             //$data=$members;
 

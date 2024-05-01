@@ -13,8 +13,7 @@ class Machine {
         'warranty',
         'adjustability',
         'manageremail',
-        'gyemail',
-        'maxtimes'
+        'maxtime'
 
     ];
     //$errors = [];

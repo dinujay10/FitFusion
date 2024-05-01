@@ -150,7 +150,7 @@ class Selectpackage
         $arr6['manageremail'] = $data['manageremail'];
         $gym = new Gym;
         $gymdeets = $gym->where($arr6);
-        print_r($gymdeets);
+        // print_r($gymdeets);
         $gymname = $gymdeets[0]->gymName;
         $gymemail = $gymdeets[0]->email;
 
@@ -167,7 +167,7 @@ class Selectpackage
             'weight' => 0,
             'age' => 0
         ];
-        print_r($arr7);
+        // print_r($arr7);
         $regmember = new Registeredmembers;
         $regmember->insert($arr7);
 

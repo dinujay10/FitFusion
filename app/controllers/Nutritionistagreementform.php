@@ -15,6 +15,9 @@ class Nutritionistagreementform{
             $data = [];
             $instructordetails = new Nutritionistdetails;
             $insagr=new Nutritionistagreement;
+            $user=new User;
+            $gym=new Gym;
+            $regins=new  Registerednutritionist;
             
 
             
@@ -32,6 +35,30 @@ class Nutritionistagreementform{
                 $email=$instructordata->nemail;
 
                 $_POST['nemail']=$email;
+
+                $manageremail=$instructordata->memail;
+                $arr4['manageremail']=$manageremail;
+                $gymdata=$gym->first($arr4);
+                $gymemail=$gymdata->email;
+
+                $arr5['instructoremail']=$email;
+                $arr5['manageremail']=$manageremail;
+                $arr5['gymemail']=$gymemail;
+
+                $regins->insert($arr5);
+
+                //add new user
+                $arr3['name']=$instructordata->name;
+                $arr3['lastname']="kaml";
+                $arr3['email']=$email;
+                $arr3['password']= password_hash($_POST['pwd'], PASSWORD_DEFAULT);
+                $arr3['usertype']="nutritionist";
+                if($user->unique($arr3)){
+                    $user->insert($arr3);
+                }
+                else{
+                    $data['errors']="Email already exist";
+                }
                 
 
                 //upload agreement pdf 
@@ -63,7 +90,7 @@ class Nutritionistagreementform{
 
                     unset($_POST['instructorid']);
                     $insagr->insert($_POST);
-                    redirect("appliednutritionists");
+                   // redirect("appliednutritionists");
 
                     
                     

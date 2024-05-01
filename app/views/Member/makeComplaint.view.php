@@ -97,7 +97,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="#">
+                <a class="side-bar-tile-link" href="logout">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -112,10 +112,14 @@
         </div>
         <div class="body-container">
             <div class="body-header">
-                
+            <a href="viewqrcode">
+                    <div class="qr-scan"><span class="material-symbols-outlined">
+                            qr_code_scanner
+                        </span></div>
+                </a>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
-                    Welcome, 
+                    Welcome,
                     <?php
                     echo $data['firstname'] . " " . $data['lastname'];
                     ?>

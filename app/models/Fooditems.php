@@ -16,10 +16,23 @@ class Fooditems
     public function validate($data)
     {
         $this->errors = [];
+        if(isset($data['item_name'])){
+            $count=0;
+            foreach($data['item_name'] as $item){
+                if((int)$data['calories'][$count]<0){
+                    $this->errors['calories'] = "Calory shold be a positive number";
+                    break;
+                }
+                $count++;
+            }
+        }
+        else{
+            $this->errors['item_name'] = "Item name is required";
+        }
+        if (empty($this->errors)) {
+            return true;
+        }
 
-        // validate email
-
-        // validate password
       
         return false;
     }
@@ -28,11 +41,11 @@ class Fooditems
     {
 
         $this->errors = [];
-        $arr['id'] = $data['id'];
+        $arr['fooditem'] = $data['fooditem'];
         //check unique email
         $unique = $this->first($arr);
         if (!empty($unique)) {
-            $this->errors['id'] = "ID is already in use";
+            $this->errors['fooditem'] = "Fooditem is already in use";
         }
 
 

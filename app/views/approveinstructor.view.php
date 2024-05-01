@@ -165,7 +165,7 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Manager
                 </div>
             </div>
     <div class="containera">

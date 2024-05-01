@@ -32,8 +32,11 @@ class Scheduleinstrmeeting{
 
             $regmembers = new Registeredmembers;
             $arr['memberemail'] = $_SESSION['email'];
+            // print_r($arr);
             $memberdetails = $regmembers->where($arr);
+            print_r($memberdetails);
             $gymemail = $memberdetails[0]->gymemail;
+            // print_r($gymemail);
             $data['gymemail'] = $gymemail;
 
             $reginstructors = new Registeredinstructor;
@@ -57,7 +60,7 @@ class Scheduleinstrmeeting{
                     $instructors = new User;
                     // print_r($instructors);
                     $arr3['email'] = $instructoremails;
-                    // print_r($arr3['email']);
+                    print_r($arr3['email']);
                     $instrdetails = $instructors->where($arr3);
                     $instrnames = $instrdetails[0]->name;
                     // print_r($instrnames);

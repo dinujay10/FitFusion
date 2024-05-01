@@ -168,7 +168,7 @@
                     <div class="complaint">
             
                         <h5>Complaint: '.$data[0]->description.'</h5><br>
-                        <h5>About Whom:'.$data[0]->towhom.'</h5><br>
+                      
                         <h5>Member Email:'.$data[0]->memberemail.'</h5><br>
                         <h5>Reply:'.$data[0]->reply.'</h5><br>
                         
@@ -179,9 +179,9 @@
                             
                             <input type="hidden" id="id" name="id" value="'.$data[0]->id.'">
                             <input type="hidden" id="description" name="description" value="'.$data[0]->description.'">
-                            <input type="hidden" id="towhom" name="towhom" value="'.$data[0]->towhom.'">
+                            <input type="hidden" id="towhom" name="towhom" value="'.$data[0]->type.'">
                             <input type="hidden" id="memberemail" name="memberemail" value="'.$data[0]->memberemail.'">
-
+                            <br>
                             <input type="submit" value="Edit">
                         </form>
                     
@@ -199,7 +199,7 @@
                         <div class="complaint delete">
                 
                             <h5>Complaint: '.$data[0]->description.'</h5><br>
-                            <h5>About Whom:'.$data[0]->towhom.'</h5><br>
+                           
                             <h5>Member Email:'.$data[0]->memberemail.'</h5><br>
                             <h5>Reply:'.$data[0]->reply.'</h5><br>
                             
@@ -221,7 +221,7 @@
                         <div class="complaint">
                 
                             <h5>Complaint: '.$data[0]->description.'</h5><br>
-                            <h5>About Whom:'.$data[0]->towhom.'</h5><br>
+                          
                             <h5>Member Email:'.$data[0]->memberemail.'</h5><br>
                         
                             <form method="POST">
@@ -229,9 +229,9 @@
                                 
                                 <input type="hidden" id="id" name="id" value="'.$data[0]->id.'">
                                 <input type="hidden" id="description" name="description" value="'.$data[0]->description.'">
-                                <input type="hidden" id="towhom" name="towhom" value="'.$data[0]->towhom.'">
+                                <input type="hidden" id="towhom" name="towhom" value="'.$data[0]->type.'">
                                 <input type="hidden" id="memberemail" name="memberemail" value="'.$data[0]->memberemail.'">
-    
+                                <br>
                                 <input type="submit" value="Reply">
                             </form>
                         

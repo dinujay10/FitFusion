@@ -15,7 +15,7 @@ class Packages
 
 
         $arr1['manageremail'] = $_SESSION['email'];
-        $data=$package->where($arr1);
+        $data['packages']=$package->where($arr1);
         //print_r($data);
 
         /////////////////////////////////////
@@ -29,7 +29,7 @@ class Packages
 
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-            if($package->unique($_POST) && $package->validate($_POST)){
+            if($package->validate($_POST)){
                 $package->insert($_POST);
                 redirect('packages');
             }

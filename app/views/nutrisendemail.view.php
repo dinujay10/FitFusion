@@ -130,6 +130,11 @@
                 </div>
             </div>
     <div class="containera">
+    <script>
+        <?php if ($_SERVER["REQUEST_METHOD"] == "POST"): ?>
+      alert("Email sent successfully");
+      <?php endif; ?>
+    </script>
       <h1 class="form-title">Send Email to Member </h1>
       <form action="#" method="POST" >
         <div class="main-user-info">
@@ -168,11 +173,11 @@
        if(isset($_POST['email']))
         {
           
-        require 'C:/xampp/htdocs/FitFusion/public/assets/PHPMailer/src/Exception.php';
-        require 'C:/xampp/htdocs/FitFusion/public/assets/PHPMailer/src/PHPMailer.php';
-        require 'C:/xampp/htdocs/FitFusion/public/assets/PHPMailer/src/SMTP.php';
+        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/Exception.php';
+        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/PHPMailer.php';
+        require 'C:/xa/htdocs/FitFusion/public/assets/PHPMailer/src/SMTP.php';
     
-        require 'C:/xampp/htdocs/FitFusion/public/assets/mailconfig.php';
+        require 'C:/xa/htdocs/FitFusion/public/assets/mailconfig.php';
         $email=$_POST['email'];
         $subject=$_POST['subject'];
         $message=$_POST['message'];

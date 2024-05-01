@@ -164,7 +164,7 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Manager
                 </div>
             </div>
     <main class="table" id="customers_table">
@@ -200,27 +200,33 @@
                 </thead>
                 <tbody>
                 <?php
-                foreach($data as $x){
-                    if(!$x->registered){
-                        echo '
-                        <tr>
-                            <td> '.$x->id.' </td>
-                        
-                            <td> '.$x->nemail.'  </td>
-                            <td>  '.$x->name.' </td>
-                            <td>'.$x->experience.'</td>
-                            <td>
-                            <a href="approvenutritionist?instructorid='.$x->id.'"><p class="status  Replied"> View </p></a>
-                            <a href="nutritionistagreementform?instructorid='.$x->id.'"><p class="status  view"> Approve </p></a>
-                            <a href="sendinstructoremail?instructorid='.$x->id.'"><p class="status  view"> Send Email </p></a>
-                            </td>
+                if(!empty($data)){
+                    foreach($data as $x){
+                        if(!$x->registered){
+                            echo '
+                            <tr>
+                                <td> '.$x->id.' </td>
+                            
+                                <td> '.$x->nemail.'  </td>
+                                <td>  '.$x->name.' </td>
+                                <td>'.$x->experience.'</td>
+                                <td>
+                                <a href="approvenutritionist?instructorid='.$x->id.'"><p class="status  Replied"> View </p></a>
+                                <a href="nutritionistagreementform?instructorid='.$x->id.'"><p class="status  view"> Approve </p></a>
+                                <a href="sendinstructoremail?instructorid='.$x->id.'"><p class="status  view"> Send Email </p></a>
+                                </td>
+                           
+                            </tr>
+                            ';
+                        }
                        
-                        </tr>
-                        ';
+                        
                     }
-                   
-                    
                 }
+                else{
+                    echo '<tr><td>Currently no nutritionist application</td></tr>';
+                }
+            
                 ?>
                     
                     

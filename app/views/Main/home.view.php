@@ -13,11 +13,11 @@
 <body>
     <header>
         <nav class="navbar">
-            <a href="#" class="logo">FITFUSION</a>
+            <a href="home" class="logo">FITFUSION</a>
             <ul class="menu-links">
                 <li><a href="home">home</a></li>
                 <li><a href="selectgym">search gyms</a></li>
-                <li><a href="#">Apply as a Manager</a></li>
+                <li><a href="managerapplygym">Apply as a Manager</a></li>
                 <li><a href="signup">Sign Up</a></li>
                 <li><a href="login">Log In</a></li>
             </ul>

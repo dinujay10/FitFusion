@@ -192,7 +192,7 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Manager
                 </div>
             </div>
             <div class="maincontainer">
@@ -211,8 +211,9 @@
                 <thead>
                     <tr>
                         <th> Machine Id <span class="icon-arrow">&UpArrow;</span></th>
-                        <th> Machinr Type <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Machine Type <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Price<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> Max Time(mins)<span class="icon-arrow">&UpArrow;</span></th>
                         <th> Warranty (years)<span class="icon-arrow">&UpArrow;</span></th>
                         <th>Status <span class="icon-arrow">&UpArrow;</span></th>
                         <th>Update <span class="icon-arrow">&UpArrow;</span></th>
@@ -220,20 +221,21 @@
                 </thead>
                 <tbody>
                 <?php
-                for($x=0;$x<count($data)-2;$x++){
-                    $row=$data[$x];
+                foreach($data['machines'] as $row){
+                    //$row=$data[$x];
                     echo '
                     <tr>
                         <td> '.$row->id.' </td>
                     
                         <td> '.$row->machineType.'  </td>
                         <td>  '.$row->price.' </td>
+                        <td>  '.$row->maxtime.' </td>
                         <td>'.$row->warranty.'</td>
                         <td>'.$row->adjustability.'</td>
                         
 
                         <td>
-                            <a href="updateresources?updateid='.$row->id.'"><p class="status view"> Update Status</p></a>
+                            <a href="updateresources?updateid='.$row->id.'"><p class="status view"> Status</p></a>
                         </td>
                         
                    
@@ -247,9 +249,20 @@
             </table>
         </section>
         </main>
+            <!-- <script>
+        <?php if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($errors)): ?>
+    alert("Machine Details added successfully");
+<?php endif; ?>
+        </script> -->
                 <div class="frm">
+                    
                                 <div class="secondcontainer">
                         <div class="addMachine">
+                        <?php if(!empty($errors)):?>
+                <div class="alert" style="background-color: #ffcccc; color: red; padding: 10px; border-radius: 5px;">
+                    <?= implode("<br>", $errors)?>
+                </div>
+                <?php endif ;?>
                             <h2>Add Machine</h2>
                             <form method="post">
                                 <input type="hidden" name="manageremail" id="manageremail" value="<?= $_SESSION['email']?>">
@@ -266,6 +279,10 @@
                                     <input type="number" name="price" id="price" >
                                 </div>
                                 <div class="inputBx">
+                                    <span>Max Time(mins)</span>
+                                    <input type="number" name="maxtime" id="maxtime" >
+                                </div>
+                                <div class="inputBx">
                                     <span>Warranty (years)</span>
                                     <input type="number" name="warranty" id="warranty" >
                                 </div>
@@ -273,7 +290,7 @@
                                 <div class="inputBx">
                                     <input type="hidden" name="adjustability" id="adjustability" value="working">
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <?php
                                         if($data['errors']!=''){
                                             for($x=0;$x<count($data['errors']);$x++){
@@ -283,7 +300,7 @@
                                         }
                                     ?>
 
-                                </div>
+                                </div> -->
                                 <div class="inputBx">
                                     <input type="submit" value="Submit">
                                 </div>

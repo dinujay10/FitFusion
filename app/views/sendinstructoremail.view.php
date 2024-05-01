@@ -165,10 +165,16 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Manager
                 </div>
             </div>
     <div class="containera">
+    <script>
+        <?php if ($_SERVER["REQUEST_METHOD"] == "POST" ): ?>
+    alert("Email sent successfully");
+<?php endif; ?>
+        </script>
+
       <h1 class="form-title">Send Email </h1>
       <form action="#" method="POST" >
         <div class="main-user-info">

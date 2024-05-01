@@ -26,7 +26,8 @@ class Createmealplan{
                 $data['mememail'][$count]=$mem->memberemail;
                 $count++;
             }    
-            $data['fooddetails']=$fooditems->findall();        
+            $data['fooddetails']=$fooditems->findall(); 
+                   
 
             if ($_SERVER['REQUEST_METHOD']=='POST') {
 
@@ -34,10 +35,11 @@ class Createmealplan{
                 $breakfastcount=0;
                 foreach($_POST['breakfast_name'] as $x){
                     $arr4['mealplanname']=$_POST['planname'];
-                    $arr4['day']=$_POST['day'];
+                   // $arr4['day']=$_POST['day'];
                     $arr4['mealtime']="breakfast";
                     $arr4['mealitem']=$x;
                     $arr4['quantity']=$_POST['breakfast_quantity'][$breakfastcount];
+                    $arr4['calories']=$_POST['breakfast_calories'][$breakfastcount];
                     $mealplans->insert($arr4);
                     $breakfastcount++;
                 }
@@ -46,10 +48,11 @@ class Createmealplan{
                 $snack1count=0;
                 foreach($_POST['snack1_name'] as $x){
                     $arr4['mealplanname']=$_POST['planname'];
-                    $arr4['day']=$_POST['day'];
+                   // $arr4['day']=$_POST['day'];
                     $arr4['mealtime']="snack1";
                     $arr4['mealitem']=$x;
                     $arr4['quantity']=$_POST['snack1_quantity'][$snack1count];
+                    $arr4['calories']=$_POST['snack1_calories'][$snack1count];
                     $mealplans->insert($arr4);
                     $snack1count++;
                 }
@@ -57,10 +60,11 @@ class Createmealplan{
                 $lunchcount=0;
                 foreach($_POST['lunch_name'] as $x){
                     $arr4['mealplanname']=$_POST['planname'];
-                    $arr4['day']=$_POST['day'];
+                    //$arr4['day']=$_POST['day'];
                     $arr4['mealtime']="lunch";
                     $arr4['mealitem']=$x;
                     $arr4['quantity']=$_POST['lunch_quantity'][$lunchcount];
+                    $arr4['calories']=$_POST['lunch_calories'][$lunchcount];
                     $mealplans->insert($arr4);
                     $lunchcount++;
                 }
@@ -68,10 +72,11 @@ class Createmealplan{
                 $snack2count=0;
                 foreach($_POST['snack2_name'] as $x){
                     $arr4['mealplanname']=$_POST['planname'];
-                    $arr4['day']=$_POST['day'];
+                   // $arr4['day']=$_POST['day'];
                     $arr4['mealtime']="snack2";
                     $arr4['mealitem']=$x;
                     $arr4['quantity']=$_POST['snack2_quantity'][$snack2count];
+                    $arr4['calories']=$_POST['snack2_calories'][$snack2count];
                     $mealplans->insert($arr4);
                     $snack2count++;
                 }
@@ -80,10 +85,11 @@ class Createmealplan{
                 $dinnercount=0;
                 foreach($_POST['dinner_name'] as $x){
                     $arr4['mealplanname']=$_POST['planname'];
-                    $arr4['day']=$_POST['day'];
+                  //  $arr4['day']=$_POST['day'];
                     $arr4['mealtime']="dinner";
                     $arr4['mealitem']=$x;
                     $arr4['quantity']=$_POST['dinner_quantity'][$dinnercount];
+                    $arr4['calories']=$_POST['dinner_calories'][$dinnercount];
                     $mealplans->insert($arr4);
                     $dinnercount++;
                 }

@@ -64,7 +64,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="">
+                <a class="side-bar-tile-link" href="nutritionistmeetings">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -142,7 +142,7 @@
             <div class="main-slot">
                 <h1>Select Your Unavailable Time Slots</h1>
                 <div class="dateslot">
-                    <input type="date">
+                    <input type="date" min="<?= date('Y-m-d', strtotime('+1 day')) ?>">
                 </div>
                 <div class="timeslots">
                     <div class="timeslot" id="t9">
@@ -155,22 +155,22 @@
                         <b>11:00am</b>
                     </div>
                     <div class="timeslot" id="t12">
-                        <b>12:00am</b>
+                        <b>12:00pm</b>
                     </div>
                     <div class="timeslot" id="t13">
-                        <b>13:00am</b>
+                        <b>13:00pm</b>
                     </div>
                     <div class="timeslot" id="t14">
-                        <b>14:00am</b>
+                        <b>14:00pm</b>
                     </div>
                     <div class="timeslot" id="t15">
-                        <b>15:00am</b>
+                        <b>15:00pm</b>
                     </div>
                     <div class="timeslot" id="t16">
-                        <b>16:00am</b>
+                        <b>16:00pm</b>
                     </div>
                     <div class="timeslot" id="t17">
-                        <b>17:00am</b>
+                        <b>17:00pm</b>
                     </div>
                 </div>
                 <button>Submit</button>
@@ -245,7 +245,7 @@
             popupMessage.classList.add(type); // Add CSS class based on message type
             popupMessage.style.display = 'block'; // Show the popup message
 
-            // Hide the popup message after 3 seconds (adjust as needed)
+            // Hide the popup message after 6 seconds (adjust as needed)
             setTimeout(() => {
                 popupMessage.style.display = 'none';
                 popupMessage.classList.remove(type); // Remove CSS class

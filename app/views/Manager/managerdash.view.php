@@ -10,6 +10,47 @@
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <style>
+        /* .recent-payments{
+            display:flex;
+        } */
+
+        .recent-payments table {
+    width: 900px;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.recent-payments th, .recent-payments td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    padding-right: 80px;
+}
+
+.recent-payments th {
+    background-color: #27496A;
+    color: white; /* Adjust header text color */
+}
+
+.recent-payments tbody {
+    display: block;
+    max-height: 300px; /* Adjust height as needed */
+    overflow-y: auto;
+    margin-left: 100px;
+}
+
+/* Alternating row colors */
+.recent-payments tr:nth-child(even) {
+    background-color: #add8e6; /* Light gray */
+}
+
+/* Hover effect */
+.recent-payments tr:hover {
+    background-color: #f0f0f0; /* Lighter gray on hover */
+}
+
+        </style>
 
 </head>
 <body>
@@ -189,7 +230,7 @@
             <div class="cards">
                 <div class="card">
                     <div class="box">
-                        <h1>754</h1>
+                        <h1><?php echo $data['regmems'];?></h1>
                         <h3>Members</h3>
                     </div>
                     <div class="icon-case">
@@ -198,7 +239,7 @@
                 </div>
                 <div class="card">
                     <div class="box">
-                        <h1>12</h1>
+                        <h1><?php echo $data['regnutri'] ;?></h1>
                         <h3>Nutritionists</h3>
                     </div>
                     <div class="icon-case">
@@ -207,75 +248,60 @@
                 </div>
                 <div class="card">
                     <div class="box">
-                        <h1>2</h1>
+                        <h1><?php echo $data['regins'] ;?></h1>
                         <h3>Instructors</h3>
                     </div>
                     <div class="icon-case">
                         <img src="schools.png" alt="">
                     </div>
                 </div>
-                <div class="card">
+                <!-- <div class="card">
                     <div class="box">
-                        <h1>350000</h1>
+                        <h1>335000</h1>
                         <h3>Income</h3>
                     </div>
                     <div class="icon-case">
                         <img src="income.png" alt="">
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="content-2">
                 <div class="recent-payments">
                     <div class="title">
                         <h2>Recent Payments</h2>
-                        <a href="#" class="btn">View All</a>
+                        <a href="#" class="btn">Member Details</a>
                     </div>
                     <table>
                         <tr>
                             <th>Name</th>
-                            <th>Package</th>
+                            <th>Registered Date</th>
+                            <th>Package Name</th>
+                            <th>Package Group</th>
                             <th>Amount</th>
-                            <th>Option</th>
+                            <!-- <th>Option</th> -->
                         </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>Premium</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>Premium</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>Premium</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>Premium</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>Premium</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
-                        <tr>
-                            <td>John Doe</td>
-                            <td>Premium</td>
-                            <td>$120</td>
-                            <td><a href="#" class="btn">View</a></td>
-                        </tr>
+                       <?php
+                            if(!empty($data['package'])){
+                                foreach($data['package'] as $x){
+                                    echo '
+                                    <tr>
+                                        <td>'.$x['memberemail'].'</td>
+                                        <td>'.$x['registereddate'].'</td>
+                                        <td>'.$x['packagetype'].'</td>
+                                        <td>'.$x['packagegroup'].'</td>
+                                        <td>'.$x['amount'].'</td>
+                                        <!-- <td><a href="#" class="btn">View</a></td> -->
+                                    </tr>
+                                    ';
+                                }
+                            }
+                        ?> 
+                       
+                     
+                      
                     </table>
                 </div>
-                <div class="new-students">
+                <!-- <div class="new-students">
                     <div class="title">
                         <h2>New Members</h2>
                         <a href="#" class="btn">View All</a>
@@ -307,7 +333,7 @@
                             <td><img src="info.png" alt=""></td>
                         </tr>
                     </table>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>

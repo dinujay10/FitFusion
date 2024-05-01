@@ -27,7 +27,7 @@
                     </div>
                 </li> -->
 
-                <a class="side-bar-tile-link" href="managerdash">
+                <a class="side-bar-tile-link" href="instructordash">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -64,7 +64,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="machinefailure">
+                <a class="side-bar-tile-link" href="selectunavailableslot">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -72,7 +72,7 @@
                             </span>
                         </div>
                         <div class="sb-tab-content">
-                            Machine Failure
+                           Select Unavailable Time Slots
                         </div>
                     </li>
                 </a>
@@ -124,7 +124,7 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Instructor
                 </div>
             </div>
     <main class="table" id="customers_table">
@@ -174,10 +174,12 @@
                         <td>';
                         if($x->status=="Pending"){
                             echo '
-                            <form method="post">
-                            <button type="submit" class="confirm" name="submit"><a href="sendmemberemail?email='.$x->memberemail.' & id='.$x->id.' & status=confirm">confirm</a></button>
-                            <button type="button" class="cancel" onclick="deactivateConfirmButton(this)"><a href="sendmemberemail?email='.$x->memberemail.' & id='.$x->id.' & status=cancel">cancel</a></button>
-                        </form>
+                            <form method="POST">
+                            <input type="hidden" name="idd" id="idd" value="'.$x->id.'">
+                            <button type="submit" class="status Replied" name="submit" >Done&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                            <button type="button" class="status Not Replied" onclick="deactivateConfirmButton(this)"><a href="sendmemberemail?email='.$x->memberemail.' & id='.$x->id.' & status=cancel">cancel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></button>
+                            <button type="button" class="status view" ><a href="sendmemberemail?email='.$x->memberemail.' & id='.$x->id.'">Send Email</a></button>
+                            </form>
                             ';
                         }
                         echo'
@@ -188,14 +190,14 @@
                 }
                 ?>
                     
-                    
+                    <!-- <button type="submit" class="confirm" name="submit"><a href="sendmemberemail?email='.$x->memberemail.' & id='.$x->id.' & status=confirm">confirm</a></button> -->
                 </tbody>
             </table>
         </section>
     </main>
     </div>
     <script src="<?=ROOT?>/assets/js/replymembercomplaint.js"></script>
-    <script>
+    <!-- <script>
         function deactivateConfirmButton(button) {
 
             var form = button.parentNode; // Get the parent form element
@@ -208,7 +210,7 @@
             button.disabled = true; // Disable the cancel button
 
         }
-    </script>
+    </script> -->
 </div>
 </body>
 </html>

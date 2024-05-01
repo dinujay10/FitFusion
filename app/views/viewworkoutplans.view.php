@@ -2,10 +2,6 @@
 <html>
 <head>
     <title>Workout Plan</title>
-
-    <link rel="stylesheet" type="" href="<?= ROOT ?>/assets/css/Instructor/instr-main-template.css">
-    <link rel="stylesheet" type="" href="<?= ROOT ?>/assets/css/Instructor/instr-body-template.css">
-
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <style>
@@ -162,7 +158,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="machinefailure">
+                <a class="side-bar-tile-link" href="selectunavailableslot">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -170,7 +166,7 @@
                             </span>
                         </div>
                         <div class="sb-tab-content">
-                            Machine Failure
+                            Select Unavailable Time Slots
                         </div>
                     </li>
                 </a>
@@ -223,13 +219,14 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Instructor
                 </div>
     </div>
 <form action="" method="POST">
     <h2>View Workout Plans</h2>
     <br><br><label for="day">Select Workout Type:</label><br>
     <select id="workouttype" name="workouttype" class="workouttype">
+        <option>Select Workout TYpe</option>
         <?php
         foreach($data['workouttype'] as $x){
             echo'
@@ -296,7 +293,8 @@
     </fieldset>
     
     <br>
-    <a id="link" href="">Assign This Workout To a Member</a>
+    <a id="link" href="#" style="display: inline-block; background-color: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);">Assign This Workout To a Member</a>
+
     
 </form>
 </div>
@@ -324,7 +322,11 @@
             // Clear existing options
             var selectElement = document.getElementById("workoutname");
             selectElement.innerHTML = "";
-            
+
+            var option1 = document.createElement("option");
+            option1.value = "";
+            option1.text = " select Workout Name";
+            selectElement.appendChild(option1);
             // Create new options based on response data
             responseData.forEach(function(optionValue) {
                 var option = document.createElement("option");
@@ -425,6 +427,23 @@ document.getElementById("workoutname").addEventListener("change", function() {
       cell6.innerHTML = exercise['rest'];            
       
     }
+//     document.addEventListener("DOMContentLoaded", function() {
+//     // Select the first option by default when the document is loaded
+//     var selectElement = document.getElementById("workoutname");
+//     var defaultOption = document.createElement("option");
+//     defaultOption.text = "Select Workout Name";
+//     defaultOption.value = ""; // Set the value to an empty string
+//     defaultOption.selected = true; // Mark it as selected by default
+//     selectElement.add(defaultOption, 0); // Add the default option as the first option
+    
+//     // Trigger the change event after adding the default option
+//     selectElement.dispatchEvent(new Event('change'));
+// });
+
+// document.getElementById("workoutname").addEventListener("change", function() {
+//     var selectedValue = this.value;
+//     // Rest of your code...
+// });
 
 </script>
 </div>

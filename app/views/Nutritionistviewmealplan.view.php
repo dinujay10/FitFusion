@@ -47,7 +47,7 @@
         }
         .food{
             display:flex;
-            flex=direction:row;
+            flex-direction:row;
         }
 
         .food-item input[type="text"],
@@ -56,6 +56,7 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            margin:7px;
         }
 
         .food-item input[type="number"] {
@@ -136,7 +137,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="">
+                <a class="side-bar-tile-link" href="nutritionistmeetings">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -145,6 +146,18 @@
                         </div>
                         <div class="sb-tab-content">
                             Meetings
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="nutritionistunavailable">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           Unavailable Times
                         </div>
                     </li>
                 </a>
@@ -196,12 +209,12 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Nutritionist
                 </div>
             </div>
 <h2>View Member Meal Plan</h2>
 <form action="" method="POST">
-    <label for="day">Select Day:</label><br>
+    <!-- <label for="day">Select Day:</label><br>
     <select id="day" name="day" class="day">
         <option value="Sunday">Sunday</option>
         <option value="Monday">Monday</option>
@@ -210,7 +223,7 @@
         <option value="Thursday">Thursday</option>
         <option value="Friday">Friday</option>
         <option value="Saturday">Saturday</option>
-    </select>
+    </select> -->
     <br><br><label for="day">Select Email:</label><br>
     <select id="email" name="email" class="email">
         <?php
@@ -232,13 +245,14 @@ echo '
 <form action="" method="">
    
     <label for="planname">Meal Plan Name:</label><br>
-    <input type="text" name="planname" placeholder="Meal Plan Name" value='.$data['mealplandetails'][0]->mealplanname.'><br><br>
+    <input type="text" name="planname" placeholder="Meal Plan Name" value='.$data['mealplandetails'][0]->mealplanname.' disabled><br><br>
 
     <label for="breakfast">Breakfast:</label><br><br>
     <div id="breakfast-container">
         <!-- Initial input fields for breakfast -->
-        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <label for="Quantity">Quantity:</label>  
+        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <label for="Quantity">Quantity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>  
+        <label for="Calories">Calories:</label>
         <div class="food-item">
           ';
             if(!empty($data['mealplandetails'])){
@@ -246,8 +260,9 @@ echo '
                     if($row->mealtime=="breakfast"){
                         echo '
                         <div class="food">
-                            <input type="text" name="breakfast_name[]" placeholder="Food item" value="' . $row->mealitem . '">
-                            <input type="text" name="breakfast_quantity[]" placeholder="Quantity" value="' . $row->quantity . '">
+                            <input type="text" name="breakfast_name[]" placeholder="Food item" value="' . $row->mealitem . '" disabled>
+                            <input type="text" name="breakfast_quantity[]" placeholder="Quantity" value="' . $row->quantity . '" disabled>
+                            <input type="text" name="breakfast_calories[]" placeholder="Calories" value="' . $row->calories . '" disabled>
                        </div>';
                     }
                 }
@@ -263,8 +278,9 @@ echo '
     <label for="snack1">Snack 1:</label><br><br>
     <div id="snack1-container">
         <!-- Initial input fields for snack1 -->
-        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <label for="Quantity">Quantity:</label>  
+        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <label for="Quantity">Quantity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>  
+        <label for="Calories">Calories:</label>
         <div class="food-item">
         ';
         if(!empty($data['mealplandetails'])){
@@ -272,8 +288,9 @@ echo '
                 if($row->mealtime=="snack1"){
                     echo '
                     <div class="food">
-                        <input type="text" name="snack1_name[]" placeholder="Food item" value="' . $row->mealitem . '">
-                        <input type="text" name="snack1_quantity[]" placeholder="Quantity" value="' . $row->quantity . '">
+                        <input type="text" name="snack1_name[]" placeholder="Food item" value="' . $row->mealitem . '" disabled>
+                        <input type="text" name="snack1_quantity[]" placeholder="Quantity" value="' . $row->quantity . '" disabled>
+                        <input type="text" name="snack1_calories[]" placeholder="Calories" value="' . $row->calories . '" disabled>
                    </div>';
                 }
             }
@@ -287,8 +304,9 @@ echo '
     <label for="lunch">Lunch:</label><br><br>
     <div id="lunch-container">
         <!-- Initial input fields for lunch -->
-        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <label for="Quantity">Quantity:</label>  
+        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <label for="Quantity">Quantity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>  
+        <label for="Calories">Calories:</label>
         <div class="food-item">
         ';
        
@@ -297,8 +315,9 @@ echo '
                 if($row->mealtime=="lunch"){
                     echo '
                     <div class="food">
-                        <input type="text" name="lunch_name[]" placeholder="Food item" value="' . $row->mealitem . '">
-                        <input type="text" name="lunch_quantity[]" placeholder="Quantity" value="' . $row->quantity . '">
+                        <input type="text" name="lunch_name[]" placeholder="Food item" value="' . $row->mealitem . '" disabled>
+                        <input type="text" name="lunch_quantity[]" placeholder="Quantity" value="' . $row->quantity . '" disabled>
+                        <input type="text" name="lunch_calories[]" placeholder="Calories" value="' . $row->calories . '" disabled>
                    </div>';
                 }
             }
@@ -312,8 +331,9 @@ echo '
     <label for="snack2">Snack 2:</label><br><br>
     <div id="snack2-container">
         <!-- Initial input fields for snack2 -->
-        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <label for="Quantity">Quantity:</label>  
+        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <label for="Quantity">Quantity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>  
+        <label for="Calories">Calories:</label>
         <div class="food-item">
         ';
     
@@ -322,8 +342,9 @@ echo '
                 if($row->mealtime=="snack2"){
                     echo '
                     <div class="food">
-                        <input type="text" name="snack2_name[]" placeholder="Food item" value="' . $row->mealitem . '">
-                        <input type="text" name="snack2_quantity[]" placeholder="Quantity" value="' . $row->quantity . '">
+                        <input type="text" name="snack2_name[]" placeholder="Food item" value="' . $row->mealitem . '" disabled>
+                        <input type="text" name="snack2_quantity[]" placeholder="Quantity" value="' . $row->quantity . '" disabled>
+                        <input type="text" name="snack2_calories[]" placeholder="Calories" value="' . $row->calories . '" disabled>
                    </div>';
                 }
             }
@@ -337,8 +358,9 @@ echo '
     <label for="dinner">Dinner:</label><br><br>
     <div id="dinner-container">
         <!-- Initial input fields for dinner -->
-        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-        <label for="Quantity">Quantity:</label>  
+        <label for="Food Item">Food Item:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <label for="Quantity">Quantity:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>  
+        <label for="Calories">Calories:</label>
         <div class="food-item">
         ';
         if(!empty($data['mealplandetails'])){
@@ -346,8 +368,9 @@ echo '
                 if($row->mealtime=="dinner"){
                     echo '
                     <div class="food">
-                        <input type="text" name="dinner_name[]" placeholder="Food item" value="' . $row->mealitem . '">
-                        <input type="text" name="dinner_quantity[]" placeholder="Quantity" value="' . $row->quantity . '">
+                        <input type="text" name="dinner_name[]" placeholder="Food item" value="' . $row->mealitem . '" disabled>
+                        <input type="text" name="dinner_quantity[]" placeholder="Quantity" value="' . $row->quantity . '" disabled>
+                        <input type="text" name="dinner_calories[]" placeholder="Calories" value="' . $row->calories . '" disabled>
                    </div>';
                 }
             }

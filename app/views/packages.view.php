@@ -1,21 +1,44 @@
-<html>
-    <head>
-        <title>FitFusion</title>
-        <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/style.css">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="<?= ROOT ?>/assets/css/packagesStyle.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManageResourcesStyle.css">
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
-</head>
+    <link rel="stylesheet" href="<?=ROOT?>/assets/css/HandleMemberComplaintStyle.css">
+    
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
+    <!-- <link rel="stylesheet" type="" href="<?=ROOT?>/assets/css/Manager/manager-main-template.css">
+    <link rel="stylesheet" type="" href="<?=ROOT?>/assets/css/Manager/manager-body-template.css"> -->
+</head>
 <body>
-<div class="main-container">
-<div class="side-bar-container">
+    <!-- <div class="side-menu">
+        <div class="brand-name">  
+            <h1>FIT FUSION</h1>
+        </div>
+        <ul>
+            <li>&nbsp; <h5>Dashboard</h5> </li>
+            <a href="gymmanagerdash"><li><img src="<?=ROOT?>/assets/images/dashboards/home.jpg" alt="">&nbsp;<h6>Home</h6> </li></a>
+            <a href="packages"><li><img src="<?=ROOT?>/assets/images/dashboards/profile.jpeg" alt="">&nbsp;<h6>Packages</h6> </li></a>
+            <a href="handlemembercomplaint"><li><img src="<?=ROOT?>/assets/images/dashboards/schedule.jpeg" alt="">&nbsp;<h6>Member complaints</h6> </li></a>
+            <a href="addgym"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Add Gym</h6> </li></a>
+
+            <a href="manageresources"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Manage Gym Resources</h6> </li></a>
+            <a href="editgym"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Edit Gym</h6> </li></a>
+            <a href="appliednutritionists"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Approve Nutritionists</h6> </li>
+            <a href="appliedinstructors"><li><img src="<?=ROOT?>/assets/images/dashboards/meeting.jpeg" alt="">&nbsp;<h6>Approve Instructors</h6> </li>
+            <a href="attendancememberlist"><li><img src="<?=ROOT?>/assets/images/dashboards/failure.jpeg" alt="">&nbsp;<h6>Assign QR Code</h6> </li></a>
+            <a href="markattendance"><li><img src="<?=ROOT?>/assets/images/dashboards/workout.jpeg" alt="">&nbsp;<h6>Mark Member Attendence</h6> </li></a>
+            <a href="newmembersreport"><li><img src="<?=ROOT?>/assets/images/dashboards/setting.png" alt="">&nbsp;<h6>Reports</h6> </li></a>
+            <a href="logout"><li><img src="<?=ROOT?>/assets/images/dashboards/help.jpeg" alt="">&nbsp; <h6>Logout</h6></li></a>
+
+        </ul>
+    </div> -->
+    <div class="main-container">
+    
+    <div class="side-bar-container">
             <div class="logo-tab">
                 FITFUSION
             </div>
@@ -162,42 +185,45 @@
             </ul>
         </div>
     <div class="container">
-    <div class="body-header">
+            <div class="body-header">
                 <div class="pfp">
                     <!-- LET THE INSTRUCTOR UPLOAD A PFP, OR KEEP A DEFAULT IMAGE -->
                     <img src="#" alt="">
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Manager
                 </div>
             </div>
-    <div class="maincontainer">
-    <div class="tbl">
-    <table>
-        <?php
-            if(!empty($data)){
-                echo'
+            <div class="maincontainer">
+            <main class="table" id="customers_table">
+            <section class="table__header">
+                <h1>Manage Gym Resources</h1>
+                <div class="input-group">
+                    <input type="search" placeholder="Search Data...">
+                    <img src="<?=ROOT?>/assets/images/search-btn.png" alt="" alt="">
+                </div>
+    
+            </section>
+            <section class="table__body">
+                
+            <table>
                 <thead>
-                <tr>
-                    <td scope=cole></td>
-                  
-                    <td scope=cole>package type</td>
-                    <td scope=cole>description</td>
-                    <td scope=cole>payment period (months)</td>
-                    <td scope=cole>amount</td>
-                    <td scope=cole>package group</td>
-                </tr>
+ 
+                    <tr>
+                        <th> package type <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> description <span class="icon-arrow">&UpArrow;</span></th>
+                        <th> payment period (months)<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> amount<span class="icon-arrow">&UpArrow;</span></th>
+                        <th> package group<span class="icon-arrow">&UpArrow;</span></th>
+                   
+                    </tr>
                 </thead>
-                ';
-            }
-        ?>
-
-        <tbody>
-            <?php
-            if(!empty($data)){
-                for ($x = 0; $x < count($data)-1; $x++) {
-                    $row = $data[$x];
+                <tbody>
+                <?php
+            if(!empty($data['packages'])){
+                foreach ($data['packages'] as $row) {
+                   // $row = $data[$x];
                     $id = $row->id;
                     $packagetype = $row->packagetype;
                     $description = $row->description;
@@ -206,17 +232,14 @@
                     $packagegroup = $row->packagegroup;
     
                     echo ' <tr>
-                            <th scope="row"></th>
+                         
                             <td>' . $packagetype . '</td>
                             <td>' . $description . '</td>
                             <td>' . $paymentperiod . '</td>
                             <td>' . $amount . '</td>
                             <td>' . $packagegroup. '</td>
-                            <td>
-                                <button><a href="">Update</a></button>
-                                
-                            </td>
-                            <br>
+                          
+                            
                         </tr> ';
                 }
             }
@@ -227,29 +250,22 @@
             //var_dump($data[0]);
             
             ?>
-        </tbody>
-    </table>
-    </div>
-
-    <!-- <div class="machine">
-                <div class="c1">
-                    <img src="../CSS/ma1.jpeg" alt=""><br><br>  
+                    
+                    
+                </tbody>
+            </table>
+        </section>
+        </main>
+                <div class="frm">
+                    
+                                <div class="secondcontainer">
+                        <div class="addMachine">
+                        <?php if(!empty($errors)):?>
+                <div class="alert" style="background-color: #ffcccc; color: red; padding: 10px; border-radius: 5px;">
+                    <?= implode("<br>", $errors)?>
                 </div>
-                <div class="c2">
-                    <h4>Machine Id : s100</h4><br>
-                    <h4>Description : Soozier 100 lb stack Multi </h4><br>
-                    <h4>Status : working</h4>
-                    <input type="submit" value="Update">
-                    <input type="submit" value="Remove">
-                </div>   
-            </div> -->
-
-
-
-    <div class="frm">
-    <div class="secondcontainer">
-        <div class="addMachine">
-            <h2>Add Package</h2>
+                <?php endif ;?>
+                <h2>Add Package</h2>
             <form method="post">
 
                 <input type="hidden" name="manageremail" id="manageremail" value="<?= $_SESSION['email']?>">
@@ -273,27 +289,44 @@
                 <div class="inputBx">
                     <span>Package Group</span>
                     <select name="packagegroup" id="packagegroup">
-                        <option value="instr">Instructor only Package</option>
+                        <option value="instructor">Instructor only Package</option>
                         <option value="instrnutri">Instructor and Nutritionists package</option>
                     </select>
                 </div>
-                <?php if(!empty($errors)):?>
-                    <div class="alert">
-                        <?= implode("<br>", $errors)?>
-                    </div>
-                <?php endif ;?>
+      
                 <div class="inputBx">
                     <input type="submit" value="submit">
                 </div>
 
             </form>
-        </div>
 
+                        </div>
+                    </div>
+                </div>
+                        
+                </div>
+                </div>
+            
+       
+            
+           
+            <!-- <div class="machine">
+                <div class="c1">
+                    <img src="../CSS/ma1.jpeg" alt=""><br><br>  
+                </div>
+                <div class="c2">
+                    <h4>Machine Id : s100</h4><br>
+                    <h4>Description : Soozier 100 lb stack Multi </h4><br>
+                    <h4>Status : working</h4>
+                    <input type="submit" value="Update">
+                    <input type="submit" value="Remove">
+                </div>   
+            </div> -->
+
+            
+            <script src="<?=ROOT?>/assets/js/replymembercomplaint.js"></script>
     </div>
-    </div>
-    </div>
-        </div>
-</div>
+         
+
 </body>
-
 </html>

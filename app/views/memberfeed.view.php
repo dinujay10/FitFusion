@@ -67,7 +67,7 @@
                     </div>
                 </li> -->
 
-                <a class="side-bar-tile-link" href="managerdash">
+                <a class="side-bar-tile-link" href="instructordash">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -104,7 +104,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="machinefailure">
+                <a class="side-bar-tile-link" href="selectunavailableslot">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -112,7 +112,7 @@
                             </span>
                         </div>
                         <div class="sb-tab-content">
-                            Machine Failure
+                           Select Unavailable Time Slots
                         </div>
                     </li>
                 </a>
@@ -164,7 +164,7 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Instructor
                 </div>
             </div>
     <main class="table" id="customers_table">
@@ -199,7 +199,7 @@
                         <td> '.$x->name.'  </td>
                         <td>  '.$x->email.' </td>
                         <td>
-                            <button onclick="showFeedbackCard(' . $x->id . ')">View</button>
+                            <button class="status view" onclick="showFeedbackCard(' . $x->id . ')">View&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
                         </td>
                     </tr>
                     ';

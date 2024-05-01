@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/AddGymStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
 </head>
 <body>
@@ -17,17 +18,18 @@
                 FITFUSION
             </div>
             <ul class="side-bar-content">
-                
-                <!-- <li class="current-side-bar-tile">
+                <a href="logout">
+                <li class="current-side-bar-tile">
                     <div class="sb-tab-content">
                         <span class="material-symbols-outlined">
                             dashboard
                         </span>
                     </div>
                     <div class="sb-tab-content">
-                        Dashboard
+                        Logout
                     </div>
-                </li> -->
+                </li>
+                </a>
                 
              
 

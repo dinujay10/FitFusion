@@ -64,7 +64,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="">
+                <a class="side-bar-tile-link" href="nutritionistmeetings">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -136,7 +136,7 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Nutritionist
                 </div>
             </div>
     <main class="table" id="customers_table">
@@ -187,8 +187,10 @@
                         if($x->status=="Pending"){
                             echo'
                             <form method="post">
-                                <button type="submit" class="confirm" name="submit"><a href="nutrisendemail?email='.$x->memberemail.' & id='.$x->id.' & status=confirm">confirm</a></button>
-                                <button type="button" class="cancel" onclick="deactivateConfirmButton(this)"><a href="nutrisendemail?email='.$x->memberemail.' & id='.$x->id.'&status=cancel">cancel</button>
+                                <input type="hidden" name="idd" id="idd" value="'.$x->id.'">
+                                <button type="submit" class="status Replied" name="submit">Done&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</button>
+                                <button type="button" class="status Not Replied" onclick="deactivateConfirmButton(this)"><a href="nutrisendemail?email='.$x->memberemail.' & id='.$x->id.'&status=cancel">cancel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp</button>
+                                <button type="button" class="status view" onclick=""><a href="nutrisendemail?email='.$x->memberemail.' & id='.$x->id.'">Send Email</button>
                             </form>
                             ';
                         }echo '

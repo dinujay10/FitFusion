@@ -27,22 +27,13 @@ class Sendmemberemail{
             
     
             if ($_SERVER['REQUEST_METHOD']=='GET') {
-                if($_GET['status']=="cancel"){
-                    $id = $_GET['id'];
-                    $arr['status'] = 'Cancelled';
+                if(isset($_GET['status'])){
+                    if($_GET['status']=="cancel"){
+                        $id = $_GET['id'];
+                        $arr['status'] = 'Cancelled';
+                        $meetingtable->update($id, $arr);
+                    }
                 }
-                if($_GET['status']=="confirm"){
-                    $id = $_GET['id'];
-                    $arr['status'] = 'Done';
-                }
-                // Get the ID of the row to update
-
-            // Update the status of the row in the database
-            $meetingtable->update($id, $arr);
-            
-            // Redirect or reload the page to reflect the changes
-           // redirect('instructormeetings');
-        
 
              }
             

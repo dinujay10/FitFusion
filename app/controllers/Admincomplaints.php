@@ -14,7 +14,7 @@ class Admincomplaints{
         $complaintsdata=$complaints->findAll();
         $i=0;
         foreach($complaintsdata as $complaint){
-            if($complaint->towhom=="SYSTEM"){
+            if($complaint->type=="SYSTEM"){
                 $data[$i]=$complaint;
                 $i=$i+1;
             }

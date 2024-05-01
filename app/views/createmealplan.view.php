@@ -52,6 +52,7 @@
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
+            margin:7px;
         }
 
         .food-item input[type="number"] {
@@ -71,30 +72,77 @@
         button[type="button"]:hover, input[type="submit"]:hover {
             background-color: #5C8EB4;
         }
+        /* .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+
+        .popup-content {
+            text-align: center;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 20px;
+            color: #555;
+        } */
     </style>
     <script>
-        // JavaScript function to dynamically add input fields for food items and quantities
         function addFoodItem(mealTime) {
-            var container = document.getElementById(mealTime + '-container');
-            var foodItemWrapper = document.createElement('div');
-            foodItemWrapper.classList.add('food-item');
-            
-            var inputName = document.createElement('input');
-            var inputQuantity = document.createElement('input');
-
-            inputName.type = 'text';
-            inputName.name = mealTime + '_name[]';
-            inputName.placeholder = 'Food item';
-
-            inputQuantity.type = 'text';
-            inputQuantity.name = mealTime + '_quantity[]';
-            inputQuantity.placeholder = 'Quantity';
-
-            foodItemWrapper.appendChild(inputName);
-            foodItemWrapper.appendChild(inputQuantity);
-            container.appendChild(foodItemWrapper);
+        var container = document.getElementById(mealTime + '-container');
+        var foodItemWrapper = document.createElement('div');
+        foodItemWrapper.classList.add('food-item');
+        
+        var selectFoodItem = document.createElement('select');
+        selectFoodItem.name = mealTime + '_name[]';
+        var optionPlaceholder = document.createElement('option');
+        optionPlaceholder.value = "";
+        optionPlaceholder.disabled = true;
+        optionPlaceholder.selected = true;
+        optionPlaceholder.hidden = true;
+        optionPlaceholder.textContent = "Select Food Item";
+        selectFoodItem.appendChild(optionPlaceholder);
+        
+        // Append options for food items
+        <?php
+        foreach($data['fooddetails'] as $x){
+            echo "var option = document.createElement('option');";
+            echo "option.value = '$x->fooditem';";
+            echo "option.textContent = '$x->fooditem';";
+            echo "selectFoodItem.appendChild(option);";
         }
+        ?>
+
+        var inputQuantity = document.createElement('input');
+        var inputCalories = document.createElement('input');
+
+        inputQuantity.type = 'text';
+        inputQuantity.name = mealTime + '_quantity[]';
+        inputQuantity.placeholder = 'Quantity';
+
+        inputCalories.type = 'number';
+        inputCalories.name = mealTime + '_calories[]';
+        inputCalories.placeholder = 'Calories';
+
+        foodItemWrapper.appendChild(selectFoodItem);
+        foodItemWrapper.appendChild(inputQuantity);
+        foodItemWrapper.appendChild(inputCalories);
+        container.appendChild(foodItemWrapper);
+    }
+
     </script>
+
        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
      <link rel="stylesheet" href="<?=ROOT?>/assets/css/ManagerDashBoardStyle.css">
 </head>
@@ -154,7 +202,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="">
+                <a class="side-bar-tile-link" href="nutritionistmeetings">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -163,6 +211,18 @@
                         </div>
                         <div class="sb-tab-content">
                             Meetings
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="nutritionistunavailable">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           Unavailable Times
                         </div>
                     </li>
                 </a>
@@ -214,27 +274,39 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Nutritionist
                 </div>
             </div>
 
 <h2>Create Meal Plan</h2>
 
-<form action="" method="post">
+<form action="" method="post" onsubmit="showSuccessMessage()">
+    <!-- <div class="popup" id="success-popup">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <div class="popup-content">
+            <h3>Success!</h3>
+            <p>Meal plan created successfully!</p>
+        </div>
+    </div> -->
+    <?php if(!empty($errors)):?>
+        <div class="alert" style="background-color: #ffcccc; color: red; padding: 10px; border-radius: 5px;">
+            <?= implode("<br>", $errors)?>
+        </div>
+    <?php endif ;?>
     <label for="mememail">Select Member:</label><br>
-    <select id="mememail" name="mememail" class="mememail">
+    <select id="mememail" name="mememail" class="mememail" required>
         <?php
         foreach ($data['mememail'] as $mememail) {
-            echo "<option value=\"$mememail\">$mememail</option>";
+            echo "<option value=\"$mememail\" >$mememail</option>";
         }
         ?>
     </select>
     <br><br>
 
     <label for="planname">Meal Plan Name:</label><br>
-    <input type="text" name="planname" placeholder="Meal Plan Name"><br><br>
+    <input type="text" name="planname" placeholder="Meal Plan Name" required><br><br>
 
-    <label for="day">Select Day:</label><br>
+    <!-- <label for="day">Select Day:</label><br>
     <select id="day" name="day" class="day">
         <option value="Sunday">Sunday</option>
         <option value="Monday">Monday</option>
@@ -244,14 +316,23 @@
         <option value="Friday">Friday</option>
         <option value="Saturday">Saturday</option>
     </select>
-    <br><br>
+    <br><br> -->
 
     <label for="breakfast">Breakfast:</label><br>
     <div id="breakfast-container">
         <!-- Initial input fields for breakfast -->
         <div class="food-item">
-            <input type="text" name="breakfast_name[]" placeholder="Food item">
-            <input type="text" name="breakfast_quantity[]" placeholder="Quantity">
+            <select name="breakfast_name[]" id="" required>
+                <option value="" disabled selected hidden>Select Food Item</option>
+                <?php
+                foreach($data['fooddetails'] as $x){
+                    echo "<option value='$x->fooditem' >$x->fooditem</option>";
+                }
+                ?>
+            </select>
+            <!-- <input type="text" name="breakfast_name[]" placeholder="Food item"> -->
+            <input type="text" name="breakfast_quantity[]" placeholder="Quantity" min=0 required>
+            <input type="number" name="breakfast_calories[]" placeholder="calories" min=0 required>
         </div>
     </div>
     <button type="button" onclick="addFoodItem('breakfast')">Add Food Item</button><br><br>
@@ -260,8 +341,17 @@
     <div id="snack1-container">
         <!-- Initial input fields for snack1 -->
         <div class="food-item">
-            <input type="text" name="snack1_name[]" placeholder="Food item">
-            <input type="text" name="snack1_quantity[]" placeholder="Quantity">
+            <select name="snack1_name[]" id="" required>
+                <option value="" disabled selected hidden>Select Food Item</option>
+                <?php
+                foreach($data['fooddetails'] as $x){
+                    echo "<option value='$x->fooditem'>$x->fooditem</option>";
+                }
+                ?>
+            </select>
+            <!-- <input type="text" name="snack1_name[]" placeholder="Food item"> -->
+            <input type="text" name="snack1_quantity[]" placeholder="Quantity" min=0 required>
+            <input type="number" name="snack1_calories[]" placeholder="calories" min=0 required>
         </div>
     </div>
     <button type="button" onclick="addFoodItem('snack1')">Add Food Item</button><br><br>
@@ -270,8 +360,17 @@
     <div id="lunch-container">
         <!-- Initial input fields for lunch -->
         <div class="food-item">
-            <input type="text" name="lunch_name[]" placeholder="Food item">
-            <input type="text" name="lunch_quantity[]" placeholder="Quantity">
+            <select name="lunch_name[]" id="" required>
+                <option value="" disabled selected hidden>Select Food Item</option>
+                <?php
+                foreach($data['fooddetails'] as $x){
+                    echo "<option value='$x->fooditem'>$x->fooditem</option>";
+                }
+                ?>
+            </select>
+            <!-- <input type="text" name="lunch_name[]" placeholder="Food item"> -->
+            <input type="text" name="lunch_quantity[]" placeholder="Quantity" min=0 required>
+            <input type="number" name="lunch_calories[]" placeholder="calories" min=0 required>
         </div>
     </div>
     <button type="button" onclick="addFoodItem('lunch')">Add Food Item</button><br><br>
@@ -280,8 +379,17 @@
     <div id="snack2-container">
         <!-- Initial input fields for snack2 -->
         <div class="food-item">
-            <input type="text" name="snack2_name[]" placeholder="Food item">
-            <input type="text" name="snack2_quantity[]" placeholder="Quantity">
+            <select name="snack2_name[]" id="" required>
+                <option value="" disabled selected hidden>Select Food Item</option>
+                <?php
+                foreach($data['fooddetails'] as $x){
+                    echo "<option value='$x->fooditem'>$x->fooditem</option>";
+                }
+                ?>
+            </select>
+            <!-- <input type="text" name="snack2_name[]" placeholder="Food item"> -->
+            <input type="text" name="snack2_quantity[]" placeholder="Quantity" min=0 required>
+            <input type="number" name="snack2_calories[]" placeholder="calories" min=0 required>
         </div>
     </div>
     <button type="button" onclick="addFoodItem('snack2')">Add Food Item</button><br><br>
@@ -290,8 +398,17 @@
     <div id="dinner-container">
         <!-- Initial input fields for dinner -->
         <div class="food-item">
-            <input type="text" name="dinner_name[]" placeholder="Food item">
-            <input type="text" name="dinner_quantity[]" placeholder="Quantity">
+            <select name="dinner_name[]" id="" required>
+                <option value="" disabled selected hidden>Select Food Item</option>
+                <?php
+                foreach($data['fooddetails'] as $x){
+                    echo "<option value='$x->fooditem'>$x->fooditem</option>";
+                }
+                ?>
+            </select>
+            <!-- <input type="text" name="dinner_name[]" placeholder="Food item"> -->
+            <input type="text" name="dinner_quantity[]" placeholder="Quantity"  min=0 required>
+            <input type="number" name="dinner_calories[]" placeholder="calories" min=0 required>
         </div>
     </div>
     <button type="button" onclick="addFoodItem('dinner')">Add Food Item</button><br><br>
@@ -301,5 +418,10 @@
 </form>
 </div>
 </div>
+    <script>
+        function showSuccessMessage() {
+            alert("Meal plan created successfully!"); // You can replace this with a custom modal dialog if you prefer
+        }
+    </script>
 </body>
 </html>

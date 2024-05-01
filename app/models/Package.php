@@ -10,7 +10,6 @@ class Package
     protected $allowedColumns = [
         'manageremail',
         'packagetype',
-        'packagegroup',
         'description',
         'paymentperiod',
         'amount',

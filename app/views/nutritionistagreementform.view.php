@@ -165,10 +165,15 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Manager
                 </div>
             </div>
     <div class="containera">
+    <script>
+        <?php if ($_SERVER["REQUEST_METHOD"] == "POST"): ?>
+    alert("Nutritionist approved successfully");
+<?php endif; ?>
+</script>
       <h1 class="form-title">Nutritionist Agreement</h1>
       <form action="#" method="POST" enctype="multipart/form-data">
         <div class="main-user-info">
@@ -190,6 +195,15 @@
                     id="agreementduration"
                     name="agreementduration"
                     min="<?php echo date('Y-m-d'); ?>"
+                    required
+            />
+          </div>
+          <div class="user-input-box">
+            <label for="pwd">Tempory Password</label>
+            <input type="password"
+                    id="pwd"
+                    name="pwd"
+                    placeholder="Password"
                     required
             />
           </div>

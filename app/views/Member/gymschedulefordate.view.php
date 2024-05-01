@@ -89,6 +89,9 @@
         }
 
         .schedule-submit-button-1 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
             background-color: #27374D;
             color: white;
             padding: 10px 20px;
@@ -98,6 +101,14 @@
             transition: background-color 0.3s;
             height: 25%;
             font-size: 105%;
+            text-decoration: none;
+        }
+
+        .schedule-submit-button-1:disabled {
+            background-color: #A9A9A9; /* Grayed out */
+            color: #777; /* Dark gray text */
+            cursor: not-allowed; /* Cursor to indicate not allowed action */
+            opacity: 0.6; /* Slightly transparent */
         }
 
         .schedule-form {
@@ -118,16 +129,15 @@
             border: 1px solid #27374D;
             border-radius: 20px;
         }
-
     </style>
 
 </head>
 
 <body>
     <?php
-    // echo '<pre>';
-    // var_dump($_SESSION);
-    // echo '</pre>';
+    echo '<pre>';
+    var_dump($data);
+    echo '</pre>';
     ?>
     <div class="main-container">
         <div class="side-bar-container" style="position: relative;">
@@ -149,7 +159,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="scheduleinterface">
+                <a class="side-bar-tile-link" href="gymschedule">
                     <li class="current-side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -230,8 +240,13 @@
         </div>
         <div class="body-container" style="overflow-y:auto">
             <div class="body-header">
-
+            <a href="viewqrcode">
+                    <div class="qr-scan"><span class="material-symbols-outlined">
+                            qr_code_scanner
+                        </span></div>
+                </a>
                 <div class="welcome-user">
+                    <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
                     Welcome,
                     <?php
                     echo $data['firstname'] . " " . $data['lastname'];
@@ -250,18 +265,18 @@
                     <div class="content-tile-column" style="height: 60%; width: 40%; flex-direction: column; margin:10px">
                         <div class="content-tile-1" style="height: 20%; width: 50%; flex-direction: column; gap: 1rem">
                             <div class="schedule-form" style="height: 40%; gap: 1rem">
-                                
+
                                 <button class="schedule-submit-button" style="background-color: #27374D">Available</button>
                                 <button class="schedule-submit-button" style="background-color: red;">Scheduled</button>
                             </div>
                         </div>
                         <!-- <div class="content-tile-1" style="height: 50%; width: 50%; flex-direction: row; margin:10px; gap: 1rem"> -->
-                            <form class="schedule-form" method="POST" style="height: 50%; width: 80%; gap: 1rem;">
-                                <label for="timePicker">Choose a time:</label>
-                                <input class="time" type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300">
-                                <input type="submit" class="schedule-submit-button-1">
-                                <a href="getschedule" class="schedule-submit-button-1">Change Date</a>
-                            </form>
+                        <form class="schedule-form" method="POST" style="height: 50%; width: 80%; gap: 1rem;">
+                            <label for="timePicker">Choose a time:</label>
+                            <input class="time" type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300" onchange="validateTime()">
+                            <input type="submit" class="schedule-submit-button-1" value="Get Schedule">
+                            <a href="gymschedule" class="schedule-submit-button-1">Change Date</a>
+                        </form>
                         <!-- </div> -->
                     </div>
                     <div class="reply-tile" style="display:flex; flex-direction:column; overflow:hidden; height:100%; overflow-y:auto; overflow-x:auto; width:100%;">
@@ -279,24 +294,32 @@
                             </tr>
 
                             <?php
-                            for ($time = 6; $time < 20; $time++) {
+                            for ($time = $data['opentime']; $time < $data['closetime']; $time++) {
                             ?>
                                 <tr>
-                                    <td><?= $time ?></td>
+                                    <td>
+                                        <?php
+                                        if ($time < 12) {
+                                            echo $time . ':00 AM';
+                                        } elseif ($time == 12) {
+                                            echo $time . ':00 PM';
+                                        } else {
+                                            echo ($time - 12) . ':00 PM';
+                                        } ?></td>
                                     <?php
                                     // if ($data['scheduledeets']) {
-                                        foreach ($data['allmachines'] as $machine) {
-                                            $check = [$machine, $time];
-                                            if (in_array($check, $data['scheduledeets'])) {
-                                                echo '<td><button class="scheduled-slot-button">
+                                    foreach ($data['allmachines'] as $machine) {
+                                        $check = [$machine, $time];
+                                        if (in_array($check, $data['scheduledeets'])) {
+                                            echo '<td><button class="scheduled-slot-button">
                                                         
                                                     </button></td>';
-                                            } else {
-                                                echo '<td><button class="normal-slot-button">
+                                        } else {
+                                            echo '<td><button class="normal-slot-button">
                                                         
                                                     </button></td>';
-                                            }
                                         }
+                                    }
                                     // }
                                     ?>
                                 </tr>
@@ -329,6 +352,36 @@
             }
             return true;
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var timeInput = document.getElementById('timePicker');
+            var submitBtn = document.getElementById('submitBtn');
+
+            // Function to check if the selected time is valid and enable/disable the submit button
+            function updateTimeStatus() {
+                var timeValue = timeInput.value;
+                if (timeValue) { // Checks if any time is entered
+                    // check if the time is in between 6AM and 7PM
+                    var openTime = $data['opentime'];
+                    var closeTime = $data['closetime'];
+                    if (hours >= openTime && hours <= closeTime) {
+                        submitBtn.disabled = false; // Enable the submit button
+                    } else {
+                        //show a window alert
+                    }
+                    submitBtn.disabled = false; // Enable the submit button
+                } else {
+                    submitBtn.disabled = true; // Keep the submit button disabled
+                    //show a window alert
+                }
+            }
+
+            // Event listener for time input changes
+            timeInput.addEventListener('change', updateTimeStatus);
+
+            // Initially check
+            updateTimeStatus();
+        });
 
         // function sendDateToServer() {
         //     console.log('Sending date to server');

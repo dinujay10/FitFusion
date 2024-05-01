@@ -10,7 +10,6 @@ class Mealplans
     protected $allowedColumns = [
         'id',
         'mealplanname',
-        'day',
         'mealtime',
         'mealitem',
         'calories',
@@ -32,12 +31,28 @@ class Mealplans
     {
 
         $this->errors = [];
-        $arr['id'] = $data['id'];
-        //check unique email
-        $unique = $this->first($arr);
-        if (!empty($unique)) {
-            $this->errors['id'] = "ID is already in use";
+        $arr['mealplanname'] = $data['mealplanname'];
+        $arr['mealtime'] = $data['mealtime'];
+        $arr['mealitem'] = $data['mealitem'];
+       
+        $unique=$this->where($arr);
+        if (!empty($unique)){
+            $this->errors['id'] = "Same food item in a mealtime";
         }
+        //check unique email
+        //$unique1 = $this->first($arr1);
+        // if (!empty($unique1)) {
+        //     $arr2['mealtime'] = $data['mealtime'];
+        //     $unique2 = $this->first($arr2);
+        //     if(!empty($unique2)){
+        //         $arr['mealitem'] = $data['mealitem'];
+        //         $unique3 = $this->first($arr3);
+        //         if(!empty($unique3)){
+        //             $this->errors['id'] = "ID is already in use";
+        //         }
+        //     }
+           
+        // }
 
 
 

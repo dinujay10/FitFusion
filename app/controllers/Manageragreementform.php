@@ -15,6 +15,7 @@ class Manageragreementform{
             $data = [];
             $managerdetails = new Registeredmanager;
             $mngagr=new Manageragreement;
+            $user=new User;
             
 
             
@@ -30,6 +31,28 @@ class Manageragreementform{
                 // $managerdata=$managerdetails->first($arr);
                 // $email=$managerdata->iemail;
                 // $_POST['iemail']=$email;
+                $arr['manageremail']=$_POST['manageremail'];
+                $managerdata=$managerdetails->first($arr);
+                //print_r($instructordata);
+                $email=$managerdata->manageremail;
+
+                //add new user
+                $arr3['name']=$managerdata->managername;
+                $arr3['lastname']="kaml";
+                $arr3['email']=$email;
+                $arr3['password']= password_hash($_POST['pwd'], PASSWORD_DEFAULT);
+                $arr3['usertype']="gymmanager";
+                if($user->unique($arr3)){
+                    $user->insert($arr3);
+                }
+                else{
+                    $data['errors']="Email already exist";
+                }
+                
+
+                
+
+                $_POST['iemail']=$email;
                 
 
                 //upload agreement pdf 

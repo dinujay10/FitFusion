@@ -193,7 +193,8 @@
                 </thead>
                 <tbody>
                 <?php
-                foreach($data['attendance'] as $x){
+                if(!empty($data['attendance'])){
+                    foreach($data['attendance'] as $x){
                     
                         echo '
                         <tr>
@@ -210,6 +211,11 @@
                    
                     
                 }
+                }
+                else{
+                    echo '<tr><td>Currentyl no record available</td></tr>';
+                }
+
                 ?>
                     
                     

@@ -22,12 +22,14 @@ class Instructordash
         // $arr['status'] = 'confirmed';                                             //getting member details
 
         $insmembers= [];
-
-        foreach($members as $member){
+        if(!empty($members)){
+            foreach($members as $member){
                 if($member->status =='Done'){
                     $insmembers[] = $member;
                 }
         }
+        }
+      
 
        $myins = $allinstrs->where(['iemail' => $_SESSION['email']]);
 

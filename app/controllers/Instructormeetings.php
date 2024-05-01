@@ -32,19 +32,13 @@ class Instructormeetings{
             }
             
              
-        //     if ($_SERVER['REQUEST_METHOD']=='GET') {
-        //         // Get the ID of the row to update
-        //     $id = $_GET['id'];
-            
-        //     $arr['status'] = 'confirmed';
-        //     // Update the status of the row in the database
-        //     $meetingtable->update($id, $arr);
-            
-        //     // Redirect or reload the page to reflect the changes
-        //    // redirect('instructormeetings');
+            if ($_SERVER['REQUEST_METHOD']=='POST') {
+                // Get the ID of the row to update
+                $id = $_POST['idd'];
+                $arr['status'] = 'Done';
+                $meetingtable->update($id, $arr);
         
-
-        //      }
+             }
 
 
 

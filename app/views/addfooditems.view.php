@@ -66,10 +66,7 @@
         button[type="button"]:hover, input[type="submit"]:hover {
             background-color: #5C8EB4
         }
-        .food{
-            /* padding-left:300px; */
-            /* padding-top:50px; */
-        }
+        
     </style>
     <script>
         // JavaScript function to dynamically add input fields for food items and quantities
@@ -87,7 +84,7 @@
 
             inputQuantity.type = 'number';
             inputQuantity.name = "calories[]";
-            inputQuantity.placeholder = 'Quantity';
+            inputQuantity.placeholder = 'Calories';
 
             foodItemWrapper.appendChild(inputName);
             foodItemWrapper.appendChild(inputQuantity);
@@ -153,7 +150,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="">
+                <a class="side-bar-tile-link" href="nutritionistmeetings">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -162,6 +159,18 @@
                         </div>
                         <div class="sb-tab-content">
                             Meetings
+                        </div>
+                    </li>
+                </a>
+                <a class="side-bar-tile-link" href="nutritionistunavailable">
+                    <li class="side-bar-tile">
+                        <div class="sb-tab-content">
+                            <span class="material-symbols-outlined">
+                                home
+                            </span>
+                        </div>
+                        <div class="sb-tab-content">
+                           Unavailable Times
                         </div>
                     </li>
                 </a>
@@ -213,17 +222,28 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Nutritionist
                 </div>
             </div>
             <h2>Add Food Items</h2>
-
+           
             <form action="" method="post">
+            <script>
+                <?php if ($_SERVER["REQUEST_METHOD"] == "POST" && empty($errors)): ?>
+                alert("Food items added successfully");
+                <?php endif; ?>
+            </script>
+                
+               <?php if(!empty($errors)):?>
+                <div class="alert" style="background-color: #ffcccc; color: red; padding: 10px; border-radius: 5px;">
+                    <?= implode("<br>", $errors)?>
+                </div>
+                <?php endif ;?>
 
                 <div id="breakfast-container">
                     <div class="food-item">
-                        <input type="text" name="item_name[]" placeholder="Food item">
-                        <input type="number" name="calories[]" placeholder="Calories">
+                        <input type="text" name="item_name[]" placeholder="Food item" required>
+                        <input type="number" name="calories[]" placeholder="Calories" required>
                     </div>
                 </div>
                 <button type="button" onclick="addFoodItem('breakfast')">Add Food Item</button><br><br>

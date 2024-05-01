@@ -10,7 +10,11 @@ class Membernutrifeedback {
         'id',
         'name',
         'email',
+        'nutritionistemail',
         'feedback',
+        
+        
+       
     ];
 
     public function validate($data) {
@@ -69,5 +73,3 @@ class Membernutrifeedback {
         return false;
     }
 }
-
-// make models for each table in DB, and add the editable columns of each

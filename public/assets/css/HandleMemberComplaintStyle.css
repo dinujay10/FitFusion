@@ -266,20 +266,22 @@ tbody tr.hide td img {
 
 .status {
     padding: .4rem 0;
-    border-radius: 1rem;
+    border-radius: 5px;
     text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;;
     
 }
 
 .status.Replied {
-    background-color: #86e49d;
-    color: #006b21;
+    background-color: #4CAF50;
+    color: white;
     margin-bottom: 5px;
 }
 
 .status.Not.Replied {
-    background-color: #d893a3;
-    color: #b30021;
+    background-color: red;
+    color: white;
 }
 
 .status.pending {
@@ -288,8 +290,9 @@ tbody tr.hide td img {
 }
 
 .status.view {
-    background-color: #6fcaea;
+    background-color: #5C8EB4;
     margin-bottom: 2px;
+    color:white;
 }
 .addbutton{
     width: 90px;

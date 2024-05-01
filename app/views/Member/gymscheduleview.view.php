@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/main-template.css">
-    <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/css/Member/body-template.css">
+    <link rel="stylesheet" type="text/css" href="<?= ROOT ?>/assets/css/Member/main-template.css">
+    <link rel="stylesheet" type="text/css" href="<?= ROOT ?>/assets/css/Member/body-template.css">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
     <style>
-
         .schedule-tile {
             display: flex;
             flex-direction: column;
@@ -24,6 +24,7 @@
             border-radius: 20px;
             box-shadow: 5px 5px 5px 0 rgba(0, 0, 0, 0.3);
         }
+
         .schedule-topic-bar {
             display: flex;
             flex-direction: row;
@@ -118,21 +119,19 @@
             width: 95%;
             height: 100%;
         }
-
-        
-
     </style>
-    
+
 </head>
+
 <body>
-    
+
     <div class="main-container">
         <div class="side-bar-container" style="position: relative;">
             <div class="logo-tab">
                 FITFUSION
             </div>
             <ul class="side-bar-content">
-                
+
                 <a class="side-bar-tile-link" href="memberdash">
                     <li class="side-bar-tile">
                         <div class="sb-tab-content">
@@ -184,7 +183,7 @@
                         </div>
                     </li>
                 </a>
-                
+
 
                 <a class="side-bar-tile-link" href="makeComplaint">
                     <li class="side-bar-tile">
@@ -227,17 +226,22 @@
         </div>
         <div class="body-container">
             <div class="body-header">
-                
+                <a href="viewqrcode">
+                    <div class="qr-scan"><span class="material-symbols-outlined">
+                            qr_code_scanner
+                        </span></div>
+                </a>
                 <div class="welcome-user">
-                    Welcome, 
-                    <!-- <?php
+                    <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
+                    Welcome,
+                    <?php
                     echo $data['firstname'] . " " . $data['lastname'];
-                    ?> -->
+                    ?>
                 </div>
             </div>
-            <div class="body-content" style="flex-direction: column;">  
-            
-                <?php 
+            <div class="body-content" style="flex-direction: column;">
+
+                <?php
                 // echo '<pre>';
                 // var_dump($data);
                 // echo '</pre>';
@@ -245,53 +249,54 @@
 
                 <div class="schedule-tile">
                     <div class="schedule-topic-bar">
-                        MY SCHEDULE - 
+                        MY SCHEDULE -
                         <?php
-                            echo $data['date'];
+                        echo $data['date'];
                         ?>
                     </div>
                     <div class="schedule-headings-bar">
                         <div class="schedule-heading">Machine</div>
                         <div class="schedule-heading">Starting Time</div>
-                        
+
                     </div>
                     <div class="schedule-content-tile">
 
-                    <?php
-                    
-                        for($x=count($data['allmachines'])-1;$x>=0;$x--){
+                        <?php
+
+                        for ($x = count($data['allmachines']) - 1; $x >= 0; $x--) {
                             echo '<div class="schedule-content-bar">
                                 <div class="schedule-content">
-                                    '.$data['allmachines'][$x].'
+                                    ' . $data['allmachines'][$x] . '
                                 </div>
                                 <div class="schedule-content">
-                                    '.$data['alltimes'][$x].'
+                                    ' . $data['alltimes'][$x] . '
                                 </div>
                                 </div>
-                                '  ;
+                                ';
                         }
-                        
-                    ?>
-                        
+
+                        ?>
+
                     </div>
                     <form class="schedule-buttons-bar" method="POST" action="Gymscheduleview/redirectToSchedule">
                         <input type="submit" value="Make New Schedule" class="schedule-button">
                     </form>
 
                     <?php
-                        // if ($data['errors'] == 1) {
-                        //     echo "<script>alert('The time entered by the user is wrong.');</script>";
-                        // }
-                        // else {
+                    // if ($data['errors'] == 1) {
+                    //     echo "<script>alert('The time entered by the user is wrong.');</script>";
+                    // }
+                    // else {
 
-                        // }
+                    // }
                     ?>
                 </div>
-                
+
             </div>
         </div>
     </div>
 
 
 </body>
+
 </html>

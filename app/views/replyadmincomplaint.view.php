@@ -115,10 +115,10 @@
                             
                             <input type="hidden" id="id" name="id" value="'.$data[0]->id.'">
                             <input type="hidden" id="description" name="description" value="'.$data[0]->description.'">
-                            <input type="hidden" id="towhom" name="towhom" value="'.$data[0]->towhom.'">
+                            <input type="hidden" id="towhom" name="towhom" value="'.$data[0]->type.'">
                             <input type="hidden" id="memberemail" name="memberemail" value="'.$data[0]->memberemail.'">
-
-                            <input type="submit" value="Edit">
+<br>
+                            <input type="submit" value="Edit"><br>
                         </form>
                     
                         
@@ -165,9 +165,9 @@
                                 
                                 <input type="hidden" id="id" name="id" value="'.$data[0]->id.'">
                                 <input type="hidden" id="description" name="description" value="'.$data[0]->description.'">
-                                <input type="hidden" id="towhom" name="towhom" value="'.$data[0]->towhom.'">
+                                <input type="hidden" id="towhom" name="towhom" value="'.$data[0]->type.'">
                                 <input type="hidden" id="memberemail" name="memberemail" value="'.$data[0]->memberemail.'">
-    
+    <br>
                                 <input type="submit" value="Reply">
                             </form>
                         

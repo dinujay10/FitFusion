@@ -10,8 +10,10 @@ class Memberfeedback {
         'id',
         'name',
         'email',
+        'instructoremail',
         'feedback',
-
+        
+        
        
     ];
 
@@ -71,5 +73,3 @@ class Memberfeedback {
         return false;
     }
 }
-
-// make models for each table in DB, and add the editable columns of each

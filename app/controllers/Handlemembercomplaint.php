@@ -19,23 +19,26 @@ class Handlemembercomplaint{
             $complaintsdata=$complaints->findAll();
             //print_r($complaints);
             $i=0;
-            foreach($complaintsdata as $complaint){
-                $arr1['memberemail'] =$complaint->memberemail;
-                $reg_mem=$reg_members->where($arr1);
-                $gymname=$reg_mem[0]->gymname;
-                $arr2['gymName']=$gymname;
-               // print_r($arr2);
-                $gymdata=$gym->first($arr2);
-                //print_r($gymdata);
-                $mngemail=$gymdata->manageremail;
-                //print_r($mngemail);
-                if($_SESSION['email']==$mngemail){
-                    //print_r($complaint);
-                    $data[$i]=$complaint;
+            if(!empty($complaintsdata) ){
+                foreach($complaintsdata as $complaint){
+                    $arr1['memberemail'] =$complaint->memberemail;
+                    $reg_mem=$reg_members->where($arr1);
+                    $gymname=$reg_mem[0]->gymname;
+                    $arr2['gymName']=$gymname;
+                   // print_r($arr2);
+                    $gymdata=$gym->first($arr2);
+                    //print_r($gymdata);
+                    $mngemail=$gymdata->manageremail;
+                    //print_r($mngemail);
+                    if($_SESSION['email']==$mngemail){
+                        //print_r($complaint);
+                        $data[$i]=$complaint;
+                    }
+                    $i=$i+1;
+                    $gymdata="aa";
                 }
-                $i=$i+1;
-                $gymdata="aa";
             }
+
            // print_r($data);
            
             /////////////////////////////////////

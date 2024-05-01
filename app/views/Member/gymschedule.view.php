@@ -35,6 +35,17 @@
             border: 1px solid #27374D;
         }
 
+        .schedule-submit-button:disabled {
+            background-color: #A9A9A9;
+            /* Grayed out */
+            color: #777;
+            /* Dark gray text */
+            cursor: not-allowed;
+            /* Cursor to indicate not allowed action */
+            opacity: 0.6;
+            /* Slightly transparent */
+        }
+
         .schedule-form {
             display: flex;
             flex-direction: row;
@@ -60,7 +71,6 @@
             font-size: 1rem;
             border: 1px solid #27374D;
         }
-
     </style>
 
 </head>
@@ -91,7 +101,7 @@
                     </li>
                 </a>
 
-                <a class="side-bar-tile-link" href="scheduleinterface">
+                <a class="side-bar-tile-link" href="gymschedule">
                     <li class="current-side-bar-tile">
                         <div class="sb-tab-content">
                             <span class="material-symbols-outlined">
@@ -172,8 +182,13 @@
         </div>
         <div class="body-container">
             <div class="body-header">
-
+                <a href="viewqrcode">
+                    <div class="qr-scan"><span class="material-symbols-outlined">
+                            qr_code_scanner
+                        </span></div>
+                </a>
                 <div class="welcome-user">
+                    <!-- TODO - SHOW LOGGED IN MEMBER'S NAME -->
                     Welcome,
                     <?php
                     echo $data['firstname'] . " " . $data['lastname'];
@@ -191,10 +206,10 @@
                     </div> -->
                     <div class="content-tile" style="height: 30%; flex-direction: row; width: 40%">
                         <form class="schedule-form" method="POST" style="height: 40%;">
-                            <input class="date-box" type="date" id="datePicker" name="date" min="<?= date('Y-m-d', strtotime('+1 day')) ?>" max="<?= date('Y-m-d', strtotime('+1 month')) ?>" onchange="sendDateToServer()">
+                            <input class="date-box" type="date" id="datePicker" name="date" min="<?= date('Y-m-d', strtotime('+1 day')) ?>" max="<?= date('Y-m-d', strtotime('+1 month')) ?>" onchange="validateDate()">
                             <!-- <label for="timePicker">Choose a time:</label>
                             <input type="time" id="timePicker" name="time" min="00:00" max="23:55" step="300"> -->
-                            <button type="submit" class="schedule-submit-button">See Available Slots</button>
+                            <button type="submit" class="schedule-submit-button" disabled id="submitBtn">See Available Slots</button>
                         </form>
                     </div>
                 <?php else : ?>
@@ -220,6 +235,28 @@
             }
             return true;
         }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            var dateInput = document.getElementById('datePicker');
+            var submitBtn = document.getElementById('submitBtn');
+
+            // Function to check if the selected date is valid and enable/disable the submit button
+            function updateDateStatus() {
+                var dateValue = dateInput.value;
+                if (dateValue) { // Checks if any time is entered
+                    submitBtn.disabled = false; // Enable the submit button
+                } else {
+                    submitBtn.disabled = true; // Keep the submit button disabled
+                    //show a window alert
+                }
+            }
+
+            // Event listener for time input changes
+            dateInput.addEventListener('change', updateDateStatus);
+
+            // Initially check
+            updateDateStatus();
+        });
 
         // function sendDateToServer() {
         //     console.log('Sending date to server');

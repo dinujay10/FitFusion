@@ -10,7 +10,8 @@ class Registerednutritionist
     protected $allowedColumns = [
         'id',
         'nutritionistemail',
-        'manageremail'
+        'manageremail',
+        'gymemail'
     ];
 
     public function validate($data)

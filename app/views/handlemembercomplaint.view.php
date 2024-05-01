@@ -164,7 +164,7 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Manager
                 </div>
             </div>
     <main class="table" id="customers_table">
@@ -183,7 +183,7 @@
                         <th> Id <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Member Email <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Complaint<span class="icon-arrow">&UpArrow;</span></th>
-                        <th> About Whom <span class="icon-arrow">&UpArrow;</span></th>
+                        <!-- <th> About Whom <span class="icon-arrow">&UpArrow;</span></th> -->
                         <th>Reply Status <span class="icon-arrow">&UpArrow;</span></th>
                         <th>View <span class="icon-arrow"></span></th>
                         
@@ -204,9 +204,8 @@
                     
                         <td> '.$x->memberemail.'  </td>
                         <td>  '.$x->description.' </td>
-                        <td>'.$x->towhom.'</td>
                         <td>
-                        <p class="status '.$x->reply.'"> '.$x->reply.' </p>
+                        <p > '.$x->reply.' </p>
                         </td>
                         <td>';
                         

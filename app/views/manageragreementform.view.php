@@ -130,6 +130,15 @@
             />
           </div>
           <div class="user-input-box">
+            <label for="pwd">Tempory Password</label>
+            <input type="password"
+                    id="pwd"
+                    name="pwd"
+                    placeholder="Password"
+                    required
+            />
+          </div>
+          <div class="user-input-box">
             <label for="pdfFile">Select Agreement PDF File</label>
                         <input type="file" name="pdfFile"  id="pdfFile" required>
           </div>

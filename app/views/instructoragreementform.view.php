@@ -165,10 +165,15 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Manager
                 </div>
             </div>
     <div class="containera">
+    <script>
+        <?php if ($_SERVER["REQUEST_METHOD"] == "POST"): ?>
+    alert("Instructor approved successfully");
+<?php endif; ?>
+        </script>
       <h1 class="form-title">Instructor Agreement</h1>
       <form action="#" method="POST" enctype="multipart/form-data">
         <div class="main-user-info">
@@ -194,6 +199,15 @@
             />
           </div>
           <div class="user-input-box">
+            <label for="pwd">Tempory Password</label>
+            <input type="password"
+                    id="pwd"
+                    name="pwd"
+                    placeholder="Password"
+                    required
+            />
+          </div>
+          <div class="user-input-box">
             <label for="pdfFile">Select Agreement PDF File</label>
                         <input type="file" name="pdfFile"  id="pdfFile" required>
           </div>
@@ -206,7 +220,7 @@
         </div>
         
         <div class="form-submit-btn">
-          <input type="submit" value="Add Instructor">
+          <a href="instructorpassword?id='.$data['instructorid'].'"><input type="submit" value="Add Instructor"></a>
         </div>
       </form>
     </div>

@@ -164,7 +164,7 @@
                 </div>
                 <div class="welcome-user">
                     <!-- TODO - SHOW LOGGED IN INSTRUCTOR'S NAME -->
-                    Welcome, InstructorName
+                    Welcome, Manager
                 </div>
             </div>
     <main class="table" id="customers_table">
@@ -196,13 +196,17 @@
                         <th> Member Email <span class="icon-arrow">&UpArrow;</span></th>
                         <th> Package Id<span class="icon-arrow">&UpArrow;</span></th>
                         <th> Registered Date<span class="icon-arrow">&UpArrow;</span></th>
-                        <th>View <span class="icon-arrow"></span></th>
+                        <!-- <th>View <span class="icon-arrow"></span></th> -->
                         
                     </tr>
                 </thead>
                 <tbody>
+                    <!-- add these  importnts links -->
+                <!-- <a href="sendinstructoremail?'.$x->id.'"><p class="status  pending"> Send QR Code </p></a>
+                            <a href=""><p class="status  view"> Remove </p></a> -->
                 <?php
-                foreach($data['qrmembers'] as $x){
+                if(!empty($data['qrmembers'])){
+                    foreach($data['qrmembers'] as $x){
                     
                         echo '
                         <tr>
@@ -212,8 +216,7 @@
                             <td>  '.$x->packageid.' </td>
                             <td>'.$x->registereddate.'</td>
                             <td>
-                            <a href="sendinstructoremail?'.$x->id.'"><p class="status  pending"> Send QR Code </p></a>
-                            <a href=""><p class="status  view"> Remove </p></a>
+                           
                             </td>
                        
                         </tr>
@@ -222,6 +225,11 @@
                    
                     
                 }
+                }
+                else{
+                    echo '<tr><td>Currently no members in qr system</td></tr>';
+                }
+
                 ?>
                     
                     

@@ -17,7 +17,7 @@ class Manageresources{
 
 
             $arr1['manageremail'] = $_SESSION['email'];
-            $data=$usertable->where($arr1);
+            $data['machines']=$usertable->where($arr1);
 
             /////////////////////////////////////
             // if(isset($_GET['deleteid'])){
@@ -46,7 +46,7 @@ class Manageresources{
                     // print_r($_POST);
                    
                     $usertable->insert($_POST);
-                    redirect('manageresources');
+                   redirect('manageresources');
                 }
                 else{
                     $data['errors'] = $usertable->errors;

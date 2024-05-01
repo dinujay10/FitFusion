@@ -2,7 +2,7 @@
 
 if ($_SERVER['SERVER_NAME'] == 'localhost') {
     // DB config
-    define('DBNAME', 'fitfusionfinal');
+    define('DBNAME', 'fitfusionjagath');
     define('DBHOST', 'localhost');
     define('DBUSER', 'root');
     define('DBPASS', '');
@@ -26,4 +26,4 @@ define('APP_NAME', "FitFusion");
 define('APP_DESC', "Fitness and Nutrition Application");
 
 // truw means show errors
-define('DEBUG', true);
+define('DEBUG', false);

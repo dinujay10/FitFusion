@@ -31,6 +31,66 @@ class Managerdash {
         }
 
         $data=[];
+        $gym=new Gym;
+        $regmems=new Registeredmembers;
+        $regnutri=new Registerednutritionist;
+        $regins=new Registeredinstructor;
+        $package=new Package;
+
+        $arr1['manageremail']=$_SESSION['email'];
+        $gymdata=$gym->where($arr1);
+        $gymname=$gymdata[0]->gymName;
+        $arr2['gymname']=$gymname;
+        $regmemsdata=$regmems->where($arr2);
+        if(!empty($regmemsdata)){
+            $membercount=count($regmemsdata);
+            $data['regmems']=$membercount;
+
+        //find package details
+        $pckarr=[];
+        $count=0;
+        foreach($regmemsdata as $x){
+            $arr4['id']=$x->packageid;
+            $packagedata=$package->where($arr4);
+            
+            $pckarr[$count]['memberemail']=$x->memberemail;
+            $pckarr[$count]['registereddate']=$x->registereddate;
+            $pckarr[$count]['packagetype']=$packagedata[0]->packagetype;
+            $pckarr[$count]['packagegroup']=$packagedata[0]->packagegroup;
+            $pckarr[$count]['amount']=$packagedata[0]->amount;
+
+            $count++;
+
+        }
+
+        }
+        else{
+            $data['regmems']="No members yet";
+        }
+      
+        $arr3['manageremail']=$_SESSION['email'];
+        $reginsdata=$regins->where($arr3);
+        if(!empty($reginsdata)){
+            $inscount=count($reginsdata);
+            $data['regins']=$inscount;
+        }
+        else{
+            $data['regins']="No Instructors yet";
+        }
+
+        $regnutridata=$regnutri->where($arr3);
+        if(!empty($regnutridata)){
+            $nutricount=count($regnutridata);
+            $data['regnutri']=$nutricount;
+        }
+        else{
+            $data['regnutri']="No Nutritionist yet";
+        }
+
+        
+       // $regnutricount=count($regnutri->where($arr3));
+
+
 
          
         // $arr['age'] = 30;
@@ -39,7 +99,9 @@ class Managerdash {
 
         // show($result);
         // show("from the index function");
-        $this->view('Manager/managerdash');
+        $data['package']=$pckarr;
+        //print_r($pckarr);
+        $this->view('Manager/managerdash',$data);
     }
 
     public function notification(){
